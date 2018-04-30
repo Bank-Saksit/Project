@@ -19,12 +19,28 @@
                 margin:0px auto;
                 background: #eeeeee;
             }
+            #container {
+                clear:both;
+                margin: auto;
+                width: 900px;
+            }
+            #block {
+                float: left;
+                border: solid 1px;
+                width: 250px;
+                height: 300px;
+                margin: 10px;
+                
+            }
             #left {
                 float: left;
                 width: 400px;
-                background: orange;
+                background: rgba(236, 163, 6, 0.3);
                 margin-left: 10px;
                 height: 160px;
+            }
+            #left > div > h3 {
+                opacity: 100;
             }
             #right {
                 background: orange;
@@ -65,7 +81,7 @@
             button {
                 border-radius: 3px;
             }
-            div#left > button {
+            div#left > div > button {
                 padding: 20px;
                 width: 100px;
                 margin:auto; 
@@ -79,8 +95,10 @@
     <body>
         <h1>ยินดีต้อนรับนักเรียนที่ต้องการเข้าศึกษาต่อ</h1>
         <div id="left">
-            <h3>สมัครเข้าศึกษาตามโครงการต่างๆ</h3>
-            <button>สมัครเข้าโครงการ</button>
+            <div>
+                <h3>สมัครเข้าศึกษาตามโครงการต่างๆ</h3>
+                <button>สมัครเข้าโครงการ</button>
+            </div>
         </div>
         <fieldset id="right">
             <h3>ตรวจสอบสถานะ</h3>
@@ -88,12 +106,22 @@
             <input type="password" name="IDCardNumber" placeholder="รหัสบัตรประชาชน"><br>
             <button id="login">เข้าสู่ระบบ</button>
         </fieldset>
-        <div id="footer">
-            <table>
-                <colgroup><col id="t1"><col id="t2"><col id="t3"></colgroup>
-                <tr><th>โครงการรับสมัคร</th><th>รายละเอียดโครงการ</th><th>จำนวนที่รับ</th></tr>
-            </table>
-            
+        <div id="container">
+            <fieldset id="block">
+                ชื่อโครงการ : <br>
+                จำนวนที่รับ : <br>
+                รายละเอียด : <br>
+            </fieldset>
+            <fieldset id="block">
+                ชื่อโครงการ : <br>
+                จำนวนที่รับ : <br>
+                รายละเอียด : <br>
+            </fieldset>
+            <fieldset id="block">
+                ชื่อโครงการ : <br>
+                จำนวนที่รับ : <br>
+                รายละเอียด : <br>
+            </fieldset>
         </div>
         <br>
         <button onclick="parent.location.href='intro.html'">กลับหน้าหลัก</button>
