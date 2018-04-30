@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<link rel="stylesheet" type="text/css" href="layout - form.css" >
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Recruit Form</title>
+</head>
+<body>
+		<div id="mySidenav" class="sidenav">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<a href="#">Home</a>
+				<a href="#">Register</a>
+				<a href="#">Profile</a>
+				<a href="#">Status</a>
+		</div>
+			  
+		<!-- Use any element to open the sidenav -->
+		
+		<div id="main">
+			<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+			
+			<form action="insert.php" method="post">
+					<h2>Recruitment From</h2>
+		
+					Recruit Plan:<br>
+					<select name="RecruitPlanName">
+						<option value="Null">None</option>
+						<option value="2B">2B - KMUTT</option>
+						<option value="Ad">Admission</option>
+						<option value="Ar">Active Recruitment</option>
+						<option value="CH">Clearing House</option>
+						<option value="GG">Good Grade</option>
+						<option value="Qu">Quota</option>
+					</select>
+					<br>
+					Factuly:<br>
+					<select name="Factuly">
+						<option value="Null">None</option>
+						<option value="EN">Engineering</option>
+						<option value="SC">Science</option>
+						<option value="AR">Architecture</option>
+						<option value="IT">Information Technology</option>
+						<option value="ED">Education</option>
+					</select>
+					<br>
+					<br>
+					Bio
+					<br>
+					Title:<br>
+					<select name="Prefix">
+						<option value="Mister">Mister</option>
+						<option value="Miss">Miss</option>
+					</select>
+					<br>
+					First Name:<br>
+					<input type="text" name="Fname">
+					<br>
+					Last Name:<br>
+					<input type="text" name="Lname">
+					<br>
+					Date of Birth:<br>
+					<input type="date" name="DOB">
+					<br>
+					Blood Group:<br>
+					<select name="BloodGroup">
+						<option value="Null">None</option>
+						<option value="A">A</option>
+						<option value="AB">AB</option>
+						<option value="B">B</option>
+						<option value="O">O</option>
+					</select>
+					<select name="Bloodtype">
+						<option value="Null">None</option>
+						<option value="Pos">Positive</option>
+						<option value="Neg">Negative</option>
+					</select>
+					<br>
+					<br>
+					Mobile Number:<br>
+					<input type="text" name="MobileNo">
+					<br>
+					Telephone Number:<br>
+					<input type="text" name="TelNo">
+					<br>
+					E-mail:<br>
+					<input type="text" name="Email">
+					<br>
+					<br>
+					Education Profile
+					<br>
+					GPAX:<br>
+					<input type="Number" step="any" name="SchoolGPAX">
+					<br><br>
+					<input type="submit" value="Submit">
+				</form>
+			
+				<p>
+					if you click the "Submit" button, the form-data will be sent to a page called "action_page.php".
+				</p>
+
+		</div>	 
+		<script>
+				function openNav() {
+					document.getElementById("mySidenav").style.width = "250px";
+					document.getElementById("main").style.marginLeft = "250px";
+				}
+				
+				function closeNav() {
+					document.getElementById("mySidenav").style.width = "0";
+					document.getElementById("main").style.marginLeft= "0";
+				}
+		</script>
+</body>
+</html>

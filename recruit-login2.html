@@ -1,0 +1,129 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>สำหรับนักเรียนที่ต้องการเข้าศึกษา</title>
+        <style>
+            @import "global.css";
+            h1,h3 {
+                text-align: center;
+            }
+            * :not(h1):not(h3) {
+                font:14px tahoma;
+            }
+            body {
+                width:900px; 
+                height:100%; 
+                margin:0px auto;
+                background: #eeeeee;
+            }
+            #container {
+                clear:both;
+                margin: auto;
+                width: 900px;
+            }
+            #block {
+                float: left;
+                border: solid 1px;
+                width: 250px;
+                height: 300px;
+                margin: 10px;
+                
+            }
+            #left {
+                float: left;
+                width: 400px;
+                background: rgba(236, 163, 6, 0.3);
+                margin-left: 10px;
+                height: 160px;
+            }
+            #left > div > h3 {
+                opacity: 100;
+            }
+            #right {
+                background: orange;
+                float: right;
+                width: 400px;
+                border-radius: 3px;
+                margin-bottom: 10px;
+            }
+            #footer {
+                clear:both;
+                background-color:rgb(127, 127, 127); 
+                text-align:center; 
+                width:850px;
+                margin: auto;
+            }
+            #footer table {
+                margin: auto;
+            }
+            #footer table #t1{
+                width: 200px;
+            }
+            #footer table #t2{
+                width: 500px;
+            }
+            #footer table #t3{
+                width: 100px;
+            }
+            #footer table th{
+                color: red;
+                background:paleturquoise;
+                padding: 5px;
+                border-right: solid 1px white;
+            }
+            input {
+                width: 90%;
+                margin: 5px;
+            }
+            button {
+                border-radius: 3px;
+            }
+            div#left > div > button {
+                padding: 20px;
+                width: 100px;
+                margin:auto; 
+                display:block;
+            }
+            #login{
+                float: right;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>ยินดีต้อนรับนักเรียนที่ต้องการเข้าศึกษาต่อ</h1>
+        <div id="left">
+            <div>
+                <h3>สมัครเข้าศึกษาตามโครงการต่างๆ</h3>
+                <button>สมัครเข้าโครงการ</button>
+            </div>
+        </div>
+        <fieldset id="right">
+            <h3>ตรวจสอบสถานะ</h3>
+            <input type="text" name="RecruitID" placeholder="รหัสประจำตัวผู้สมัคร"><br>
+            <input type="password" name="IDCardNumber" placeholder="รหัสบัตรประชาชน"><br>
+            <button id="login">เข้าสู่ระบบ</button>
+        </fieldset>
+        <div id="container">
+            <fieldset id="block">
+                ชื่อโครงการ : <br>
+                จำนวนที่รับ : <br>
+                รายละเอียด : <br>
+            </fieldset>
+            <fieldset id="block">
+                ชื่อโครงการ : <br>
+                จำนวนที่รับ : <br>
+                รายละเอียด : <br>
+            </fieldset>
+            <fieldset id="block">
+                ชื่อโครงการ : <br>
+                จำนวนที่รับ : <br>
+                รายละเอียด : <br>
+            </fieldset>
+        </div>
+        <br>
+        <button onclick="parent.location.href='intro.html'">กลับหน้าหลัก</button>
+    </body>
+    </html>
