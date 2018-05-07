@@ -9,9 +9,9 @@
 </head>
 <body>
 		<div id="mySidenav" class="sidenav">
-				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
 				<a href="#">Home</a>
-				<a href="#">Register</a>
+				<a href="recruit - form001.html">Register</a>
 				<a href="#">Profile</a>
 				<a href="#">Status</a>
 		</div>
@@ -21,32 +21,8 @@
 		<div id="main">
 			<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
 			
-			<form action="insert.php" method="post">
-					<h2>Recruitment From</h2>
-		
-					Recruit Plan:<br>
-					<select name="RecruitPlanName">
-						<option value="Null">None</option>
-						<option value="2B">2B - KMUTT</option>
-						<option value="Ad">Admission</option>
-						<option value="Ar">Active Recruitment</option>
-						<option value="CH">Clearing House</option>
-						<option value="GG">Good Grade</option>
-						<option value="Qu">Quota</option>
-					</select>
-					<br>
-					Factuly:<br>
-					<select name="Factuly">
-						<option value="Null">None</option>
-						<option value="EN">Engineering</option>
-						<option value="SC">Science</option>
-						<option value="AR">Architecture</option>
-						<option value="IT">Information Technology</option>
-						<option value="ED">Education</option>
-					</select>
-					<br>
-					<br>
-					Bio
+					<h1>Recruitment From</h1>
+					Profile
 					<br>
 					Title:<br>
 					<select name="Prefix">
@@ -93,7 +69,29 @@
 					GPAX:<br>
 					<input type="Number" step="any" name="SchoolGPAX">
 					<br><br>
+					Recruit Plan:<br>
+					<select name="RecruitPlanName">
+						<option value="Null">None</option>
+						<option value="2B">2B - KMUTT</option>
+						<option value="Ar">Active Recruitment</option>
+						<option value="CH">Clearing House</option>
+						<option value="GG">Good Grade</option>
+						<option value="Qu">Quota</option>
+					</select>
+					<br>
+					Factuly:<br>
+					<select name="Factuly">
+						<option value="Null">None</option>
+						<option value="EN">Engineering</option>
+						<option value="SC">Science</option>
+						<option value="AR">Architecture</option>
+						<option value="IT">Information Technology</option>
+						<option value="ED">Education</option>
+					</select>
+					<br>
+					<br><br>
 					<input type="submit" value="Submit">
+					<br>
 				</form>
 			
 				<p>
