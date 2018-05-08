@@ -7,9 +7,7 @@
     <title>สำหรับนักเรียนที่ต้องการเข้าศึกษา</title>
     <style>
         @import "global.css";
-
         html, body { 
-            height: 100%;
             margin: 0;
             padding: 0;
             background: #dfdfdf;
@@ -52,22 +50,61 @@
         }
         div#content {
             clear: both;
-            width: 100%;
-            height: 400px;
+            width: 1100px;
             position: relative;
-            top: 110px
+            height: 550px;
+            top: 110px;
         }
-        #c-right,#c-r-top,#c-left{
-            background: black;
+        #c-right,#c-left{
+            height: 380px;   
         }
         #c-left {
-            clear: left;
-            height: 400px;
+            width: 650px;
+            float: left;
+            background: gray;
+        }
+        #c-right {
+            width: 420px;
+            float: right;
+            position: relative;
+        }
+        #c-r-top {
+            width: 100%;
+            height: 200px;
+            top: 0;
+            text-align: center;
+            position: absolute;
+            background: gray;
+            color: white;
+        }
+        #c-r-bottom {
+            width: 100%;
+            height: 170px;
+            position: absolute;
+            bottom: 0;
+            background: gray;
+        }
+        #c-r-bottom > h1 {
+            margin-top: 0;
+            font-size: 70px;
+        }
+        input {
+            background: #444444;
+            padding: 3px;
+            width: 300px;
+            margin: 5px;
+            text-align: center;
+        }
+        button {
+            padding: 10px;
             width: 100px;
+            margin-top: 5px;
+            border-radius: 5px;
+            background: white;
         }
         
     </style>    
-    
+
 </head>
 <body>  
     <div id="left">
@@ -83,14 +120,20 @@
             </div>
             <div id="c-right">
                 <div id="c-r-top">
-
+                    <form action="#" method="get">
+                        <h2>ตรวจสอบสถานะ</h2>
+                        <input type="text" id="id" placeholder="รหัสประจำตัวผู้สมัคร"><br>
+                        <input type="password" id="pswd" placeholder="รหัสประจำตัวประชาชน"><br>
+                        <button>เข้าสู่ระบบ</button>
+                    </form>
                 </div>
                 <div id="c-r-bottom">
-                    
+                    <h1 id="h11">สมัคร</h1>
                 </div>
             </div>
         </div>
         <?php include "recruit-footer.php"; ?>
     </div>
+    
 </body>
 </html>
