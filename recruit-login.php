@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>สำหรับนักเรียนที่ต้องการเข้าศึกษา</title>3
+    <title>สำหรับนักเรียนที่ต้องการเข้าศึกษา</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"   
         integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
         crossorigin="anonymous">
@@ -149,8 +149,8 @@
                     </form>
                 </div>
                 <div id="c-r-bottom">
-                    <h1 id="h11">&nbsp; สมัคร</h1>
-                    <div><h3 if="h13">&nbsp; เข้าร่วมโครงการ</h3></div>
+                    <h1>&nbsp; สมัคร</h1>
+                    <div><h3>&nbsp; เข้าร่วมโครงการ</h3></div>
                     <a href="#" id="next"> >> </a>
                 </div>
             </div>
