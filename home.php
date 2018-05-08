@@ -39,6 +39,41 @@
                 width: 100%;
                 border-bottom: 5px solid;
             }
+            #content {
+                position: relative;
+                top:110px;
+                width: 1100px;
+                height: 350px;
+            }
+            #left,#right,#center {
+                width: 340px;
+                height: 300px;
+                
+                position: relative;
+                
+            }
+            #left > div,#right > div ,#center > div {
+                position: absolute;
+                text-align: center;
+                bottom: 0px;
+                width: 100%;
+                background: white;
+                cursor: pointer;
+            }
+            #left {
+                float: left;
+            }
+            #center {
+                float: left;
+                margin-left: 40px;
+            }
+            #right {
+                float: right;
+            }
+            img {
+                width: 340px;
+                height: 215px;
+            }
         </style>
     </head>
     <body>
@@ -46,7 +81,26 @@
             <div id="header">
                 <h1>ระบบลงทะเบียน</h1>
             </div>
-
+            <div id="content">
+                <div id="left" onclick="window.location.href='recruit-login.php'">
+                    <div>
+                        <img data-u="image" src="img/gallery/980x380/002.jpg" />
+                        <h1>นักเรียน</h1>
+                    </div>
+                </div>
+                <div id="center" onclick="window.location.href='#'">
+                    <div>
+                        <img data-u="image" src="img/gallery/980x380/003.jpg" />
+                        <h1>นักศึกษา</h1>
+                    </div>
+                </div>
+                <div id="right" onclick="window.location.href='#'">
+                    <div>
+                        <img data-u="image" src="img/gallery/980x380/004.jpg" />
+                        <h1>บุคลากร</h1>
+                    </div>
+                </div>
+            </div>
             <?php include "recruit-footer.php"; ?>
         </div>
     </body>
