@@ -64,7 +64,8 @@
             text-align: center;
         }
         button {
-            padding: 10px;
+            font-family: "supermarket";
+            padding: 8px;
             width: 100px;
             margin-top: 5px;
             border-radius: 5px;
@@ -77,6 +78,7 @@
             font-size:40px;
             color: white;
         }
+            
     </style>    
 
 </head>
@@ -103,9 +105,9 @@
                     </form>
                 </div>
                 <div id="c-r-bottom" onclick="window.location.href='recruit-register.php'">
-                    <h1>&nbsp; สมัคร</h1>
+                    <h1>&nbsp;&nbsp;สมัคร</h1>
                     <div>
-                        <h3>&nbsp; เข้าร่วมโครงการ</h3><br>
+                        <h3>&nbsp;เข้าร่วมโครงการ</h3><br>
                     </div>
                     <h3 id="next"> >> </h3>
                 </div>

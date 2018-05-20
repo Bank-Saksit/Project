@@ -77,12 +77,12 @@
                 color: black;
             }
             form{
-                padding-top : 5px;
+                
                 padding-left : 30px;
             }
             input[type=text] {
                 background: #444444;
-                margin-top: 8px;
+                margin-top: 0px;
                 padding-left: 30px;
                 width: 310px;
                 height:30px;

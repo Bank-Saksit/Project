@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>แก้ไขรหัสผ่าน</title>
+    <style>
+        h1 {
+            font-size: 40px;
+            margin-left: 10%;
+            margin-right: 10%;
+            border-bottom: 5px solid rgb(77, 77, 77);
+        }
+        #content {
+            background: aquamarine;
+            width: 80%;
+            margin-left: 10%;
+        }
+    </style>
+</head>
+<body>
+        
+    <div id="header">
+        <caption><h1>แก้ไขรหัสผ่าน</h1></caption>
+    </div>
+    <div id="content"></div>
+
+    <script>
+        load();
+        
+        function load(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+"/Project/student-changepw-link.php?inID=59070501066";
+            
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    displayResponse(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        
+        function displayResponse(response) {
+            var arr = JSON.parse(response);
+            var i;
+            var age;
+            // age+=((arr[0].DOB)[3])*1000;
+            // age+=((arr[0].DOB)[2])*100;
+            // age+=((arr[0].DOB)[1])*10;
+            // age+=(arr[0].DOB)[0];
+            // age=2018-age;
+            age = 18;
+
+            var out = "ชื่อ "+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"<br>"+
+                    "รหัสนักศึกษา "+ arr[0].StudentID +"<br>"+
+                    "วันเกิด "+ arr[0].DOB +
+                    " อายุ "+ age +" ปี"+
+                    " กลุ่มเลือด "+ arr[0].BloodGroup +"<br>"+
+                    "รหัสประจำตัวประชาชน "+ arr[0].IDCardNumber +"<br>"+
+                    "ที่อยู่ "+ arr[0].Address +"<br>"+
+                    "คณะ "+ arr[0].Faculty +"<br>"+
+                    "ภาควิชา "+ arr[0].Department;
+
+            document.getElementById("content").innerHTML = out;
+        }
+    </script>
+</body>
+</html>
