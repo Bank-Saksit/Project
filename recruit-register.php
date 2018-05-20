@@ -6,25 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        @import "global.css";
-        html, body { 
-            margin: 0;
-            padding: 0;
-            background: #dfdfdf;
-            color: #444444;
-        }
-        #header {
-                width: 100%;
-                top: 100px;
-                position: relative;
-        }
-        #header > h1 {
-            font-size: 50px;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            border-bottom: 5px solid;
-        }
+        @import "global1.css";
         #left {
             float: left;
             width: 250px;

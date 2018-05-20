@@ -12,7 +12,7 @@
 
 
     <style>
-        @import "global.css";
+        @import "global1.css";
         #c-right,#c-left{
             height: 380px;   
         }
