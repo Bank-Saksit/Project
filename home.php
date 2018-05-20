@@ -9,7 +9,7 @@
             @import "global.css";
             html, body { 
                 font-family: "supermarket";
-                src: url("font/supermarket.woff");
+                src: url(font/supermarket.woff);
                 margin: 0;
                 padding: 0;
                 background: #dfdfdf;
@@ -30,7 +30,7 @@
             }
             #header > h1 {
                 font-family: "supermarket";
-                src: url("font/supermarket.woff");
+                src: url(font/supermarket.woff);
                 font-size: 50px;
                 position: absolute;
                 bottom: 0;
