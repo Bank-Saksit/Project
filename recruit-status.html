@@ -4,41 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>ตรวจสอบสถานะ</title>
     <style>
         h1 {
-            text-align: center;
+            font-size: 40px;
+            margin-left: 10%;
+            margin-right: 10%;
+            border-bottom: 5px solid rgb(77, 77, 77);
         }
         table {
             background: aquamarine;
-            width: 900px;
-            margin: auto;
+            width: 80%;
+            margin-left: 10%;
+            margin-right: 10%;
+            padding-left: 5%;
+            padding-right: 5%;
         }
         th {
             width: 150px;
-            text-align: right
+            text-align: right;
+        }
+        status {
+            text-align: center;
+            font-style: bold;
+            font-size: 300px;
         }
     </style>
 </head>
 <body>
         
     <div id="header">
-        <caption><h1>ข้อมูลผู้สมัคร</h1></caption>
-        <table>
-            <tr>
-                <th>รหัสประจำตัวผู้สมัคร</th><td>: 524828875</td>
-                <th>ชื่อ</th><td>: นายบลาๆๆ นามสกุล</td>
-                <th>ชื่อโครงการ</th><td>: เรียนดี 59</td>
-            </tr>
-            <tr>
-                <th>โรงเรียน</th><td>: วัดบลาฟฟ</td>
-                <th>GPAX</th><td>: 2.95</td>  
-                <th>เบอร์ติดต่อ</th><td>: 05488484</td>
-            </tr>
-        </table>
+        <caption><h1>ตรวจสอบสถานะ</h1></caption>
     </div>
-    <div id="content">
+    <div id="content"></div>
+    <div id="status"></div>
 
-    </div>
+    <script>
+        loadRecruit();
+        
+        function loadRecruit(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+"/Project/recruit-status.php?inID=1";
+            
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    displayResponse(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        
+        function displayResponse(response) {
+            var arr = JSON.parse(response);
+            var i;
+            var out = "<table>";
+            var stat;
+
+            for(i = 0; i < arr.length; i++) {
+                out += "<tr>"+
+                            "<th>รหัสประจำตัวผู้สมัคร</th><td>:"+ arr[i].RecruitID +"</td>"+
+                            "<th>ชื่อ</th><td>:"+ arr[i].Prefix + arr[i].FirstName +" "+ arr[i].LastName +"</td>"+
+                            "<th>ชื่อโครงการ</th><td>:"+ arr[i].RecruitPlanName +"</td>"+
+                        "</tr>"+
+                        "<tr>"+
+                            "<th>โรงเรียนของฉัน</th><td>:"+ arr[i].SchoolName +"</td>"+
+                            "<th>GPAX</th><td>:"+ arr[i].SchoolGPAX +"</td>"+
+                            "<th>เบอร์ติดต่อ</th><td>:"+ arr[i].MobileNumber +"</td>"+
+                        "</tr>";
+            }
+            out += "</table>";
+            stat = "<status>"+arr[0].Status+"</status>";
+            document.getElementById("content").innerHTML = out;
+            document.getElementById("status").innerHTML = stat;
+        }
+    </script>
 </body>
 </html>
