@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>สำหรับนักศึกษา</title>
+        <title>สำหรับนักศึกษาใหม่</title>
         <style>
             @import "global1.css";
             html, body { 
@@ -60,56 +60,42 @@
             }
             #c-top {
                 width: 100%;
-                height: 300px;
+                height: 360px;
                 top: 0;
                 text-align: left;
                 position: relative;
                 background: gray;
                 color: white;
             }
-            #c-bot {
-                width: 100%;
-                height: 60px;
-                top: 0;
-                text-align: left;
-                position: relative;
-                background: white;
-                color: black;
-            }
             form{
-                
+                padding-top : 5px;
                 padding-left : 30px;
             }
             input[type=text] {
                 background: #444444;
-                margin-top: 0px;
+                margin-top: 10px;
                 padding-left: 30px;
                 width: 310px;
                 height:30px;
                 text-align: left;
-                
-            }
-            ::placeholder {
-                color: white;
             }
             input[type=password] {
                 background: #444444;
-                margin-top: 15px;
+                margin-top: 20px;
                 padding-left: 30px;
                 width: 310px;
                 height: 30px;
                 text-align: left;
             }
+            ::placeholder {
+                color: white;
+            }
             input[type=submit] {
                 padding: 5px;
                 width: 80px;
+                margin-top: 25px;
+                margin-left: 10px;
                 background: white;
-            }
-            #sub{
-                width: 310px;
-                padding-left: 25px;
-                margin-top:20px;
-                text-align: center;
             }
             div#text >a {
                 text-decoration: underline;
@@ -126,25 +112,16 @@
         </div>
         <div id="main">
             <div id="header">
-                <h1>ยินดีต้อนรับ</h1>
+                <h1>ลงทะเบียนสำหรับนักศึกษาใหม่</h1>
             </div>
             <div id="content">
                 <div id="c-top">
                     <form method="post">
                         <h1>ระบบสารสนเทศ<br>เพื่อการบริหารการศึกษา</h1>
                         <input type="text" id="id" placeholder="รหัสนักศึกษา"><br>
-                        <input type="password" id="pswd" placeholder="รหัสผ่าน"><br>
-                        <div id = "sub">
-                            <input type="submit" value="เข้าสู่ระบบ">
-                            <a href = "www.google.com">ลืมรหัสผ่าน?</a>
-                        </div>
+                        <input type="password" id="pswd" placeholder="รหัสบัตรประจำตัวประชาชน"><br>
+                        <input type="submit" value="เข้าสู่ระบบ">
                     </form>
-                </div>
-                    
-                <div id= "c-bot">
-                    <div id = "text">
-                        <br>สำหรับนักศึกษาใหม่ <a href= "student-new-login.php">ลงทะเบียนนักศึกษาใหม่</a>
-                    </div>
                 </div>
             </div>
             <?php include "recruit-footer.php"; ?>
