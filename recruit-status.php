@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +7,18 @@
     <title>ตรวจสอบสถานะ</title>
     <style>
          @import "global1.css";
-        table {
+        table#tb1{
             background: aquamarine;
             position: absolute;
             width: 100%;
             top:0;
             left:0;
+        }
+        table#list{
+            background: aquamarine;
+            position: absolute;
+            width: 100%;
+            margin-top: 10%;
         }
         td {
             width:16.67%;
@@ -49,27 +54,17 @@
         </div>
         <div id="content">
             <div id="infoRecruit"></div>
-            <div id="detail-rc"> 
-                <table>
-
-                </table>
-                <div id="status"></div>
-            </div>
+            <div id="detail-rc"></div>
         </div>
         <?php include "recruit-footer.php"; ?>
     </div>
-=======
-<?php
-include "dblink.php";
-$result = $conn->query("SELECT r.RecruitID, r.Prefix, r.FirstName, r.LastName, r.RecruitPlanName, r.SchoolID, r.SchoolGPAX, r.MobileNumber, r.Status, s.SchoolName FROM recruitinfo r, schoolinfo s WHERE r.SchoolID=s.SchoolID AND RecruitID = '".$_GET['inID']."';");
->>>>>>> 15f07275e33c2cfeb4838112890d26f123132bb0
 
     <script>
         loadRecruit();
         
         function loadRecruit(){
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID=1";
+            var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID=2";
             
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -83,9 +78,9 @@ $result = $conn->query("SELECT r.RecruitID, r.Prefix, r.FirstName, r.LastName, r
         function displayResponse(response) {
             var arr = JSON.parse(response);
             var i;
-            var out = "<table>";
+            var out = "<table id='tb1'>";
             var stat;
-
+            
             out += "<tr>"+
                         "<td id='t1'>รหัสประจำตัวผู้สมัคร : </td><td id='t2'>"+ arr[0].RecruitID +"</td>"+
                         "<td id='t1'>ชื่อ : </td><td id='t2'>"+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"</td>"+
@@ -97,8 +92,20 @@ $result = $conn->query("SELECT r.RecruitID, r.Prefix, r.FirstName, r.LastName, r
                         "<td id='t1'>เบอร์ติดต่อ : </td><td id='t2'>"+ arr[0].MobileNumber +"</td>"+
                     "</tr>";
             out += "</table>";
-            stat = "<status>"+arr[0].Status+"</status>";
             document.getElementById("infoRecruit").innerHTML = out;
+
+            var list = "<table id='list'>";
+            for( i=0 ; i<arr.length ; i++ ){
+                list += "<tr>"+
+                        "<td>"+ arr[i].No +"</td>"+
+                        "<td>"+ arr[i].Faculty +"</td>"+
+                        "<td>"+ arr[i].Department +"</td>"+
+                    "</tr>";
+            }
+            list += "</table>";
+            document.getElementById("detail-rc").innerHTML = list;
+
+            stat = "<status>"+arr[0].Status+"</status>";
             document.getElementById("status").innerHTML = stat;
         }
     </script>
