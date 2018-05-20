@@ -8,6 +8,7 @@
         <style>
             @import "global.css";
             html, body { 
+                font-family: "supermarket";
                 margin: 0;
                 padding: 0;
                 background: #dfdfdf;
@@ -27,6 +28,7 @@
                 position: relative;
             }
             #header > h1 {
+                font-family: "supermarket";
                 font-size: 50px;
                 position: absolute;
                 bottom: 0;

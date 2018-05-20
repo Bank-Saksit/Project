@@ -1,5 +1,5 @@
 html, body { 
-    font-family: "quark";
+    font-family: "supermarket";
     margin: 0;
     padding: 0;
     background: #dfdfdf;
@@ -26,7 +26,7 @@ html, body {
     position: relative;
 }
 #header > h1 {
-    font-family: "quark";
+    font-family: "supermarket";
     font-size: 50px;
     position: absolute;
     bottom: 0;
