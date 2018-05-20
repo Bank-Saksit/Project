@@ -14,11 +14,6 @@
                 color: #444444;
                 width: 100%;
             }
-            a {
-                text-decoration: none;
-                margin: 5px;
-                color: #444444;
-            }
             #main {
                 width: 1100px;
                 height: 500px;
