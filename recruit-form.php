@@ -30,8 +30,10 @@ $Department = mysqli_real_escape_string($con, $_POST['Department']);
 $Status =  'รอจ่ายค่าสมัคร' 
 
 $sql="INSERT INTO recruitinfo
-VALUES ('','$RecruitPlanName','$MobileNo','$TelNo','$Email','$SchoolID','$EducationBackground',
-'$Branch','$SchoolGPAX','$Status','','$','$','$','$','$','$','$','$','$','$','$','$','$','$')";
+VALUES ('','$RecruitPlanName','','$MobileNo','$TelNo','$Email','$SchoolID','$EducationBackground',
+'$Branch','$SchoolGPAX','$Status','','$IDCardNum','$Prefix','$Fname','$Lname','$Gende','$DOB ','$Nationality',
+'$Race','$Religion','$BloodGroup','$Addres','$Province','$PostCode')";
+
 $sql="INSERT INTO nodepartment"
 VALUES ();
 
