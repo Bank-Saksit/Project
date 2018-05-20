@@ -60,21 +60,12 @@
             }
             #c-top {
                 width: 100%;
-                height: 300px;
+                height: 360px;
                 top: 0;
                 text-align: left;
                 position: relative;
                 background: gray;
                 color: white;
-            }
-            #c-bot {
-                width: 100%;
-                height: 60px;
-                top: 0;
-                text-align: left;
-                position: relative;
-                background: white;
-                color: black;
             }
             form{
                 padding-left : 30px;
@@ -86,10 +77,6 @@
                 width: 310px;
                 height:30px;
                 text-align: left;
-                
-            }
-            ::placeholder {
-                color: white;
             }
             input[type=password] {
                 background: #444444;
@@ -98,6 +85,9 @@
                 width: 310px;
                 height: 30px;
                 text-align: left;
+            }
+            ::placeholder {
+                color: white;
             }
             input[type=summit] {
                 padding: 10px;
@@ -138,12 +128,6 @@
                             <a href = "www.google.com">ลืมรหัสผ่าน?</a>
                         </div>
                     </form>
-                </div>
-                    
-                <div id= "c-bot">
-                    <div id = "text">
-                        <br>สำหรับนักศึกษาใหม่ <a href= "student-new-login.php">ลงทะเบียนนักศึกษาใหม่</a>
-                    </div>
                 </div>
             </div>
             <?php include "recruit-footer.php"; ?>
