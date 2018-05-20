@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2018 at 09:42 AM
+-- Generation Time: May 20, 2018 at 10:22 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -141,6 +141,14 @@ CREATE TABLE `recruitinfo` (
   `Province` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `PostCode` varchar(5) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `recruitinfo`
+--
+
+INSERT INTO `recruitinfo` (`RecruitID`, `RecruitPlanName`, `NoPass`, `MobileNumber`, `TelNumber`, `Email`, `SchoolID`, `EducationBackground`, `Branch`, `SchoolGPAX`, `Status`, `MovedUniversityName`, `IDCardNumber`, `Prefix`, `FirstName`, `LastName`, `Gender`, `DOB`, `Nationality`, `Race`, `Religion`, `BloodGroup`, `Address`, `Province`, `PostCode`) VALUES
+(1, 'Clearing House', 1, '0961475555', '023455432', 'test01@hotmail.com', 1, 'ปวช', 'วิศวกรรม', 3.14, 'รอสัมภาษณ์', '', '1113322456654', 'นาย', 'ปิยะ', 'ไม่รู้', 'ชาย', '2000-05-23', 'ไทย', 'ไทย', 'คริสต์', 'A', 'ซักที่ในโลกเนี่ยแหละ', 'ไม่รู้', '11111'),
+(2, 'เรียนดี', 3, '0945456666', '021233333', 'eiei@gmail.com', 2, 'มัธยมศึกษา', 'วิทย์-คณิต', 3.99, 'สละสิทธิ์', 'มหาลัยชื่อดังย่านบางเขน', '1122213564200', 'นางสาว', 'วีระ', 'สมความคิด', 'หญิง', '2001-05-15', 'จีน', 'อินเดีย', 'ซิกซ์', 'AB', 'ไม่ทราบได้', 'ไม่ทราบด้วย', '12332');
 
 -- --------------------------------------------------------
 
@@ -447,7 +455,7 @@ ALTER TABLE `parentinfo`
 -- AUTO_INCREMENT for table `recruitinfo`
 --
 ALTER TABLE `recruitinfo`
-  MODIFY `RecruitID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `RecruitID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `schoolinfo`
