@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>สำหรับนักศึกษา</title>
         <style>
-            @import "global.css";
+            @import "global1.css";
             html, body { 
                 margin: 0;
                 padding: 0;
@@ -14,7 +14,7 @@
                 color: #444444;
             }
             #main {
-                width: 1200px;
+                width: 90%;
                 float: right;
                 position: relative;
                 top: 50px;
@@ -59,10 +59,8 @@
                 top: 110px;
             }
             #c-top {
-                padding-left: 30px;
-                padding-top:5px;
                 width: 100%;
-                height: 220px;
+                height: 300px;
                 top: 0;
                 text-align: left;
                 position: relative;
@@ -70,43 +68,49 @@
                 color: white;
             }
             #c-bot {
-                padding-left: 30px;
                 width: 100%;
-                height: 40px;
-                padding-top:20px;
+                height: 60px;
                 top: 0;
                 text-align: left;
                 position: relative;
                 background: white;
                 color: black;
             }
+            form{
+                padding-left : 30px;
+            }
             input[type=text] {
                 background: #444444;
-                padding: 3px;
-                width: 300px;
+                margin-top: 15px;
+                padding-left: 30px;
+                width: 310px;
+                height:30px;
                 text-align: left;
             }
             input[type=password] {
                 background: #444444;
-                margin-top: 5px;
-                padding: 3px;
-                width: 300px;
+                margin-top: 15px;
+                padding-left: 30px;
+                width: 310px;
+                height: 30px;
                 text-align: left;
             }
             input[type=summit] {
                 padding: 10px;
                 width: 100px;
-                margin-top: 7px;
-                border-radius: 5px;
+                margin-top: 15px;
                 background: white;
             }
             #sub{
                 width: 300px;
-                margin-top:20px;
+                margin-top:30px;
                 text-align: center;
             }
-            div#c-bot >a {
+            div#text >a {
                 text-decoration: underline;
+            }
+            #text{
+                padding-left : 30px;
             }
         </style>    
 
@@ -122,7 +126,7 @@
             <div id="content">
                 <div id="c-top">
                     <form method="post">
-                        <h2>ระบบสารสนเทศ<br>เพื่อการบริหารการศึกษา</h2>
+                        <h1>ระบบสารสนเทศ<br>เพื่อการบริหารการศึกษา</h1>
                         <input type="text" id="id" placeholder="รหัสนักศึกษา"><br>
                         <input type="password" id="pswd" placeholder="รหัสผ่าน"><br>
                         <div id = "sub">
@@ -133,7 +137,9 @@
                 </div>
                     
                 <div id= "c-bot">
-                    สำหรับนักศึกษาใหม่ <a href= "">ลงทะเบียนนักศึกษาใหม่</a>
+                    <div id = "text">
+                        <br>สำหรับนักศึกษาใหม่ <a href= "">ลงทะเบียนนักศึกษาใหม่</a>
+                    </div>
                 </div>
             </div>
             <?php include "recruit-footer.php"; ?>
