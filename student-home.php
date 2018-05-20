@@ -14,8 +14,8 @@
                 color: #444444;
             }
             #main {
-                width: 1100px;
-                float: left;
+                width: 1200px;
+                float: right;
                 position: relative;
                 top: 50px;
             }
@@ -53,7 +53,7 @@
             }
             div#content {
                 clear: both;
-                width: 1100px;
+                width: 100%;
                 position: relative;
                 height: 550px;
                 top: 110px;
@@ -61,7 +61,7 @@
             #c-top {
                 padding-left: 30px;
                 padding-top:5px;
-                width: 1070px;
+                width: 100%;
                 height: 220px;
                 top: 0;
                 text-align: left;
@@ -71,7 +71,7 @@
             }
             #c-bot {
                 padding-left: 30px;
-                width: 1070px;
+                width: 100%;
                 height: 40px;
                 padding-top:20px;
                 top: 0;
