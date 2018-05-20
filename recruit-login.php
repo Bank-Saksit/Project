@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>สำหรับนักเรียนที่ต้องการเข้าศึกษา</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"   
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+        crossorigin="anonymous">
+    </script>
+
+
     <style>
         @import "global.css";
         html, body { 
@@ -19,9 +25,7 @@
             position: relative;
             top: 50px;
         }
-        * :not(h1){
-            font: 14px;
-        }
+ 
         #left {
             float: left;
             width: 10%;
@@ -62,6 +66,7 @@
             width: 650px;
             float: left;
             background: gray;
+            position: relative;
         }
         #c-right {
             width: 420px;
@@ -83,10 +88,19 @@
             position: absolute;
             bottom: 0;
             background: gray;
+            cursor: pointer;
         }
         #c-r-bottom > h1 {
             margin-top: 0;
             font-size: 70px;
+            color: white;
+        }
+        #c-r-bottom > div {
+            top: 50px;
+            left: 50px;
+            font-size: 25px;
+            color: white;
+            position: absolute;
         }
         input {
             background: #444444;
@@ -102,13 +116,19 @@
             border-radius: 5px;
             background: white;
         }
-        
+        #next {
+            position: absolute;
+            bottom: -40px;
+            right: 10px;
+            font-size:40px;
+            color: white;
+        }
     </style>    
 
 </head>
 <body>  
     <div id="left">
-        <br><a href="intro.html" id="back">< ฺback</a>
+        <br><a href="home.php" id="back">< ฺback</a>
     </div>
     <div id="main">
         <div id="header">
@@ -116,19 +136,24 @@
         </div>
         <div id="content">
             <div id="c-left">
+                <?php include "js/jssor/examples-jquery/recruit-slides.php"; ?>
 
             </div>
             <div id="c-right">
                 <div id="c-r-top">
-                    <form action="#" method="get">
+                    <form method="post">
                         <h2>ตรวจสอบสถานะ</h2>
                         <input type="text" id="id" placeholder="รหัสประจำตัวผู้สมัคร"><br>
                         <input type="password" id="pswd" placeholder="รหัสประจำตัวประชาชน"><br>
                         <button>เข้าสู่ระบบ</button>
                     </form>
                 </div>
-                <div id="c-r-bottom">
-                    <h1 id="h11">สมัคร</h1>
+                <div id="c-r-bottom" onclick="window.location.href='recruit-register.php'">
+                    <h1>&nbsp; สมัคร</h1>
+                    <div>
+                        <h3>&nbsp; เข้าร่วมโครงการ</h3><br>
+                    </div>
+                    <h3 id="next"> >> </h3>
                 </div>
             </div>
         </div>
