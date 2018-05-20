@@ -7,9 +7,12 @@
         <title>หน้าหลัก</title>
         <style>
             @import "global.css";
-            html, body { 
+            @font-face{
                 font-family: "supermarket";
                 src: url(font/supermarket.woff);
+            }
+            html, body { 
+                font-family: "supermarket";
                 margin: 0;
                 padding: 0;
                 background: #dfdfdf;
@@ -30,7 +33,6 @@
             }
             #header > h1 {
                 font-family: "supermarket";
-                src: url(font/supermarket.woff);
                 font-size: 50px;
                 position: absolute;
                 bottom: 0;
