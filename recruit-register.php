@@ -38,10 +38,10 @@
      <div id="left">
         <br><a href="recruit-login.php" id="back">< ฺback</a>
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a href="#menu1">ประวัติส่วนตัว</a></li>
-            <li><a href="#menu2">ที่อยุ่ปัจจุบัน</a></li>
-            <li><a href="#menu3">ประวัติด้านการศึกษา</a></li>
-            <li><a href="#">โครงการที่เข้าศึกษา</a></li>
+            <li><a data-toggle="tab" href="#menu1">ประวัติส่วนตัว</a></li>
+            <li><a data-toggle="tab" href="#menu2">ที่อยุ่ปัจจุบัน</a></li>
+            <li><a data-toggle="tab" href="#menu3">ประวัติด้านการศึกษา</a></li>
+            <li><a data-toggle="tab" href="#menu4">โครงการที่เข้าศึกษา</a></li>
         </ul>
      </div>
      <div id="main">
@@ -50,7 +50,7 @@
         </div>
         
         <div class="tab-content">
-            <div id="menu1" class="tab-pane fade ">
+            <div id="menu1" class="tab-pane fade">
                 <h3>Menu 1</h3>
                 <p>Some content in menu 1.</p>
             </div>
