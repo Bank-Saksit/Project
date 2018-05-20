@@ -5,6 +5,9 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link href ="js/jquery-ui.min.css" rel="stylesheet">
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
 	<title>Recruit Form</title>
 </head>
 <body>
@@ -20,7 +23,7 @@
 		
 		<div id="main">
 			<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
-			
+			<form>
 					<h1>แบบฟอร์มสมัคร</h1>
 					ประวัติส่วนตัว<br>
 					คำนำหน้า:<br>
@@ -128,11 +131,51 @@
 						<option value="Qu">Quota</option>
 					</select><br>
 					สาขา:<br>
-					<select name="Department">
+					ลำดับที่ 1 <select name="Department">
 						<option value="Null">โปรดเลือก</option>
 						<option value="วิศวกรรมคอมพิวเตอร์">วิศวกรรมคอมพิวเตอร์</option>
 						<option value="วิศวกรรมไฟฟ้า">วิศวกรรมไฟฟ้า</option>
-					</select><br>
+					</select>
+					 <button type="button" id="add">+</button>
+					 <button type="button" id="remove">-</button>
+
+					 <div id="demo"></div>
+					<script>
+						var n = 2;
+						if(n==2){	$('button[id="remove"]').prop('disabled', true);	}
+								else{	$('button[id="remove"]').prop('disabled', false);	}
+								if(n==5){	$('button[id="add"]').prop('disabled', true);	}
+								else{	$('button[id="add"]').prop('disabled', false);	}
+						$(function(){	
+							var input = '<select name="Department[]">' +
+														'<option value="Null">โปรดเลือก</option>' +
+														'<option value="วิศวกรรมคอมพิวเตอร์">วิศวกรรมคอมพิวเตอร์</option>' +
+														'<option value="วิศวกรรมไฟฟ้า">วิศวกรรมไฟฟ้า</option>' +
+													'</select>';		
+							$('#add').click(function(){
+								$("#demo").append('<span>ลำดับที่' + n + '</span>');
+								n++;
+								$('#demo').append(input);
+								$("#demo").append('<br>');
+								if(n==2){	$('button[id="remove"]').prop('disabled', true);	}
+								else{	$('button[id="remove"]').prop('disabled', false);	}
+								if(n==5){	$('button[id="add"]').prop('disabled', true);	}
+								else{	$('button[id="add"]').prop('disabled', false);	}
+							})
+							$('#remove').click(function(){
+								$('#demo > select[name^=Department]:last').remove();
+								$("#demo > br:last").remove();
+								$("span:last-child").remove();
+								n--;
+								if(n==2){	$('button[id="remove"]').prop('disabled', true);	}
+								else{	$('button[id="remove"]').prop('disabled', false);	}
+								if(n==5){	$('button[id="add"]').prop('disabled', true);	}
+								else{	$('button[id="add"]').prop('disabled', false);	}
+								
+							})
+						})
+					</script>
+					 
 					<br><br>
 					<input type="submit" value="Submit">
 					<br>
