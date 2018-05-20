@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
         @import "global1.css";
         #left {
@@ -14,25 +17,12 @@
             background: red;
             height: 100%;
         }
-        h3 {
-            margin-top:0px;
-            margin-bottom:0px;
-        }
         #tab {
             position: absolute;
             right: 0;
             top: 200px;
             text-align: right;
             border-right: 3px solid;
-        }
-        #back {
-            margin: 20px;
-            font-weight: bold;
-        }
-        a {
-            text-decoration: none;
-            margin: 5px;
-            color: #444444;
         }
         #main {
             width: 900px;
@@ -46,11 +36,14 @@
 <body>
      <div id="left">
         <br><a href="recruit-login.php" id="back">< ฺback</a>
-        <div id="tab">
-            <h3>ประวัติส่วนตัว&nbsp;</h3><br>
-            <h3>ที่อยุ่ปัจจุบัน&nbsp;</h3><br>
-            <h3>ประวัติด้านการศึกษา&nbsp;</h3><br>
-            <h3>โครงการที่เข้าศึกษา&nbsp;</h3><br>
+        <ul class="nav nav-pills nav-stacked" id="tab">
+            <li><a href="#">ประวัติส่วนตัว</a></li>
+            <li><a href="#">ที่อยุ่ปัจจุบัน</a></li>
+            <li><a href="#">ประวัติด้านการศึกษา</a></li>
+            <li><a href="#">โครงการที่เข้าศึกษา</a></li>
+        </ul>
+        <div class="tab-content">
+
         </div>
      </div>
      <div id="main">
