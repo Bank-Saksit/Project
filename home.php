@@ -28,7 +28,6 @@
             }
             #header {
                 width: 100%;
-                
                 top: 100px;
                 position: relative;
             }

@@ -88,7 +88,7 @@
             position: absolute;
             bottom: 0;
             background: gray;
-     
+            cursor: pointer;
         }
         #c-r-bottom > h1 {
             margin-top: 0;
@@ -118,7 +118,7 @@
         }
         #next {
             position: absolute;
-            bottom: 0;
+            bottom: -40px;
             right: 10px;
             font-size:40px;
             color: white;
@@ -141,17 +141,19 @@
             </div>
             <div id="c-right">
                 <div id="c-r-top">
-                    <form action="#" method="get">
+                    <form method="post">
                         <h2>ตรวจสอบสถานะ</h2>
                         <input type="text" id="id" placeholder="รหัสประจำตัวผู้สมัคร"><br>
                         <input type="password" id="pswd" placeholder="รหัสประจำตัวประชาชน"><br>
                         <button>เข้าสู่ระบบ</button>
                     </form>
                 </div>
-                <div id="c-r-bottom">
+                <div id="c-r-bottom" onclick="window.location.href='recruit-register.php'">
                     <h1>&nbsp; สมัคร</h1>
-                    <div><h3>&nbsp; เข้าร่วมโครงการ</h3></div>
-                    <a href="#" id="next"> >> </a>
+                    <div>
+                        <h3>&nbsp; เข้าร่วมโครงการ</h3><br>
+                    </div>
+                    <h3 id="next"> >> </h3>
                 </div>
             </div>
         </div>

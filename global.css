@@ -6,3 +6,8 @@
             border-top: 2px solid;
             bottom: 0px;
         }
+        a {
+            text-decoration: none;
+            margin: 5px;
+            color: #444444;
+        }
