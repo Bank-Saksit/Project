@@ -30,6 +30,7 @@
             position: relative;
             top: 50px;
         }
+
     </style>
     
 </head>
@@ -37,19 +38,26 @@
      <div id="left">
         <br><a href="recruit-login.php" id="back">< ฺback</a>
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a href="#">ประวัติส่วนตัว</a></li>
-            <li><a href="#">ที่อยุ่ปัจจุบัน</a></li>
-            <li><a href="#">ประวัติด้านการศึกษา</a></li>
+            <li><a href="#menu1">ประวัติส่วนตัว</a></li>
+            <li><a href="#menu2">ที่อยุ่ปัจจุบัน</a></li>
+            <li><a href="#menu3">ประวัติด้านการศึกษา</a></li>
             <li><a href="#">โครงการที่เข้าศึกษา</a></li>
         </ul>
-        <div class="tab-content">
-
-        </div>
      </div>
      <div id="main">
         <div id="header">
             <h1>สมัครเข้า</h1>
-            
+        </div>
+        
+        <div class="tab-content">
+            <div id="menu1" class="tab-pane fade ">
+                <h3>Menu 1</h3>
+                <p>Some content in menu 1.</p>
+            </div>
+            <div id="menu2" class="tab-pane fade">
+                <h3>Menu 2</h3>
+                <p>Some content in menu 2.</p>
+            </div>
         </div>
      </div>
 </body>
