@@ -77,11 +77,12 @@
                 color: black;
             }
             form{
+                padding-top : 5px;
                 padding-left : 30px;
             }
             input[type=text] {
                 background: #444444;
-                margin-top: 15px;
+                margin-top: 8px;
                 padding-left: 30px;
                 width: 310px;
                 height:30px;
@@ -99,15 +100,15 @@
                 height: 30px;
                 text-align: left;
             }
-            input[type=summit] {
-                padding: 10px;
-                width: 100px;
-                margin-top: 15px;
+            input[type=submit] {
+                padding: 5px;
+                width: 80px;
                 background: white;
             }
             #sub{
-                width: 300px;
-                margin-top:30px;
+                width: 310px;
+                padding-left: 25px;
+                margin-top:20px;
                 text-align: center;
             }
             div#text >a {
