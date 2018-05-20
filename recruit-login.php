@@ -12,53 +12,7 @@
 
 
     <style>
-        @import "global.css";
-        html, body { 
-            margin: 0;
-            padding: 0;
-            background: #dfdfdf;
-            color: #444444;
-        }
-        #main {
-            width: 1100px;
-            float: left;
-            position: relative;
-            top: 50px;
-        }
- 
-        #left {
-            float: left;
-            width: 10%;
-            position: relative;
-        }
-        #back {
-            margin: 20px;
-            font-weight: bold;
-        }
-        #header {
-            width: 100%;
-            top: 100px;
-            position: relative;
-        }
-        #header > h1 {
-            font-size: 50px;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            border-bottom: 5px solid;
-        }
-        a {
-            text-decoration: none;
-            margin: 5px;
-            color: #444444;
-        }
-        div#content {
-            clear: both;
-            width: 1100px;
-            position: relative;
-            height: 550px;
-            top: 110px;
-        }
+        @import "global1.css";
         #c-right,#c-left{
             height: 380px;   
         }
@@ -88,7 +42,7 @@
             position: absolute;
             bottom: 0;
             background: gray;
-     
+            cursor: pointer;
         }
         #c-r-bottom > h1 {
             margin-top: 0;
@@ -110,7 +64,8 @@
             text-align: center;
         }
         button {
-            padding: 10px;
+            font-family: "supermarket";
+            padding: 8px;
             width: 100px;
             margin-top: 5px;
             border-radius: 5px;
@@ -118,11 +73,12 @@
         }
         #next {
             position: absolute;
-            bottom: 0;
+            bottom: -40px;
             right: 10px;
             font-size:40px;
             color: white;
         }
+            
     </style>    
 
 </head>
@@ -141,17 +97,19 @@
             </div>
             <div id="c-right">
                 <div id="c-r-top">
-                    <form action="#" method="get">
+                    <form method="post">
                         <h2>ตรวจสอบสถานะ</h2>
                         <input type="text" id="id" placeholder="รหัสประจำตัวผู้สมัคร"><br>
                         <input type="password" id="pswd" placeholder="รหัสประจำตัวประชาชน"><br>
                         <button>เข้าสู่ระบบ</button>
                     </form>
                 </div>
-                <div id="c-r-bottom">
-                    <h1>&nbsp; สมัคร</h1>
-                    <div><h3>&nbsp; เข้าร่วมโครงการ</h3></div>
-                    <a href="#" id="next"> >> </a>
+                <div id="c-r-bottom" onclick="window.location.href='recruit-register.php'">
+                    <h1>&nbsp;&nbsp;สมัคร</h1>
+                    <div>
+                        <h3>&nbsp;เข้าร่วมโครงการ</h3><br>
+                    </div>
+                    <h3 id="next"> >> </h3>
                 </div>
             </div>
         </div>

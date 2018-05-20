@@ -143,7 +143,7 @@
                 <img data-u="image" src="img/gallery/980x380/002.jpg" />
             </div>
             <div>
-                <img data-u="image" src="img/gallery/980x380/003.jpg" />
+                <img data-u="image" src="img/gallery/980x380/003.jpg" onclick="window.location.href='#'"/>
             </div>
             <div>
                 <img data-u="image" src="img/gallery/980x380/004.jpg" />
