@@ -52,7 +52,7 @@
             clear: both;
             width: 100%;
             position: relative;
-            height: 550px;
+            height: 450px;
             top: 110px;
         }
         #c-left {
@@ -78,30 +78,32 @@
         #data{
             margin-left: 30px;
             padding-left:20px; 
-            width:485px;
-            background: #000000;
+            width:85%;
+            background: #242424;
         }
         form{
             padding-left : 30px;
         }
         input[type=text] {
-            background: #000000;
+            background: #242424;
             margin-top: 0px;
             padding-left: 30px;
             width: 310px;
             height:30px;
             text-align: left;
+            color: white;
         }
         ::placeholder {
             color: white;
         }
         input[type=password] {
-            background: #000000;
+            background: #242420;
             margin-top: 15px;
             padding-left: 30px;
             width: 310px;
             height: 30px;
             text-align: left;
+            color: white;
         }
         input[type=submit] {
             margin-top: 20px;
@@ -120,7 +122,7 @@
 </head>
 <body>
     <div id="left">
-        <br><a href="home.php" id="back">< back</a>
+        <br><a href="staff-new-login.php" id="back">< back</a>
     </div>
     <div id="main">
         <div id="header">
@@ -128,7 +130,7 @@
         </div>
         <div id="content">
             <div id="c-left">
-                <h1>ข้อมูลนักศึกษา</h1>
+                <h1>ข้อมูลบุคคลากร</h1>
                 <div id ="data">
                     
                 </div>
@@ -149,7 +151,7 @@
                     
             function load(){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol + '//' + location.host+"/Project/student-changepw-link.php?inID=59070501066";
+                var url = location.protocol + '//' + location.host+"/Project/staff-changepw-link.php?inID="+<?php echo $_GET['inID'];?>;
                         
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -164,21 +166,15 @@
                 var arr = JSON.parse(response);
                 var i;
                 var age;
-                // age+=((arr[0].DOB)[3])*1000;
-                // age+=((arr[0].DOB)[2])*100;
-                // age+=((arr[0].DOB)[1])*10;
-                // age+=(arr[0].DOB)[0];
-                // age=2018-age;
                 age = 18;
             
                 var out = "ชื่อ "+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"<br>"+
-                            "รหัสนักศึกษา "+ arr[0].StudentID +"<br>"+
+                            "รหัสประจำตัวบุคคลากร "+ arr[0].StaffID +"<br>"+
                             "วันเกิด "+ arr[0].DOB +
                             " อายุ "+ age +" ปี"+
                             " กลุ่มเลือด "+ arr[0].BloodGroup +"<br>"+
                             "รหัสประจำตัวประชาชน "+ arr[0].IDCardNumber +"<br>"+
                             "ที่อยู่ "+ arr[0].Address +"<br>"+
-                            "คณะ "+ arr[0].Faculty +"<br>"+
                             "ภาควิชา "+ arr[0].Department;
             
                 document.getElementById("data").innerHTML = out;

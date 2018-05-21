@@ -6,25 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ยืนยันสิทธิ์</title>
     <style>
-        h1 {
-            font-size: 40px;
-            margin-left: 10%;
-            margin-right: 10%;
-            border-bottom: 5px solid rgb(77, 77, 77);
-        }
+        @import "global1.css";
         #content {
-            background: aquamarine;
-            width: 80%;
-            margin-left: 10%;
+            font-size: 20px;
         }
     </style>
 </head>
 <body>
-        
-    <div id="header">
-        <caption><h1>ยืนยันสิทธิ์</h1></caption>
+    <div id="left">
+        <br><a href="home.php" id="back">< back</a>
     </div>
-    <div id="content"></div>
+    <div id="main">
+        <div id="header">
+            <h1>ยืนยันสิทธิ์</h1>
+        </div>
+        <div id="content">
+            <div id="detail"></div>
+        </div>
+    </div>
+    
 
     <script>
         load();
@@ -54,7 +54,7 @@
                     "ปีการศึกษา : 1/"+ arr[0].AcademicYear +"<br>"+
                     "จำนวนเงินที่ต้องจ่าย : 20,000 บาท";
 
-            document.getElementById("content").innerHTML = out;
+            document.getElementById("detail").innerHTML = out;
         }
     </script>
 </body>

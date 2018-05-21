@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +12,6 @@
         integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
         crossorigin="anonymous">
     </script>
-
-
     <style>
         @import "global1.css";
         #c-right,#c-left{
@@ -33,7 +34,7 @@
             top: 0;
             text-align: center;
             position: absolute;
-            background: gray;
+            background: #444444;
             color: white;
         }
         #c-r-bottom {
@@ -41,7 +42,7 @@
             height: 170px;
             position: absolute;
             bottom: 0;
-            background: gray;
+            background: #444444;
             cursor: pointer;
         }
         #c-r-bottom > h1 {
@@ -61,14 +62,15 @@
             color: white;
             position: absolute;
         }
-        input {
-            background: #444444;
+        #id,#pswd {
+            background: #242424;
             padding: 3px;
             width: 300px;
             margin: 5px;
             text-align: center;
+            color:white;
         }
-        input[type = "submit"]{
+        #submit {
             font-family: "supermarket";
             padding: 8px;
             width: 100px;
@@ -90,7 +92,13 @@
     </style>    
 
 </head>
-<body>  
+<body>
+    <?php
+    if(isset($_COOKIE['id']) && isset($_COOKIE['pswd'])) {
+        header("location: recruit-status.php");
+        exit('</body></html>');
+    }
+    ?>  
     <div id="left">
         <br><a href="home.php" id="back">< back</a>
     </div>
@@ -101,15 +109,14 @@
         <div id="content">
             <div id="c-left">
                 <?php include "js/jssor/examples-jquery/recruit-slides.php"; ?>
-
             </div>
             <div id="c-right">
                 <div id="c-r-top">
-                    <form method="post">
-                        <h2>ตรวจสอบสถานะ</h2>
-                        <input type="text" id="id" placeholder="รหัสประจำตัวผู้สมัคร"><br>
-                        <input type="password" id="pswd" placeholder="รหัสประจำตัวประชาชน"><br>
-                        <input type="submit" value="เข้าสู่ระบบ">
+                    <h2>ตรวจสอบสถานะ</h2>
+                    <form id="login" method="post" action="recruit-login-check.php">
+                        <input type="text" name="id" id="id" placeholder="รหัสประจำตัวผู้สมัคร" required><br>
+                        <input type="password" name="pswd" id="pswd" placeholder="รหัสประจำตัวประชาชน" required><br>
+                        <button id="submit">เข้าสู่ระบบ</button>
                     </form>
                 </div>
                 <div id="c-r-bottom" onclick="window.location.href='recruit-register.php'">

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,17 +11,21 @@
     <style>
          @import "global1.css";
         table#tb1{
-            background: aquamarine;
-            position: absolute;
+            position: relative;
             width: 100%;
             top:0;
             left:0;
         }
         table#list{
-            background: aquamarine;
-            position: absolute;
+            background: #efefef;
+            position: relative;
             width: 100%;
-            margin-top: 10%;
+            margin-top: 5%;
+            border: 2px solid;
+            border-collapse: collapse;
+        }
+        #t3 {
+            border: 2px solid;
         }
         td {
             width:16.67%;
@@ -37,24 +44,59 @@
             right:0;
             cursor: pointer;
         }
-        status {
+        #status {
             text-align: center;
             font-style: bold;
+            position: relative;
+            margin-left: 367px;
+            top:20px;
+            width:100%;
         }
+        #tb-status {
+            border:2px solid;
+            width:33.33%;
+            background: #efefef;
+            border-collapse: collapse;
+        }
+        #t4 {
+            border:2px solid;
+            width:10%;
+        }
+        #submit {
+            width:100%;
+            position:relative;
+            text-align:center;
+            margin-top:40px;
+        }
+        #sm,#sm-sub {
+            width: 100px;
+            height: 40px;
+            margin-left: 20px;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+
     </style>
 </head>
 <body>
+    <?php
+    if(!isset($_COOKIE['id'])){
+        header("location:recruit-login.php");
+    }
+    ?>
     <div id="left">
-        <br><a href="#" id="back">< ฺback</a>
+        <br><a href="#" id="back"> </a>
     </div>
     <div id="main">
         <div id="header">
             <h1>ตรวจสอบสถานะ</h1>
-            <h4 id="out">ออกจากระบบ</h3>
+            <h4 id="out" onclick="window.location.href='recruit-logout.php'">ออกจากระบบ</h3>
         </div>
         <div id="content">
             <div id="infoRecruit"></div>
             <div id="detail-rc"></div>
+            <div id="status"></div>
+            <div id="submit"></div>
         </div>
         <?php include "recruit-footer.php"; ?>
     </div>
@@ -64,7 +106,8 @@
         
         function loadRecruit(){
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID=2";
+            var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID="+
+            <?php echo $_SESSION['id']; ?>
             
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -94,19 +137,25 @@
             out += "</table>";
             document.getElementById("infoRecruit").innerHTML = out;
 
-            var list = "<table id='list'>";
+            var list = "<table id='list'><tr><td id='t3'>ลำดับ</td><td id='t3'>คณะ</td><td id='t3'>สาขา</td></tr>";
             for( i=0 ; i<arr.length ; i++ ){
                 list += "<tr>"+
-                        "<td>"+ arr[i].No +"</td>"+
-                        "<td>"+ arr[i].Faculty +"</td>"+
-                        "<td>"+ arr[i].Department +"</td>"+
+                        "<td id='t3'>"+ arr[i].No +"</td>"+
+                        "<td id='t3'>"+ arr[i].Faculty +"</td>"+
+                        "<td id='t3'>"+ arr[i].Department +"</td>"+
                     "</tr>";
             }
             list += "</table>";
             document.getElementById("detail-rc").innerHTML = list;
 
-            stat = "<status>"+arr[0].Status+"</status>";
+            stat = "<table id='tb-status'<tr><td id='t4'> สถานะ </td><td>" + arr[0].Status; +"</td></tr></table>";
             document.getElementById("status").innerHTML = stat;
+
+            if(arr[0].Status == "สละสิทธิ์"){
+                sm = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.html'\">ยืนยันสิทธิ์</button>";
+                sm += "<button id='sm' onclick=\"window.location.href='#'\">สละสิทธิ์</button>";
+            }
+            document.getElementById("submit").innerHTML = sm;
         }
     </script>
 </body>

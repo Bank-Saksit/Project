@@ -55,7 +55,7 @@
                 clear: both;
                 width: 100%;
                 position: relative;
-                height: 550px;
+                height: 450px;
                 top: 110px;
             }
             #c-top {
@@ -64,7 +64,7 @@
                 top: 0;
                 text-align: left;
                 position: relative;
-                background: gray;
+                background: #444444;
                 color: white;
             }
             form{
@@ -72,28 +72,28 @@
                 padding-left : 30px;
             }
             input[type=text] {
-                background: #444444;
+                background: #242424;
                 margin-top: 10px;
                 padding-left: 30px;
                 width: 310px;
                 height:30px;
                 text-align: left;
+                color: white;
             }
             input[type=password] {
-                background: #444444;
+                background: #242424;
                 margin-top: 20px;
                 padding-left: 30px;
                 width: 310px;
                 height: 30px;
                 text-align: left;
+                color: white;
             }
             ::placeholder {
                 color: white;
             }
             input[type=submit] {
-                font-family: "supermarket";
-                padding: 5px;
-                width: 80px;
+                width: 60px;
                 margin-top: 25px;
                 margin-left: 10px;
                 background: white;
@@ -109,7 +109,7 @@
     </head>
     <body>
         <div id="left">
-            <br><a href="student-home.php" id="back">< ฺback</a>
+            <br><a href="student-home.php" id="back">< back</a>
         </div>
         <div id="main">
             <div id="header">
