@@ -45,12 +45,12 @@
 </head>
 <body>
     <div id="left">
-        <br><a href="#" id="back">< ฺback</a>
+        <br><a href="#" id="back"> </a>
     </div>
     <div id="main">
         <div id="header">
             <h1>ตรวจสอบสถานะ</h1>
-            <h4 id="out">ออกจากระบบ</h3>
+            <h4 id="out" onclick="window.location.href='recruit-login.php'">ออกจากระบบ</h3>
         </div>
         <div id="content">
             <div id="infoRecruit"></div>
