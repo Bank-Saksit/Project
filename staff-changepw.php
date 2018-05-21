@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,6 +124,11 @@
     </style>
 </head>
 <body>
+    <?php
+        if(!isset($_SESSION['id'])){
+            header("location:staff-new-login.php");
+        }
+    ?>
     <div id="left">
         <br><a href="staff-new-login.php" id="back">< back</a>
     </div>
@@ -151,7 +159,7 @@
                     
             function load(){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol + '//' + location.host+"/Project/staff-changepw-link.php?inID="+<?php echo $_GET['inID'];?>;
+                var url = location.protocol + '//' + location.host+"/Project/staff-changepw-link.php?inID="+<?php echo $_SESSION['id'];?>;
                         
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {

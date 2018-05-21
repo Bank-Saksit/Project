@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2018 at 07:41 AM
+-- Generation Time: May 21, 2018 at 01:33 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -32,32 +32,10 @@ CREATE TABLE `bill` (
   `BillID` int(10) NOT NULL,
   `StudentID` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `DateRegister` date NOT NULL,
-  `DatePay` date DEFAULT NULL,
-  `Semester` int(11) NOT NULL,
-  `AcademicYear` int(11) NOT NULL
+  `DatePay` date NOT NULL,
+  `Semester` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `AcademicYear` varchar(5) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `billrecruit`
---
-
-CREATE TABLE `billrecruit` (
-  `BillRecruitID` int(11) NOT NULL,
-  `RecruitID` int(11) NOT NULL,
-  `DateRegister` date NOT NULL,
-  `DatePay` date DEFAULT NULL,
-  `AcademicYear` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `billrecruit`
---
-
-INSERT INTO `billrecruit` (`BillRecruitID`, `RecruitID`, `DateRegister`, `DatePay`, `AcademicYear`) VALUES
-(1, 1, '2018-05-01', NULL, 2561),
-(2, 2, '2018-05-05', NULL, 2561);
 
 -- --------------------------------------------------------
 
@@ -79,9 +57,7 @@ CREATE TABLE `departmentinfo` (
 --
 
 INSERT INTO `departmentinfo` (`Department`, `Faculty`, `Location`, `TelNumber`, `Email`, `Website`) VALUES
-('วิศวกรรมคอมพิวเตอร์', 'วิศวกรรมศาสตร์', 'อาคารวิศววัฒนะ', '021233210', 'cpe@mail.kmutt.ac.th', 'cpe.kmutt.ac.th'),
-('วิศวกรรมเคมี', 'วิศวกรรมศาสตร์', 'ไม่รู้', '022033002', 'che@mail.kmutt.ac.th', 'che.kmutt.ac.th'),
-('วิศวกรรมเครื่องกล', 'วิศวกรรมศาสตร์', 'ไม่ชี้', '021566587', 'me@mail.kmutt.ac.th', 'me.kmutt.ac.th');
+('วิศวกรรมคอมพิวเตอร์', 'วิศวกรรมศาสตร์', 'อาคารวิศววัฒนะ', '021233210', 'cpe@mail.kmutt.ac.th', 'cpe.kmutt.ac.th');
 
 -- --------------------------------------------------------
 
@@ -94,16 +70,6 @@ CREATE TABLE `nodepartment` (
   `No` tinyint(1) NOT NULL,
   `Department` varchar(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `nodepartment`
---
-
-INSERT INTO `nodepartment` (`RecruitID`, `No`, `Department`) VALUES
-(1, 1, 'วิศวกรรมคอมพิวเตอร์'),
-(2, 1, 'วิศวกรรมคอมพิวเตอร์'),
-(2, 2, 'วิศวกรรมเคมี'),
-(2, 3, 'วิศวกรรมเครื่องกล');
 
 -- --------------------------------------------------------
 
@@ -181,7 +147,7 @@ CREATE TABLE `recruitinfo` (
 --
 
 INSERT INTO `recruitinfo` (`RecruitID`, `RecruitPlanName`, `NoPass`, `MobileNumber`, `TelNumber`, `Email`, `SchoolID`, `EducationBackground`, `Branch`, `SchoolGPAX`, `Status`, `MovedUniversityName`, `IDCardNumber`, `Prefix`, `FirstName`, `LastName`, `Gender`, `DOB`, `Nationality`, `Race`, `Religion`, `BloodGroup`, `Address`, `Province`, `PostCode`) VALUES
-(1, 'Clearing House', 1, '0961475555', '023455432', 'test01@hotmail.com', 1, 'ปวช', 'วิศวกรรม', 3.14, 'สละสิทธิ์', '', '1113322456654', 'นาย', 'ปิยะ', 'ไม่รู้', 'ชาย', '2000-05-23', 'ไทย', 'ไทย', 'คริสต์', 'A', 'ซักที่ในโลกเนี่ยแหละ', 'ไม่รู้', '11111'),
+(1, 'Clearing House', 1, '0961475555', '023455432', 'test01@hotmail.com', 1, 'ปวช', 'วิศวกรรม', 3.14, 'รอสัมภาษณ์', '', '1113322456654', 'นาย', 'ปิยะ', 'ไม่รู้', 'ชาย', '2000-05-23', 'ไทย', 'ไทย', 'คริสต์', 'A', 'ซักที่ในโลกเนี่ยแหละ', 'ไม่รู้', '11111'),
 (2, 'เรียนดี', 3, '0945456666', '021233333', 'eiei@gmail.com', 2, 'มัธยมศึกษา', 'วิทย์-คณิต', 3.99, 'สละสิทธิ์', 'มหาลัยชื่อดังย่านบางเขน', '1122213564200', 'นางสาว', 'วีระ', 'สมความคิด', 'หญิง', '2001-05-15', 'จีน', 'อินเดีย', 'ซิกซ์', 'AB', 'ไม่ทราบได้', 'ไม่ทราบด้วย', '12332');
 
 -- --------------------------------------------------------
@@ -261,7 +227,7 @@ CREATE TABLE `sectioninfo` (
 
 CREATE TABLE `staffinfo` (
   `StaffID` int(11) NOT NULL,
-  `Password` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `Password` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Role` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `Department` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `MobileNumber` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
@@ -283,6 +249,14 @@ CREATE TABLE `staffinfo` (
   `Province` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `Postcode` varchar(5) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `staffinfo`
+--
+
+INSERT INTO `staffinfo` (`StaffID`, `Password`, `Role`, `Department`, `MobileNumber`, `TelNumber`, `Email`, `EducationBackground`, `ConsultantStatus`, `IDCardNumber`, `Prefix`, `FirstName`, `LastName`, `Gender`, `DOB`, `Nationality`, `Race`, `Religion`, `BloodGroup`, `Address`, `Province`, `Postcode`) VALUES
+(1, 'vbvb', 'Teacher', 'วิศวกรรมคอมพิวเตอร์', '0891234567', '-', 'eiei.cpe@mail.kmutt.ac.th', 'ปริญญาเอก', '1', '1234567890123', 'ด็อกเตอร์', 'สมิธ', 'สกาเล็ต', 'ชาย', '1980-12-31', 'ไทย', 'ไทย', 'พุทธ', 'A', '123 พุทธบูชา 44', 'กรุงเทพมหานคร', '10140'),
+(2, '1234', 'Teacher', 'วิศวกรรมคอมพิวเตอร์', '0899999999', '-', 'john.cpe@mail.kmutt.ac.th', 'ปริญญาโท', '1', '0123456789012', 'นาย', 'จอน', 'จิงโจ้', 'ชาย', '1980-02-01', 'ไทย', 'ไทย', 'พุทธ', 'A', '226 ประชาอุทิศ 45', 'กรุงเทพมหานคร', '10140');
 
 -- --------------------------------------------------------
 
@@ -379,13 +353,6 @@ CREATE TABLE `teachersec` (
 ALTER TABLE `bill`
   ADD PRIMARY KEY (`BillID`),
   ADD KEY `StudentID` (`StudentID`);
-
---
--- Indexes for table `billrecruit`
---
-ALTER TABLE `billrecruit`
-  ADD PRIMARY KEY (`BillRecruitID`),
-  ADD KEY `RecruitID` (`RecruitID`);
 
 --
 -- Indexes for table `departmentinfo`
@@ -487,12 +454,6 @@ ALTER TABLE `bill`
   MODIFY `BillID` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `billrecruit`
---
-ALTER TABLE `billrecruit`
-  MODIFY `BillRecruitID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT for table `parentinfo`
 --
 ALTER TABLE `parentinfo`
@@ -514,7 +475,7 @@ ALTER TABLE `schoolinfo`
 -- AUTO_INCREMENT for table `staffinfo`
 --
 ALTER TABLE `staffinfo`
-  MODIFY `StaffID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `StaffID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2147483647;
 
 --
 -- Constraints for dumped tables
@@ -525,12 +486,6 @@ ALTER TABLE `staffinfo`
 --
 ALTER TABLE `bill`
   ADD CONSTRAINT `bill_ibfk_1` FOREIGN KEY (`StudentID`) REFERENCES `studentinfo` (`StudentID`);
-
---
--- Constraints for table `billrecruit`
---
-ALTER TABLE `billrecruit`
-  ADD CONSTRAINT `billrecruit_ibfk_1` FOREIGN KEY (`RecruitID`) REFERENCES `recruitinfo` (`RecruitID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `nodepartment`
