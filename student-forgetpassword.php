@@ -133,7 +133,7 @@
                     <form method="post">
                         <h1>ระบบสารสนเทศ<br>เพื่อการบริหารการศึกษา</h1>
                         กรุณากรอกรหัสนักศึกษา หรือ อีเมลของท่าน<br>
-                        <input type="email" id="email" placeholder="อีเมล"><br>
+                        <input type="text" id="email" placeholder="อีเมล"><br>
                         <div id = "sub">
                             <input type="submit" value="ค้นหา">
                         </div>

@@ -118,7 +118,7 @@ session_start();
         }
         ?> 
         <div id="left">
-            <br><a href="student-home.php" id="back">< logout</a>
+            <br><a href="student-home.php" id="back">< back</a>
         </div>
         <div id="main">
             <div id="header">

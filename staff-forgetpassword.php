@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>สำหรับบุคคลากร</title>
+        <title>สำหรับนักศึกษา</title>
         <style>
             @import "global1.css";
             html, body { 
@@ -87,7 +87,7 @@
                 width: 310px;
                 height:30px;
                 text-align: left;
-                color:#ffffff;
+                color: white;
             }
             ::placeholder {
                 color: white;
@@ -99,7 +99,7 @@
                 width: 310px;
                 height: 30px;
                 text-align: left;
-                color:#ffffff;
+                color: white;
             }
             input[type=submit] {
                 width: 60px;
@@ -107,9 +107,9 @@
             }
             #sub{
                 width: 310px;
-                padding-left: 25px;
+                padding-left: 10px;
                 margin-top:20px;
-                text-align: center;
+                text-align: left;
             }
             div#text >a {
                 text-decoration: underline;
@@ -122,29 +122,22 @@
     </head>
     <body>
         <div id="left">
-            <br><a href="home.php" id="back">< back</a>
+            <br><a href="staff-home.php" id="back">< back</a>
         </div>
         <div id="main">
             <div id="header">
-                <h1>ยินดีต้อนรับ</h1>
+                <h1>ลืมรหัสผ่าน</h1>
             </div>
             <div id="content">
                 <div id="c-top">
                     <form method="post">
-                        <h1>ระบบสารสนเทศ<br>สำหรับบุคลากรของมหาวิทยาลัย</h1>
-                        <input type="text" id="id" placeholder="รหัสประจำตัวบุคลากร"><br>
-                        <input type="password" id="pswd" placeholder="รหัสผ่าน"><br>
+                    <h1>ระบบสารสนเทศ<br>สำหรับบุคลากรของมหาวิทยาลัย</h1>
+                        กรุณากรอกรหัสประจำตัวบุคลากร หรือ อีเมลของท่าน<br>
+                        <input type="text" id="email" placeholder="อีเมล"><br>
                         <div id = "sub">
-                            <input type="submit" value="เข้าสู่ระบบ">
-                            <a href = "staff-forgetpassword.php">ลืมรหัสผ่าน?</a>
+                            <input type="submit" value="ค้นหา">
                         </div>
                     </form>
-                </div>
-                    
-                <div id= "c-bot">
-                    <div id = "text">
-                        <br>สำหรับบุคลากรใหม่ <a href= "staff-new-login.php">ลงทะเบียนบุคลากรใหม่</a>
-                    </div>
                 </div>
             </div>
             <?php include "recruit-footer.php"; ?>
