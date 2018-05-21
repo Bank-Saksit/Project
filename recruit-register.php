@@ -14,7 +14,6 @@
             float: left;
             width: 250px;
             position: relative;
-            background: red;
             height: 100%;
         }
         #tab {
@@ -24,11 +23,29 @@
             text-align: right;
             border-right: 3px solid;
         }
+        #tab-content {
+            position: absolute;
+            top:70px;
+            margin-left: 30px;
+        }
         #main {
-            width: 900px;
+            width: 950px;
             float: left;
             position: relative;
             top: 50px;
+        }
+        #header {
+            width: 100%;
+            top: 80px;
+            position: relative;
+        }
+        #header > h1 {
+            font-family: "supermarket";
+            font-size: 70px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            border-bottom: 5px solid;
         }
 
     </style>
@@ -36,7 +53,7 @@
 </head>
 <body>
      <div id="left">
-        <br><a href="recruit-login.php" id="back">< ฺback</a>
+        <br><a href="recruit-login.php" id="back">< back</a>
         <ul class="nav nav-pills nav-stacked" id="tab">
             <li><a data-toggle="tab" href="#menu1">ประวัติส่วนตัว</a></li>
             <li><a data-toggle="tab" href="#menu2">ที่อยุ่ปัจจุบัน</a></li>
@@ -49,7 +66,7 @@
             <h1>สมัครเข้า</h1>
         </div>
         
-        <div class="tab-content">
+        <div class="tab-content" id="tab-content">
             <div id="menu1" class="tab-pane fade">
                 <h3>Menu 1</h3>
                 <p>Some content in menu 1.</p>
