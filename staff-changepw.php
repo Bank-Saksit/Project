@@ -130,7 +130,7 @@ session_start();
         }
     ?>
     <div id="left">
-        <br><a href="staff-new-login.php" id="back">< back</a>
+        <br><a href="staff-new-logout.php" id="back">< back</a>
     </div>
     <div id="main">
         <div id="header">
