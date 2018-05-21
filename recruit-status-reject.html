@@ -62,7 +62,7 @@
                     displayResponse(xmlhttp.responseText);
                 }
             }
-            xmlhttp.open("POST", url, true);
+            xmlhttp.open("GET", url, true);
             xmlhttp.send();
         }
         
@@ -72,7 +72,8 @@
                     "ชื่อ : "+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"<br>";
             document.getElementById("profile").innerHTML = out;
 
-            var outform = "<form action=\"recruit-status-reject-link.php?inID="+arr[0].RecruitID+"\" method=\"POST\">"+
+            // var outform = "<form action=\"recruit-status-reject-link.php?inID="+arr[0].RecruitID+"\" method=\"POST\">"+
+            var outform = "<form action=\"update("+arr[0].RecruitID+", inUni)\">"+
                             "ชื่อมหาวิทยาลัยที่เลือกศึกษาต่อ<br>"+
                             "<select name=\"inUni\">"+
                                 "<option value=\"ลาดกระบัง\">ลาดกระบัง</option>"+
@@ -92,20 +93,20 @@
             document.getElementById("content").innerHTML = outform;
         }
 
-        // function update(inID, inUni) {
-        //     var xmlhttp = new XMLHttpRequest();
-        //     var url = location.protocol + '//' + location.host+"/Project/recruit-status-reject-link.php?inID="+inID+"&inUni="+inUni;
+        function update(inID, inUni) {
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+"/Project/recruit-status-reject-link.php?inID="+inID+"&inUni="+inUni;
 
-        //     xmlhttp.onreadystatechange=function() {
-        //         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        //         //displayResponse(xmlhttp.responseText);
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //displayResponse(xmlhttp.responseText);
                 
-        //         }
-        //     }
-        //     xmlhttp.open("POST", url, true);
-        //     xmlhttp.send();
+                }
+            }
+            xmlhttp.open("POST", url, true);
+            xmlhttp.send();
 
-        // }
+        }
     </script>
 </body>
 </html>
