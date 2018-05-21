@@ -114,7 +114,7 @@ session_start();
             width: 60px;
             background: white;
         }
-        #cancle{
+        input[type=button]{
             font-family: "supermarket";
             width: 60px;
             margin-top: 20px;
@@ -149,8 +149,9 @@ session_start();
                     <input type="text" name="id" placeholder="รหัสผ่านใหม่"><br>
                     <input type="password" name="pswd" placeholder="ยืนยันรหัสผ่านใหม่"><br>
                     <input type="submit" value="ยืนยัน">
-                    <button id="cancle" onclick ="window.location.href='staff-new-logout.php'">ยกเลิก</button>
+                    <input type="button" id="cancle" onclick ="window.location.href='staff-new-logout.php'" value = "ยกเลิก">
                 </form>
+                
             </div>
         </div>
             
