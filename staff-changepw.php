@@ -144,10 +144,10 @@ session_start();
                 </div>
             </div>
             <div id="c-right">
-                <form method="post">
+                <form method="post" action ="staff-update-pw.php" >
                     <h1>สร้างรหัสผ่านใหม่</h1>
-                    <input type="text" name="id" placeholder="รหัสผ่านใหม่"><br>
-                    <input type="password" name="pswd" placeholder="ยืนยันรหัสผ่านใหม่"><br>
+                    <input type="password" name="pw" placeholder="รหัสผ่านใหม่"><br>
+                    <input type="password" name="pw2" placeholder="ยืนยันรหัสผ่านใหม่"><br>
                     <input type="submit" value="ยืนยัน">
                     <input type="button" id="cancle" onclick ="window.location.href='staff-new-logout.php'" value = "ยกเลิก">
                 </form>
