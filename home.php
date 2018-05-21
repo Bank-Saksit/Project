@@ -93,7 +93,7 @@
                         <h1>นักศึกษา</h1>
                     </div>
                 </div>
-                <div id="right" onclick="window.location.href='#'">
+                <div id="right" onclick="window.location.href='staff-home.php'">
                     <div>
                         <img data-u="image" src="img/gallery/980x380/004.jpg" />
                         <h1>บุคลากร</h1>
