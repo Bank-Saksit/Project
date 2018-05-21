@@ -122,7 +122,7 @@
 </head>
 <body>
     <div id="left">
-        <br><a href="student-new-login.php" id="back">< back</a>
+        <br><a href="staff-new-login.php" id="back">< back</a>
     </div>
     <div id="main">
         <div id="header">
@@ -130,7 +130,7 @@
         </div>
         <div id="content">
             <div id="c-left">
-                <h1>ข้อมูลนักศึกษา</h1>
+                <h1>ข้อมูลบุคคลากร</h1>
                 <div id ="data">
                     
                 </div>
@@ -151,7 +151,7 @@
                     
             function load(){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol + '//' + location.host+"/Project/student-changepw-link.php?inID=59070501066";
+                var url = location.protocol + '//' + location.host+"/Project/staff-changepw-link.php?inID=1";
                         
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -169,13 +169,12 @@
                 age = 18;
             
                 var out = "ชื่อ "+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"<br>"+
-                            "รหัสนักศึกษา "+ arr[0].StudentID +"<br>"+
+                            "รหัสประจำตัวบุคคลากร "+ arr[0].StaffID +"<br>"+
                             "วันเกิด "+ arr[0].DOB +
                             " อายุ "+ age +" ปี"+
                             " กลุ่มเลือด "+ arr[0].BloodGroup +"<br>"+
                             "รหัสประจำตัวประชาชน "+ arr[0].IDCardNumber +"<br>"+
                             "ที่อยู่ "+ arr[0].Address +"<br>"+
-                            "คณะ "+ arr[0].Faculty +"<br>"+
                             "ภาควิชา "+ arr[0].Department;
             
                 document.getElementById("data").innerHTML = out;
