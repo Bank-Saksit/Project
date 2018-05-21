@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
 -- Generation Time: May 21, 2018 at 01:46 PM
-=======
--- Generation Time: May 21, 2018 at 01:33 PM
->>>>>>> b2ec7736f94c939e145084ee31b013729c949ec9
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -51,7 +47,6 @@ INSERT INTO `bill` (`BillID`, `StudentID`, `DateRegister`, `DatePay`, `Semester`
 -- --------------------------------------------------------
 
 --
-<<<<<<< HEAD
 -- Table structure for table `billrecruit`
 --
 
@@ -75,8 +70,6 @@ INSERT INTO `billrecruit` (`BillRecruitID`, `RecruitID`, `DateRegister`, `DatePa
 -- --------------------------------------------------------
 
 --
-=======
->>>>>>> b2ec7736f94c939e145084ee31b013729c949ec9
 -- Table structure for table `departmentinfo`
 --
 
@@ -492,15 +485,12 @@ ALTER TABLE `bill`
   MODIFY `BillID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100001;
 
 --
-<<<<<<< HEAD
 -- AUTO_INCREMENT for table `billrecruit`
 --
 ALTER TABLE `billrecruit`
   MODIFY `BillRecruitID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100001;
 
 --
-=======
->>>>>>> b2ec7736f94c939e145084ee31b013729c949ec9
 -- AUTO_INCREMENT for table `parentinfo`
 --
 ALTER TABLE `parentinfo`
@@ -522,11 +512,7 @@ ALTER TABLE `schoolinfo`
 -- AUTO_INCREMENT for table `staffinfo`
 --
 ALTER TABLE `staffinfo`
-<<<<<<< HEAD
   MODIFY `StaffID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
-=======
-  MODIFY `StaffID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2147483647;
->>>>>>> b2ec7736f94c939e145084ee31b013729c949ec9
 
 --
 -- Constraints for dumped tables
