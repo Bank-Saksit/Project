@@ -52,7 +52,7 @@
             clear: both;
             width: 100%;
             position: relative;
-            height: 550px;
+            height: 450px;
             top: 110px;
         }
         #c-left {
@@ -151,7 +151,7 @@
                     
             function load(){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol + '//' + location.host+"/Project/staff-changepw-link.php?inID=1";
+                var url = location.protocol + '//' + location.host+"/Project/staff-changepw-link.php?inID="+<?php echo $_GET['inID'];?>;
                         
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
