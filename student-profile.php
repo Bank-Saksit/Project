@@ -80,13 +80,8 @@
                     <?php
 						include "dblink.php";
 						$result = mysqli_query($conn,"SELECT StudentID FROM studentinfo WHERE StudentID='59070501066'");
-
-						echo"<select name = 'School'>";
-						echo"<option value = ''>โปรดเลือก</option>";
-						while($row = $result->fetch_array(MYSQLI_ASSOC)){
-							echo "<option value = '" . $row['SchoolID']."'>".$row['SchoolID'].$row['SchoolName']."</option>";
-						}
-						echo"</select>";
+						while($row = $result->fetch_array(MYSQLI_ASSOC))
+							echo $row['StudentID'];
 					?>
 					ชื่อจริง:<br>
 					<input type="text" name="Fname"><br>
