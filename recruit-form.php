@@ -21,7 +21,8 @@ $EducationBackground= mysqli_real_escape_string($conn, $_POST['EducationBackgrou
 $Branch= mysqli_real_escape_string($conn, $_POST['Branch']);
 $SchoolGPAX= mysqli_real_escape_string($conn, $_POST['SchoolGPAX']);
 $RecruitPlanName = mysqli_real_escape_string($conn, $_POST['RecruitPlanName']);
-$Status =  'รอจ่ายค่าสมัคร' ;
+$Status = 'รอจ่ายค่าสมัคร' ;
+
 $sql="INSERT INTO `recruitinfo`(`RecruitPlanName`, `MobileNumber`, `TelNumber`, `Email`, `SchoolID`, `EducationBackground`, `Branch`, `SchoolGPAX`, `Status`, `IDCardNumber`, `Prefix`, `FirstName`, `LastName`, `Gender`, `DOB`, `Nationality`, `Race`, `Religion`, `BloodGroup`, `Address`, `Province`, `PostCode`)
 VALUES ('$RecruitPlanName','$MobileNo','$TelNo','$Email','$School','$EducationBackground',
 '$Branch','$SchoolGPAX','$Status','$IDCardNum','$Prefix','$Fname','$Lname','$Gender','$DOB ','$Nationality',
@@ -29,19 +30,19 @@ VALUES ('$RecruitPlanName','$MobileNo','$TelNo','$Email','$School','$EducationBa
 if (!mysqli_query($conn,$sql)) {
 	die('Error: ' . mysqli_error($conn));
 }
-echo "1 record added";
+
 $result = $conn ->query("SELECT RecruitID FROM recruitinfo WHERE IDCardNumber=$IDCardNum AND RecruitPlanName='$RecruitPlanName'");
 while($row = $result->fetch_array(MYSQLI_ASSOC)){	
 	for($i=0; $i<count($_POST["Department"]) ;$i++){
-	if(trim($_POST["Department"][$i] != '' )){
-		echo "555";
-		$Department = mysqli_real_escape_string($conn, $_POST['Department'][$i]);
-		$sql = "INSERT INTO nodepartment VALUES('".$row["RecruitID"]."','$i','$Department')"; 
-		if (!mysqli_query($conn,$sql)) {
-			die('Error: ' . mysqli_error($conn));
+		if(trim($_POST["Department"][$i] != '' )){
+			$Department = mysqli_real_escape_string($conn, $_POST['Department'][$i]);
+			$sql = "INSERT INTO nodepartment VALUES('".$row["RecruitID"]."','$i','$Department')"; 
+			if (!mysqli_query($conn,$sql)) {
+				die('Error: ' . mysqli_error($conn));
+			}
 		}
 	}
 }
-}
+echo "1 record added";
 mysqli_close($conn);
 ?>
