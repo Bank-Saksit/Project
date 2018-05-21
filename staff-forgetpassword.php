@@ -122,7 +122,7 @@
     </head>
     <body>
         <div id="left">
-            <br><a href="student-home.php" id="back">< back</a>
+            <br><a href="staff-home.php" id="back">< back</a>
         </div>
         <div id="main">
             <div id="header">
@@ -131,8 +131,8 @@
             <div id="content">
                 <div id="c-top">
                     <form method="post">
-                        <h1>ระบบสารสนเทศ<br>เพื่อการบริหารการศึกษา</h1>
-                        กรุณากรอกรหัสนักศึกษา หรือ อีเมลของท่าน<br>
+                    <h1>ระบบสารสนเทศ<br>สำหรับบุคลากรของมหาวิทยาลัย</h1>
+                        กรุณากรอกรหัสประจำตัวบุคลากร หรือ อีเมลของท่าน<br>
                         <input type="text" id="email" placeholder="อีเมล"><br>
                         <div id = "sub">
                             <input type="submit" value="ค้นหา">
