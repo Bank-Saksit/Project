@@ -10,7 +10,7 @@ session_start();
     <title>สละสิทธิ์</title>
     <style>
         @import "global1.css";
-        #sm {
+        #sm,#sm-sub {
             width: 100px;
             height: 40px;
             margin-left: 20px;
@@ -85,7 +85,7 @@ session_start();
                 "<br>เหตุผล<br>"+
                 "<textarea rows=3 cols=50 name=\"reason\" style=\"resize:none\"></textarea><br>"+
                 "<div id='button'>"+
-                "<input id='sm' type=\"button\" value=\"ยืนยัน\" onclick=\"update()\">"+
+                "<input id='sm-sub' type=\"button\" value=\"ยืนยัน\" onclick=\"update()\">"+
                 "<input id='sm' type=\"button\" value=\"ย้อนกลับ\" onclick=\"window.location.href='recruit-status.php'\">"+
                 "</div>";
             document.getElementById("detail").innerHTML = outlist;
