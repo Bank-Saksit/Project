@@ -15,7 +15,7 @@
                 font-family: "supermarket";
                 margin: 0;
                 padding: 0;
-                background: #dfdfdf;
+                background: #ebebeb;
                 color: #444444;
                 width: 100%;
             }
