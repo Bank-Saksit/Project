@@ -117,10 +117,10 @@
             </div>
             <div id="content">
                 <div id="c-top">
-                    <form method="post">
+                    <form action="staff-new-login-link.php" method="post" >
                         <h1>ระบบสารสนเทศ<br>สำหรับบุคคลากรของมหาวิทยาลัย</h1>
-                        <input type="text" id="id" placeholder="รหัสประจำตัวบุคคลากร"><br>
-                        <input type="password" id="pswd" placeholder="รหัสบัตรประจำตัวประชาชน"><br>
+                        <input type="text" name="id" placeholder="รหัสประจำตัวบุคคลากร"><br>
+                        <input type="password" name="pswd" placeholder="รหัสบัตรประจำตัวประชาชน"><br>
                         <input type="submit" value="เข้าสู่ระบบ">
                     </form>
                 </div>
