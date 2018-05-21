@@ -68,7 +68,7 @@
             margin: 5px;
             text-align: center;
         }
-        button {
+        input[type = "submit"]{
             font-family: "supermarket";
             padding: 8px;
             width: 100px;
@@ -109,7 +109,7 @@
                         <h2>ตรวจสอบสถานะ</h2>
                         <input type="text" id="id" placeholder="รหัสประจำตัวผู้สมัคร"><br>
                         <input type="password" id="pswd" placeholder="รหัสประจำตัวประชาชน"><br>
-                        <button>เข้าสู่ระบบ</button>
+                        <input type="submit" value="เข้าสู่ระบบ">
                     </form>
                 </div>
                 <div id="c-r-bottom" onclick="window.location.href='recruit-register.php'">
