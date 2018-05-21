@@ -118,7 +118,7 @@ session_start();
         }
         ?> 
         <div id="left">
-            <br><a href="staff-home.php" id="back">< back</a>
+            <br><a href="staff-home.php" id="back">< logout</a>
         </div>
         <div id="main">
             <div id="header">
