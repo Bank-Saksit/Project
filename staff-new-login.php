@@ -113,13 +113,13 @@
         </div>
         <div id="main">
             <div id="header">
-                <h1>ลงทะเบียนสำหรับบุคคลากรใหม่</h1>
+                <h1>ลงทะเบียนสำหรับบุคลากรใหม่</h1>
             </div>
             <div id="content">
                 <div id="c-top">
                     <form method="post">
-                        <h1>ระบบสารสนเทศ<br>สำหรับบุคคลากรของมหาวิทยาลัย</h1>
-                        <input type="text" id="id" placeholder="รหัสประจำตัวบุคคลากร"><br>
+                        <h1>ระบบสารสนเทศ<br>สำหรับบุคลากรของมหาวิทยาลัย</h1>
+                        <input type="text" id="id" placeholder="รหัสประจำตัวบุคลากร"><br>
                         <input type="password" id="pswd" placeholder="รหัสบัตรประจำตัวประชาชน"><br>
                         <input type="submit" value="เข้าสู่ระบบ">
                     </form>
