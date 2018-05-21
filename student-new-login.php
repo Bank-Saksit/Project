@@ -93,8 +93,7 @@
                 color: white;
             }
             input[type=submit] {
-                padding: 5px;
-                width: 80px;
+                width: 60px;
                 margin-top: 25px;
                 margin-left: 10px;
                 background: white;

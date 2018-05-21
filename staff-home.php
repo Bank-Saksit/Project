@@ -64,7 +64,7 @@
                 top: 0;
                 text-align: left;
                 position: relative;
-                background: gray;
+                background: #444444;
                 color: white;
             }
             #c-bot {
@@ -81,29 +81,28 @@
                 padding-left : 30px;
             }
             input[type=text] {
-                background: #444444;
+                background: #242424;
                 margin-top: 0px;
                 padding-left: 30px;
                 width: 310px;
                 height:30px;
                 text-align: left;
-                
+                color:#ffffff;
             }
             ::placeholder {
                 color: white;
             }
             input[type=password] {
-                background: #444444;
+                background: #242424;
                 margin-top: 15px;
                 padding-left: 30px;
                 width: 310px;
                 height: 30px;
                 text-align: left;
+                color:#ffffff;
             }
             input[type=submit] {
-                font-family: "supermarket";
-                padding: 5px;
-                width: 80px;
+                width: 60px;
                 background: white;
             }
             #sub{
@@ -123,7 +122,7 @@
     </head>
     <body>
         <div id="left">
-            <br><a href="home.php" id="back">< ฺback</a>
+            <br><a href="home.php" id="back">< back</a>
         </div>
         <div id="main">
             <div id="header">
@@ -133,7 +132,7 @@
                 <div id="c-top">
                     <form method="post">
                         <h1>ระบบสารสนเทศ<br>สำหรับบุคคลากรของมหาวิทยาลัย</h1>
-                        <input type="text" id="id" placeholder="รหัสนักศึกษา"><br>
+                        <input type="text" id="id" placeholder="รหัสประจำตัวบุคคลากร"><br>
                         <input type="password" id="pswd" placeholder="รหัสผ่าน"><br>
                         <div id = "sub">
                             <input type="submit" value="เข้าสู่ระบบ">
@@ -144,7 +143,7 @@
                     
                 <div id= "c-bot">
                     <div id = "text">
-                        <br>สำหรับบุคคลากรใหม่ <a href= "student-new-login.php">ลงทะเบียนบุคคลากรใหม่</a>
+                        <br>สำหรับบุคคลากรใหม่ <a href= "staff-new-login.php">ลงทะเบียนบุคคลากรใหม่</a>
                     </div>
                 </div>
             </div>
