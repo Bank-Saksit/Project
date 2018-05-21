@@ -68,11 +68,12 @@ session_start();
             text-align:center;
             margin-top:40px;
         }
-        #sm {
+        #sm,#sm-sub {
             width: 100px;
             height: 40px;
             margin-left: 20px;
             margin-right: 20px;
+            border-radius: 10px;
         }
 
     </style>
@@ -150,8 +151,8 @@ session_start();
             stat = "<table id='tb-status'<tr><td id='t4'> สถานะ </td><td>" + arr[0].Status; +"</td></tr></table>";
             document.getElementById("status").innerHTML = stat;
 
-            if(arr[0].Status == "รอยืนยันสิทธิ์"){
-                sm = "<button id='sm' onclick=\"window.location.href='#'\">ยืนยันสิทธิ์</button>";
+            if(arr[0].Status == "สละสิทธิ์"){
+                sm = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.html'\">ยืนยันสิทธิ์</button>";
                 sm += "<button id='sm' onclick=\"window.location.href='#'\">สละสิทธิ์</button>";
             }
             document.getElementById("submit").innerHTML = sm;
