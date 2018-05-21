@@ -59,3 +59,12 @@ a {
     margin: 5px;
     color: #444444;
 }
+input[type = "text"] {
+    font-family: "supermarket";
+}
+input[type = "password"] {
+    font-family: "supermarket";
+}
+input[type = "submit"]{
+    font-family: "supermarket";
+}

@@ -45,9 +45,14 @@
             cursor: pointer;
         }
         #c-r-bottom > h1 {
-            margin-top: 0;
-            font-size: 70px;
+            margin-top: -15px;
+            font-size: 80px;
             color: white;
+        }
+        #c-r-bottom > div > h3 {
+            font-size: 40px;
+            color: white;
+            margin-left: 30px;
         }
         #c-r-bottom > div {
             top: 50px;
@@ -63,8 +68,9 @@
             margin: 5px;
             text-align: center;
         }
-        button {
-            padding: 10px;
+        input[type = "submit"]{
+            font-family: "supermarket";
+            padding: 8px;
             width: 100px;
             margin-top: 5px;
             border-radius: 5px;
@@ -77,12 +83,16 @@
             font-size:40px;
             color: white;
         }
+        h2 {
+            margin:10px;
+        }
+            
     </style>    
 
 </head>
 <body>  
     <div id="left">
-        <br><a href="home.php" id="back">< ฺback</a>
+        <br><a href="home.php" id="back">< back</a>
     </div>
     <div id="main">
         <div id="header">
@@ -99,13 +109,13 @@
                         <h2>ตรวจสอบสถานะ</h2>
                         <input type="text" id="id" placeholder="รหัสประจำตัวผู้สมัคร"><br>
                         <input type="password" id="pswd" placeholder="รหัสประจำตัวประชาชน"><br>
-                        <button>เข้าสู่ระบบ</button>
+                        <input type="submit" value="เข้าสู่ระบบ">
                     </form>
                 </div>
                 <div id="c-r-bottom" onclick="window.location.href='recruit-register.php'">
-                    <h1>&nbsp; สมัคร</h1>
+                    <h1>&nbsp;&nbsp;สมัคร</h1>
                     <div>
-                        <h3>&nbsp; เข้าร่วมโครงการ</h3><br>
+                        <h3 id="text">&nbsp;เข้าร่วมโครงการ</h3><br>
                     </div>
                     <h3 id="next"> >> </h3>
                 </div>

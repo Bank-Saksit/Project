@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>สำหรับนักศึกษา</title>
+        <title>สำหรับบุคคลากร</title>
         <style>
             @import "global1.css";
             html, body { 
@@ -132,7 +132,7 @@
             <div id="content">
                 <div id="c-top">
                     <form method="post">
-                        <h1>ระบบสารสนเทศ<br>เพื่อการบริหารการศึกษา</h1>
+                        <h1>ระบบสารสนเทศ<br>สำหรับบุคคลากรของมหาวิทยาลัย</h1>
                         <input type="text" id="id" placeholder="รหัสนักศึกษา"><br>
                         <input type="password" id="pswd" placeholder="รหัสผ่าน"><br>
                         <div id = "sub">
@@ -144,7 +144,7 @@
                     
                 <div id= "c-bot">
                     <div id = "text">
-                        <br>สำหรับนักศึกษาใหม่ <a href= "student-new-login.php">ลงทะเบียนนักศึกษาใหม่</a>
+                        <br>สำหรับบุคคลากรใหม่ <a href= "student-new-login.php">ลงทะเบียนบุคคลากรใหม่</a>
                     </div>
                 </div>
             </div>

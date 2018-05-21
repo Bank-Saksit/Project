@@ -91,6 +91,7 @@
                 color: white;
             }
             input[type=submit] {
+                font-family: "supermarket";
                 padding: 5px;
                 width: 80px;
                 margin-top: 25px;
@@ -108,7 +109,7 @@
     </head>
     <body>
         <div id="left">
-            <br><a href="home.php" id="back">< ฺback</a>
+            <br><a href="student-home.php" id="back">< ฺback</a>
         </div>
         <div id="main">
             <div id="header">

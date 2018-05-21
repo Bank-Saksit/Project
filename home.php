@@ -83,19 +83,19 @@
             <div id="content">
                 <div id="left" onclick="window.location.href='recruit-login.php'">
                     <div>
-                        <img data-u="image" src="img/gallery/980x380/002.jpg" />
+                        <img data-u="image" src="img/gallery/980x380/053.jpg" />
                         <h1>นักเรียน</h1>
                     </div>
                 </div>
                 <div id="center" onclick="window.location.href='student-home.php'">
                     <div>
-                        <img data-u="image" src="img/gallery/980x380/003.jpg" />
+                        <img data-u="image" src="img/gallery/980x380/054.jpg" />
                         <h1>นักศึกษา</h1>
                     </div>
                 </div>
-                <div id="right" onclick="window.location.href='#'">
+                <div id="right" onclick="window.location.href='staff-home.php'">
                     <div>
-                        <img data-u="image" src="img/gallery/980x380/004.jpg" />
+                        <img data-u="image" src="img/gallery/980x380/055.jpg" />
                         <h1>บุคลากร</h1>
                     </div>
                 </div>
