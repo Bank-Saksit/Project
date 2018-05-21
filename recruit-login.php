@@ -117,7 +117,7 @@ session_start();
         </div>
         <div id="content">
             <div id="c-left">
-                <?php include "js/jssor/examples-jquery/recruit-slides.php"; ?>
+            <?php include "js/jssor/examples-jquery/recruit-slides.php"; ?>
             </div>
             <div id="c-right">
                 <div id="c-r-top">
