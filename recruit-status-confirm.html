@@ -8,8 +8,7 @@
     <style>
         @import "global1.css";
         #content {
-            width: 80%;
-            margin-left: 10%;
+            font-size: 20px;
         }
     </style>
 </head>
@@ -21,8 +20,11 @@
         <div id="header">
             <h1>ยืนยันสิทธิ์</h1>
         </div>
+        <div id="content">
+            <div id="detail"></div>
+        </div>
     </div>
-    <div id="content"></div>
+    
 
     <script>
         load();
@@ -50,7 +52,7 @@
                     "ปีการศึกษา : 1/"+ arr[0].AcademicYear +"<br>"+
                     "จำนวนเงินที่ต้องจ่าย : 20,000 บาท";
 
-            document.getElementById("content").innerHTML = out;
+            document.getElementById("detail").innerHTML = out;
         }
     </script>
 </body>
