@@ -87,10 +87,19 @@ session_start();
         }
         h2 {
             margin:10px;
+        } 
+        @media only screen and (max-width:820px) {
+            /* For mobile phones: */
+                #content, #main,#c-left,#id,#pswd,#submit{
+                width:100%;
+                }
+                #c-right,#c-r-top,#c-r-bottom {
+                    float: left;
+                    margin-left:0px;
+                }
         }
             
     </style>    
-
 </head>
 <body>
     <?php
@@ -108,7 +117,7 @@ session_start();
         </div>
         <div id="content">
             <div id="c-left">
-                <?php include "js/jssor/examples-jquery/recruit-slides.php"; ?>
+            <?php include "js/jssor/examples-jquery/recruit-slides.php"; ?>
             </div>
             <div id="c-right">
                 <div id="c-r-top">

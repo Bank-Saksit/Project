@@ -107,9 +107,9 @@
             }
             #sub{
                 width: 310px;
-                padding-left: 25px;
+                padding-left: 10px;
                 margin-top:20px;
-                text-align: center;
+                text-align: left;
             }
             div#text >a {
                 text-decoration: underline;
@@ -122,29 +122,22 @@
     </head>
     <body>
         <div id="left">
-            <br><a href="home.php" id="back">< back</a>
+            <br><a href="staff-home.php" id="back">< back</a>
         </div>
         <div id="main">
             <div id="header">
-                <h1>ยินดีต้อนรับ</h1>
+                <h1>ลืมรหัสผ่าน</h1>
             </div>
             <div id="content">
                 <div id="c-top">
                     <form method="post">
-                        <h1>ระบบสารสนเทศ<br>เพื่อการบริหารการศึกษา</h1>
-                        <input type="text" id="id" placeholder="รหัสนักศึกษา"><br>
-                        <input type="password" id="pswd" placeholder="รหัสผ่าน"><br>
+                    <h1>ระบบสารสนเทศ<br>สำหรับบุคลากรของมหาวิทยาลัย</h1>
+                        กรุณากรอกรหัสประจำตัวบุคลากร หรือ อีเมลของท่าน<br>
+                        <input type="text" id="email" placeholder="อีเมล"><br>
                         <div id = "sub">
-                            <input type="submit" value="เข้าสู่ระบบ">
-                            <a href = "student-forgetpassword.php">ลืมรหัสผ่าน?</a>
+                            <input type="submit" value="ค้นหา">
                         </div>
                     </form>
-                </div>
-                    
-                <div id= "c-bot">
-                    <div id = "text">
-                        <br>สำหรับนักศึกษาใหม่ <a href= "student-new-login.php">ลงทะเบียนนักศึกษาใหม่</a>
-                    </div>
                 </div>
             </div>
             <?php include "recruit-footer.php"; ?>

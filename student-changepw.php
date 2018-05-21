@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,7 +114,7 @@
             width: 60px;
             background: white;
         }
-        #cancle{
+        input[type=button]{
             font-family: "supermarket";
             width: 60px;
             margin-top: 20px;
@@ -121,8 +124,13 @@
     </style>
 </head>
 <body>
+    <?php
+        if(!isset($_SESSION['id'])){
+            header("location:student-new-login.php");
+        }
+    ?>
     <div id="left">
-        <br><a href="student-new-login.php" id="back">< back</a>
+        <br><a href="student-new-logout.php" id="back">< logout</a>
     </div>
     <div id="main">
         <div id="header">
@@ -136,12 +144,12 @@
                 </div>
             </div>
             <div id="c-right">
-                <form method="post">
+                <form method="post" action="student-update-pw.php">
                     <h1>สร้างรหัสผ่านใหม่</h1>
-                    <input type="text" id="id" placeholder="รหัสผ่านใหม่"><br>
-                    <input type="password" id="pswd" placeholder="ยืนยันรหัสผ่านใหม่"><br>
+                    <input type="password" name="pw" placeholder="รหัสผ่านใหม่"><br>
+                    <input type="password" name="pw2" placeholder="ยืนยันรหัสผ่านใหม่"><br>
                     <input type="submit" value="ยืนยัน">
-                    <button id="cancle">ยกเลิก</button>
+                    <input type="button" id="cancle" onclick ="window.location.href='student-new-logout.php'" value = "ยกเลิก">
                 </form>
             </div>
         </div>
@@ -151,7 +159,7 @@
                     
             function load(){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol + '//' + location.host+"/Project/student-changepw-link.php?inID=59070501066";
+                var url = location.protocol + '//' + location.host+"/Project/student-changepw-link.php?inID="+<?php echo $_SESSION['id'];?>;
                         
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {

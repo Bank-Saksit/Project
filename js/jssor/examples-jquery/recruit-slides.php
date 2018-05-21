@@ -140,16 +140,16 @@
         <!-- Slides Container -->
         <div data-u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 510px; height: 300px; ">
             <div>
-                <img data-u="image" src="img/gallery/980x380/002.jpg" />
+                <img data-u="image" src="img/gallery/980x380/059.jpg" />
             </div>
             <div>
-                <img data-u="image" src="img/gallery/980x380/003.jpg" onclick="window.location.href='#'"/>
+                <img data-u="image" src="img/gallery/980x380/060.jpg" onclick="window.location.href='#'"/>
             </div>
             <div>
-                <img data-u="image" src="img/gallery/980x380/004.jpg" />
+                <img data-u="image" src="img/gallery/980x380/061.jpg" />
             </div>
             <div>
-                <img data-u="image" src="img/gallery/980x380/005.jpg" />
+                <img data-u="image" src="img/gallery/980x380/062.jpg" />
             </div>
         </div>
         

@@ -103,7 +103,6 @@ session_start();
 
     <script>
         loadRecruit();
-        
         function loadRecruit(){
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID="+
@@ -117,7 +116,6 @@ session_start();
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
         }
-        
         function displayResponse(response) {
             var arr = JSON.parse(response);
             var i;
