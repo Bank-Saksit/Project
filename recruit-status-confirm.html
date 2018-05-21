@@ -10,6 +10,18 @@
         #content {
             font-size: 20px;
         }
+        #bill {
+            width: 100%;
+            text-align: center;
+        }
+        #bill > button {
+            width: 100px;
+            height: 40px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 5%;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -18,10 +30,14 @@
     </div>
     <div id="main">
         <div id="header">
-            <h1>ยืนยันสิทธิ์</h1>
+            <h1>รอจ่ายเงิน</h1>
         </div>
         <div id="content">
             <div id="detail"></div>
+            <div id="bill">
+                <button onclick="window.location.href='#'">พิมพ์ใบเสร็จ</button>
+                <button onclick="window.location.href='recruit-status.php'">ย้อนกลับ</button>
+            </div>
         </div>
     </div>
     
