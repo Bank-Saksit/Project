@@ -33,7 +33,7 @@
             top: 0;
             text-align: center;
             position: absolute;
-            background: gray;
+            background: #444444;
             color: white;
         }
         #c-r-bottom {
@@ -41,7 +41,7 @@
             height: 170px;
             position: absolute;
             bottom: 0;
-            background: gray;
+            background: #444444;
             cursor: pointer;
         }
         #c-r-bottom > h1 {
@@ -61,12 +61,13 @@
             color: white;
             position: absolute;
         }
-        input {
-            background: #444444;
+        #id,#pswd {
+            background: #242424;
             padding: 3px;
             width: 300px;
             margin: 5px;
             text-align: center;
+            color:white;
         }
         input[type = "submit"]{
             font-family: "supermarket";
