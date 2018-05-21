@@ -83,7 +83,7 @@
             <div id="content">
                 <div id="left" onclick="window.location.href='recruit-login.php'">
                     <div>
-                        <img data-u="image" src="img/gallery/980x380/053.jpg" />
+                        <img data-u="image" src="img/gallery/980x380/056.jpg" />
                         <h1>นักเรียน</h1>
                     </div>
                 </div>
