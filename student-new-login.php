@@ -72,7 +72,7 @@
                 padding-left : 30px;
             }
             input[type=text] {
-                background: #000000;
+                background: #242424;
                 margin-top: 10px;
                 padding-left: 30px;
                 width: 310px;
@@ -81,7 +81,7 @@
                 color: white;
             }
             input[type=password] {
-                background: #000000;
+                background: #242424;
                 margin-top: 20px;
                 padding-left: 30px;
                 width: 310px;
