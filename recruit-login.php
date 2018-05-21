@@ -45,9 +45,14 @@
             cursor: pointer;
         }
         #c-r-bottom > h1 {
-            margin-top: 0;
-            font-size: 70px;
+            margin-top: -15px;
+            font-size: 80px;
             color: white;
+        }
+        #c-r-bottom > div > h3 {
+            font-size: 40px;
+            color: white;
+            margin-left: 30px;
         }
         #c-r-bottom > div {
             top: 50px;
@@ -78,13 +83,16 @@
             font-size:40px;
             color: white;
         }
+        h2 {
+            margin:10px;
+        }
             
     </style>    
 
 </head>
 <body>  
     <div id="left">
-        <br><a href="home.php" id="back">< ฺback</a>
+        <br><a href="home.php" id="back">< back</a>
     </div>
     <div id="main">
         <div id="header">
@@ -107,7 +115,7 @@
                 <div id="c-r-bottom" onclick="window.location.href='recruit-register.php'">
                     <h1>&nbsp;&nbsp;สมัคร</h1>
                     <div>
-                        <h3>&nbsp;เข้าร่วมโครงการ</h3><br>
+                        <h3 id="text">&nbsp;เข้าร่วมโครงการ</h3><br>
                     </div>
                     <h3 id="next"> >> </h3>
                 </div>
