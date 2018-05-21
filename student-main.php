@@ -22,14 +22,14 @@
         #tab {
             position: absolute;
             right: 0;
-            top: 200px;
+            top: 150px;
             text-align: right;
             border-right: 3px solid;
         }
         #tab-content {
             position: absolute;
-            top:70px;
-            margin-left: 30px;
+            top:120px;
+            margin-left: 40px;
         }
         #main {
             width: 950px;
@@ -40,35 +40,36 @@
         }
         #header {
             width: 100%;
-            top: 50px;
+            top: 15px;
             position: relative;
-            /*list-style-type: none;
+            list-style-type: none;
             margin: 0;
             padding: 0;
-            overflow: hidden;
-            background-color:#ebebeb;*/
+            background-color:#ebebeb;
         }
-        #header > hi {
+        /*#header > hi {
             font-family: "supermarket";
             font-size: 20px;
             position: absolute;
             bottom: 0;
             width: 100%;
-            border-bottom: 10px solid;
+            <!border-bottom: 10px solid;>
             float: left;
-        }
+        }*/
         #header > hi a {
             font-family: "supermarket";
+            font-size: 30px;
             display: block;
-            color:black;
+            color: black;
             text-align: center;
-            padding: 14px 16px;
+            padding: 14px 20px;
             text-decoration: none;
-            border-bottom: 10px solid;
+            border-bottom: 5px solid;
             float: left;
         }
         #header > hi a:hover {
             background-color: #111;
+            color:white;
         }
         li{
             font-size: 20px;
@@ -83,20 +84,36 @@
 <body>
      <div id="left">
         <br><a href="student-home.php" id="back">< back</a>
-        <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a data-toggle="tab" href="#menu1">ประวัติส่วนตัว</a></li>
-            <li><a data-toggle="tab" href="#menu2">ที่อยุ่ปัจจุบัน</a></li>
-            <li><a data-toggle="tab" href="#menu3">ประวัติด้านการศึกษา</a></li>
-            <li><a data-toggle="tab" href="#menu4">โครงการที่เข้าศึกษา</a></li>
-        </ul>
+            <div id="data" class = "tabcontent">
+                <ul class="nav nav-pills nav-stacked" id="tab">
+                    <li><a data-toggle="tab" href="#menu1">ประวัติส่วนตัว</a></li>
+                    <li><a data-toggle="tab" href="#menu2">ที่อยุ่ปัจจุบัน</a></li>
+                    <li><a data-toggle="tab" href="#menu3">ประวัติด้านการศึกษา</a></li>
+                    <li><a data-toggle="tab" href="#menu4">โครงการที่เข้าศึกษา</a></li>
+                </ul>
+            </div>
+            <div id="subject" class = "tabcontent">
+            
+            </div>
+            <div id="result" class = "tab-pane fade">
+            
+            </div>
+            <div id="table" class = "tab-pane fade">
+            
+            </div>
+            <div id="assess" class = "tab-pane fade">
+            
+            </div>
      </div>
      <div id="main">
-        <div id="header">
-            <hi><a class="active" href="#home">ข้อมูลนักศึกษา</a></hi>
-            <hi><a href="#news">ลงทะเบียนเรียน</a></hi>
-            <hi><a href="#contact">ผลการเรียน</a></hi>
-            <hi><a href="#about">ตารางเรียน</a></hi>
+        <div  id="header" >
+            <hi><a class = "tablinks" onclik ="openNav(event,'data')">ข้อมูลนักศึกษา</a></hi>
+            <hi><a class = "tablinks" onclik ="openNav(event,'subject')">ลงทะเบียนเรียน</a></hi>
+            <hi><a class = "tablinks" onclik ="openNav(event,'result')">ผลการเรียน</a></hi>
+            <hi><a class = "tablinks" onclik ="openNav(event,'table')">ตารางเรียน</a></hi>
+            <hi><a class = "tablinks" onclik ="openNav(event,'assesss')">การประเมิน</a></hi>
         </div>
+        
         <div class="tab-content" id="tab-content">
             <div id="menu1" class="tab-pane fade">
                 <h3>ประวัติส่วนตัว</h3>
