@@ -1,8 +1,8 @@
 <?php
 include "dblink.php";
 $id = (int)$_GET['inID'];
-$result = $conn->query("SELECT Prefix, FirstName, LastName, StaffID, DOB, BloodGroup, IDCardNumber, s.Address, Department
-                        FROM staffinfo s
+$result = $conn->query("SELECT Prefix, FirstName, LastName, StaffID, DOB, BloodGroup, IDCardNumber, Address, Department
+                        FROM staffinfo 
                         WHERE StaffID = $id;");
 
 $outp = "[";
