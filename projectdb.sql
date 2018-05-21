@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
 -- Generation Time: May 21, 2018 at 01:46 PM
-=======
--- Generation Time: May 21, 2018 at 01:33 PM
->>>>>>> b2ec7736f94c939e145084ee31b013729c949ec9
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -51,7 +47,6 @@ INSERT INTO `bill` (`BillID`, `StudentID`, `DateRegister`, `DatePay`, `Semester`
 -- --------------------------------------------------------
 
 --
-<<<<<<< HEAD
 -- Table structure for table `billrecruit`
 --
 
@@ -75,8 +70,6 @@ INSERT INTO `billrecruit` (`BillRecruitID`, `RecruitID`, `DateRegister`, `DatePa
 -- --------------------------------------------------------
 
 --
-=======
->>>>>>> b2ec7736f94c939e145084ee31b013729c949ec9
 -- Table structure for table `departmentinfo`
 --
 
@@ -184,14 +177,9 @@ CREATE TABLE `recruitinfo` (
 --
 
 INSERT INTO `recruitinfo` (`RecruitID`, `RecruitPlanName`, `NoPass`, `MobileNumber`, `TelNumber`, `Email`, `SchoolID`, `EducationBackground`, `Branch`, `SchoolGPAX`, `Status`, `MovedUniversityName`, `IDCardNumber`, `Prefix`, `FirstName`, `LastName`, `Gender`, `DOB`, `Nationality`, `Race`, `Religion`, `BloodGroup`, `Address`, `Province`, `PostCode`) VALUES
-<<<<<<< HEAD
 (1, 'Clearing House', 1, '0961475555', '023455432', 'test01@hotmail.com', 1, 'ปวช', 'วิศวกรรม', 3.14, 'รอสอบ', '', '1113322456654', 'นาย', 'ปิยะ', 'ไม่รู้', 'ชาย', '2000-05-23', 'ไทย', 'ไทย', 'คริสต์', 'A', 'ซักที่ในโลกเนี่ยแหละ', 'ไม่รู้', '11111'),
 (2, 'เรียนดี', 3, '0945456666', '021233333', 'eiei@gmail.com', 2, 'มัธยมศึกษา', 'วิทย์-คณิต', 3.99, 'สละสิทธิ์', '123', '1122213564200', 'นางสาว', 'วีระ', 'สมความคิด', 'หญิง', '2001-05-15', 'จีน', 'อินเดีย', 'ซิกซ์', 'AB', 'ไม่ทราบได้', 'ไม่ทราบด้วย', '12332'),
 (10000, '2B', 2, '0942133212', '023566512', 'what@mail.com', 1, 'มัธยมศึกษา', 'ศิลป์-ภาษา', 2.21, 'ไม่ผ่าน', '', '1122212365489', 'นาย', 'ยาสุโอะ', 'มะเร็ง', 'ชาย', '2016-11-08', 'มะเร็ง', 'มะเร็ง', 'มะเร็ง', 'NOOB', 'ในแอล', 'ไม่รุ', '10113');
-=======
-(1, 'Clearing House', 1, '0961475555', '023455432', 'test01@hotmail.com', 1, 'ปวช', 'วิศวกรรม', 3.14, 'รอสัมภาษณ์', '', '1113322456654', 'นาย', 'ปิยะ', 'ไม่รู้', 'ชาย', '2000-05-23', 'ไทย', 'ไทย', 'คริสต์', 'A', 'ซักที่ในโลกเนี่ยแหละ', 'ไม่รู้', '11111'),
-(2, 'เรียนดี', 3, '0945456666', '021233333', 'eiei@gmail.com', 2, 'มัธยมศึกษา', 'วิทย์-คณิต', 3.99, 'สละสิทธิ์', 'มหาลัยชื่อดังย่านบางเขน', '1122213564200', 'นางสาว', 'วีระ', 'สมความคิด', 'หญิง', '2001-05-15', 'จีน', 'อินเดีย', 'ซิกซ์', 'AB', 'ไม่ทราบได้', 'ไม่ทราบด้วย', '12332');
->>>>>>> b2ec7736f94c939e145084ee31b013729c949ec9
 
 -- --------------------------------------------------------
 
@@ -497,15 +485,12 @@ ALTER TABLE `bill`
   MODIFY `BillID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100001;
 
 --
-<<<<<<< HEAD
 -- AUTO_INCREMENT for table `billrecruit`
 --
 ALTER TABLE `billrecruit`
   MODIFY `BillRecruitID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100001;
 
 --
-=======
->>>>>>> b2ec7736f94c939e145084ee31b013729c949ec9
 -- AUTO_INCREMENT for table `parentinfo`
 --
 ALTER TABLE `parentinfo`
@@ -527,11 +512,7 @@ ALTER TABLE `schoolinfo`
 -- AUTO_INCREMENT for table `staffinfo`
 --
 ALTER TABLE `staffinfo`
-<<<<<<< HEAD
   MODIFY `StaffID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
-=======
-  MODIFY `StaffID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2147483647;
->>>>>>> b2ec7736f94c939e145084ee31b013729c949ec9
 
 --
 -- Constraints for dumped tables
