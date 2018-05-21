@@ -94,23 +94,10 @@ session_start();
 </head>
 <body>
     <?php
-    if($_POST) {
-        $id = $_POST['id'];
-        $pswd = $_POST['pswd'];
-        if($id === "eiei" && $pswd === "1234"){
-            $expire = time() + 15 * 60;
-            setcookie('id',$id,$expire);
-            setcookie('pswd',$pswd,$expire);
-        
-        $_SESSION['id'] = $id;
+    if(isset($_COOKIE['id']) && isset($_COOKIE['pswd'])) {
+        header("location: recruit-status.php");
         exit('</body></html>');
-        }
-        else {
-            echo "ใส่รหัสผิด";
-        }
     }
-
-    
     ?>  
     <div id="left">
         <br><a href="home.php" id="back">< back</a>
