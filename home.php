@@ -89,7 +89,7 @@
                 </div>
                 <div id="center" onclick="window.location.href='student-home.php'">
                     <div>
-                        <img data-u="image" src="img/gallery/980x380/054.jpg" />
+                        <img data-u="image" src="img/gallery/980x380/057.jpg" />
                         <h1>นักศึกษา</h1>
                     </div>
                 </div>
