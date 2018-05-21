@@ -136,7 +136,7 @@
                         <input type="password" id="pswd" placeholder="รหัสผ่าน"><br>
                         <div id = "sub">
                             <input type="submit" value="เข้าสู่ระบบ">
-                            <a href = "www.google.com">ลืมรหัสผ่าน?</a>
+                            <a href = "student-forgetpassword.php">ลืมรหัสผ่าน?</a>
                         </div>
                     </form>
                 </div>
