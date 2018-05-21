@@ -131,8 +131,8 @@
             <div id="content">
                 <div id="c-top">
                     <form method="post">
-                        <h1>ระบบสารสนเทศ<br>สำหรับบุคคลากรของมหาวิทยาลัย</h1>
-                        <input type="text" id="id" placeholder="รหัสประจำตัวบุคคลากร"><br>
+                        <h1>ระบบสารสนเทศ<br>สำหรับบุคลากรของมหาวิทยาลัย</h1>
+                        <input type="text" id="id" placeholder="รหัสประจำตัวบุคลากร"><br>
                         <input type="password" id="pswd" placeholder="รหัสผ่าน"><br>
                         <div id = "sub">
                             <input type="submit" value="เข้าสู่ระบบ">
@@ -143,7 +143,7 @@
                     
                 <div id= "c-bot">
                     <div id = "text">
-                        <br>สำหรับบุคคลากรใหม่ <a href= "staff-new-login.php">ลงทะเบียนบุคคลากรใหม่</a>
+                        <br>สำหรับบุคลากรใหม่ <a href= "staff-new-login.php">ลงทะเบียนบุคลากรใหม่</a>
                     </div>
                 </div>
             </div>

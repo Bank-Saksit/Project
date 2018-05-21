@@ -6,7 +6,7 @@ html, body {
     font-family: "supermarket";
     margin: 0;
     padding: 0;
-    background: #dfdfdf;
+    background: #ebebeb;
     color: #444444;
 }
 ::placeholder {
@@ -44,15 +44,15 @@ div#content {
     clear: both;
     width: 1100px;
     position: relative;
-    height: 550px;
+    height: 450px;
     top: 110px;
 }
 footer {
-    position: absolute;
+    position: relative;
     text-align: right;
     width: 100%;
     border-top: 2px solid;
-    bottom: 0px;
+    bottom: -60px;
 }
 a {
     text-decoration: none;

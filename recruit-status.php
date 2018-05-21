@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,23 +62,40 @@
             border:2px solid;
             width:10%;
         }
+        #submit {
+            width:100%;
+            position:relative;
+            text-align:center;
+            margin-top:40px;
+        }
+        #sm {
+            width: 100px;
+            height: 40px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
 
     </style>
 </head>
 <body>
+    <?php
+    if(!isset($_COOKIE['id'])){
+        header("location:recruit-login.php");
+    }
+    ?>
     <div id="left">
         <br><a href="#" id="back"> </a>
     </div>
     <div id="main">
         <div id="header">
             <h1>ตรวจสอบสถานะ</h1>
-            <h4 id="out" onclick="window.location.href='recruit-login.php'">ออกจากระบบ</h3>
+            <h4 id="out" onclick="window.location.href='recruit-logout.php'">ออกจากระบบ</h3>
         </div>
         <div id="content">
             <div id="infoRecruit"></div>
             <div id="detail-rc"></div>
             <div id="status"></div>
-            <div id="summit"></div>
+            <div id="submit"></div>
         </div>
         <?php include "recruit-footer.php"; ?>
     </div>
@@ -85,7 +105,8 @@
         
         function loadRecruit(){
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID=2";
+            var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID="+
+            <?php echo $_SESSION['id']; ?>
             
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -128,6 +149,12 @@
 
             stat = "<table id='tb-status'<tr><td id='t4'> สถานะ </td><td>" + arr[0].Status; +"</td></tr></table>";
             document.getElementById("status").innerHTML = stat;
+
+            if(arr[0].Status == "รอยืนยันสิทธิ์"){
+                sm = "<button id='sm' onclick=\"window.location.href='#'\">ยืนยันสิทธิ์</button>";
+                sm += "<button id='sm' onclick=\"window.location.href='#'\">สละสิทธิ์</button>";
+            }
+            document.getElementById("submit").innerHTML = sm;
         }
     </script>
 </body>

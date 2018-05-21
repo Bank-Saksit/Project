@@ -113,14 +113,21 @@
         </div>
         <div id="main">
             <div id="header">
-                <h1>ลงทะเบียนสำหรับบุคคลากรใหม่</h1>
+                <h1>ลงทะเบียนสำหรับบุคลากรใหม่</h1>
             </div>
             <div id="content">
                 <div id="c-top">
+<<<<<<< HEAD
                     <form action="staff-new-login-link.php" method="post" >
                         <h1>ระบบสารสนเทศ<br>สำหรับบุคคลากรของมหาวิทยาลัย</h1>
                         <input type="text" name="id" placeholder="รหัสประจำตัวบุคคลากร"><br>
                         <input type="password" name="pswd" placeholder="รหัสบัตรประจำตัวประชาชน"><br>
+=======
+                    <form method="post">
+                        <h1>ระบบสารสนเทศ<br>สำหรับบุคลากรของมหาวิทยาลัย</h1>
+                        <input type="text" id="id" placeholder="รหัสประจำตัวบุคลากร"><br>
+                        <input type="password" id="pswd" placeholder="รหัสบัตรประจำตัวประชาชน"><br>
+>>>>>>> 6ebc4a3da9a7421adddd8e9aeb373505ce088911
                         <input type="submit" value="เข้าสู่ระบบ">
                     </form>
                 </div>
