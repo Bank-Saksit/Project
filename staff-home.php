@@ -55,7 +55,7 @@
                 clear: both;
                 width: 100%;
                 position: relative;
-                height: 550px;
+                height: 450px;
                 top: 110px;
             }
             #c-top {
