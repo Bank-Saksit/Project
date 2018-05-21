@@ -9,8 +9,6 @@
         integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
         crossorigin="anonymous">
     </script>
-
-
     <style>
         @import "global1.css";
         #c-right,#c-left{
