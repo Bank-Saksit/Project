@@ -72,27 +72,28 @@
                 padding-left : 30px;
             }
             input[type=text] {
-                background: #000000;
+                background: #242424;
                 margin-top: 10px;
                 padding-left: 30px;
                 width: 310px;
                 height:30px;
                 text-align: left;
+                color: white;
             }
             input[type=password] {
-                background: #000000;
+                background: #242424;
                 margin-top: 20px;
                 padding-left: 30px;
                 width: 310px;
                 height: 30px;
                 text-align: left;
+                color: white;
             }
             ::placeholder {
                 color: white;
             }
             input[type=submit] {
-                padding: 5px;
-                width: 80px;
+                width: 60px;
                 margin-top: 25px;
                 margin-left: 10px;
                 background: white;
@@ -108,17 +109,17 @@
     </head>
     <body>
         <div id="left">
-            <br><a href="student-home.php" id="back">< ฺback</a>
+            <br><a href="staff-home.php" id="back">< back</a>
         </div>
         <div id="main">
             <div id="header">
-                <h1>ลงทะเบียนสำหรับนักศึกษาใหม่</h1>
+                <h1>ลงทะเบียนสำหรับบุคลากรใหม่</h1>
             </div>
             <div id="content">
                 <div id="c-top">
                     <form method="post">
-                        <h1>ระบบสารสนเทศ<br>สำหรับบุคคลากรของมหาวิทยาลัย</h1>
-                        <input type="text" id="id" placeholder="รหัสนักศึกษา"><br>
+                        <h1>ระบบสารสนเทศ<br>สำหรับบุคลากรของมหาวิทยาลัย</h1>
+                        <input type="text" id="id" placeholder="รหัสประจำตัวบุคลากร"><br>
                         <input type="password" id="pswd" placeholder="รหัสบัตรประจำตัวประชาชน"><br>
                         <input type="submit" value="เข้าสู่ระบบ">
                     </form>

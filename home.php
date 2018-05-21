@@ -15,7 +15,7 @@
                 font-family: "supermarket";
                 margin: 0;
                 padding: 0;
-                background: #dfdfdf;
+                background: #ebebeb;
                 color: #444444;
                 width: 100%;
             }
@@ -89,13 +89,13 @@
                 </div>
                 <div id="center" onclick="window.location.href='student-home.php'">
                     <div>
-                        <img data-u="image" src="img/gallery/980x380/054.jpg" />
+                        <img data-u="image" src="img/gallery/980x380/057.jpg" />
                         <h1>นักศึกษา</h1>
                     </div>
                 </div>
                 <div id="right" onclick="window.location.href='staff-home.php'">
                     <div>
-                        <img data-u="image" src="img/gallery/980x380/055.jpg" />
+                        <img data-u="image" src="img/gallery/980x380/058.jpg" />
                         <h1>บุคลากร</h1>
                     </div>
                 </div>
