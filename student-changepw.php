@@ -91,6 +91,7 @@
             width: 310px;
             height:30px;
             text-align: left;
+            color: white;
         }
         ::placeholder {
             color: white;
@@ -102,6 +103,7 @@
             width: 310px;
             height: 30px;
             text-align: left;
+            color: white;
         }
         input[type=submit] {
             margin-top: 20px;

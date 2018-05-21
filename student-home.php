@@ -64,7 +64,7 @@
                 top: 0;
                 text-align: left;
                 position: relative;
-                background: gray;
+                background: #444444;
                 color: white;
             }
             #c-bot {
@@ -81,29 +81,28 @@
                 padding-left : 30px;
             }
             input[type=text] {
-                background: #444444;
+                background: #000000;
                 margin-top: 0px;
                 padding-left: 30px;
                 width: 310px;
                 height:30px;
                 text-align: left;
-                
+                color: white;
             }
             ::placeholder {
                 color: white;
             }
             input[type=password] {
-                background: #444444;
+                background: #000000;
                 margin-top: 15px;
                 padding-left: 30px;
                 width: 310px;
                 height: 30px;
                 text-align: left;
+                color: white;
             }
             input[type=submit] {
-                font-family: "supermarket";
-                padding: 5px;
-                width: 80px;
+                width: 60px;
                 background: white;
             }
             #sub{
@@ -123,7 +122,7 @@
     </head>
     <body>
         <div id="left">
-            <br><a href="home.php" id="back">< ฺback</a>
+            <br><a href="home.php" id="back">< back</a>
         </div>
         <div id="main">
             <div id="header">
