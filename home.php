@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>หน้าหลัก</title>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <style>
             @import "global.css";
             @font-face{
@@ -45,7 +46,9 @@
                 width: 1100px;
                 height: 350px;
             }
-            #left,#right,#center {
+            #left,#right {
+                float: left;
+                margin-top: 10px;
                 width: 340px;
                 height: 300px;
                 position: relative;
@@ -59,12 +62,13 @@
                 background: white;
                 cursor: pointer;
             }
-            #left {
-                float: left;
-            }
             #center {
                 float: left;
+                margin-top: 10px;
                 margin-left: 40px;
+                width: 340px;
+                height: 300px;
+                position: relative;
             }
             #right {
                 float: right;
@@ -72,6 +76,16 @@
             img {
                 width: 340px;
                 height: 215px;
+            }
+            @media only screen and (max-width:620px) {
+            /* For mobile phones: */
+                #content, #main {
+                width:100%;
+                }
+                #center,#right{
+                    float: left;
+                    margin-left:0px;
+                }
             }
         </style>
     </head>
@@ -81,7 +95,7 @@
                 <h1>ระบบลงทะเบียน</h1>
             </div>
             <div id="content">
-                <div id="left" onclick="window.location.href='recruit-login.php'">
+            <div id="left" onclick="window.location.href='recruit-login.php'">
                     <div>
                         <img data-u="image" src="img/gallery/980x380/056.jpg" />
                         <h1>นักเรียน</h1>
