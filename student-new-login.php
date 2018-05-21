@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -108,8 +111,14 @@
 
     </head>
     <body>
+        <?php
+        if(isset($_SESSION['id']) && isset($_SESSION['pswd'])) {
+            header("location: student-changepw.php");
+            exit('</body></html>');
+        }
+        ?> 
         <div id="left">
-            <br><a href="student-home.php" id="back">< back</a>
+            <br><a href="student-home.php" id="back">< logout</a>
         </div>
         <div id="main">
             <div id="header">
@@ -117,10 +126,10 @@
             </div>
             <div id="content">
                 <div id="c-top">
-                    <form method="post">
+                    <form method="post" action="student-new-login-link.php">
                         <h1>ระบบสารสนเทศ<br>เพื่อการบริหารการศึกษา</h1>
-                        <input type="text" id="id" placeholder="รหัสนักศึกษา"><br>
-                        <input type="password" id="pswd" placeholder="รหัสบัตรประจำตัวประชาชน"><br>
+                        <input type="text" name="id" placeholder="รหัสนักศึกษา"><br>
+                        <input type="password" name="pswd" placeholder="รหัสบัตรประจำตัวประชาชน"><br>
                         <input type="submit" value="เข้าสู่ระบบ">
                     </form>
                 </div>
