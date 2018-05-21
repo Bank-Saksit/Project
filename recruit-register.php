@@ -33,6 +33,7 @@
             float: left;
             position: relative;
             top: 50px;
+            background: #ebebeb;
         }
         #header {
             width: 100%;
@@ -47,7 +48,9 @@
             width: 100%;
             border-bottom: 5px solid;
         }
-
+        li{
+            font-size: 20px;
+        }
     </style>
     
 </head>
