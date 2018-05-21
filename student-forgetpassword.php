@@ -107,9 +107,9 @@
             }
             #sub{
                 width: 310px;
-                padding-left: 25px;
+                padding-left: 10px;
                 margin-top:20px;
-                text-align: center;
+                text-align: left;
             }
             div#text >a {
                 text-decoration: underline;
@@ -122,7 +122,7 @@
     </head>
     <body>
         <div id="left">
-            <br><a href="home.php" id="back">< back</a>
+            <br><a href="student-home.php" id="back">< back</a>
         </div>
         <div id="main">
             <div id="header">
@@ -132,6 +132,7 @@
                 <div id="c-top">
                     <form method="post">
                         <h1>ระบบสารสนเทศ<br>เพื่อการบริหารการศึกษา</h1>
+                        กรุณากรอกรหัสนักศึกษา หรือ อีเมลของท่าน<br>
                         <input type="email" id="email" placeholder="อีเมล"><br>
                         <div id = "sub">
                             <input type="submit" value="ค้นหา">
