@@ -115,6 +115,7 @@
                 text-decoration: underline;
             }
             #text{
+                font-size: 28 px;
                 padding-left : 30px;
             }
         </style>    
