@@ -101,6 +101,7 @@
                 text-align: left;
             }
             input[type=submit] {
+                font-family: "supermarket";
                 padding: 5px;
                 width: 80px;
                 background: white;
@@ -115,7 +116,6 @@
                 text-decoration: underline;
             }
             #text{
-                font-size: 28 px;
                 padding-left : 30px;
             }
         </style>    
