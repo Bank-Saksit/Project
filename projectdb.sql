@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2018 at 07:41 AM
+-- Generation Time: May 21, 2018 at 01:46 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -37,6 +37,13 @@ CREATE TABLE `bill` (
   `AcademicYear` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `bill`
+--
+
+INSERT INTO `bill` (`BillID`, `StudentID`, `DateRegister`, `DatePay`, `Semester`, `AcademicYear`) VALUES
+(100000, '59070501066', '2018-05-01', '2018-05-09', 2, 2017);
+
 -- --------------------------------------------------------
 
 --
@@ -57,7 +64,8 @@ CREATE TABLE `billrecruit` (
 
 INSERT INTO `billrecruit` (`BillRecruitID`, `RecruitID`, `DateRegister`, `DatePay`, `AcademicYear`) VALUES
 (1, 1, '2018-05-01', NULL, 2561),
-(2, 2, '2018-05-05', NULL, 2561);
+(2, 2, '2018-05-05', NULL, 2561),
+(100000, 1, '2018-05-03', NULL, 2016);
 
 -- --------------------------------------------------------
 
@@ -113,9 +121,9 @@ INSERT INTO `nodepartment` (`RecruitID`, `No`, `Department`) VALUES
 
 CREATE TABLE `parentinfo` (
   `ParentID` int(11) NOT NULL,
-  `MobileNumber` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `TelNumber` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `Email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `MobileNumber` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TelNumber` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Email` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `IDCardNumber` varchar(13) COLLATE utf8_unicode_ci NOT NULL,
   `Prefix` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `FirstName` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
@@ -160,7 +168,7 @@ CREATE TABLE `recruitinfo` (
   `Branch` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `SchoolGPAX` float NOT NULL,
   `Status` enum('รอจ่ายค่าสมัคร','รอสอบ','รอสัมภาษณ์','รอยืนยันสิทธิ์','รอจ่ายค่าเทอม','จ่ายค่าเทอมแล้ว','ไม่ผ่าน','สละสิทธิ์') COLLATE utf8_unicode_ci NOT NULL,
-  `MovedUniversityName` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `MovedUniversityName` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `IDCardNumber` varchar(13) COLLATE utf8_unicode_ci NOT NULL,
   `Prefix` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `FirstName` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
@@ -181,8 +189,9 @@ CREATE TABLE `recruitinfo` (
 --
 
 INSERT INTO `recruitinfo` (`RecruitID`, `RecruitPlanName`, `NoPass`, `MobileNumber`, `TelNumber`, `Email`, `SchoolID`, `EducationBackground`, `Branch`, `SchoolGPAX`, `Status`, `MovedUniversityName`, `IDCardNumber`, `Prefix`, `FirstName`, `LastName`, `Gender`, `DOB`, `Nationality`, `Race`, `Religion`, `BloodGroup`, `Address`, `Province`, `PostCode`) VALUES
-(1, 'Clearing House', 1, '0961475555', '023455432', 'test01@hotmail.com', 1, 'ปวช', 'วิศวกรรม', 3.14, 'สละสิทธิ์', '', '1113322456654', 'นาย', 'ปิยะ', 'ไม่รู้', 'ชาย', '2000-05-23', 'ไทย', 'ไทย', 'คริสต์', 'A', 'ซักที่ในโลกเนี่ยแหละ', 'ไม่รู้', '11111'),
-(2, 'เรียนดี', 3, '0945456666', '021233333', 'eiei@gmail.com', 2, 'มัธยมศึกษา', 'วิทย์-คณิต', 3.99, 'สละสิทธิ์', 'มหาลัยชื่อดังย่านบางเขน', '1122213564200', 'นางสาว', 'วีระ', 'สมความคิด', 'หญิง', '2001-05-15', 'จีน', 'อินเดีย', 'ซิกซ์', 'AB', 'ไม่ทราบได้', 'ไม่ทราบด้วย', '12332');
+(1, 'Clearing House', 1, '0961475555', '023455432', 'test01@hotmail.com', 1, 'ปวช', 'วิศวกรรม', 3.14, 'รอสอบ', '', '1113322456654', 'นาย', 'ปิยะ', 'ไม่รู้', 'ชาย', '2000-05-23', 'ไทย', 'ไทย', 'คริสต์', 'A', 'ซักที่ในโลกเนี่ยแหละ', 'ไม่รู้', '11111'),
+(2, 'เรียนดี', 3, '0945456666', '021233333', 'eiei@gmail.com', 2, 'มัธยมศึกษา', 'วิทย์-คณิต', 3.99, 'สละสิทธิ์', '123', '1122213564200', 'นางสาว', 'วีระ', 'สมความคิด', 'หญิง', '2001-05-15', 'จีน', 'อินเดีย', 'ซิกซ์', 'AB', 'ไม่ทราบได้', 'ไม่ทราบด้วย', '12332'),
+(10000, '2B', 2, '0942133212', '023566512', 'what@mail.com', 1, 'มัธยมศึกษา', 'ศิลป์-ภาษา', 2.21, 'ไม่ผ่าน', '', '1122212365489', 'นาย', 'ยาสุโอะ', 'มะเร็ง', 'ชาย', '2016-11-08', 'มะเร็ง', 'มะเร็ง', 'มะเร็ง', 'NOOB', 'ในแอล', 'ไม่รุ', '10113');
 
 -- --------------------------------------------------------
 
@@ -261,7 +270,7 @@ CREATE TABLE `sectioninfo` (
 
 CREATE TABLE `staffinfo` (
   `StaffID` int(11) NOT NULL,
-  `Password` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `Password` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Role` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `Department` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `MobileNumber` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
@@ -292,7 +301,7 @@ CREATE TABLE `staffinfo` (
 
 CREATE TABLE `studentinfo` (
   `StudentID` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
-  `Password` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `Password` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `RecruitPlanName` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `Department` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `Degree` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
@@ -484,25 +493,25 @@ ALTER TABLE `teachersec`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `BillID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `BillID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100001;
 
 --
 -- AUTO_INCREMENT for table `billrecruit`
 --
 ALTER TABLE `billrecruit`
-  MODIFY `BillRecruitID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `BillRecruitID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100001;
 
 --
 -- AUTO_INCREMENT for table `parentinfo`
 --
 ALTER TABLE `parentinfo`
-  MODIFY `ParentID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ParentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
 
 --
 -- AUTO_INCREMENT for table `recruitinfo`
 --
 ALTER TABLE `recruitinfo`
-  MODIFY `RecruitID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `RecruitID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10001;
 
 --
 -- AUTO_INCREMENT for table `schoolinfo`
@@ -514,7 +523,7 @@ ALTER TABLE `schoolinfo`
 -- AUTO_INCREMENT for table `staffinfo`
 --
 ALTER TABLE `staffinfo`
-  MODIFY `StaffID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `StaffID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
 
 --
 -- Constraints for dumped tables
