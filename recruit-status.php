@@ -68,7 +68,7 @@ session_start();
             text-align:center;
             margin-top:40px;
         }
-        #sm {
+        #sm,#sm-sub {
             width: 100px;
             height: 40px;
             margin-left: 20px;
@@ -152,7 +152,7 @@ session_start();
             document.getElementById("status").innerHTML = stat;
 
             if(arr[0].Status == "สละสิทธิ์"){
-                sm = "<button id='sm' onclick=\"window.location.href='recruit-status-confirm.html'\">ยืนยันสิทธิ์</button>";
+                sm = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.html'\">ยืนยันสิทธิ์</button>";
                 sm += "<button id='sm' onclick=\"window.location.href='#'\">สละสิทธิ์</button>";
             }
             document.getElementById("submit").innerHTML = sm;
