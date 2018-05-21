@@ -64,7 +64,7 @@
                 top: 0;
                 text-align: left;
                 position: relative;
-                background: gray;
+                background: #444444;
                 color: white;
             }
             form{
@@ -72,7 +72,7 @@
                 padding-left : 30px;
             }
             input[type=text] {
-                background: #444444;
+                background: #000000;
                 margin-top: 10px;
                 padding-left: 30px;
                 width: 310px;
@@ -80,7 +80,7 @@
                 text-align: left;
             }
             input[type=password] {
-                background: #444444;
+                background: #000000;
                 margin-top: 20px;
                 padding-left: 30px;
                 width: 310px;
@@ -91,7 +91,6 @@
                 color: white;
             }
             input[type=submit] {
-                font-family: "supermarket";
                 padding: 5px;
                 width: 80px;
                 margin-top: 25px;

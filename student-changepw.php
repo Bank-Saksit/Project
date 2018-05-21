@@ -78,30 +78,32 @@
         #data{
             margin-left: 30px;
             padding-left:20px; 
-            width:485px;
-            background: #000000;
+            width:85%;
+            background: #242424;
         }
         form{
             padding-left : 30px;
         }
         input[type=text] {
-            background: #000000;
+            background: #242424;
             margin-top: 0px;
             padding-left: 30px;
             width: 310px;
             height:30px;
             text-align: left;
+            color: white;
         }
         ::placeholder {
             color: white;
         }
         input[type=password] {
-            background: #000000;
+            background: #242420;
             margin-top: 15px;
             padding-left: 30px;
             width: 310px;
             height: 30px;
             text-align: left;
+            color: white;
         }
         input[type=submit] {
             margin-top: 20px;
@@ -120,7 +122,7 @@
 </head>
 <body>
     <div id="left">
-        <br><a href="home.php" id="back">< back</a>
+        <br><a href="student-new-login.php" id="back">< back</a>
     </div>
     <div id="main">
         <div id="header">
