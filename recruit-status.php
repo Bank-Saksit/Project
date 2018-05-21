@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,13 +78,18 @@
     </style>
 </head>
 <body>
+    <?php
+    if(!isset($_COOKIE['id'])){
+        header("location:recruit-login.php");
+    }
+    ?>
     <div id="left">
         <br><a href="#" id="back"> </a>
     </div>
     <div id="main">
         <div id="header">
             <h1>ตรวจสอบสถานะ</h1>
-            <h4 id="out" onclick="window.location.href='recruit-login.php'">ออกจากระบบ</h3>
+            <h4 id="out" onclick="window.location.href='recruit-logout.php'">ออกจากระบบ</h3>
         </div>
         <div id="content">
             <div id="infoRecruit"></div>
@@ -97,7 +105,8 @@
         
         function loadRecruit(){
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID=". $_COOKIE[id];
+            var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID="+
+            <?php echo $_SESSION['id']; ?>
             
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
