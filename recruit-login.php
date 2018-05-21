@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,7 +70,7 @@
             text-align: center;
             color:white;
         }
-        input[type = "submit"]{
+        #submit {
             font-family: "supermarket";
             padding: 8px;
             width: 100px;
@@ -89,7 +92,26 @@
     </style>    
 
 </head>
-<body>  
+<body>
+    <?php
+    if($_POST) {
+        $id = $_POST['id'];
+        $pswd = $_POST['pswd'];
+        if($id === "eiei" && $pswd === "1234"){
+            $expire = time() + 15 * 60;
+            setcookie('id',$id,$expire);
+            setcookie('pswd',$pswd,$expire);
+        
+        $_SESSION['id'] = $id;
+        exit('</body></html>');
+        }
+        else {
+            echo "ใส่รหัสผิด";
+        }
+    }
+
+    
+    ?>  
     <div id="left">
         <br><a href="home.php" id="back">< back</a>
     </div>
@@ -100,15 +122,14 @@
         <div id="content">
             <div id="c-left">
                 <?php include "js/jssor/examples-jquery/recruit-slides.php"; ?>
-
             </div>
             <div id="c-right">
                 <div id="c-r-top">
-                    <form method="post">
-                        <h2>ตรวจสอบสถานะ</h2>
-                        <input type="text" id="id" placeholder="รหัสประจำตัวผู้สมัคร"><br>
-                        <input type="password" id="pswd" placeholder="รหัสประจำตัวประชาชน"><br>
-                        <input type="submit" value="เข้าสู่ระบบ">
+                    <h2>ตรวจสอบสถานะ</h2>
+                    <form id="login" method="post" action="recruit-login-check.php">
+                        <input type="text" name="id" id="id" placeholder="รหัสประจำตัวผู้สมัคร" required><br>
+                        <input type="password" name="pswd" id="pswd" placeholder="รหัสประจำตัวประชาชน" required><br>
+                        <button id="submit">เข้าสู่ระบบ</button>
                     </form>
                 </div>
                 <div id="c-r-bottom" onclick="window.location.href='recruit-register.php'">
