@@ -77,7 +77,7 @@
                 width: 340px;
                 height: 215px;
             }
-            @media only screen and (max-width:620px) {
+            @media only screen and (max-width:820px) {
             /* For mobile phones: */
                 #content, #main {
                 width:100%;

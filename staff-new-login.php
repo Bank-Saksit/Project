@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -108,6 +111,12 @@
 
     </head>
     <body>
+        <?php
+        if(isset($_SESSION['id']) && isset($_SESSION['pswd'])) {
+            header("location: staff-changepw.php");
+            exit('</body></html>');
+        }
+        ?> 
         <div id="left">
             <br><a href="staff-home.php" id="back">< back</a>
         </div>
