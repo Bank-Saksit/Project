@@ -59,6 +59,18 @@
             border:2px solid;
             width:10%;
         }
+        #submit {
+            width:100%;
+            position:relative;
+            text-align:center;
+            margin-top:40px;
+        }
+        #sm {
+            width: 100px;
+            height: 40px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
 
     </style>
 </head>
@@ -75,7 +87,7 @@
             <div id="infoRecruit"></div>
             <div id="detail-rc"></div>
             <div id="status"></div>
-            <div id="summit"></div>
+            <div id="submit"></div>
         </div>
         <?php include "recruit-footer.php"; ?>
     </div>
@@ -85,7 +97,7 @@
         
         function loadRecruit(){
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID=2";
+            var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID=". $_COOKIE[id];
             
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -128,6 +140,12 @@
 
             stat = "<table id='tb-status'<tr><td id='t4'> สถานะ </td><td>" + arr[0].Status; +"</td></tr></table>";
             document.getElementById("status").innerHTML = stat;
+
+            if(arr[0].Status == "รอยืนยันสิทธิ์"){
+                sm = "<button id='sm' onclick=\"window.location.href='#'\">ยืนยันสิทธิ์</button>";
+                sm += "<button id='sm' onclick=\"window.location.href='#'\">สละสิทธิ์</button>";
+            }
+            document.getElementById("submit").innerHTML = sm;
         }
     </script>
 </body>
