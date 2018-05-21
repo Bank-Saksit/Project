@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +12,6 @@
         integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
         crossorigin="anonymous">
     </script>
-
-
     <style>
         @import "global1.css";
         #c-right,#c-left{
@@ -33,7 +34,7 @@
             top: 0;
             text-align: center;
             position: absolute;
-            background: gray;
+            background: #444444;
             color: white;
         }
         #c-r-bottom {
@@ -41,13 +42,18 @@
             height: 170px;
             position: absolute;
             bottom: 0;
-            background: gray;
+            background: #444444;
             cursor: pointer;
         }
         #c-r-bottom > h1 {
-            margin-top: 0;
-            font-size: 70px;
+            margin-top: -15px;
+            font-size: 80px;
             color: white;
+        }
+        #c-r-bottom > div > h3 {
+            font-size: 40px;
+            color: white;
+            margin-left: 30px;
         }
         #c-r-bottom > div {
             top: 50px;
@@ -56,14 +62,15 @@
             color: white;
             position: absolute;
         }
-        input {
-            background: #444444;
+        #id,#pswd {
+            background: #242424;
             padding: 3px;
             width: 300px;
             margin: 5px;
             text-align: center;
+            color:white;
         }
-        button {
+        #submit {
             font-family: "supermarket";
             padding: 8px;
             width: 100px;
@@ -78,13 +85,35 @@
             font-size:40px;
             color: white;
         }
+        h2 {
+            margin:10px;
+        }
             
     </style>    
 
 </head>
-<body>  
+<body>
+    <?php
+    if($_POST) {
+        $id = $_POST['id'];
+        $pswd = $_POST['pswd'];
+        if($id === "eiei" && $pswd === "1234"){
+            $expire = time() + 15 * 60;
+            setcookie('id',$id,$expire);
+            setcookie('pswd',$pswd,$expire);
+        
+        $_SESSION['id'] = $id;
+        exit('</body></html>');
+        }
+        else {
+            echo "ใส่รหัสผิด";
+        }
+    }
+
+    
+    ?>  
     <div id="left">
-        <br><a href="home.php" id="back">< ฺback</a>
+        <br><a href="home.php" id="back">< back</a>
     </div>
     <div id="main">
         <div id="header">
@@ -93,21 +122,20 @@
         <div id="content">
             <div id="c-left">
                 <?php include "js/jssor/examples-jquery/recruit-slides.php"; ?>
-
             </div>
             <div id="c-right">
                 <div id="c-r-top">
-                    <form method="post">
-                        <h2>ตรวจสอบสถานะ</h2>
-                        <input type="text" id="id" placeholder="รหัสประจำตัวผู้สมัคร"><br>
-                        <input type="password" id="pswd" placeholder="รหัสประจำตัวประชาชน"><br>
-                        <button>เข้าสู่ระบบ</button>
+                    <h2>ตรวจสอบสถานะ</h2>
+                    <form id="login" method="post" action="recruit-login-check.php">
+                        <input type="text" name="id" id="id" placeholder="รหัสประจำตัวผู้สมัคร" required><br>
+                        <input type="password" name="pswd" id="pswd" placeholder="รหัสประจำตัวประชาชน" required><br>
+                        <button id="submit">เข้าสู่ระบบ</button>
                     </form>
                 </div>
                 <div id="c-r-bottom" onclick="window.location.href='recruit-register.php'">
                     <h1>&nbsp;&nbsp;สมัคร</h1>
                     <div>
-                        <h3>&nbsp;เข้าร่วมโครงการ</h3><br>
+                        <h3 id="text">&nbsp;เข้าร่วมโครงการ</h3><br>
                     </div>
                     <h3 id="next"> >> </h3>
                 </div>
