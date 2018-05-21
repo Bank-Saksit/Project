@@ -101,6 +101,7 @@
                 text-align: left;
             }
             input[type=submit] {
+                font-family: "supermarket";
                 padding: 5px;
                 width: 80px;
                 background: white;
