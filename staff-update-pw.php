@@ -13,8 +13,9 @@
         else if($pw==$pw2){
             $conn->query("UPDATE staffinfo  SET Password = '$pw' WHERE StaffID = $id ;");
             $conn->close();
+            session_destroy();
             echo    '<script> alert("อัพเดตรหัสผ่านใหม่เรียบร้อยแล้ว");
-                        window.location="staff-new-logout.php"; 
+                        window.location="staff-home.php"; 
                     </script>';
         }
         else{

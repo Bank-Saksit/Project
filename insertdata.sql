@@ -1,0 +1,2 @@
+INSERT INTO staffinfo (Role,Department,MobileNumber,TelNumber,Email,EducationBackground,ConsultantStatus,IDCardNumber,Prefix,FirstName,LastName,Gender,DOB,Nationality,Race,Religion,BloodGroup,Address,Province,Postcode)
+VALUES ('teacher','วิศวกรรมคอมพิวเตอร์','0895671234','-','jardet.123@mail.kmutt.ac.th','ปริญญาโท','ปี4','2345678901234','นาย','จาเด็ต','หม้อ','ไบ','1997-09-28','ไทย','ไทย','นอน','F','111','ขอนแก่น','12345');

@@ -14,8 +14,9 @@
         else if($pw==$pw2){
             $result=$conn->query("UPDATE studentinfo  SET Password = '$pw' WHERE StudentID = $id ;");
             $conn->close();
+            session_destroy();
             echo    '<script> alert("อัพเดตรหัสผ่านใหม่เรียบร้อยแล้ว");
-                        window.location="student-new-logout.php"; 
+                        window.location="student-home.php"; 
                     </script>';
         }
         else{
