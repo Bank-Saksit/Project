@@ -77,6 +77,17 @@
                 width: 340px;
                 height: 215px;
             }
+            .card {
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                transition: 0.3s;
+                width: 40%;
+            }
+            .card:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
+            .container {
+                padding: 2px 16px;
+            }
             @media only screen and (max-width:820px) {
             /* For mobile phones: */
                 #content, #main {
@@ -95,19 +106,19 @@
                 <h1>ระบบลงทะเบียน</h1>
             </div>
             <div id="content">
-            <div id="left" onclick="window.location.href='recruit-login.php'">
+            <div id="left" class="card" onclick="window.location.href='recruit-login.php'">
                     <div>
                         <img data-u="image" src="img/gallery/980x380/056.jpg" />
                         <h1>นักเรียน</h1>
                     </div>
                 </div>
-                <div id="center" onclick="window.location.href='student-home.php'">
+                <div id="center" class="card" onclick="window.location.href='student-home.php'">
                     <div>
                         <img data-u="image" src="img/gallery/980x380/057.jpg" />
                         <h1>นักศึกษา</h1>
                     </div>
                 </div>
-                <div id="right" onclick="window.location.href='staff-home.php'">
+                <div id="right" class="card" onclick="window.location.href='staff-home.php'">
                     <div>
                         <img data-u="image" src="img/gallery/980x380/058.jpg" />
                         <h1>บุคลากร</h1>

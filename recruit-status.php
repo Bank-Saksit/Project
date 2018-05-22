@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,9 +78,7 @@ session_start();
 </head>
 <body>
     <?php
-    if(!isset($_COOKIE['id'])){
-        header("location:recruit-login.php");
-    }
+    include "recruit-checkLog.php";
     ?>
     <div id="left">
         <br><a href="#" id="back"> </a>
@@ -150,7 +146,7 @@ session_start();
             document.getElementById("status").innerHTML = stat;
 
             if(arr[0].Status == "รอสอบ"){
-                sm = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.html'\">ยืนยันสิทธิ์</button>";
+                sm = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.php'\">ยืนยันสิทธิ์</button>";
                 sm += "<button id='sm' onclick=\"window.location.href='recruit-status-reject.php'\">สละสิทธิ์</button>";
             }
             document.getElementById("submit").innerHTML = sm;

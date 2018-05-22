@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>สมัครโครงการ</title>
+    <title>ระบบสารสนเทศเพื่อการบริหารการศึกษา</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -19,8 +19,17 @@
     
 </head>
 <body>
-   <div id="left">
-        <br><a href="recruit-login.php" id="back">< back</a>
+    <div class="header" id="header">
+            <a class = "active" href="student-main.php">ข้อมูลนักศึกษา</a>
+            <a href="student-main2.php">ลงทะเบียนเรียน</a>
+            <a href="student-main3.php">ตารางเรียน</a>
+            <a href="student-main4.php">ผลการเรียน</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="student-home.php" class="logout">ออกจากระบบ</a>
+    </div>
+    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
             <li><a data-toggle="tab" href="#menu1">ประวัติส่วนตัว</a></li>
             <li><a data-toggle="tab" href="#menu2">ที่อยุ่ปัจจุบัน</a></li>
@@ -29,19 +38,9 @@
         </ul>
      </div>
      <div id="main">
-        <div class="header" id="header">
-            <a class = "active" href="student-main.php">ข้อมูลนักศึกษา</a>
-            <a href="student-main2.php">ลงทะเบียนเรียน</a>
-            <a href="student-main3.php">ตารางเรียน</a>
-            <a href="student-main4.php">ผลการเรียน</a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
-        
         <div class="tab-content" id="tab-content">
             <div id="menu1" class="tab-pane fade">
-                
+                <h3>sfaasfa</h3>
             </div>
             <div id="menu2" class="tab-pane fade">
                 
