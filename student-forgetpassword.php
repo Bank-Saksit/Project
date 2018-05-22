@@ -149,7 +149,6 @@
                 <div id="c-top">
                     <form method="post" >
                         <h1>ระบบสารสนเทศ<br>เพื่อการบริหารการศึกษา</h1>
-                        กรุณากรอกรหัสนักศึกษา<br>
                         <input type="text" id="id" name="id" placeholder="รหัสนักศึกษา"><br>
                         <input type="text" id="email" name="email" placeholder="Email"><br>
                         <div id = "sub">
