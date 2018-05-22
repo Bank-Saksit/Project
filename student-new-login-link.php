@@ -11,21 +11,23 @@
             if($result->num_rows == 1){
                 $rs = $result->fetch_array(MYSQLI_ASSOC);
                 if($rs['Password']==NULL){
+                    $conn->close();
                     $_SESSION['id'] = $id;
                     $_SESSION['pswd'] = $pswd;
                     header("Location:student-changepw.php?");   
                 }
                 else{
+                    $conn->close();
                     echo    '<script> alert("คุณมีรหัสผ่านแล้ว");
                                 window.location="student-home.php"; 
                             </script>';
                 }
             }
-            else{   
+            else{
+                $conn->close();   
                 echo    '<script> alert("รหัสนักศึกษาและรหัสบัตรประจำตัวประชาชนไม่ตรงกัน");
                                 window.location="student-new-login.php"; 
                         </script>';
             }
-        $conn->close();
     ?>
 </html>
