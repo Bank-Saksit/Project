@@ -128,7 +128,7 @@ session_start();
                         <button id="submit">เข้าสู่ระบบ</button>
                     </form>
                 </div>
-                <div id="c-r-bottom" onclick="window.location.href='recruit-register.php'">
+                <div id="c-r-bottom" class = "card" onclick="window.location.href='recruit-register.php'">
                     <h1>&nbsp;&nbsp;สมัคร</h1>
                     <div>
                         <h3 id="text">&nbsp;เข้าร่วมโครงการ</h3><br>
