@@ -42,35 +42,28 @@
             }
             #content {
                 position: relative;
-                height: 350px;
                 width:100%;
+                display: inline-block;  
             }
-            #left,#right {
-                float: left;
+            #left,#right,#center{
                 margin-top: 10px;
                 width: 340px;
                 height: 300px;
                 position: relative;
-                
-            }
-            #left > div,#right > div ,#center > div {
-                position: absolute;
                 text-align: center;
-                bottom: 0px;
-                width: 100%;
                 background: white;
                 cursor: pointer;
+                
             }
             #center {
                 float: left;
-                margin-top: 10px;
                 margin-left: 40px;
-                width: 340px;
-                height: 300px;
-                position: relative;
             }
             #right {
                 float: right;
+            }
+            #left {
+                float: left;
             }
             img {
                 width: 340px;
@@ -101,7 +94,7 @@
                 position: absolute;
                 text-align: right;
                 width: 100%;
-                bottom: -30px;
+                bottom: -60px;
                 border-top: 2px solid;
                 
             }
@@ -119,25 +112,19 @@
             </div>
             <div id="content">
                 <div id="left" class="card" onclick="window.location.href='recruit-login.php'">
-                    <div>
-                        <img data-u="image" src="img/gallery/980x380/056.jpg" />
-                        <h1>นักเรียน</h1>
-                    </div>
+                    <img data-u="image" src="img/gallery/980x380/056.jpg" />
+                    <h1>นักเรียน</h1>
                 </div>
                 <div id="center" class="card" onclick="window.location.href='student-home.php'">
-                    <div>
-                        <img data-u="image" src="img/gallery/980x380/057.jpg" />
-                        <h1>นักศึกษา</h1>
-                    </div>
+                    <img data-u="image" src="img/gallery/980x380/057.jpg" />
+                    <h1>นักศึกษา</h1>
                 </div>
                 <div id="right" class="card" onclick="window.location.href='staff-home.php'">
-                    <div>
-                        <img data-u="image" src="img/gallery/980x380/058.jpg" />
-                        <h1>บุคลากร</h1>
-                    </div>
+                    <img data-u="image" src="img/gallery/980x380/058.jpg" />
+                    <h1>บุคลากร</h1>
                 </div>
-                <?php include "recruit-footer.php"; ?>
             </div>
+            <?php include "recruit-footer.php"; ?>
         </div>
     </body>
 </html>
