@@ -124,7 +124,8 @@
             function showpw() {
                 var xmlhttp = new XMLHttpRequest();
                 var url = location.protocol + '//' + location.host+"/Project/student-forgetpassword-link.php?id="+document.getElementById("id").value+"&email="+document.getElementById("email").value;
-
+                document.getElementById("id").value=""
+                document.getElementById("email").value=""
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                         displayResponse(xmlhttp.responseText);
