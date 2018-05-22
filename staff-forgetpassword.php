@@ -132,8 +132,8 @@
                 <div id="c-top">
                     <form method="post">
                     <h1>ระบบสารสนเทศ<br>สำหรับบุคลากรของมหาวิทยาลัย</h1>
-                        กรุณากรอกรหัสประจำตัวบุคลากร หรือ อีเมลของท่าน<br>
-                        <input type="text" id="email" placeholder="อีเมล"><br>
+                        กรุณากรอกรหัสประจำตัวบุคลากร<br>
+                        <input type="text" id="id" placeholder="รหัสประจำตัวบุคลากร"><br>
                         <div id = "sub">
                             <input type="submit" value="ค้นหา">
                         </div>
