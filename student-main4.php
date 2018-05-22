@@ -22,18 +22,15 @@
    <div id="left">
         <br><a href="recruit-login.php" id="back">< back</a>
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a data-toggle="tab" href="#menu1">ประวัติส่วนตัว</a></li>
-            <li><a data-toggle="tab" href="#menu2">ที่อยุ่ปัจจุบัน</a></li>
-            <li><a data-toggle="tab" href="#menu3">ประวัติด้านการศึกษา</a></li>
-            <li><a data-toggle="tab" href="#menu4">โครงการที่เข้าศึกษา</a></li>
+            <li><a data-toggle="tab" href="#menu1">ผลการเรียน</a></li>
         </ul>
      </div>
      <div id="main">
         <div class="header" id="header">
-            <a class = "active" href="student-main.php">ข้อมูลนักศึกษา</a>
+            <a href="student-main.php">ข้อมูลนักศึกษา</a>
             <a href="student-main2.php">ลงทะเบียนเรียน</a>
             <a href="student-main3.php">ตารางเรียน</a>
-            <a href="student-main4.php">ผลการเรียน</a>
+            <a class = "active" href="student-main4.php">ผลการเรียน</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
@@ -41,15 +38,6 @@
         
         <div class="tab-content" id="tab-content">
             <div id="menu1" class="tab-pane fade">
-                
-            </div>
-            <div id="menu2" class="tab-pane fade">
-                
-            </div>
-            <div id="menu3" class="tab-pane fade">
-                
-            </div>
-            <div id="menu4" class="tab-pane fade">
                 
             </div>
         </div>

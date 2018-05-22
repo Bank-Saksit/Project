@@ -19,19 +19,19 @@
     
 </head>
 <body>
-   <div id="left">
+    <div id="left">
         <br><a href="recruit-login.php" id="back">< back</a>
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a data-toggle="tab" href="#menu1">ประวัติส่วนตัว</a></li>
-            <li><a data-toggle="tab" href="#menu2">ที่อยุ่ปัจจุบัน</a></li>
-            <li><a data-toggle="tab" href="#menu3">ประวัติด้านการศึกษา</a></li>
-            <li><a data-toggle="tab" href="#menu4">โครงการที่เข้าศึกษา</a></li>
+            <li><a data-toggle="tab" href="#menu1">ลงทะเบียนรายวิชา</a></li>
+            <li><a data-toggle="tab" href="#menu2">เพิ่มรายวิชา</a></li>
+            <li><a data-toggle="tab" href="#menu3">ย้ายกลุ่ม</a></li>
+            <li><a data-toggle="tab" href="#menu4">ลดรายวิชา</a></li>
         </ul>
      </div>
      <div id="main">
-        <div class="header" id="header">
-            <a class = "active" href="student-main.php">ข้อมูลนักศึกษา</a>
-            <a href="student-main2.php">ลงทะเบียนเรียน</a>
+        <div id="header" class= "header">
+            <a href="student-main.php">ข้อมูลนักศึกษา</a>
+            <a class = "active" href="student-main2.php">ลงทะเบียนเรียน</a>
             <a href="student-main3.php">ตารางเรียน</a>
             <a href="student-main4.php">ผลการเรียน</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
