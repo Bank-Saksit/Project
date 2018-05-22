@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>สำหรับบุคคลากร</title>
+        <title>สำหรับบุคลากร</title>
         <style>
             @import "global1.css";
             html, body { 
@@ -149,7 +149,7 @@
                 <div id="c-top">
                     <form method="post" >
                         <h1>ระบบสารสนเทศ<br>สำหรับบุคลากรของมหาวิทยาลัย</h1>
-                        <input type="text" id="id" name="id" placeholder="รหัสประจำตัวบุคคลากร"><br>
+                        <input type="text" id="id" name="id" placeholder="รหัสประจำตัวบุคลากร"><br>
                         <input type="text" id="email" name="email" placeholder="Email"><br>
                         <div id = "sub">
                             <input type="button" value="ตรวจสอบ" onclick ="showpw()"  >

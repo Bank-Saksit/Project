@@ -138,7 +138,7 @@ session_start();
         </div>
         <div id="content">
             <div id="c-left">
-                <h1>ข้อมูลบุคคลากร</h1>
+                <h1>ข้อมูลบุคลากร</h1>
                 <div id ="data">
                     
                 </div>

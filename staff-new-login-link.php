@@ -23,7 +23,7 @@
             }    
         }
         else{
-            echo    '<script> alert("รหัสประจำตัวบุคคลากรและรหัสบัตรประจำตัวประชาชนไม่ตรงกัน");
+            echo    '<script> alert("รหัสประจำตัวบุคลากรและรหัสบัตรประจำตัวประชาชนไม่ตรงกัน");
                                 window.location="staff-new-login.php"; 
                         </script>';
         }
