@@ -180,7 +180,7 @@ session_start();
                             "รหัสนักศึกษา "+ arr[0].StudentID +"<br>"+
                             "วันเกิด "+ arr[0].DOB +
                             " อายุ "+ age +" ปี"+
-                            " กลุ่มเลือด "+ arr[0].BloodGroup +"<br>"+
+                            " หมู่เลือด "+ arr[0].BloodGroup +"<br>"+
                             "รหัสประจำตัวประชาชน "+ arr[0].IDCardNumber +"<br>"+
                             "ที่อยู่ "+ arr[0].Address +"<br>"+
                             "คณะ "+ arr[0].Faculty +"<br>"+

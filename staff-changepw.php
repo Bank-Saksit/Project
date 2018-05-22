@@ -181,7 +181,7 @@ session_start();
                             "รหัสประจำตัวบุคคลากร "+ arr[0].StaffID +"<br>"+
                             "วันเกิด "+ arr[0].DOB +
                             " อายุ "+ age +" ปี"+
-                            " กลุ่มเลือด "+ arr[0].BloodGroup +"<br>"+
+                            " หมู่เลือด "+ arr[0].BloodGroup +"<br>"+
                             "รหัสประจำตัวประชาชน "+ arr[0].IDCardNumber +"<br>"+
                             "ที่อยู่ "+ arr[0].Address +"<br>"+
                             "ภาควิชา "+ arr[0].Department;
