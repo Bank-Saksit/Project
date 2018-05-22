@@ -27,7 +27,7 @@
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="student-home.php" class="logout">logout</a>
+            <a href="student-home.php" class="logout">ออกจากระบบ</a>
     </div>
     <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
@@ -40,7 +40,7 @@
      <div id="main">
         <div class="tab-content" id="tab-content">
             <div id="menu1" class="tab-pane fade">
-                
+                <h3>sfaasfa</h3>
             </div>
             <div id="menu2" class="tab-pane fade">
                 
