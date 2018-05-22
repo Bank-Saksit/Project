@@ -1,4 +1,4 @@
-#left {
+        #left {
             float: left;
             width: 18%;
             position: relative;
@@ -7,7 +7,7 @@
         #tab {
             position: absolute;
             right: 0;
-            top: 200px;
+            top: 100px;
             text-align: right;
             border-right: 3px solid;
         }
@@ -39,6 +39,9 @@
             padding: 14px 16px;
             text-decoration: none;
         }
+        .header .logout{
+            float:right;
+        }
         .header a:hover {
             background-color: #ebebeb;
             color: #23527c;
@@ -52,10 +55,15 @@
             display: none;
         }
         @media screen and (max-width: 820px) {
-            .header  a:not(:first-child) {display: none;}
+            .header  a {display: none;}
             .header a.icon  {
-            float: right;
-            display: block;
+                float: left;
+                display: block;
+            }
+            .header a.logout{
+                float: right;
+                display: block;
+            }
         }
         @media screen and (max-width: 820px) {
             .header.responsive {position: relative;}
@@ -63,6 +71,7 @@
                 position: absolute;
                 right: 0;
                 top: 0;
+            }
         }
         .header.responsive a {
         float: none;

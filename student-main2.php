@@ -19,8 +19,19 @@
     
 </head>
 <body>
+    <div id="header" class= "header">
+            <a href="#home">หน้าหลัก</a>
+            <a href="student-main.php">ข้อมูลนักศึกษา</a>
+            <a class = "active" href="student-main2.php">ลงทะเบียนเรียน</a>
+            <a href="student-main3.php">ตารางเรียน</a>
+            <a href="student-main4.php">ผลการเรียน</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="student-home.php" class="logout">logout</a>
+        </div>
     <div id="left">
-        <br><a href="recruit-login.php" id="back">< back</a>
+        
         <ul class="nav nav-pills nav-stacked" id="tab">
             <li><a data-toggle="tab" href="#menu1">ลงทะเบียนรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu2">เพิ่มรายวิชา</a></li>
@@ -29,15 +40,7 @@
         </ul>
      </div>
      <div id="main">
-        <div id="header" class= "header">
-            <a href="student-main.php">ข้อมูลนักศึกษา</a>
-            <a class = "active" href="student-main2.php">ลงทะเบียนเรียน</a>
-            <a href="student-main3.php">ตารางเรียน</a>
-            <a href="student-main4.php">ผลการเรียน</a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
+        
         
         <div class="tab-content" id="tab-content">
             <div id="menu1" class="tab-pane fade">
