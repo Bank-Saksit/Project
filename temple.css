@@ -10,7 +10,7 @@
             top: 80px;
             text-align: right;
             border-right: 3px solid;
-            transition: 0.1s;
+            transition: 0.5s;
         }
         #tab-content {
             position: absolute;
