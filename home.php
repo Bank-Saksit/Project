@@ -7,7 +7,7 @@
         <title>หน้าหลัก</title>
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <style>
-            @import "global.css";
+ 
             @font-face{
                 font-family: "supermarket";
                 src: url(font/supermarket.woff);
@@ -22,14 +22,14 @@
             }
             #main {
                 width: 1100px;
-                height: 500px;
+                height: 100%;
                 margin: auto;
                 position: relative;
                 top: 50px;
             }
             #header {
                 width: 100%;
-                top: 100px;
+                height: 100px;
                 position: relative;
             }
             #header > h1 {
@@ -42,9 +42,8 @@
             }
             #content {
                 position: relative;
-                top:110px;
-                width: 1100px;
                 height: 350px;
+                width:100%;
             }
             #left,#right {
                 float: left;
@@ -90,13 +89,26 @@
             }
             @media only screen and (max-width:820px) {
             /* For mobile phones: */
-                #content, #main {
+                #main {
                 width:100%;
                 }
                 #center,#right{
                     float: left;
                     margin-left:0px;
                 }
+            }
+            footer {
+                position: absolute;
+                text-align: right;
+                width: 100%;
+                bottom: -30px;
+                border-top: 2px solid;
+                
+            }
+            a {
+                text-decoration: none;
+                margin: 5px;
+                color: #444444;
             }
         </style>
     </head>
@@ -106,7 +118,7 @@
                 <h1>ระบบลงทะเบียน</h1>
             </div>
             <div id="content">
-            <div id="left" class="card" onclick="window.location.href='recruit-login.php'">
+                <div id="left" class="card" onclick="window.location.href='recruit-login.php'">
                     <div>
                         <img data-u="image" src="img/gallery/980x380/056.jpg" />
                         <h1>นักเรียน</h1>
@@ -124,7 +136,8 @@
                         <h1>บุคลากร</h1>
                     </div>
                 </div>
+                <?php include "recruit-footer.php"; ?>
             </div>
-            <?php include "recruit-footer.php"; ?>
         </div>
     </body>
+</html>
