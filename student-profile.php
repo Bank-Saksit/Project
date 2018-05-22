@@ -319,10 +319,14 @@
 				document.getElementById('inpBl').selectedIndex = '-1';*/
 
 			var out4 = "<h3>ข้อมูลด้านการศึกษา</h3>"+
-					"<p>โรงเรียน: "+arr[0].SchoolName+"<br>"+
 					"<p>ระดับการศึกษา: "+arr[0].EducationBackground+"<br>"+
 					"<p>สาขา: "+arr[0].Branch+"<br>"+
-					"<p>GPAX: "+arr[0].SchoolGPAX+"<br>";
+					"<p>GPAX: "+arr[0].SchoolGPAX+"<br>"+
+					"<br><p>โรงเรียน: "+arr[0].SchoolName+"<br>"+
+					"<p>ที่อยู่: "+arr[0].sAddress+"<br>"+
+					"<p>จังหวัด: "+arr[0].sProvince+"<br>"+
+					"<p>รหัสไปรษณีย์: "+arr[0].sPostcode+"<br>"+
+					"<p>โทรศัพท์: "+arr[0].sTelNumber+"<br>";
             document.getElementById("menu4").innerHTML = out4;
         }
 
