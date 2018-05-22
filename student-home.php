@@ -130,10 +130,10 @@
             </div>
             <div id="content">
                 <div id="c-top">
-                    <form method="post">
+                    <form method="post" action="student-home-link.php">
                         <h1>ระบบสารสนเทศ<br>เพื่อการบริหารการศึกษา</h1>
-                        <input type="text" id="id" placeholder="รหัสนักศึกษา"><br>
-                        <input type="password" id="pswd" placeholder="รหัสผ่าน"><br>
+                        <input type="text" name="id" placeholder="รหัสนักศึกษา"><br>
+                        <input type="password" name="pswd" placeholder="รหัสผ่าน"><br>
                         <div id = "sub">
                             <input type="submit" value="เข้าสู่ระบบ">
                             <a href = "student-forgetpassword.php">ลืมรหัสผ่าน?</a>

@@ -8,7 +8,13 @@
                                 FROM staffinfo
                                 WHERE StaffId = $id AND IDCardNumber =$pswd;");
 
-        if($result->num_rows == 1){
+        if($id==NULL || $pswd==NULL){
+            $conn->close();
+            echo    '<script> alert("กรุณากรอกข้อมูลให้ครบทุกช่อง");
+                            window.location="student-home.php"; 
+                    </script>';
+        }
+        else if($result->num_rows == 1){
             $rs = $result->fetch_array(MYSQLI_ASSOC);
             if($rs['Password']==NULL){
                 $_SESSION['id'] = $id;
