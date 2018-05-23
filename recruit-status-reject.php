@@ -52,7 +52,7 @@
         function load(){
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol + '//' + location.host+"/Project/recruit-status-confirm-link.php?inID=" +
-            <?php echo $_SESSION['id']; ?>
+            <?php echo $_COOKIE['id']; ?>
             
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
