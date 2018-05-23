@@ -77,6 +77,13 @@
             margin-left: 20px;
             margin-right: 20px;
             border-radius: 10px;
+            color:white;
+        }
+        #sm-sub{
+            background-color:#3085d6;
+        }
+        $sm{
+            background-color:#d33;
         }
 
     </style>
