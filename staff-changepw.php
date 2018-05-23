@@ -125,7 +125,8 @@ session_start();
 </head>
 <body>
     <?php
-        if(!isset($_SESSION['id'])){
+        echo $_SESSION['role'];
+        if(!isset($_SESSION['id'])||!isset($_SESSION['idcard'])||$_SESSION['role']!='staff'){
             header("location:staff-new-login.php");
         }
     ?>

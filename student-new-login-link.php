@@ -18,7 +18,8 @@
                 if($rs['Password']==NULL){
                     $conn->close();
                     $_SESSION['id'] = $id;
-                    $_SESSION['pswd'] = $pswd;
+                    $_SESSION['idcard'] = $pswd;
+                    $_SESSION['role'] = 'student';
                     header("Location:student-changepw.php?");   
                 }
                 else{
