@@ -20,7 +20,10 @@
                 $_SESSION['id'] = $id;
                 $_SESSION['pswd'] = $pswd;
                 $_SESSION['role'] = $rs['Role'];
-                header("Location:staff-afterlogin-test.php?");   
+                if($_SESSION['role']=='Teacher'){
+                   header("Location:staff-teacher-main.php");
+                }
+                   
             }
             else{
                 $conn->close();   

@@ -54,15 +54,16 @@ if($result->num_rows == 0){
 				}
 			}
 		}
+		echo "	<script>			
+					swal({
+						type: 'success',
+						title: '<h1>การสมัครเสร็จเรียบร้อย<br>รหัสประจำตัวผู้สมัครของคุณคือ". $row['RecruitID'] ." <br></h1><br><h4>สามารถตรวจสถานะได้ในเว็บ</h4>',
+						confirmButtonText: '<a href=\"recruit-login.php\" style=\"text-decoration: none\"><font color=\"white\">กลับสู่หน้าเว็บ</font></a>',
+					});
+				</script>";
 	}
 
-	echo "	<script>			
-				swal({
-					type: 'success',
-					title: '<h1>การสมัครเสร็จเรียบร้อย</h1><br><h4>สามารถตรวจสถานะได้ในเว็บ</h4>',
-					confirmButtonText: '<a href=\"recruit-login.php\" style=\"text-decoration: none\"><font color=\"white\">กลับสู่หน้าเว็บ</font></a>',
-				});
-			</script>";
+	
 }
 else{
 	echo "	<script>			

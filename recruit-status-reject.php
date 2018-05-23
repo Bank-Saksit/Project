@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <link href ="js/sweetalert2.all.js" rel="stylesheet" >
+	<script src="js/sweetalert21.js"></script>
     <title>สละสิทธิ์</title>
     <style>
         @import "global1.css";
@@ -47,6 +51,7 @@
         <div id="profile"></div>
             <form>
                 <div id="detail"></div>
+                <div id="but"></div>
                 <div id="test"> </div>
             </form>
         </div>
@@ -93,10 +98,30 @@
                 "<br>เหตุผล<br>"+
                 "<textarea rows=3 cols=50 name=\"reason\" style=\"resize:none\"></textarea><br>"+
                 "<div id='button'>"+
-                "<input id='sm-sub' type=\"button\" value=\"ยืนยัน\" onclick=\"update()\">"+
+                // "<input id='sm-sub' type=\"button\" value=\"ยืนยัน\" onclick=\"update()\">"+
+                "<input id='sm-sub' type=\"button\" value=\"ยืนยัน\" >"+
                 "<input id='sm' type=\"button\" value=\"ย้อนกลับ\" onclick=\"window.location.href='recruit-status.php'\">"+
                 "</div>";
             document.getElementById("detail").innerHTML = outlist;
+
+            $(function(){
+                $('#sm-sub').on('click',function(){
+                    swal({
+                        title: 'คุณต้องการที่จะสละสิทธ์ใช่หรือไม่',
+                        text: "หากคุณสละสิทธิ์แล้ว คุณไม่สามารถยกเลิกได้",
+                        type: 'warning',
+                        showCancelButton: true,
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: '<a href="recruit-status.php" ><font color="white">ยืนยันที่จะสละสิทธิ์</font></a>',
+                        cancelButtonText: 'ยกเลิก',
+                    }).then((result) => {
+                        if (result.value) {
+                            update();
+                        }
+                    })
+                })
+            })
+           
         }
 
         function update() {
@@ -122,6 +147,8 @@
             else
                 document.getElementById("test").innerHTML = "";
         }
+
+         
     </script>
 </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ระบบสารสนเทศเพื่อการบริหารการศึกษา</title>
+    <title>ระบบสารสนเทศสำหรับอาจารย์</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -20,19 +20,18 @@
 </head>
 <body>
     <div class="top" id="top">
-            <a href="student-main.php">ข้อมูลนักศึกษา</a>
-            <a href="student-main2.php">ลงทะเบียนเรียน</a>
-            <a class = "active" href="student-main3.php">ตารางเรียน</a>
-            <a href="student-main4.php">ผลการเรียน</a>
+            <a href="staff-teacher-main.php">ข้อมูลอาจารย์</a>
+            <a class = "active" href="staff-teacher-main2.php">ลงทะเบียนสอน</a>
+            <a href="staff-teacher-main3.php">บันทึกและตัดเกรด</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="student-home.php" class="logout">ออกจากระบบ</a>
+            <a href="staff-home.php" class="logout">ออกจากระบบ</a>
     </div>
    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a data-toggle="tab" href="#menu1">ตารางเรียน</a></li>
-            <li><a data-toggle="tab" href="#menu2">ตารางสอบ</a></li>
+            <li><a data-toggle="tab" href="#menu1">ลงทะเบียนสอน</a></li>
+            <li><a data-toggle="tab" href="#menu2">ตารางสอน</a></li>
         </ul>
      </div>
      <div id="main">

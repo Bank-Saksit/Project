@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ระบบสารสนเทศเพื่อการบริหารการศึกษา</title>
+    <title>ระบบสารสนเทศสำหรับผู้ดูแลระบบ</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -20,19 +20,19 @@
 </head>
 <body>
     <div class="top" id="top">
-            <a href="student-main.php">ข้อมูลนักศึกษา</a>
-            <a href="student-main2.php">ลงทะเบียนเรียน</a>
-            <a class = "active" href="student-main3.php">ตารางเรียน</a>
-            <a href="student-main4.php">ผลการเรียน</a>
+            <a class = "active" href="staff-admin-main.php">ตรวจสอบข้อมูล</a>
+            <a href="staff-admin-main2.php">แก้ไขรายวิชา</a>
+            <a href="staff-admin-main3.php">menu3</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="student-home.php" class="logout">ออกจากระบบ</a>
+            <a href="staff-home.php" class="logout">ออกจากระบบ</a>
     </div>
    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a data-toggle="tab" href="#menu1">ตารางเรียน</a></li>
-            <li><a data-toggle="tab" href="#menu2">ตารางสอบ</a></li>
+        <li><a data-toggle="tab" href="#menu1">ข้อมูลผู้สมัคร</a></li>
+            <li><a data-toggle="tab" href="#menu2">ข้อมูลนักศึกษา</a></li>
+            <li><a data-toggle="tab" href="#menu3">ข้อมูลอาจารย์</a></li>
         </ul>
      </div>
      <div id="main">
@@ -41,6 +41,9 @@
                 
             </div>
             <div id="menu2" class="tab-pane fade">
+                
+            </div>
+            <div id="menu3" class="tab-pane fade">
                 
             </div>
         </div>
