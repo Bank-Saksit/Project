@@ -123,7 +123,7 @@ session_start();
     <body>
         <?php
             if(isset($_SESSION['id']) && isset($_SESSION['pswd']) &&  $_SESSION['role'] == 'student') {
-                header("location: student-afterlogin-test.php");
+                header("location: student-main.php");
                 exit('</body></html>');
             }
         ?> 
