@@ -17,24 +17,24 @@
         @import "global1.css";
         #left {
             float: left;
-            width: 250px;
+            width: 15%;
             position: relative;
             height: 100%;
         }
         #tab {
             position: absolute;
             right: 0;
-            top: 200px;
+            top: 150px;
             text-align: right;
             border-right: 3px solid;
         }
         #tab-content {
             position: absolute;
-            top:70px;
+            top:80px;
             margin-left: 30px;
         }
         #main {
-            width: 950px;
+            width: 85%;
             float: left;
             position: relative;
             top: 50px;

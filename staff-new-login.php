@@ -7,7 +7,7 @@ session_start();
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>สำหรับบุคคลากร</title>
+        <title>สำหรับบุคลากร</title>
         <style>
             @import "global1.css";
             html, body { 
@@ -128,7 +128,7 @@ session_start();
                 <div id="c-top">
                     <form action="staff-new-login-link.php" method="post" >
                         <h1>ระบบสารสนเทศ<br>สำหรับบุคคลากรของมหาวิทยาลัย</h1>
-                        <input type="text" name="id" placeholder="รหัสประจำตัวบุคคลากร"><br>
+                        <input type="text" name="id" placeholder="รหัสประจำตัวบุคลากร"><br>
                         <input type="password" name="pswd" placeholder="รหัสบัตรประจำตัวประชาชน"><br>
                         <input type="submit" value="เข้าสู่ระบบ">
                     </form>

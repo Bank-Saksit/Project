@@ -7,7 +7,7 @@
         <title>หน้าหลัก</title>
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <style>
-            @import "global.css";
+ 
             @font-face{
                 font-family: "supermarket";
                 src: url(font/supermarket.woff);
@@ -22,14 +22,14 @@
             }
             #main {
                 width: 1100px;
-                height: 500px;
+                height: 100%;
                 margin: auto;
                 position: relative;
                 top: 50px;
             }
             #header {
                 width: 100%;
-                top: 100px;
+                height: 100px;
                 position: relative;
             }
             #header > h1 {
@@ -42,50 +42,66 @@
             }
             #content {
                 position: relative;
-                top:110px;
-                width: 1100px;
-                height: 350px;
+                width:100%;
+                display: inline-block;  
             }
-            #left,#right {
-                float: left;
+            #left,#right,#center{
                 margin-top: 10px;
                 width: 340px;
                 height: 300px;
                 position: relative;
-                
-            }
-            #left > div,#right > div ,#center > div {
-                position: absolute;
                 text-align: center;
-                bottom: 0px;
-                width: 100%;
                 background: white;
                 cursor: pointer;
+                
             }
             #center {
                 float: left;
-                margin-top: 10px;
                 margin-left: 40px;
-                width: 340px;
-                height: 300px;
-                position: relative;
             }
             #right {
                 float: right;
+            }
+            #left {
+                float: left;
             }
             img {
                 width: 340px;
                 height: 215px;
             }
+            .card {
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                transition: 0.3s;
+                width: 40%;
+            }
+            .card:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
+            .container {
+                padding: 2px 16px;
+            }
             @media only screen and (max-width:820px) {
             /* For mobile phones: */
-                #content, #main {
+                #main {
                 width:100%;
                 }
                 #center,#right{
                     float: left;
                     margin-left:0px;
                 }
+            }
+            footer {
+                position: absolute;
+                text-align: right;
+                width: 100%;
+                bottom: -60px;
+                border-top: 2px solid;
+                
+            }
+            a {
+                text-decoration: none;
+                margin: 5px;
+                color: #444444;
             }
         </style>
     </head>
@@ -95,25 +111,20 @@
                 <h1>ระบบลงทะเบียน</h1>
             </div>
             <div id="content">
-            <div id="left" onclick="window.location.href='recruit-login.php'">
-                    <div>
-                        <img data-u="image" src="img/gallery/980x380/056.jpg" />
-                        <h1>นักเรียน</h1>
-                    </div>
+                <div id="left" class="card" onclick="window.location.href='recruit-login.php'">
+                    <img data-u="image" src="img/gallery/980x380/056.jpg" />
+                    <h1>นักเรียน</h1>
                 </div>
-                <div id="center" onclick="window.location.href='student-home.php'">
-                    <div>
-                        <img data-u="image" src="img/gallery/980x380/057.jpg" />
-                        <h1>นักศึกษา</h1>
-                    </div>
+                <div id="center" class="card" onclick="window.location.href='student-home.php'">
+                    <img data-u="image" src="img/gallery/980x380/057.jpg" />
+                    <h1>นักศึกษา</h1>
                 </div>
-                <div id="right" onclick="window.location.href='staff-home.php'">
-                    <div>
-                        <img data-u="image" src="img/gallery/980x380/058.jpg" />
-                        <h1>บุคลากร</h1>
-                    </div>
+                <div id="right" class="card" onclick="window.location.href='staff-home.php'">
+                    <img data-u="image" src="img/gallery/980x380/058.jpg" />
+                    <h1>บุคลากร</h1>
                 </div>
             </div>
             <?php include "recruit-footer.php"; ?>
         </div>
     </body>
+</html>

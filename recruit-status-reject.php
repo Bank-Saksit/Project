@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,6 +25,9 @@ session_start();
     </style>
 </head>
 <body>
+    <?php
+    include "recruit-checkLog.php";
+    ?>
     <div id="left">
         <a href="#" id="back"> < ออกจากระบบ </a>
     </div>
