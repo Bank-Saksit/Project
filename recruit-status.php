@@ -119,7 +119,7 @@
         function loadRecruit(){
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID="+ <?php echo $_SESSION['id']; ?> 
-            console.log(url)
+ 
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     displayResponse(xmlhttp.responseText);
@@ -174,12 +174,6 @@
 
             if(arr[0].Status == "รอยืนยันสิทธิ์"){
                 document.getElementById("submit").innerHTML = "<button id='sm-sub'>ยืนยันสิทธิ์</button><button id='sm' onclick=\"window.location.href='recruit-status-reject.php'\">สละสิทธิ์</button>";
-<<<<<<< HEAD
-=======
-
-                
-                // sm = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.php'\">ยืนยันสิทธิ์</button>";
->>>>>>> 605c92997721e3a28e84277e84deb2586688b5df
                  $(function(){
                     $('#sm-sub').on('click',function(){
                         swal({
@@ -195,22 +189,7 @@
                                 updateRecruit();
                             }
                         })
-<<<<<<< HEAD
                     })
-=======
-                    });
-                    // $('#sm').on('click',function(){
-                    //     swal({
-                    //         title: 'คุณต้องการที่จะสละสิทธ์ใช่หรือไม่',
-                    //         text: "หากคุณสละสิทธิ์แล้ว คุณไม่สามารถกดยกเลิกได้",
-                    //         type: 'warning',
-                    //         showCancelButton: true,
-                    //         cancelButtonColor: '#d33',
-                    //         confirmButtonText: '<a href="recruit-status-confirm.php" ><font color="white">ยืนยันสิทธิ์</font></a>',
-                    //         cancelButtonText: 'ยกเลิก',
-                    //     })
-                    // })
->>>>>>> 605c92997721e3a28e84277e84deb2586688b5df
                 })
             }else if(arr[0].Status == "รอจ่ายค่าเทอม"){
                 document.getElementById("submit").innerHTML = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.php'\">ดูรายละเอียด</button>";
