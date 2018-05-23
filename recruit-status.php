@@ -174,9 +174,12 @@
 
             if(arr[0].Status == "รอยืนยันสิทธิ์"){
                 document.getElementById("submit").innerHTML = "<button id='sm-sub'>ยืนยันสิทธิ์</button><button id='sm' onclick=\"window.location.href='recruit-status-reject.php'\">สละสิทธิ์</button>";
+<<<<<<< HEAD
+=======
 
                 
                 // sm = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.php'\">ยืนยันสิทธิ์</button>";
+>>>>>>> 605c92997721e3a28e84277e84deb2586688b5df
                  $(function(){
                     $('#sm-sub').on('click',function(){
                         swal({
@@ -192,6 +195,9 @@
                                 updateRecruit();
                             }
                         })
+<<<<<<< HEAD
+                    })
+=======
                     });
                     // $('#sm').on('click',function(){
                     //     swal({
@@ -204,6 +210,7 @@
                     //         cancelButtonText: 'ยกเลิก',
                     //     })
                     // })
+>>>>>>> 605c92997721e3a28e84277e84deb2586688b5df
                 })
             }else if(arr[0].Status == "รอจ่ายค่าเทอม"){
                 document.getElementById("submit").innerHTML = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.php'\">ดูรายละเอียด</button>";
