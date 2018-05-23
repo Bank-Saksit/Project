@@ -31,7 +31,6 @@
             }
             #header {
                 width: 100%;
-                top: 100px;
                 position: relative;
             }
             #header > h1 {
@@ -55,8 +54,6 @@
                 clear: both;
                 width: 100%;
                 position: relative;
-                height: 450px;
-                top: 110px;
             }
             #c-top {
                 width: 100%;
