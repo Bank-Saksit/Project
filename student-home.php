@@ -58,6 +58,7 @@ session_start();
                 width: 100%;
                 position: relative;
                 display:inline-block;
+                background-image: url(img/gallery/980x380/064.jpg);
             }
             #c-top {
                 width: 100%;
@@ -65,7 +66,6 @@ session_start();
                 top: 0;
                 text-align: left;
                 position: relative;
-                background-image: url(img/gallery/980x380/064.jpg);
                 color: white;
             }
             #c-bot {
@@ -78,7 +78,6 @@ session_start();
                 color: black;
             }
             form{
-                
                 padding-left : 30px;
             }
             input[type=text] {

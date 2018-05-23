@@ -32,16 +32,15 @@ session_start();
             font-weight: bold;
         }
         #header {
-            width: 100%;
-            top: 100px;
-            position: relative;
-        }
+                width: 100%;
+                position: relative;
+            }
         #header > h1 {
-            font-size: 50px;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            border-bottom: 5px solid;
+                font-size: 50px;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                border-bottom: 5px solid;
         }
         #c-left > h1{
             margin-left: 30px;
@@ -55,9 +54,10 @@ session_start();
             clear: both;
             width: 100%;
             position: relative;
-            height: 450px;
-            top: 110px;
+        }
+        .con{
             background-image: url(img/gallery/980x380/064.jpg);
+            height: 350px;
         }
         #c-left {
             width: 50%;
@@ -65,7 +65,6 @@ session_start();
             top: 0;
             text-align: left;
             position: relative;
-            
             color: white;
             float: left;
         }
@@ -75,7 +74,6 @@ session_start();
             top: 0;
             text-align: left;
             position: relative;
-            
             color: #ffffff;
             float: right;
         }
@@ -101,7 +99,7 @@ session_start();
             color: white;
         }
         input[type=password] {
-            background-color:rgba(0,0,0,0.8);
+            background-color:rgba(0,0,0,0.8);   
             margin-top: 15px;
             padding-left: 30px;
             width: 310px;
@@ -138,6 +136,7 @@ session_start();
              <h1>แก้ไขรหัสผ่าน</h1>
         </div>
         <div id="content">
+            <div class = "con">
             <div id="c-left">
                 <h1>ข้อมูลนักศึกษา</h1>
                 <div id ="data">
@@ -152,6 +151,7 @@ session_start();
                     <input type="submit" value="ยืนยัน">
                     <input type="button" id="cancle" onclick ="window.location.href='student-new-logout.php'" value = "ยกเลิก">
                 </form>
+            </div>
             </div>
         </div>
             
