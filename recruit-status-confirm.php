@@ -52,8 +52,8 @@
         function load(){
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol + '//' + location.host+"/Project/recruit-status-confirm-link.php?inID="+
-            <?php echo $_COOKIE['id'] ?>
-            
+            <?php echo $_COOKIE['id']; ?>   
+
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     displayResponse(xmlhttp.responseText);
@@ -64,7 +64,8 @@
         }
         
         function displayResponse(response) {
-            var arr = JSON.parse(response);
+            window.arr = JSON.parse(response);
+            
             var out = "รหัสประจำตัวผู้สมัคร : "+ arr[0].RecruitID +"<br>"+
                     "ชื่อ : "+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"<br>"+
                     "ชื่อโครงการ : "+ arr[0].RecruitPlanName +"<br>"+
