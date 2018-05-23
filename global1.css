@@ -84,3 +84,6 @@ input[type = "submit"]{
 .container {
     padding: 2px 16px;
 }
+button{
+    font-family: "supermarket";
+}
