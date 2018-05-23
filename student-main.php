@@ -54,12 +54,12 @@
         </div>
         <script>
         function myFunction() {
-            var x = document.getElementById("header");
-            if (x.className === "header") {
+            var x = document.getElementById("top");
+            if (x.className === "top") {
                 x.className += " responsive";
                 } 
             else {
-                x.className = "header";
+                x.className = "top";
                 }
             }
         </script>
