@@ -181,7 +181,7 @@
                         "<div id='res2'></div>"
                         "</form>";
                 document.getElementById("menu2").innerHTML = out2;
-                io
+                
                 /*var out3 = "<h3>ข้อมูลผู้ปกครอง</h3>"+
                         "<form>"+
                         "<p><h5>ความสัมพันธ์:</h5><select id='inRela'><br>"+
