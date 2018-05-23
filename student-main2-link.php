@@ -1,45 +1,45 @@
 <?php
 include "dblink.php";
 if( $_GET['type']=='01' ){
-    $result = $conn->query("SELECT 
-                            FROM 
+    $result = $conn->query("SELECT s.StudentID
+                            FROM studentinfo s
                             WHERE s.StudentID = '".$_GET['inID']."';");
 
     $outp = "[";
     while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
         if ($outp != "[") {$outp .= ",";}
-        $outp .= '{"StudentID":"'.$rs["StudentID"].'",';
-        $outp .= '"Department":"'.$rs["Department"].'",';
-        $outp .= '"Degree":"'.$rs["Degree"].'",';
-        $outp .= '"Course":"'.$rs["Course"].'",';
-        $outp .= '"MobileNumber":"'.$rs["MobileNumber"].'",';
-        $outp .= '"TelNumber":"'.$rs["TelNumber"].'",';
-        $outp .= '"Email":"'.$rs["Email"].'",';
-        $outp .= '"Status":"'.$rs["Status"].'",';
-        $outp .= '"IDCardNumber":"'.$rs["IDCardNumber"].'",';
-        $outp .= '"Prefix":"'.$rs["Prefix"].'",';
-        $outp .= '"FirstName":"'.$rs["FirstName"].'",';
-        $outp .= '"LastName":"'.$rs["LastName"].'",';
-        $outp .= '"Gender":"'.$rs["Gender"].'",';
-        $outp .= '"DOB":"'.$rs["DOB"].'",';
-        $outp .= '"Nationality":"'.$rs["Nationality"].'",';
-        $outp .= '"Race":"'.$rs["Race"].'",';
-        $outp .= '"Religion":"'.$rs["Religion"].'",';
-        $outp .= '"BloodGroup":"'.$rs["BloodGroup"].'",';
-        $outp .= '"Address":"'.$rs["Address"].'",';
-        $outp .= '"Province":"'.$rs["Province"].'",';
-        $outp .= '"Postcode":"'.$rs["Postcode"].'",';
-        $outp .= '"Course":"'.$rs["Course"].'",';
-        $outp .= '"Status":"'.$rs["Status"].'",';
-        $outp .= '"EducationBackground":"'.$rs["EducationBackground"].'",';
-        $outp .= '"Branch":"'.$rs["Branch"].'",';
-        $outp .= '"SchoolGPAX":"'.$rs["SchoolGPAX"].'",';
-        $outp .= '"SchoolName":"'.$rs["SchoolName"].'",';
-        $outp .= '"Faculty":"'.$rs["Faculty"].'",';
-        $outp .= '"sAddress":"'.$rs["Address"].'",';
-        $outp .= '"sProvince":"'.$rs["Province"].'",';
-        $outp .= '"sPostcode":"'.$rs["Postcode"].'",';
-        $outp .= '"sTelNumber":"'.$rs["TelNumber"].'"}';
+        $outp .= '{"StudentID":"'.$rs["StudentID"].'"}';
+        // $outp .= '"Department":"'.$rs["Department"].'",';
+        // $outp .= '"Degree":"'.$rs["Degree"].'",';
+        // $outp .= '"Course":"'.$rs["Course"].'",';
+        // $outp .= '"MobileNumber":"'.$rs["MobileNumber"].'",';
+        // $outp .= '"TelNumber":"'.$rs["TelNumber"].'",';
+        // $outp .= '"Email":"'.$rs["Email"].'",';
+        // $outp .= '"Status":"'.$rs["Status"].'",';
+        // $outp .= '"IDCardNumber":"'.$rs["IDCardNumber"].'",';
+        // $outp .= '"Prefix":"'.$rs["Prefix"].'",';
+        // $outp .= '"FirstName":"'.$rs["FirstName"].'",';
+        // $outp .= '"LastName":"'.$rs["LastName"].'",';
+        // $outp .= '"Gender":"'.$rs["Gender"].'",';
+        // $outp .= '"DOB":"'.$rs["DOB"].'",';
+        // $outp .= '"Nationality":"'.$rs["Nationality"].'",';
+        // $outp .= '"Race":"'.$rs["Race"].'",';
+        // $outp .= '"Religion":"'.$rs["Religion"].'",';
+        // $outp .= '"BloodGroup":"'.$rs["BloodGroup"].'",';
+        // $outp .= '"Address":"'.$rs["Address"].'",';
+        // $outp .= '"Province":"'.$rs["Province"].'",';
+        // $outp .= '"Postcode":"'.$rs["Postcode"].'",';
+        // $outp .= '"Course":"'.$rs["Course"].'",';
+        // $outp .= '"Status":"'.$rs["Status"].'",';
+        // $outp .= '"EducationBackground":"'.$rs["EducationBackground"].'",';
+        // $outp .= '"Branch":"'.$rs["Branch"].'",';
+        // $outp .= '"SchoolGPAX":"'.$rs["SchoolGPAX"].'",';
+        // $outp .= '"SchoolName":"'.$rs["SchoolName"].'",';
+        // $outp .= '"Faculty":"'.$rs["Faculty"].'",';
+        // $outp .= '"sAddress":"'.$rs["Address"].'",';
+        // $outp .= '"sProvince":"'.$rs["Province"].'",';
+        // $outp .= '"sPostcode":"'.$rs["Postcode"].'",';
+        // $outp .= '"sTelNumber":"'.$rs["TelNumber"].'"}';
         // $outp .= '"Relation":"'.$rs["Relation"].'",';
         // $outp .= '"pMobileNumber":"'.$rs["pMobileNumber"].'",';
         // $outp .= '"pTelNumber":"'.$rs["pTelNumber"].'",';
