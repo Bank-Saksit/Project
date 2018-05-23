@@ -57,6 +57,7 @@ session_start();
                 clear: both;
                 width: 100%;
                 position: relative;
+                display: inline-block;
             }
             #c-top {
                 width: 100%;
