@@ -42,6 +42,7 @@
                 <div id="test"> </div>
             </form>
         </div>
+        <?php include "recruit-footer.php"; ?>
     </div>
     
 

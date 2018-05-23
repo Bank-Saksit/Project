@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -31,7 +34,6 @@
             }
             #header {
                 width: 100%;
-                top: 100px;
                 position: relative;
             }
             #header > h1 {
@@ -55,8 +57,6 @@
                 clear: both;
                 width: 100%;
                 position: relative;
-                height: 450px;
-                top: 110px;
             }
             #c-top {
                 width: 100%;
@@ -121,6 +121,12 @@
 
     </head>
     <body>
+        <?php
+            if(isset($_SESSION['id']) && isset($_SESSION['pswd']) &&  ($_SESSION['role'] == 'Teacher'||$_SESSION['role'] == 'Admin')) {
+                header("location: staff-afterlogin-test.php");
+                exit('</body></html>');
+        }
+        ?> 
         <div id="left">
             <br><a href="home.php" id="back">< back</a>
         </div>

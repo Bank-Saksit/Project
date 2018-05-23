@@ -1,11 +1,9 @@
 <?php
 include "dblink.php";
 if( $_GET['type']=='01' ){
-    $result = $conn->query("SELECT s.StudentID, s.Department, s.Degree, s.Course, s.MobileNumber, s.TelNumber, s.Email, s.Status, s.IDCardNumber, s.Prefix, s.FirstName, s.LastName, s.Gender, s.DOB, s.Nationality, s.Race, s.Religion, s.BloodGroup, s.Address, s.Province, s.Postcode, s.Course, s.Status, s.EducationBackground, s.Branch, s.SchoolGPAX, sc.SchoolName, d.Faculty
-                                , sc.Address, sc.Province, sc.Postcode, sc.TelNumber
-                            /*, p.Relation, p.MobileNumber, p.TelNumber, p.Email, p.IDCardNumber, p.Prefix, p.FirstName, p.LastName, p.Gender, p.DOB, p.Nationality, p.Race, p.Religion, p.BloodGroup, p.Address, p.Province, p.Postcode*/
-                            FROM studentinfo s, departmentinfo d, schoolinfo sc/*, parentinfo p*/
-                            WHERE s.Department=d.Department /*AND s.StudentID=p.StudentID*/ AND s.SchoolID=sc.SchoolID AND s.StudentID = '".$_GET['inID']."';");
+    $result = $conn->query("SELECT 
+                            FROM 
+                            WHERE s.StudentID = '".$_GET['inID']."';");
 
     $outp = "[";
     while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
