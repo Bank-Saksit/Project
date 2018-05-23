@@ -15,7 +15,7 @@
                         </script>';
             }
             else if($result->num_rows == 1){
-                $rs= $result->fetch_array(MYSQLI_ASSOC)
+                $rs= $result->fetch_array(MYSQLI_ASSOC);
                 $conn->close();
                 $_SESSION['id'] = $id;
                 $_SESSION['pswd'] = $pswd;
