@@ -151,7 +151,7 @@
             document.getElementById("status").innerHTML = stat;
 
             if(arr[0].Status == "รอยืนยันสิทธิ์"){
-                document.getElementById("submit").innerHTML = "<button id='sm-sub'>ยืนยันสิทธิ์</button><button id='sm'>สละสิทธิ์</button>";
+                document.getElementById("submit").innerHTML = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.php'\">ยืนยันสิทธิ์</button><button id='sm' onclick=\"window.location.href='recruit-status-reject.php'\">สละสิทธิ์</button>";
                 // sm = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.php'\">ยืนยันสิทธิ์</button>";
                
             }
