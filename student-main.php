@@ -118,10 +118,23 @@
                             "<option value='อิสลาม'>อิสลาม</option>"+
                             "<option value='ไม่ระบุ'>ไม่ระบุ</option>"+
                         "</select><br>"+
-                        "<br><input type='button' value='แก้ไข' onclick='update1()'>"+
+                        "<br><input type='button' value='แก้ไข' id='edit1' onclick='update1()'>"+
                         "<div id='res1'></div>"
                         "</form>";
                 document.getElementById("menu1").innerHTML = out1;
+                $(function(){
+                    $('#edit1').on('click',function(){
+                        swal({
+                            title: 'คุณต้องการที่จะยืนยันสิทธ์ใช่หรือไม่',
+                            text: "หากคุณยืนยันสิทธิ์แล้ว คุณต้องชำระค่าใช้จ่ายแรกเข้าภายในวันที่กำหนด ถ้าไม่ชำระเงินภายในวันที่กำหนด จะถือว่าสละสิทธิ์",
+                            type: 'warning',
+                            showCancelButton: true,
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: '<a href="recruit-status-confirm.php" ><font color="white">ยืนยันสิทธิ์</font></a>',
+                            cancelButtonText: 'ยกเลิก',
+                        })
+                    })
+                })
                 if( arr[0].BloodGroup=='A' )
                     document.getElementById('inBl').selectedIndex = '0';
                 else if( arr[0].BloodGroup=='B' )
