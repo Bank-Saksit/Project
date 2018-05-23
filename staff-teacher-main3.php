@@ -20,9 +20,9 @@
 </head>
 <body>
     <div class="top" id="top">
-            <a class = "active" href="staff-teacher-main.php">ข้อมูลอาจารย์</a>
+            <a href="staff-teacher-main.php">ข้อมูลอาจารย์</a>
             <a href="staff-teacher-main2.php">ลงทะเบียนสอน</a>
-            <a href="staff-teacher-main3.php">บันทึกและตัดเกรด</a>
+            <a class = "active" href="staff-teacher-main3.php">บันทึกและตัดเกรด</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
@@ -30,9 +30,9 @@
     </div>
    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a data-toggle="tab" href="#menu1">ข้อมูลส่วนตัว</a></li>
-            <li><a data-toggle="tab" href="#menu2">ข้อมูลติดต่อ</a></li>
-            <li><a data-toggle="tab" href="#menu3">ข้อมูลด้านการศึกษา</a></li>
+            <li><a data-toggle="tab" href="#menu1">บันทึกเกรดในรายวิชา</a></li>
+            <li><a data-toggle="tab" href="#menu2">เกรดของนักเรียนของแต่ละปี</a></li>
+            <li><a data-toggle="tab" href="#menu3">เกรดของนักเรียนของแต่ละรายวิชา</a></li>
         </ul>
      </div>
      <div id="main">
