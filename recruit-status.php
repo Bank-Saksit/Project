@@ -163,7 +163,6 @@
 
             if(arr[0].Status == "รอยืนยันสิทธิ์"){
                 document.getElementById("submit").innerHTML = "<button id='sm-sub'>ยืนยันสิทธิ์</button><button id='sm' onclick=\"window.location.href='recruit-status-reject.php'\">สละสิทธิ์</button>";
-                // sm = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.php'\">ยืนยันสิทธิ์</button>";
                  $(function(){
                     $('#sm-sub').on('click',function(){
                         swal({
@@ -176,17 +175,6 @@
                             cancelButtonText: 'ยกเลิก',
                         })
                     })
-                    // $('#sm').on('click',function(){
-                    //     swal({
-                    //         title: 'คุณต้องการที่จะสละสิทธ์ใช่หรือไม่',
-                    //         text: "หากคุณสละสิทธิ์แล้ว คุณไม่สามารถกดยกเลิกได้",
-                    //         type: 'warning',
-                    //         showCancelButton: true,
-                    //         cancelButtonColor: '#d33',
-                    //         confirmButtonText: '<a href="recruit-status-confirm.php" ><font color="white">ยืนยันสิทธิ์</font></a>',
-                    //         cancelButtonText: 'ยกเลิก',
-                    //     })
-                    // })
                 })
             }
         }

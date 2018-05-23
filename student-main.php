@@ -11,6 +11,8 @@
     <link href ="js/jquery-ui.min.css" rel="stylesheet">
 	<script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <link href ="js/sweetalert2.all.js" rel="stylesheet" >
+	<script src="js/sweetalert21.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         @import "global1.css";
@@ -167,7 +169,7 @@
                         "<div id='res2'></div>"
                         "</form>";
                 document.getElementById("menu2").innerHTML = out2;
-
+                io
                 /*var out3 = "<h3>ข้อมูลผู้ปกครอง</h3>"+
                         "<form>"+
                         "<p><h5>ความสัมพันธ์:</h5><select id='inRela'><br>"+
