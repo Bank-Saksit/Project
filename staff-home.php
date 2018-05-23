@@ -122,10 +122,14 @@ session_start();
     </head>
     <body>
         <?php
-            if(isset($_SESSION['id']) && isset($_SESSION['pswd']) &&  ($_SESSION['role'] == 'Teacher'||$_SESSION['role'] == 'Admin')) {
+            if(isset($_SESSION['id']) && isset($_SESSION['pswd']) && $_SESSION['role'] == 'Teacher') {
+                header("location: staff-teacher-main.php");
+                exit('</body></html>');
+            }
+            else if(isset($_SESSION['id']) && isset($_SESSION['pswd']) && $_SESSION['role'] == 'Admin') {
                 header("location: staff-afterlogin-test.php");
                 exit('</body></html>');
-        }
+            }
         ?> 
         <div id="left">
             <br><a href="home.php" id="back">< back</a>
