@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +14,8 @@
     <link href ="js/jquery-ui.min.css" rel="stylesheet">
 	<script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <link href ="js/sweetalert2.all.js" rel="stylesheet" >
+	<script src="js/sweetalert21.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         @import "global1.css";
@@ -25,6 +30,15 @@
     
 </head>
 <body>
+    <?php 
+        if(isset($_SESSION['id']) && isset($_SESSION['pswd']) && $_SESSION['role'] == 'student') {
+            
+        }
+        else{
+            header("location: student-home.php");
+            exit('</body></html>');
+        }
+    ?>
     <div class="top" id="top">
             <a class = "active" href="student-main.php">ข้อมูลนักศึกษา</a>
             <a href="student-main2.php">ลงทะเบียนเรียน</a>
@@ -33,7 +47,7 @@
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="student-home.php" class="logout">ออกจากระบบ</a>
+            <a href="student-logout.php" class="logout">ออกจากระบบ</a>
     </div>
     <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
@@ -66,7 +80,7 @@
 
             function load(){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol+'//'+location.host+"/Project/student-profile-link.php?type=01&inID=59070501066";
+                var url = location.protocol+'//'+location.host+"/Project/student-profile-link.php?type=01&inID="+<?php echo $_SESSION['id'] ?>;
                 
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -116,10 +130,23 @@
                             "<option value='อิสลาม'>อิสลาม</option>"+
                             "<option value='ไม่ระบุ'>ไม่ระบุ</option>"+
                         "</select><br>"+
-                        "<br><input type='button' value='แก้ไข' onclick='update1()'>"+
+                        "<br><input type='button' value='แก้ไข' id='edit1' onclick='update1()'>"+
                         "<div id='res1'></div>"
                         "</form>";
                 document.getElementById("menu1").innerHTML = out1;
+                $(function(){
+                    $('#edit1').on('click',function(){
+                        swal({
+                            title: 'คุณต้องการที่จะยืนยันสิทธ์ใช่หรือไม่',
+                            text: "หากคุณยืนยันสิทธิ์แล้ว คุณต้องชำระค่าใช้จ่ายแรกเข้าภายในวันที่กำหนด ถ้าไม่ชำระเงินภายในวันที่กำหนด จะถือว่าสละสิทธิ์",
+                            type: 'warning',
+                            showCancelButton: true,
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: '<a href="recruit-status-confirm.php" ><font color="white">ยืนยันสิทธิ์</font></a>',
+                            cancelButtonText: 'ยกเลิก',
+                        })
+                    })
+                })
                 if( arr[0].BloodGroup=='A' )
                     document.getElementById('inBl').selectedIndex = '0';
                 else if( arr[0].BloodGroup=='B' )
@@ -167,7 +194,7 @@
                         "<div id='res2'></div>"
                         "</form>";
                 document.getElementById("menu2").innerHTML = out2;
-
+                
                 /*var out3 = "<h3>ข้อมูลผู้ปกครอง</h3>"+
                         "<form>"+
                         "<p><h5>ความสัมพันธ์:</h5><select id='inRela'><br>"+

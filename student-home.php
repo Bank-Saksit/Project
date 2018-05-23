@@ -124,9 +124,9 @@ session_start();
     <body>
         <?php
             if(isset($_SESSION['id']) && isset($_SESSION['pswd']) &&  $_SESSION['role'] == 'student') {
-                header("location: staff-changepw.php");
+                header("location: student-afterlogin-test.php");
                 exit('</body></html>');
-        }
+            }
         ?> 
         <div id="left">
             <br><a href="home.php" id="back">< back</a>
