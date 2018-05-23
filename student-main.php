@@ -37,7 +37,7 @@
     </div>
     <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a data-toggle="tab" href="#menu1">ข้อมูลส่วนตัว</a></li>
+            <li><a data-toggle="tab" href="#menu1"> ข้อมูลส่วนตัว</a></li>
             <li><a data-toggle="tab" href="#menu2">ข้อมูลติดต่อ</a></li>
             <!-- <li><a data-toggle="tab" href="#menu3">ประวัติด้านการศึกษา</a></li> -->
             <li><a data-toggle="tab" href="#menu4">ข้อมูลด้านการศึกษา</a></li>
