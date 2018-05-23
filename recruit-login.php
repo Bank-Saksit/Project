@@ -68,7 +68,7 @@ session_start();
             position: absolute;
         }
         #id,#pswd {
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.8);
             padding: 3px;
             width: 70%;
             margin: 5px;
@@ -118,7 +118,7 @@ session_start();
     </div>
     <div id="main">
         <div id="header">
-            <h1>ยินดีต้อนรับ</h1>
+            <h1>สำหรับนักเรียนที่ต้องการเข้าศึกษา   </h1>
         </div>
         <div id="content">
             <div id="c-left">
