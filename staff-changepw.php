@@ -88,7 +88,6 @@ session_start();
     </style>
 </head>
 <body>
-    
     <?php
         if(!isset($_SESSION['id'])||!isset($_SESSION['idcard'])||$_SESSION['role']!='staff'){
             header("location:staff-new-login.php");
