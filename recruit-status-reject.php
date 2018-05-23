@@ -41,6 +41,7 @@
     <div id="main">
         <div id="header">
             <h1>สละสิทธิ์</h1>
+            
         </div>
         <div id="content">
         <div id="profile"></div>
@@ -58,8 +59,7 @@
         
         function load(){
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol + '//' + location.host+"/Project/recruit-status-confirm-link.php?inID=" +
-            <?php echo $_COOKIE['id']; ?>
+            var url = location.protocol + '//' + location.host+"/Project/recruit-status-reject-link1.php?inID=" + <?php echo $_COOKIE['id'] ?>
             
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {

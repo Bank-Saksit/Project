@@ -77,16 +77,6 @@
             margin-left: 20px;
             margin-right: 20px;
             border-radius: 10px;
-            color:white;
-        }
-        #sm-sub{
-            background-color:#3085d6;
-        }
-        #sm{
-            background-color:#d33;
-        }
-        .bc{
-            background-color:#28a745;
         }
 
     </style>
@@ -96,7 +86,7 @@
     include "recruit-checkLog.php";
     ?>
     <div id="left">
-        <br><a href="#" id="back"> </a>
+        <br><a href="#" id="back"></a>
     </div>
     <div id="main">
         <div id="header">
@@ -111,9 +101,21 @@
         </div>
         <?php include "recruit-footer.php"; ?>
     </div>
-
     <script>
         loadRecruit();
+        function updateRecruit(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+"/Project/recruit-status-conUp.php?inID="+ <?php echo $_SESSION['id']; ?> 
+            console.log(url)
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    displayResponse(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
         function loadRecruit(){
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID="+ <?php echo $_SESSION['id']; ?> 
@@ -126,6 +128,7 @@
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
         }
+
         function displayResponse(response) {
             console.log(response)
             var arr = JSON.parse(response);
@@ -148,21 +151,31 @@
 
             var list = "<table id='list'><tr><td id='t3'>ลำดับ</td><td id='t3'>คณะ</td><td id='t3'>สาขา</td></tr>";
             for( i=0 ; i<arr.length ; i++ ){
-                list += "<tr>"+
+                if(arr[0].NoPass == 0){
+                    list += "<tr>"+
                         "<td id='t3'>"+ arr[i].No +"</td>"+
                         "<td id='t3'>"+ arr[i].Faculty +"</td>"+
                         "<td id='t3'>"+ arr[i].Department +"</td>"+
                     "</tr>";
+                }else if(arr[0].NoPass-1 == i) {
+                    list += "<tr>"+
+                        "<td id='t3'>"+ arr[i].No +"</td>"+
+                        "<td id='t3'>"+ arr[i].Faculty +"</td>"+
+                        "<td id='t3'>"+ arr[i].Department +"</td>"+
+                    "</tr>";
+                }
+                
             }
             list += "</table>";
             document.getElementById("detail-rc").innerHTML = list;
 
             stat = "<table id='tb-status'<tr><td id='t4'> สถานะ </td><td>" + arr[0].Status; +"</td></tr></table>";
             document.getElementById("status").innerHTML = stat;
-            
 
             if(arr[0].Status == "รอยืนยันสิทธิ์"){
                 document.getElementById("submit").innerHTML = "<button id='sm-sub'>ยืนยันสิทธิ์</button><button id='sm' onclick=\"window.location.href='recruit-status-reject.php'\">สละสิทธิ์</button>";
+
+                
                 // sm = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.php'\">ยืนยันสิทธิ์</button>";
                  $(function(){
                     $('#sm-sub').on('click',function(){
@@ -173,9 +186,13 @@
                             showCancelButton: true,
                             cancelButtonColor: '#d33',
                             confirmButtonText: '<a href="recruit-status-confirm.php" ><font color="white">ยืนยันสิทธิ์</font></a>',
-                            cancelButtonText: 'ยกเลิก',
+                            cancelButtonText: 'ยกเลิก'
+                        }).then(function(isConfirm){
+                            if (isConfirm){
+                                updateRecruit();
+                            }
                         })
-                    })
+                    });
                     // $('#sm').on('click',function(){
                     //     swal({
                     //         title: 'คุณต้องการที่จะสละสิทธ์ใช่หรือไม่',
@@ -188,6 +205,8 @@
                     //     })
                     // })
                 })
+            }else if(arr[0].Status == "รอจ่ายค่าเทอม"){
+                document.getElementById("submit").innerHTML = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.php'\">ดูรายละเอียด</button>";
             }
         }
 
