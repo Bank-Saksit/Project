@@ -15,9 +15,11 @@
                         </script>';
             }
             else if($result->num_rows == 1){
+                $rs= $result->fetch_array(MYSQLI_ASSOC)
                 $conn->close();
                 $_SESSION['id'] = $id;
                 $_SESSION['pswd'] = $pswd;
+                $_SESSION['role'] = $rs['Role'];
                 header("Location:staff-afterlogin-test.php?");   
             }
             else{
