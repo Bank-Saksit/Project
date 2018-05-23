@@ -33,7 +33,6 @@ session_start();
         }
         #header {
             width: 100%;
-            top: 100px;
             position: relative;
         }
         #header > h1 {
@@ -55,8 +54,8 @@ session_start();
             clear: both;
             width: 100%;
             position: relative;
-            height: 450px;
-            top: 110px;
+            display: inline-block;
+
         }
         #c-left {
             width: 50%;
@@ -125,7 +124,6 @@ session_start();
 </head>
 <body>
     <?php
-        echo $_SESSION['role'];
         if(!isset($_SESSION['id'])||!isset($_SESSION['idcard'])||$_SESSION['role']!='staff'){
             header("location:staff-new-login.php");
         }

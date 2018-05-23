@@ -100,7 +100,7 @@
 
         function display(response) {
             arr = JSON.parse(response);
-            var out1 = "<h3>ข้อมูลส่วนตัว</h3>"+
+            var out1 = "<h3>ลงทะเบียนรายวิชา</h3>"+
 					"<p>รหัสประจำตัวนักศึกษา: "+ arr[0].StudentID +"<br>"+
                     "<p>ชื่อ: "+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"<br>"+
 					"<p>รหัสบัตรประชาชน: "+arr[0].IDCardNumber+"<br>"+

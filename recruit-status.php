@@ -153,31 +153,41 @@
             if(arr[0].Status == "รอยืนยันสิทธิ์"){
                 document.getElementById("submit").innerHTML = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.php'\">ยืนยันสิทธิ์</button><button id='sm' onclick=\"window.location.href='recruit-status-reject.php'\">สละสิทธิ์</button>";
                 // sm = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.php'\">ยืนยันสิทธิ์</button>";
-               
+                 $(function(){
+            $('#sm-sub').on('click',function(){
+                swal({
+                    title: 'คุณต้องการที่จะยืนยันสิทธ์ใช่หรือไม่',
+                    text: "You won't be able to revert this!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                    if (result.value) {
+                        swal(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                        )
+                    }
+                });
+
+            })
+            $('#sm').on('click',function(){
+                swal({
+					type: 'success',
+					title: '<h1>การสมัครเสร็จเรียบร้อย</h1><br><h4>สามารถตรวจสถานะได้ในเว็บ</h4>',
+					confirmButtonText: '<a href=\"recruit-login.php\" style=\"text-decoration: none\"><font color=\"white\">กลับสู่หน้าเว็บ</font></a>',
+				});
+
+            })
+        })
             }
             // document.getElementById("submit").innerHTML = sm;
         }
 
-       
-            ('#sm-sub').on('click',function(){document.getElementById("detail-rc").innerHTML = "66";
-                swal({
-                    
-					type: 'success',
-					title: '<h1>การสมัครเสร็จเรียบร้อย</h1><br><h4>สามารถตรวจสถานะได้ในเว็บ</h4>',
-					confirmButtonText: '<a href=\"recruit-login.php\" style=\"text-decoration: none\"><font color=\"white\">กลับสู่หน้าเว็บ</font></a>',
-				});
-
-            })
-            ('#sm').on('click',function(){ document.getElementById("detail-rc").innerHTML = "55";
-                swal({
-                   
-					type: 'success',
-					title: '<h1>การสมัครเสร็จเรียบร้อย</h1><br><h4>สามารถตรวจสถานะได้ในเว็บ</h4>',
-					confirmButtonText: '<a href=\"recruit-login.php\" style=\"text-decoration: none\"><font color=\"white\">กลับสู่หน้าเว็บ</font></a>',
-				});
-
-            })
-       
+      
 
     </script>
 </body>
