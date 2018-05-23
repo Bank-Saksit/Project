@@ -16,7 +16,8 @@ session_start();
         @import "global1.css";
         
         #c-right,#c-left{
-            height: 380px;   
+            width: 80%;
+            height: 380px;  
         }
         #c-left {
             width: 650px;
@@ -28,6 +29,9 @@ session_start();
             width: 420px;
             float: right;
             position: relative;
+        }
+        .cr{
+            background-image: url(img/gallery/980x380/063.jpg);
         }
         #c-r-top {
             width: 100%;
@@ -110,7 +114,7 @@ session_start();
     }
     ?>  
     <div id="left">
-        <br><a href="home.php" id="back">< back</a>
+        <br><a href="#" ></a>
     </div>
     <div id="main">
         <div id="header">
@@ -121,7 +125,7 @@ session_start();
             <?php include "js/jssor/examples-jquery/recruit-slides.php"; ?>
             </div>
             <div id="c-right">
-                <div id="c-r-top">
+                <div id="c-r-top" class = "cr">
                     <h2>ตรวจสอบสถานะ</h2>
                     <form id="login" method="post" action="recruit-login-check.php">
                         <input type="text" name="id" id="id" placeholder="รหัสประจำตัวผู้สมัคร" ><br>
