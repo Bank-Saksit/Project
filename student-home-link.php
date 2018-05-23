@@ -17,6 +17,7 @@
                 $conn->close();
                 $_SESSION['id'] = $id;
                 $_SESSION['pswd'] = $pswd;
+                $_SESSION['role'] = 'student';
                 header("Location:student-afterlogin-test.php?");   
             }
             else{

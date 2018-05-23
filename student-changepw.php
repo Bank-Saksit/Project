@@ -125,7 +125,7 @@ session_start();
 </head>
 <body>
     <?php
-        if(!isset($_SESSION['id'])){
+        if(!isset($_SESSION['id'])|| !isset($_SESSION['idcard']) || $_SESSION['role'] != 'student'){
             header("location:student-new-login.php");
         }
     ?>

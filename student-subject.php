@@ -62,21 +62,21 @@
      <div id="left">
         <br><a href="recruit-login.php" id="back">< back</a>
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a data-toggle="tab" href="#menu1">ข้อมูลส่วนตัว</a></li>
-            <li><a data-toggle="tab" href="#menu2">ข้อมูลติดต่อ</a></li>
-            <!-- <li><a data-toggle="tab" href="#menu3">ข้อมูลผู้ปกครอง</a></li> -->
-            <li><a data-toggle="tab" href="#menu4">ข้อมูลด้านการศึกษา</a></li>
+            <li><a data-toggle="tab" href="#menu1">ลงทะเบียนรายวิชา</a></li>
+            <li><a data-toggle="tab" href="#menu2">เพิ่มรายวิชา</a></li>
+            <li><a data-toggle="tab" href="#menu3">ย้ายกลุ่ม</a></li>
+            <li><a data-toggle="tab" href="#menu4">ลดรายวิชา</a></li>
         </ul>
      </div>
      <div id="main">
         <div id="header">
-            <h1>ข้อมูลนักศึกษา</h1>
+            <h1>ลงทะเบียนเรียน</h1>
         </div>
         
         <div class="tab-content" id="tab-content">
             <div id="menu1" class="tab-pane fade"></div>
             <div id="menu2" class="tab-pane fade"></div>
-            <!-- <div id="menu3" class="tab-pane fade"></div> -->
+            <div id="menu3" class="tab-pane fade"></div>
             <div id="menu4" class="tab-pane fade"></div>
         </div>
      </div>
@@ -87,7 +87,7 @@
 
         function load(){
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol+'//'+location.host+"/Project/student-profile-link.php?type=01&inID=59070501066";
+            var url = location.protocol+'//'+location.host+"/Project/student-subject-link.php?type=01&inID=59070501066";
             
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {

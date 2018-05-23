@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href ="js/jquery-ui.min.css" rel="stylesheet">
+	<script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <link href ="js/sweetalert2.all.js" rel="stylesheet" >
+	<script src="js/sweetalert21.js"></script>
     <title>ตรวจสอบสถานะ</title>
     <style>
          @import "global1.css";
@@ -145,12 +150,35 @@
             stat = "<table id='tb-status'<tr><td id='t4'> สถานะ </td><td>" + arr[0].Status; +"</td></tr></table>";
             document.getElementById("status").innerHTML = stat;
 
-            if(arr[0].Status == "รอสอบ"){
-                sm = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.php'\">ยืนยันสิทธิ์</button>";
-                sm += "<button id='sm' onclick=\"window.location.href='recruit-status-reject.php'\">สละสิทธิ์</button>";
+            if(arr[0].Status == "รอยืนยันสิทธิ์"){
+                document.getElementById("submit").innerHTML = "<button id='sm-sub'>ยืนยันสิทธิ์</button><button id='sm'>สละสิทธิ์</button>";
+                // sm = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.php'\">ยืนยันสิทธิ์</button>";
+               
             }
-            document.getElementById("submit").innerHTML = sm;
+            // document.getElementById("submit").innerHTML = sm;
         }
+
+       
+            ('#sm-sub').on('click',function(){document.getElementById("detail-rc").innerHTML = "66";
+                swal({
+                    
+					type: 'success',
+					title: '<h1>การสมัครเสร็จเรียบร้อย</h1><br><h4>สามารถตรวจสถานะได้ในเว็บ</h4>',
+					confirmButtonText: '<a href=\"recruit-login.php\" style=\"text-decoration: none\"><font color=\"white\">กลับสู่หน้าเว็บ</font></a>',
+				});
+
+            })
+            ('#sm').on('click',function(){ document.getElementById("detail-rc").innerHTML = "55";
+                swal({
+                   
+					type: 'success',
+					title: '<h1>การสมัครเสร็จเรียบร้อย</h1><br><h4>สามารถตรวจสถานะได้ในเว็บ</h4>',
+					confirmButtonText: '<a href=\"recruit-login.php\" style=\"text-decoration: none\"><font color=\"white\">กลับสู่หน้าเว็บ</font></a>',
+				});
+
+            })
+       
+
     </script>
 </body>
 </html>

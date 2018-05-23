@@ -109,7 +109,7 @@ session_start();
     </head>
     <body>
         <?php
-        if(isset($_SESSION['id']) && isset($_SESSION['pswd'])) {
+        if(isset($_SESSION['id']) && isset($_SESSION['idcard']) &&  $_SESSION['role'] == 'staff') {
             header("location: staff-changepw.php");
             exit('</body></html>');
         }

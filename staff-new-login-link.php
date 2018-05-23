@@ -18,7 +18,8 @@
             $rs = $result->fetch_array(MYSQLI_ASSOC);
             if($rs['Password']==NULL){
                 $_SESSION['id'] = $id;
-                $_SESSION['pswd'] = $pswd;
+                $_SESSION['idcard'] = $pswd;
+                $_SESSION['role'] = 'staff';
                 header("Location:staff-changepw.php?");
                   
             }
