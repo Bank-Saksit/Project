@@ -87,6 +87,21 @@
             /* For mobile phones: */
                 #main {
                 width:100%;
+                margin-left: 15px;
+                }
+                #center{
+                    float: left;
+                    margin-left:20px;
+                }
+                #right{
+                    float:left;
+                }
+            }
+            @media only screen and (max-width:710px) {
+            /* For mobile phones: */
+                #main {
+                width:100%;
+                margin-left: 15px;
                 }
                 #center,#right{
                     float: left;

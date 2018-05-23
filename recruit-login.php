@@ -68,7 +68,7 @@ session_start();
             position: absolute;
         }
         #id,#pswd {
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.8);
             padding: 3px;
             width: 70%;
             margin: 5px;
