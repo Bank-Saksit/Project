@@ -45,7 +45,7 @@
                 <?php
                     include "dblink.php";
 					$result = mysqli_query($conn,"SELECT * FROM subjectinfo");
-                    echo"<select name = 'Subject[]' class='check subject'>";
+                    echo"<select name = 'Subject[]' class='check subject' id='sub[]'>";
 					echo"<option value = ''>โปรดเลือก</option>";
 					while($row = mysqli_fetch_array($result)){
 						echo "<option value = '" . $row['SubjectID']."'>".$row['SubjectID']."</option>";
