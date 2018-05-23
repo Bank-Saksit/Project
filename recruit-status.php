@@ -106,9 +106,8 @@
         loadRecruit();
         function loadRecruit(){
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID="+
-            <?php echo $_SESSION['id']; ?>
-            
+            var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID="+ <?php echo $_SESSION['id']; ?> 
+            console.log(url)
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     displayResponse(xmlhttp.responseText);
@@ -118,6 +117,7 @@
             xmlhttp.send();
         }
         function displayResponse(response) {
+            console.log(response)
             var arr = JSON.parse(response);
             var i;
             var out = "<table id='tb1'>";
@@ -151,7 +151,7 @@
             document.getElementById("status").innerHTML = stat;
 
             if(arr[0].Status == "รอยืนยันสิทธิ์"){
-                document.getElementById("submit").innerHTML = "<button id='sm-sub'>ยืนยันสิทธิ์</button><button id='sm'>สละสิทธิ์</button>";
+                document.getElementById("submit").innerHTML = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.php'\">ยืนยันสิทธิ์</button><button id='sm' onclick=\"window.location.href='recruit-status-reject.php'\">สละสิทธิ์</button>";
                 // sm = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.php'\">ยืนยันสิทธิ์</button>";
                  $(function(){
             $('#sm-sub').on('click',function(){
