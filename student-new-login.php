@@ -64,7 +64,7 @@ session_start();
                 top: 0;
                 text-align: left;
                 position: relative;
-                background: #444444;
+                background-image: url(img/gallery/980x380/064.jpg);
                 color: white;
             }
             form{
@@ -72,7 +72,7 @@ session_start();
                 padding-left : 30px;
             }
             input[type=text] {
-                background: #242424;
+                background-color:rgba(0,0,0,0.8);
                 margin-top: 10px;
                 padding-left: 30px;
                 width: 310px;
@@ -81,7 +81,7 @@ session_start();
                 color: white;
             }
             input[type=password] {
-                background: #242424;
+                background-color:rgba(0,0,0,0.8);
                 margin-top: 20px;
                 padding-left: 30px;
                 width: 310px;

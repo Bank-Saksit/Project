@@ -14,6 +14,7 @@ session_start();
     </script>
     <style>
         @import "global1.css";
+        
         #c-right,#c-left{
             height: 380px;   
         }
@@ -34,7 +35,7 @@ session_start();
             top: 0;
             text-align: center;
             position: absolute;
-            background: #444444;
+            background-color:rgba(0,0,0,0.8);
             color: white;
         }
         #c-r-bottom {
@@ -42,7 +43,7 @@ session_start();
             height: 170px;
             position: absolute;
             bottom: 0;
-            background: #444444;
+            background-color:rgba(0,0,0,0.8);
             cursor: pointer;
         }
         #c-r-bottom > h1 {
@@ -63,7 +64,7 @@ session_start();
             position: absolute;
         }
         #id,#pswd {
-            background: #242424;
+            background: rgba(0,0,0,0.4);
             padding: 3px;
             width: 70%;
             margin: 5px;
