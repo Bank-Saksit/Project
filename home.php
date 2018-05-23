@@ -48,12 +48,15 @@
             #left,#right,#center{
                 margin-top: 10px;
                 width: 340px;
-                height: 300px;
+                height: 310px;
                 position: relative;
                 text-align: center;
                 background: white;
                 cursor: pointer;
-                
+            }
+            .s1{
+                top: 5%;
+                font-size: 30px;
             }
             #center {
                 float: left;
@@ -113,15 +116,15 @@
             <div id="content">
                 <div id="left" class="card" onclick="window.location.href='recruit-login.php'">
                     <img data-u="image" src="img/gallery/980x380/056.jpg" />
-                    <h1>นักเรียน</h1>
+                    <h1 class = "s1">นักเรียน</h1>
                 </div>
                 <div id="center" class="card" onclick="window.location.href='student-home.php'">
                     <img data-u="image" src="img/gallery/980x380/057.jpg" />
-                    <h1>นักศึกษา</h1>
+                    <h1 class = "s1">นักศึกษา</h1>
                 </div>
                 <div id="right" class="card" onclick="window.location.href='staff-home.php'">
                     <img data-u="image" src="img/gallery/980x380/058.jpg" />
-                    <h1>บุคลากร</h1>
+                    <h1 class = "s1">บุคลากร</h1>
                 </div>
             </div>
             <?php include "recruit-footer.php"; ?>
