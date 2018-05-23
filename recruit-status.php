@@ -82,7 +82,7 @@
         #sm-sub{
             background-color:#3085d6;
         }
-        $sm{
+        #sm{
             background-color:#d33;
         }
 
