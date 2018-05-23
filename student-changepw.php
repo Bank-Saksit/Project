@@ -57,6 +57,7 @@ session_start();
             position: relative;
             height: 450px;
             top: 110px;
+            background-image: url(img/gallery/980x380/064.jpg);
         }
         #c-left {
             width: 50%;
@@ -64,7 +65,7 @@ session_start();
             top: 0;
             text-align: left;
             position: relative;
-            background: gray;
+            
             color: white;
             float: left;
         }
@@ -74,7 +75,7 @@ session_start();
             top: 0;
             text-align: left;
             position: relative;
-            background: #444444;
+            
             color: #ffffff;
             float: right;
         }
@@ -82,13 +83,13 @@ session_start();
             margin-left: 30px;
             padding-left:20px; 
             width:85%;
-            background: #242424;
+            background-color:rgba(0,0,0,0.8);
         }
         form{
             padding-left : 30px;
         }
         input[type=text] {
-            background: #242424;
+            background-color:rgba(0,0,0,0.8);
             margin-top: 0px;
             padding-left: 30px;
             width: 310px;
@@ -100,7 +101,7 @@ session_start();
             color: white;
         }
         input[type=password] {
-            background: #242420;
+            background-color:rgba(0,0,0,0.8);
             margin-top: 15px;
             padding-left: 30px;
             width: 310px;

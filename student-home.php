@@ -13,7 +13,7 @@ session_start();
             html, body { 
                 margin: 0;
                 padding: 0;
-                background: #dfdfdf;
+                background-image: #dfdfdf;
                 color: #444444;
             }
             #main {
@@ -65,7 +65,7 @@ session_start();
                 top: 0;
                 text-align: left;
                 position: relative;
-                background: #444444;
+                background-image: url(img/gallery/980x380/064.jpg);
                 color: white;
             }
             #c-bot {
@@ -82,7 +82,7 @@ session_start();
                 padding-left : 30px;
             }
             input[type=text] {
-                background: #242424;
+                background-color:rgba(0,0,0,0.8);
                 margin-top: 0px;
                 padding-left: 30px;
                 width: 310px;
@@ -94,7 +94,7 @@ session_start();
                 color: white;
             }
             input[type=password] {
-                background: #242424;
+                background-color:rgba(0,0,0,0.8);
                 margin-top: 15px;
                 padding-left: 30px;
                 width: 310px;
