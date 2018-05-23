@@ -134,19 +134,16 @@
                         "<div id='res1'></div>"
                         "</form>";
                 document.getElementById("menu1").innerHTML = out1;
+                
                 $(function(){
                     $('#edit1').on('click',function(){
                         swal({
-                            title: 'คุณต้องการที่จะยืนยันสิทธ์ใช่หรือไม่',
-                            text: "หากคุณยืนยันสิทธิ์แล้ว คุณต้องชำระค่าใช้จ่ายแรกเข้าภายในวันที่กำหนด ถ้าไม่ชำระเงินภายในวันที่กำหนด จะถือว่าสละสิทธิ์",
-                            type: 'warning',
-                            showCancelButton: true,
-                            cancelButtonColor: '#d33',
-                            confirmButtonText: '<a href="recruit-status-confirm.php" ><font color="white">ยืนยันสิทธิ์</font></a>',
-                            cancelButtonText: 'ยกเลิก',
-                        })
+                            title:'<hi>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
+                            confirmButtonText:'ตกลง',
+                        })    
                     })
                 })
+
                 if( arr[0].BloodGroup=='A' )
                     document.getElementById('inBl').selectedIndex = '0';
                 else if( arr[0].BloodGroup=='B' )
@@ -190,11 +187,21 @@
                         "<h5>รหัสไปรษณีย์:</h5><input type='text' id='inPo' value='"+arr[0].Postcode+"'><br>"+
                         "<h5>เบอร์โทรศัพท์มือถือ:</h5><input type='text' id='inMN' value='"+arr[0].MobileNumber+"'><br>"+
                         "<h5>เบอร์โทรศัพท์บ้าน:</h5><input type='text' id='inTN' value='"+arr[0].TelNumber+"'><br>"+
-                        "<br><input type='button' value='แก้ไข' onclick='update2()'>"+
+                        "<br><input type='button' value='แก้ไข' id='edit2' onclick='update2()'>"+
                         "<div id='res2'></div>"
                         "</form>";
                 document.getElementById("menu2").innerHTML = out2;
                 
+                $(function(){
+                    $('#edit2').on('click',function(){
+                        swal({
+                            title:'<hi>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
+                            confirmButtonText:'ตกลง',
+                        })
+                        
+                    })
+                })
+
                 /*var out3 = "<h3>ข้อมูลผู้ปกครอง</h3>"+
                         "<form>"+
                         "<p><h5>ความสัมพันธ์:</h5><select id='inRela'><br>"+
@@ -247,7 +254,7 @@
                         "<p><h5>ที่อยู่:</h5><textarea style='resize: none' rows=3 cols=50 id='inpAdd'>"+arr[0].pAddress+"</textarea><br>"+
                         "<h5>จังหวัด:</h5><input type='text' id='inpPr' value='"+arr[0].pProvince+"'><br>"+
                         "<h5>รหัสไปรษณีย์:</h5><input type='text' id='inpPo' value='"+arr[0].pPostcode+"'><br>"+
-                        "<br><input type='button' value='แก้ไข' onclick='update2()'>"+
+                        "<br><input type='button' value='แก้ไข' id='edit3' onclick='update2()'>"+
                         "<div id='res3'></div>"
                         "</form>";
                 document.getElementById("menu3").innerHTML = out3;
@@ -351,7 +358,6 @@
 
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        document.getElementById("res1").innerHTML = "แก้ไขสำเร็จ";
                     }
                 }
                 xmlhttp.open("GET", url, true);
@@ -370,12 +376,29 @@
 
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        document.getElementById("res2").innerHTML = "แก้ไขสำเร็จ";
                     }
                 }
                 xmlhttp.open("GET", url, true);
                 xmlhttp.send();
             }
+
+            $(function(){
+                $('#edit1').on('click',function(){
+                    swal({
+                        title:'<hi>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
+                        confirmButtonText:'ตกลง',
+                    })
+                    
+                })
+            })
+                $('#edit2').on('click',function(){
+                    swal({
+                        title:'<hi>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
+                        confirmButtonText:'ตกลง',
+                    })
+                    
+                })
+            
 
             /*function update3(){
                 var xmlhttp = new XMLHttpRequest();
@@ -403,7 +426,6 @@
 
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        document.getElementById("res3").innerHTML = "แก้ไขสำเร็จ";
                     }
                 }
                 xmlhttp.open("GET", url, true);
