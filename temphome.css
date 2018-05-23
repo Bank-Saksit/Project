@@ -43,7 +43,7 @@ div#sub > a {
 }
 div#content {
     clear: both;
-    width: 100%;
+    width: 100%;-
     position: relative;
     display:inline-block;
 }
@@ -105,4 +105,10 @@ div#text >a {
 }
 #text{
     padding-left : 30px;
+}
+input[type=button] {
+    font-family: "supermarket";
+    border-radius: 8px;    
+    width: 80px;
+    background: white;
 }

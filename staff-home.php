@@ -10,111 +10,9 @@ session_start();
         <title>สำหรับบุคลากร</title>
         <style>
             @import "global1.css";
-            html, body { 
-                margin: 0;
-                padding: 0;
-                background: #dfdfdf;
-                color: #444444;
-            }
-            #main {
-                width: 90%;
-                float: right;
-                position: relative;
-                top: 50px;
-            }
-    
-            #left {
-                float: left;
-                width: 10%;
-                position: relative;
-            }
-            #back {
-                margin: 20px;
-                font-weight: bold;
-            }
-            #header {
-                width: 100%;
-                position: relative;
-            }
-            #header > h1 {
-                font-size: 50px;
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                border-bottom: 5px solid;
-            }
-            div#left > a {
-                text-decoration: none;
-                margin: 5px;
-                color: #444444;
-            }
-            div#sub > a {
-                text-decoration: underline;
-                margin: 5px;
-                color: #ffffff;
-            }
-            div#content {
-                clear: both;
-                width: 100%;
-                position: relative;
+            @import "temphome.css";
+            div#content{          
                 background-image: url(img/gallery/980x380/065.jpg);
-            }
-            #c-top {
-                width: 100%;
-                height: 300px;
-                top: 0;
-                text-align: left;
-                position: relative;
-                color: white;
-            }
-            #c-bot {
-                width: 100%;
-                height: 60px;
-                top: 0;
-                text-align: left;
-                position: relative;
-                background: white;
-                color: black;
-            }
-            form{
-                padding-left : 30px;
-            }
-            input[type=text] {
-                background-color:rgba(0,0,0,0.8);
-                margin-top: 0px;
-                padding-left: 30px;
-                width: 310px;
-                height:30px;
-                text-align: left;
-                color:#ffffff;
-            }
-            ::placeholder {
-                color: white;
-            }
-            input[type=password] {
-                background-color:rgba(0,0,0,0.8);
-                margin-top: 15px;
-                padding-left: 30px;
-                width: 310px;
-                height: 30px;
-                text-align: left;
-                color:#ffffff;
-            }
-            input[type=submit] {
-                width: 60px;
-                background: white;
-            }
-            #sub{
-                width: 310px;
-                padding-left: 25px;
-                margin-top:20px;
-                text-align: center;
-            }
-            div#text >a {
-                text-decoration: underline;
-            }
-            #text{
-                padding-left : 30px;
             }
         </style>    
 
@@ -131,7 +29,7 @@ session_start();
             }
         ?> 
         <div id="left">
-            <br><a href="home.php" id="back">< back</a>
+            <br><a href="#" id="back"></a>
         </div>
         <div id="main">
             <div id="header">
