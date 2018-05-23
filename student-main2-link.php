@@ -62,24 +62,42 @@ if( $_GET['type']=='01' ){
     echo($outp);
 }
 elseif( $_GET['type']=='11' ){
-    $conn->query("UPDATE studentinfo
-                SET DOB='".$_GET['inDOB']."', Nationality='".$_GET['inNa']."', Race='".$_GET['inRa']."', Religion='".$_GET['inRe']."', BloodGroup='".$_GET['inBl']."', MobileNumber='".$_GET['inMN']."', TelNumber='".$_GET['inTN']."'
-                WHERE StudentID='".$_GET['inID']."';");
+    if( $_GET['sub0']!='' )
+        $conn->query("INSERT INTO student_subject
+                    SELECT SubjectSectionID, ".$_GET['inID'].", 0
+                    FROM sectioninfo
+                    WHERE SubjectID='".$_GET['sub0']."' AND SectionNumber=".$_GET['sec0']);
+    if( $_GET['sub1']!='' )
+        $conn->query("INSERT INTO student_subject
+                    SELECT SubjectSectionID, ".$_GET['inID'].", 0
+                    FROM sectioninfo
+                    WHERE SubjectID='".$_GET['sub1']."' AND SectionNumber=".$_GET['sec1']);
+    if( $_GET['sub2']!='' )
+        $conn->query("INSERT INTO student_subject
+                    SELECT SubjectSectionID, ".$_GET['inID'].", 0
+                    FROM sectioninfo
+                    WHERE SubjectID='".$_GET['sub2']."' AND SectionNumber=".$_GET['sec2']);
+    if( $_GET['sub3']!='' )
+        $conn->query("INSERT INTO student_subject
+                    SELECT SubjectSectionID, ".$_GET['inID'].", 0
+                    FROM sectioninfo
+                    WHERE SubjectID='".$_GET['sub3']."' AND SectionNumber=".$_GET['sec3']);
+    if( $_GET['sub4']!='' )
+        $conn->query("INSERT INTO student_subject
+                    SELECT SubjectSectionID, ".$_GET['inID'].", 0
+                    FROM sectioninfo
+                    WHERE SubjectID='".$_GET['sub4']."' AND SectionNumber=".$_GET['sec4']);
+    if( $_GET['sub5']!='' )
+        $conn->query("INSERT INTO student_subject
+                    SELECT SubjectSectionID, ".$_GET['inID'].", 0
+                    FROM sectioninfo
+                    WHERE SubjectID='".$_GET['sub5']."' AND SectionNumber=".$_GET['sec5']);
 }
 elseif( $_GET['type']=='12' ){
     $conn->query("UPDATE studentinfo
                 SET Address='".$_GET['inAdd']."', Province='".$_GET['inPr']."', Postcode='".$_GET['inPo']."', MobileNumber='".$_GET['inMN']."', TelNumber='".$_GET['inTN']."'
                 WHERE StudentID='".$_GET['inID']."';");
 }
-/*elseif( $_GET['type']=='13' ){
-    $conn->query("INSERT INTO parentinfo
-                VALUES ( '', ".$_GET['inID'].", ".$_GET['inRela'].", ".$_GET['inpMN']."
-                , ".$_GET['inpTN'].", ".$_GET['inpEm'].", ".$_GET['inpID'].", ".$_GET['inpPre']."
-                , ".$_GET['inpFn'].", ".$_GET['inpLn'].", ".$_GET['inpGe'].", ".$_GET['inpDOB']."
-                , ".$_GET['inpNa'].", ".$_GET['inpRa'].", ".$_GET['inpRe'].", ".$_GET['inpBl']."
-                , ".$_GET['inpAdd'].", ".$_GET['inpPr'].", ".$_GET['inpPo']." );
-                ");
-}*/
 
 $conn->close();
 ?>
