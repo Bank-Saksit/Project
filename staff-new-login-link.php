@@ -11,7 +11,7 @@
         if($id==NULL || $pswd==NULL){
             $conn->close();
             echo    '<script> alert("กรุณากรอกข้อมูลให้ครบทุกช่อง");
-                            window.location="student-home.php"; 
+                            window.location="staff-new-login.php"; 
                     </script>';
         }
         else if($result->num_rows == 1){
