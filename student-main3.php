@@ -19,7 +19,7 @@
     
 </head>
 <body>
-    <div class="header" id="header">
+    <div class="top" id="top">
             <a class = "active" href="student-main.php">ข้อมูลนักศึกษา</a>
             <a href="student-main2.php">ลงทะเบียนเรียน</a>
             <a href="student-main3.php">ตารางเรียน</a>
