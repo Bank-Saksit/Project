@@ -20,9 +20,9 @@
 </head>
 <body>
     <div class="top" id="top">
-            <a href="student-main.php">ข้อมูลนักศึกษา</a>
+            <a class = "active" href="student-main.php">ข้อมูลนักศึกษา</a>
             <a href="student-main2.php">ลงทะเบียนเรียน</a>
-            <a class = "active" href="student-main3.php">ตารางเรียน</a>
+            <a href="student-main3.php">ตารางเรียน</a>
             <a href="student-main4.php">ผลการเรียน</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
@@ -31,16 +31,12 @@
     </div>
    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a data-toggle="tab" href="#menu1">ตารางเรียน</a></li>
-            <li><a data-toggle="tab" href="#menu2">ตารางสอบ</a></li>
+            <li><a data-toggle="tab" href="#menu1">ผลการเรียน</a></li>
         </ul>
      </div>
      <div id="main">
         <div class="tab-content" id="tab-content">
             <div id="menu1" class="tab-pane fade">
-                
-            </div>
-            <div id="menu2" class="tab-pane fade">
                 
             </div>
         </div>

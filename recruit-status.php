@@ -77,6 +77,16 @@
             margin-left: 20px;
             margin-right: 20px;
             border-radius: 10px;
+            color:white;
+        }
+        #sm-sub{
+            background-color:#3085d6;
+        }
+        #sm{
+            background-color:#d33;
+        }
+        .bc{
+            background-color:#28a745;
         }
 
     </style>
@@ -149,6 +159,7 @@
 
             stat = "<table id='tb-status'<tr><td id='t4'> สถานะ </td><td>" + arr[0].Status; +"</td></tr></table>";
             document.getElementById("status").innerHTML = stat;
+            
 
             if(arr[0].Status == "รอยืนยันสิทธิ์"){
                 document.getElementById("submit").innerHTML = "<button id='sm-sub'>ยืนยันสิทธิ์</button><button id='sm' onclick=\"window.location.href='recruit-status-reject.php'\">สละสิทธิ์</button>";
