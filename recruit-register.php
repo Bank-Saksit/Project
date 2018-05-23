@@ -208,7 +208,7 @@
 								$result = mysqli_query($conn,"SELECT * FROM departmentinfo");
 
 								echo"<select name = 'Department[]' class='check department' id='d2'>";
-								echo"<option value = ''>โปรดเลือก";
+								echo"<option value = ''>โปรดเลือก</option>";
 								while($row = mysqli_fetch_array($result)){
 									echo "<option value = '" . $row['Department']."'>".$row['Faculty'].'  '.$row['Department']."</option>";
 								}
@@ -239,24 +239,34 @@
 		if(n==5){	$('button[id="add"]').prop('disabled', true);	}
 		else{	$('button[id="add"]').prop('disabled', false);	}
 			
-			var input = '<select name="Department[]" class="check department">' +
-										'<option value="">โปรดเลือก</option>' +
-										'<option value="วิศวกรรมคอมพิวเตอร์">วิศวกรรมคอมพิวเตอร์</option>' +
-										'<option value="วิศวกรรมไฟฟ้า">วิศวกรรมไฟฟ้า</option>' +
-										'<option value="วิศวกรรมเครื่องกล">วิศวกรรมเครื่องกล</option>' +
-										'<option value="วิศวกรรมสิ่งแวดล้อม">วิศวกรรมสิ่งแวดล้อม</option>' +
-										'<option value="วิศวกรรมไฟฟ้าสื่อสารและอิเล็กทรอนิกส์">วิศวกรรมไฟฟ้าสื่อสารและอิเล็กทรอนิกส์</option>' +
-										'<option value="วิศวกรรมเคมี">วิศวกรรมเคมี</option>' +
-										'<option value="วิศวกรรมโยธา">วิศวกรรมโยธา</option>' +
-										'<option value="วิทยาการคอมพิวเตอร์ประยุกต์">วิทยาการคอมพิวเตอร์ประยุกต์</option>' +
-										'<option value="วิทยาศาสตร์และเทคโนโลยีการอาหาร">วิทยาศาสตร์และเทคโนโลยีการอาหาร</option>' +
-										'<option value="ฟิสิกส์ประยุกต์">ฟิสิกส์ประยุกต์</option>' +
-										'<option value="จุลชีววิทยา">จุลชีววิทยา</option>' +
-										'<option value="เคมี">เคมี</option>' +
-										'<option value="เทคโนโลยีการศึกษาและสื่อสารมวลชน">เทคโนโลยีการศึกษาและสื่อสารมวลชน</option>' +
-										'<option value="สถาปัตยกรรมภายใน">สถาปัตยกรรมภายใน</option>' +
-										'<option value="สถาปัตยกรรม">สถาปัตยกรรม</option>' +
-									'</select>';		
+			<?php
+				$result = mysqli_query($conn,"SELECT * FROM departmentinfo");
+
+				echo"var input = '<select name = \"Department[]\" class=\"check department\">'+";
+				echo"'<option value = \"\">โปรดเลือก</option>'+";
+				while($row = mysqli_fetch_array($result)){
+					echo "'<option value = \"" . $row['Department']."\">".$row['Faculty'].'  '.$row['Department']."</option>'+";
+				}
+				echo"'</select>'";
+			?>
+			// var input = '<select name="Department[]" class="check department">' +
+			// 							'<option value="">โปรดเลือก</option>' +
+			// 							'<option value="วิศวกรรมคอมพิวเตอร์">วิศวกรรมคอมพิวเตอร์</option>' +
+			// 							'<option value="วิศวกรรมไฟฟ้า">วิศวกรรมไฟฟ้า</option>' +
+			// 							'<option value="วิศวกรรมเครื่องกล">วิศวกรรมเครื่องกล</option>' +
+			// 							'<option value="วิศวกรรมสิ่งแวดล้อม">วิศวกรรมสิ่งแวดล้อม</option>' +
+			// 							'<option value="วิศวกรรมไฟฟ้าสื่อสารและอิเล็กทรอนิกส์">วิศวกรรมไฟฟ้าสื่อสารและอิเล็กทรอนิกส์</option>' +
+			// 							'<option value="วิศวกรรมเคมี">วิศวกรรมเคมี</option>' +
+			// 							'<option value="วิศวกรรมโยธา">วิศวกรรมโยธา</option>' +
+			// 							'<option value="วิทยาการคอมพิวเตอร์ประยุกต์">วิทยาการคอมพิวเตอร์ประยุกต์</option>' +
+			// 							'<option value="วิทยาศาสตร์และเทคโนโลยีการอาหาร">วิทยาศาสตร์และเทคโนโลยีการอาหาร</option>' +
+			// 							'<option value="ฟิสิกส์ประยุกต์">ฟิสิกส์ประยุกต์</option>' +
+			// 							'<option value="จุลชีววิทยา">จุลชีววิทยา</option>' +
+			// 							'<option value="เคมี">เคมี</option>' +
+			// 							'<option value="เทคโนโลยีการศึกษาและสื่อสารมวลชน">เทคโนโลยีการศึกษาและสื่อสารมวลชน</option>' +
+			// 							'<option value="สถาปัตยกรรมภายใน">สถาปัตยกรรมภายใน</option>' +
+			// 							'<option value="สถาปัตยกรรม">สถาปัตยกรรม</option>' +
+			// 						'</select>';		
 
 			$('#add').click(function(){
 				$("#demo").append('<span>อันดับที่' +' '+ n +' '+'</span>'+input+ '<br>' );
