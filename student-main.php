@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +14,8 @@
     <link href ="js/jquery-ui.min.css" rel="stylesheet">
 	<script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <link href ="js/sweetalert2.all.js" rel="stylesheet" >
+	<script src="js/sweetalert21.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         @import "global1.css";
@@ -25,6 +30,15 @@
     
 </head>
 <body>
+    <?php 
+        if(isset($_SESSION['id']) && isset($_SESSION['pswd']) && $_SESSION['role'] == 'student') {
+            
+        }
+        else{
+            header("location: student-home.php");
+            exit('</body></html>');
+        }
+    ?>
     <div class="top" id="top">
             <a class = "active" href="student-main.php">ข้อมูลนักศึกษา</a>
             <a href="student-main2.php">ลงทะเบียนเรียน</a>
@@ -33,7 +47,7 @@
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="student-home.php" class="logout">ออกจากระบบ</a>
+            <a href="student-logout.php" class="logout">ออกจากระบบ</a>
     </div>
     <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
@@ -66,7 +80,7 @@
 
             function load(){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol+'//'+location.host+"/Project/student-profile-link.php?type=01&inID=59070501066";
+                var url = location.protocol+'//'+location.host+"/Project/student-profile-link.php?type=01&inID="+<?php echo $_SESSION['id'] ?>;
                 
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -116,10 +130,20 @@
                             "<option value='อิสลาม'>อิสลาม</option>"+
                             "<option value='ไม่ระบุ'>ไม่ระบุ</option>"+
                         "</select><br>"+
-                        "<br><input type='button' value='แก้ไข' onclick='update1()'>"+
+                        "<br><input type='button' value='แก้ไข' id='edit1' onclick='update1()'>"+
                         "<div id='res1'></div>"
                         "</form>";
                 document.getElementById("menu1").innerHTML = out1;
+                
+                $(function(){
+                    $('#edit1').on('click',function(){
+                        swal({
+                            title:'<hi>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
+                            confirmButtonText:'ตกลง',
+                        })    
+                    })
+                })
+
                 if( arr[0].BloodGroup=='A' )
                     document.getElementById('inBl').selectedIndex = '0';
                 else if( arr[0].BloodGroup=='B' )
@@ -163,10 +187,20 @@
                         "<h5>รหัสไปรษณีย์:</h5><input type='text' id='inPo' value='"+arr[0].Postcode+"'><br>"+
                         "<h5>เบอร์โทรศัพท์มือถือ:</h5><input type='text' id='inMN' value='"+arr[0].MobileNumber+"'><br>"+
                         "<h5>เบอร์โทรศัพท์บ้าน:</h5><input type='text' id='inTN' value='"+arr[0].TelNumber+"'><br>"+
-                        "<br><input type='button' value='แก้ไข' onclick='update2()'>"+
+                        "<br><input type='button' value='แก้ไข' id='edit2' onclick='update2()'>"+
                         "<div id='res2'></div>"
                         "</form>";
                 document.getElementById("menu2").innerHTML = out2;
+                
+                $(function(){
+                    $('#edit2').on('click',function(){
+                        swal({
+                            title:'<hi>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
+                            confirmButtonText:'ตกลง',
+                        })
+                        
+                    })
+                })
 
                 /*var out3 = "<h3>ข้อมูลผู้ปกครอง</h3>"+
                         "<form>"+
@@ -220,7 +254,7 @@
                         "<p><h5>ที่อยู่:</h5><textarea style='resize: none' rows=3 cols=50 id='inpAdd'>"+arr[0].pAddress+"</textarea><br>"+
                         "<h5>จังหวัด:</h5><input type='text' id='inpPr' value='"+arr[0].pProvince+"'><br>"+
                         "<h5>รหัสไปรษณีย์:</h5><input type='text' id='inpPo' value='"+arr[0].pPostcode+"'><br>"+
-                        "<br><input type='button' value='แก้ไข' onclick='update2()'>"+
+                        "<br><input type='button' value='แก้ไข' id='edit3' onclick='update2()'>"+
                         "<div id='res3'></div>"
                         "</form>";
                 document.getElementById("menu3").innerHTML = out3;
@@ -324,7 +358,6 @@
 
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        document.getElementById("res1").innerHTML = "แก้ไขสำเร็จ";
                     }
                 }
                 xmlhttp.open("GET", url, true);
@@ -343,12 +376,29 @@
 
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        document.getElementById("res2").innerHTML = "แก้ไขสำเร็จ";
                     }
                 }
                 xmlhttp.open("GET", url, true);
                 xmlhttp.send();
             }
+
+            $(function(){
+                $('#edit1').on('click',function(){
+                    swal({
+                        title:'<hi>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
+                        confirmButtonText:'ตกลง',
+                    })
+                    
+                })
+            })
+                $('#edit2').on('click',function(){
+                    swal({
+                        title:'<hi>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
+                        confirmButtonText:'ตกลง',
+                    })
+                    
+                })
+            
 
             /*function update3(){
                 var xmlhttp = new XMLHttpRequest();
@@ -376,7 +426,6 @@
 
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        document.getElementById("res3").innerHTML = "แก้ไขสำเร็จ";
                     }
                 }
                 xmlhttp.open("GET", url, true);

@@ -14,8 +14,10 @@ session_start();
     </script>
     <style>
         @import "global1.css";
+        
         #c-right,#c-left{
-            height: 380px;   
+            width: 80%;
+            height: 380px;  
         }
         #c-left {
             width: 650px;
@@ -28,13 +30,16 @@ session_start();
             float: right;
             position: relative;
         }
+        .cr{
+            background-image: url(img/gallery/980x380/063.jpg);
+        }
         #c-r-top {
             width: 100%;
             height: 200px;
             top: 0;
             text-align: center;
             position: absolute;
-            background: #444444;
+            background-color:rgba(0,0,0,0.8);
             color: white;
         }
         #c-r-bottom {
@@ -42,7 +47,7 @@ session_start();
             height: 170px;
             position: absolute;
             bottom: 0;
-            background: #444444;
+            background-color:rgba(0,0,0,0.8);
             cursor: pointer;
         }
         #c-r-bottom > h1 {
@@ -63,7 +68,7 @@ session_start();
             position: absolute;
         }
         #id,#pswd {
-            background: #242424;
+            background: rgba(0,0,0,0.4);
             padding: 3px;
             width: 70%;
             margin: 5px;
@@ -109,18 +114,18 @@ session_start();
     }
     ?>  
     <div id="left">
-        <br><a href="home.php" id="back">< back</a>
+        <br><a href="#" ></a>
     </div>
     <div id="main">
         <div id="header">
-            <h1>ยินดีต้อนรับ</h1>
+            <h1>สำหรับนักเรียนที่ต้องการเข้าศึกษา   </h1>
         </div>
         <div id="content">
             <div id="c-left">
             <?php include "js/jssor/examples-jquery/recruit-slides.php"; ?>
             </div>
             <div id="c-right">
-                <div id="c-r-top">
+                <div id="c-r-top" class = "cr">
                     <h2>ตรวจสอบสถานะ</h2>
                     <form id="login" method="post" action="recruit-login-check.php">
                         <input type="text" name="id" id="id" placeholder="รหัสประจำตัวผู้สมัคร" ><br>

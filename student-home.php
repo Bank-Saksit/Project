@@ -10,79 +10,9 @@ session_start();
         <title>สำหรับนักศึกษา</title>
         <style>
             @import "global1.css";
-            html, body { 
-                margin: 0;
-                padding: 0;
-                background: #dfdfdf;
-                color: #444444;
-            }
-            #main {
-                width: 90%;
-                float: right;
-                position: relative;
-                top: 50px;
-            }
-    
-            #left {
-                float: left;
-                width: 10%;
-                position: relative;
-            }
-            #back {
-                margin: 20px;
-                font-weight: bold;
-            }
-            #header {
-                width: 100%;
-                position: relative;
-            }
-            #header > h1 {
-                font-size: 50px;
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                border-bottom: 5px solid;
-            }
-            div#left > a {
-                text-decoration: none;
-                margin: 5px;
-                color: #444444;
-            }
-            div#sub > a {
-                text-decoration: underline;
-                margin: 5px;
-                color: #ffffff;
-            }
-            div#content {
-                clear: both;
-                width: 100%;
-                position: relative;
-                display:inline-block;
-            }
-            #c-top {
-                width: 100%;
-                height: 300px;
-                top: 0;
-                text-align: left;
-                position: relative;
-                background: #444444;
-                color: white;
-            }
-            #c-bot {
-                width: 100%;
-                height: 60px;
-                top: 0;
-                text-align: left;
-                position: relative;
-                background: white;
-                color: black;
-            }
-            form{
-                
-                padding-left : 30px;
-            }
+            @import "temphome.css";        
             input[type=text] {
-                background: #242424;
+                background-color:rgba(0,0,0,0.8);
                 margin-top: 0px;
                 padding-left: 30px;
                 width: 310px;
@@ -94,7 +24,7 @@ session_start();
                 color: white;
             }
             input[type=password] {
-                background: #242424;
+                background-color:rgba(0,0,0,0.8);
                 margin-top: 15px;
                 padding-left: 30px;
                 width: 310px;
@@ -105,12 +35,12 @@ session_start();
             input[type=submit] {
                 width: 60px;
                 background: white;
-            }
+            }       
             #sub{
                 width: 310px;
-                padding-left: 25px;
+                padding-left:25px;
                 margin-top:20px;
-                text-align: center;
+                text-align: left;
             }
             div#text >a {
                 text-decoration: underline;
@@ -124,13 +54,10 @@ session_start();
     <body>
         <?php
             if(isset($_SESSION['id']) && isset($_SESSION['pswd']) &&  $_SESSION['role'] == 'student') {
-                header("location: staff-changepw.php");
+                header("location: student-main.php");
                 exit('</body></html>');
-        }
+            }
         ?> 
-        <div id="left">
-            <br><a href="home.php" id="back">< back</a>
-        </div>
         <div id="main">
             <div id="header">
                 <h1>ยินดีต้อนรับ</h1>

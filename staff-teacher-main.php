@@ -35,7 +35,7 @@
         <ul class="nav nav-pills nav-stacked" id="tab">
             <li><a data-toggle="tab" href="#menu1">ข้อมูลส่วนตัว</a></li>
             <li><a data-toggle="tab" href="#menu2">ข้อมูลติดต่อ</a></li>
-            <li><a data-toggle="tab" href="#menu3">ข้อมูลด้านการศึกษา</a></li>
+            <!-- <li><a data-toggle="tab" href="#menu3">ข้อมูลด้านการศึกษา</a></li> -->
         </ul>
      </div>
      <div id="main">
@@ -55,9 +55,9 @@
             <div id="menu2" class="tab-pane fade">
                 
             </div>
-            <div id="menu3" class="tab-pane fade">
+            <!-- <div id="menu3" class="tab-pane fade">
                 
-            </div>
+            </div> -->
         </div>
         <script>
         load();
@@ -91,6 +91,7 @@
                         "<p>รหัสบัตรประชาชน: "+arr[0].IDCardNumber+"<br>"+
                         "<p>Email: "+arr[0].Email+"<br>"+
                         "<p>ภาควิชา: "+arr[0].Department+"<br>"+
+                        "<p>ระดับการศึกษา: "+arr[0].EducationBackground+"<br>"+
                         "<p>สถานะการเป็นที่ปรึกษา: "+arr[0].ConsultantStatus+"<br>"+
                         "<br><p>เพศ: "+arr[0].Gender+"<br>"+
                         "<form>"+
@@ -169,12 +170,47 @@
                         "<div id='res2'></div>"
                         "</form>";
                 document.getElementById("menu2").innerHTML = out2;
-                var out3 = "<h3>ข้อมูลด้านการศึกษา</h3>"+
-                        "<p>ระดับการศึกษา: "+arr[0].EducationBackground+"<br>";
-                document.getElementById("menu3").innerHTML = out3;
-
         }
-        
+        function update1(){
+            var xmlhttp = new XMLHttpRequest();
+            var inDOB = document.getElementById('inDOB').value;
+            var inBl = document.getElementById('inBl').value;
+            var inNa = document.getElementById('inNa').value;
+            var inRa = document.getElementById('inRa').value;
+            var inRe = document.getElementById('inRe').value;
+            var inMN = document.getElementById('inMN').value;
+            var inTN = document.getElementById('inTN').value;
+            var inAdd = document.getElementById('inAdd').value;
+            var url = location.protocol + '//' + location.host+"/Project/staff-teacher-profile-link.php?type=11&inID="+arr[0].StaffID+
+                "&inDOB="+inDOB+"&inBl="+inBl+"&inNa="+inNa+"&inRa="+inRa+"&inRe="+inRe+"&inAdd="+inAdd+"&inMN="+inMN+"&inTN="+inTN;
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("res1").innerHTML = "แก้ไขสำเร็จ";
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function update2(){
+            var xmlhttp = new XMLHttpRequest();
+            var inAdd = document.getElementById('inAdd').value;
+            var inPr = document.getElementById('inPr').value;
+            var inPo = document.getElementById('inPo').value;
+            var inMN = document.getElementById('inMN').value;
+            var inTN = document.getElementById('inTN').value;
+            var url = location.protocol + '//' + location.host+"/Project/staff-teacher-profile-link.php?type=12&inID="+arr[0].StaffID+
+                "&inAdd="+inAdd+"&inPr="+inPr+"&inPo="+inPo+"&inMN="+inMN+"&inTN="+inTN;
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("res2").innerHTML = "แก้ไขสำเร็จ";
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
         </script>
      </div>
 </body>

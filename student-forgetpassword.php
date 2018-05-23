@@ -55,6 +55,7 @@
                 clear: both;
                 width: 100%;
                 position: relative;
+                background-image: url(img/gallery/980x380/064.jpg);
             }
             #c-top {
                 width: 50%;
@@ -62,7 +63,7 @@
                 top: 0;
                 text-align: left;
                 position: relative;
-                background: #444444;
+                background-image: url(img/gallery/980x380/064.jpg);
                 color: white;
                 float: left;
             }
@@ -72,16 +73,14 @@
                 top: 0;
                 text-align: left;
                 position: relative;
-                background: #444444;
                 color: white;
                 float: right;
             }
             form{
-                
                 padding-left : 30px;
             }
             input[type=text] {
-                background: #242424;
+                background-color:rgba(0,0,0,0.8);
                 margin-top: 10px;
                 padding-left: 30px;
                 width: 310px;
