@@ -32,7 +32,7 @@
    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
             <li><a data-toggle="tab" href="#menu1">ตารางเรียน</a></li>
-            <li><a data-toggle="tab" href="#menu2">ตารางสอน</a></li>
+            <li><a data-toggle="tab" href="#menu2">ตารางสอบ</a></li>
         </ul>
      </div>
      <div id="main">
