@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>สำหรับนักศึกษา</title>
+        <title>สำหรับบุคลากร</title>
         <style>
             @import "global1.css";
             html, body { 
@@ -59,22 +59,24 @@
                 top: 110px;
             }
             #c-top {
-                width: 100%;
-                height: 300px;
+                width: 50%;
+                height: 350px;
                 top: 0;
                 text-align: left;
                 position: relative;
                 background: #444444;
                 color: white;
+                float: left;
             }
             #c-bot {
-                width: 100%;
-                height: 60px;
+                width: 50%;
+                height: 350px;
                 top: 0;
                 text-align: left;
                 position: relative;
-                background: white;
-                color: black;
+                background: #444444;
+                color: white;
+                float: right;
             }
             form{
                 
@@ -82,7 +84,7 @@
             }
             input[type=text] {
                 background: #242424;
-                margin-top: 0px;
+                margin-top: 10px;
                 padding-left: 30px;
                 width: 310px;
                 height:30px;
@@ -92,27 +94,24 @@
             ::placeholder {
                 color: white;
             }
-            input[type=password] {
-                background: #242424;
-                margin-top: 15px;
-                padding-left: 30px;
-                width: 310px;
-                height: 30px;
-                text-align: left;
-                color: white;
-            }
             input[type=submit] {
+                width: 60px;
+                background: white;
+            }
+            input[type=button] {
+                font-family: "supermarket";
                 width: 60px;
                 background: white;
             }
             #sub{
                 width: 310px;
-                padding-left: 25px;
+                padding-left: 10px;
                 margin-top:20px;
-                text-align: center;
+                text-align: left;
             }
-            div#text >a {
+            div#c-bot >a {
                 text-decoration: underline;
+                color : white;
             }
             #text{
                 padding-left : 30px;
@@ -121,33 +120,50 @@
 
     </head>
     <body>
+        <script>           
+            function showpw() {
+                var xmlhttp = new XMLHttpRequest();
+                var url = location.protocol + '//' + location.host+"/Project/staff-forgetpassword-link.php?id="+document.getElementById("id").value+"&email="+document.getElementById("email").value;
+                document.getElementById("id").value=""
+                document.getElementById("email").value=""
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        displayResponse(xmlhttp.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+            function displayResponse(response){
+                document.getElementById("c-bot").innerHTML = response;
+            }
+            
+        </script>
         <div id="left">
-            <br><a href="home.php" id="back">< back</a>
+            <br><a href="staff-home.php" id="back">< back</a>
         </div>
         <div id="main">
             <div id="header">
-                <h1>ยินดีต้อนรับ</h1>
+                <h1>ลืมรหัสผ่าน</h1>
             </div>
             <div id="content">
                 <div id="c-top">
-                    <form method="post" action="student-home-link.php">
-                        <h1>ระบบสารสนเทศ<br>เพื่อการบริหารการศึกษา</h1>
-                        <input type="text" name="id" placeholder="รหัสนักศึกษา"><br>
-                        <input type="password" name="pswd" placeholder="รหัสผ่าน"><br>
+                    <form method="post" >
+                        <h1>ระบบสารสนเทศ<br>สำหรับบุคลากรของมหาวิทยาลัย</h1>
+                        <input type="text" id="id" name="id" placeholder="รหัสประจำตัวบุคลากร"><br>
+                        <input type="text" id="email" name="email" placeholder="Email"><br>
                         <div id = "sub">
-                            <input type="submit" value="เข้าสู่ระบบ">
-                            <a href = "student-forgetpassword.php">ลืมรหัสผ่าน?</a>
+                            <input type="button" value="ตรวจสอบ" onclick ="showpw()"  >
                         </div>
                     </form>
                 </div>
+                <div id="c-bot">
                     
-                <div id= "c-bot">
-                    <div id = "text">
-                        <br>สำหรับนักศึกษาใหม่ <a href= "student-new-login.php">ลงทะเบียนนักศึกษาใหม่</a>
-                    </div>
                 </div>
             </div>
             <?php include "recruit-footer.php"; ?>
         </div>
+        
+         
     </body>
 </html>

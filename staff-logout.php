@@ -1,5 +1,5 @@
 <?php
 session_start();
 session_destroy();
-header("location: student-home.php");
+header("location: staff-home.php");
 ?>

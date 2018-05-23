@@ -59,22 +59,24 @@
                 top: 110px;
             }
             #c-top {
-                width: 100%;
-                height: 300px;
+                width: 50%;
+                height: 350px;
                 top: 0;
                 text-align: left;
                 position: relative;
                 background: #444444;
                 color: white;
+                float: left;
             }
             #c-bot {
-                width: 100%;
-                height: 60px;
+                width: 50%;
+                height: 350px;
                 top: 0;
                 text-align: left;
                 position: relative;
-                background: white;
-                color: black;
+                background: #444444;
+                color: white;
+                float: right;
             }
             form{
                 
@@ -82,7 +84,7 @@
             }
             input[type=text] {
                 background: #242424;
-                margin-top: 0px;
+                margin-top: 10px;
                 padding-left: 30px;
                 width: 310px;
                 height:30px;
@@ -92,16 +94,12 @@
             ::placeholder {
                 color: white;
             }
-            input[type=password] {
-                background: #242424;
-                margin-top: 15px;
-                padding-left: 30px;
-                width: 310px;
-                height: 30px;
-                text-align: left;
-                color: white;
-            }
             input[type=submit] {
+                width: 60px;
+                background: white;
+            }
+            input[type=button] {
+                font-family: "supermarket";
                 width: 60px;
                 background: white;
             }
@@ -111,8 +109,9 @@
                 margin-top:20px;
                 text-align: left;
             }
-            div#text >a {
+            div#c-bot >a {
                 text-decoration: underline;
+                color : white;
             }
             #text{
                 padding-left : 30px;
@@ -121,6 +120,25 @@
 
     </head>
     <body>
+        <script>           
+            function showpw() {
+                var xmlhttp = new XMLHttpRequest();
+                var url = location.protocol + '//' + location.host+"/Project/student-forgetpassword-link.php?id="+document.getElementById("id").value+"&email="+document.getElementById("email").value;
+                document.getElementById("id").value=""
+                document.getElementById("email").value=""
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        displayResponse(xmlhttp.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+            function displayResponse(response){
+                document.getElementById("c-bot").innerHTML = response;
+            }
+            
+        </script>
         <div id="left">
             <br><a href="student-home.php" id="back">< back</a>
         </div>
@@ -130,17 +148,22 @@
             </div>
             <div id="content">
                 <div id="c-top">
-                    <form method="post">
+                    <form method="post" >
                         <h1>ระบบสารสนเทศ<br>เพื่อการบริหารการศึกษา</h1>
-                        กรุณากรอกรหัสนักศึกษา หรือ อีเมลของท่าน<br>
-                        <input type="email" id="email" placeholder="อีเมล"><br>
+                        <input type="text" id="id" name="id" placeholder="รหัสนักศึกษา"><br>
+                        <input type="text" id="email" name="email" placeholder="Email"><br>
                         <div id = "sub">
-                            <input type="submit" value="ค้นหา">
+                            <input type="button" value="ตรวจสอบ" onclick ="showpw()"  >
                         </div>
                     </form>
+                </div>
+                <div id="c-bot">
+                    
                 </div>
             </div>
             <?php include "recruit-footer.php"; ?>
         </div>
+        
+         
     </body>
 </html>

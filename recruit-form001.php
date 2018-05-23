@@ -8,8 +8,10 @@
 		<link href ="js/jquery-ui.min.css" rel="stylesheet">
 		<script src="js/jquery-1.9.1.min.js"></script>
 		<script src="js/jquery-ui.min.js"></script>
-		
-	<title>Recruit Form</title>
+
+        <link href ="js/sweetalert2all.js" rel="stylesheet">
+		<script src="js/sweetalert21.js"></script>
+		<title>Recruit Form</title>
 </head>
 <body>
 		<div id="mySidenav" class="sidenav">
@@ -24,7 +26,7 @@
 		
 		<div id="main">
 			<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
-			<form action = "recruit-form.php" method = "post" accept-charset = "UTF-8">
+			<!-- <form action = "recruit-form.php" method = "post" accept-charset = "UTF-8"> -->
 					<h1>แบบฟอร์มสมัคร</h1>
 					ประวัติส่วนตัว<br>
 					คำนำหน้า:<br>
@@ -232,26 +234,16 @@
 						})
 					</script>
 					 
-					<br><br>
-					<input type="submit" value="Submit">
-					<br>
-				</form>
 			
-				<p>
-					if you click the "Submit" button, the form-data will be sent to a page called "action_page.php".
-				</p>
-
-		</div>	 
-		<script>
-				function openNav() {
-					document.getElementById("mySidenav").style.width = "250px";
-					document.getElementById("main").style.marginLeft = "250px";
-				}
 				
-				function closeNav() {
-					document.getElementById("mySidenav").style.width = "0";
-					document.getElementById("main").style.marginLeft= "0";
-				}
-		</script>
-</body>
+					
+				</form>
+					<button id="eiei">submit</button>
+					
+		</div>	
+			<script>
+	 		$('#eiei').click(function(){
+				swal('สมัครเรียบร้อยยย');
+			});	</script>
+</body>	
 </html>

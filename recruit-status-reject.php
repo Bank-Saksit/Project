@@ -6,48 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>สละสิทธิ์</title>
     <style>
-        h1 {
-            font-size: 40px;
-            margin-left: 10%;
-            margin-right: 10%;
-            border-bottom: 5px solid rgb(77, 77, 77);
+        @import "global1.css";
+        #sm,#sm-sub {
+            width: 100px;
+            height: 40px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
         }
-        #profile{
-            background: rgb(54, 118, 255);
-            width: 80%;
-            margin-left: 10%;
+        #profile,#detail {
+            margin-left:30%;
         }
-        #content {
-            background: aquamarine;
-            width: 80%;
-            margin-left: 10%;
+        #button {
+            margin-left:30px;
         }
-        #res {
-            background: red;
-            width: 80%;
-            margin-left: 10%;
-            font-size: 50px;
-        }
+
     </style>
 </head>
 <body>
-        
-    <div id="header">
-        <caption><h1>สละสิทธิ์</h1></caption>
+    <?php
+    include "recruit-checkLog.php";
+    ?>
+    <div id="left">
+        <a href="#" id="back"> < ออกจากระบบ </a>
     </div>
-    <div id="profile"></div>
-    <form>
-        <div id="content"></div>
-        <div id="test"></div>
-    </form>
-    <div id="res"></div>
+    <div id="main">
+        <div id="header">
+            <h1>สละสิทธิ์</h1>
+        </div>
+        <div id="content">
+        <div id="profile"></div>
+            <form>
+                <div id="detail"></div>
+                <div id="test"> </div>
+            </form>
+        </div>
+    </div>
+    
 
     <script>
         load();
         
         function load(){
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol + '//' + location.host+"/Project/recruit-status-confirm-link.php?inID=2";
+            var url = location.protocol + '//' + location.host+"/Project/recruit-status-confirm-link.php?inID=" +
+            <?php echo $_SESSION['id']; ?>
             
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -60,12 +64,12 @@
         
         function displayResponse(response) {
             arr = JSON.parse(response);
-            var out = "รหัสประจำตัวผู้สมัคร : "+ arr[0].RecruitID +"<br>"+
-                    "ชื่อ : "+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"<br>";
+            var out = "<h3>รหัสประจำตัวผู้สมัคร : "+ arr[0].RecruitID +"</h3>"+
+                    "<h3>ชื่อ : "+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"</h3>";
             document.getElementById("profile").innerHTML = out;
 
-            var outlist =// "<form>"+
-                "ชื่อมหาวิทยาลัยที่เลือกศึกษาต่อ<br>"+
+            var outlist =
+                "<h3>ชื่อมหาวิทยาลัยที่เลือกศึกษาต่อ</h3>"+
                 "<select name=\"inUni\" id=\"inUni\" onchange=\"otherField(this.value)\">"+
                     "<option value=\"ลาดกระบัง\">ลาดกระบัง</option>"+
                     "<option value=\"พระนครเหนือ\">พระนครเหนือ</option>"+
@@ -80,9 +84,11 @@
                 "</select>"+
                 "<br>เหตุผล<br>"+
                 "<textarea rows=3 cols=50 name=\"reason\" style=\"resize:none\"></textarea><br>"+
-                "<input type=\"button\" value=\"ยืนยัน\" onclick=\"update()\">";//+
-           // "</form>";
-            document.getElementById("content").innerHTML = outlist;
+                "<div id='button'>"+
+                "<input id='sm-sub' type=\"button\" value=\"ยืนยัน\" onclick=\"update()\">"+
+                "<input id='sm' type=\"button\" value=\"ย้อนกลับ\" onclick=\"window.location.href='recruit-status.php'\">"+
+                "</div>";
+            document.getElementById("detail").innerHTML = outlist;
         }
 
         function update() {
@@ -100,7 +106,6 @@
             }
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
-            document.getElementById("res").innerHTML = "สละสิทธิ์สำเร็จ<br>ซะทีโว้ยยยย อีดอกกก";
         }
 
         function otherField(val) {

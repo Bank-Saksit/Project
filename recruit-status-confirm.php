@@ -25,8 +25,11 @@
     </style>
 </head>
 <body>
+    <?php
+    include "recruit-checkLog.php";
+    ?>
     <div id="left">
-        <br><a href="home.php" id="back">< back</a>
+        <br><a href="home.php" id="back"></a>
     </div>
     <div id="main">
         <div id="header">

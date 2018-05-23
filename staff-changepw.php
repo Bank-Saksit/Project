@@ -138,16 +138,16 @@ session_start();
         </div>
         <div id="content">
             <div id="c-left">
-                <h1>ข้อมูลบุคคลากร</h1>
+                <h1>ข้อมูลบุคลากร</h1>
                 <div id ="data">
                     
                 </div>
             </div>
             <div id="c-right">
-                <form method="post">
+                <form method="post" action ="staff-update-pw.php" >
                     <h1>สร้างรหัสผ่านใหม่</h1>
-                    <input type="text" name="id" placeholder="รหัสผ่านใหม่"><br>
-                    <input type="password" name="pswd" placeholder="ยืนยันรหัสผ่านใหม่"><br>
+                    <input type="password" name="pw" placeholder="รหัสผ่านใหม่"><br>
+                    <input type="password" name="pw2" placeholder="ยืนยันรหัสผ่านใหม่"><br>
                     <input type="submit" value="ยืนยัน">
                     <input type="button" id="cancle" onclick ="window.location.href='staff-new-logout.php'" value = "ยกเลิก">
                 </form>
@@ -181,7 +181,7 @@ session_start();
                             "รหัสประจำตัวบุคคลากร "+ arr[0].StaffID +"<br>"+
                             "วันเกิด "+ arr[0].DOB +
                             " อายุ "+ age +" ปี"+
-                            " กลุ่มเลือด "+ arr[0].BloodGroup +"<br>"+
+                            " หมู่เลือด "+ arr[0].BloodGroup +"<br>"+
                             "รหัสประจำตัวประชาชน "+ arr[0].IDCardNumber +"<br>"+
                             "ที่อยู่ "+ arr[0].Address +"<br>"+
                             "ภาควิชา "+ arr[0].Department;
