@@ -20,10 +20,10 @@
 </head>
 <body>
     <div class="top" id="top">
-            <a class = "active" href="student-main.php">ข้อมูลนักศึกษา</a>
+            <a href="student-main.php">ข้อมูลนักศึกษา</a>
             <a href="student-main2.php">ลงทะเบียนเรียน</a>
             <a href="student-main3.php">ตารางเรียน</a>
-            <a href="student-main4.php">ผลการเรียน</a>
+            <a class = "active" href="student-main4.php">ผลการเรียน</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
