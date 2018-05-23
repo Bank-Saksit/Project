@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +30,15 @@
     
 </head>
 <body>
+    <?php 
+        if(isset($_SESSION['id']) && isset($_SESSION['pswd']) && $_SESSION['role'] == 'student') {
+            
+        }
+        else{
+            header("location: student-home.php");
+            exit('</body></html>');
+        }
+    ?>
     <div class="top" id="top">
             <a class = "active" href="student-main.php">ข้อมูลนักศึกษา</a>
             <a href="student-main2.php">ลงทะเบียนเรียน</a>
@@ -35,7 +47,7 @@
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="student-home.php" class="logout">ออกจากระบบ</a>
+            <a href="student-logout.php" class="logout">ออกจากระบบ</a>
     </div>
     <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
@@ -68,7 +80,7 @@
 
             function load(){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol+'//'+location.host+"/Project/student-profile-link.php?type=01&inID=59070501066";
+                var url = location.protocol+'//'+location.host+"/Project/student-profile-link.php?type=01&inID="+<?php echo $_SESSION['id'] ?>;
                 
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -182,7 +194,7 @@
                         "<div id='res2'></div>"
                         "</form>";
                 document.getElementById("menu2").innerHTML = out2;
-                io
+                
                 /*var out3 = "<h3>ข้อมูลผู้ปกครอง</h3>"+
                         "<form>"+
                         "<p><h5>ความสัมพันธ์:</h5><select id='inRela'><br>"+
