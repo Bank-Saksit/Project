@@ -15,19 +15,6 @@
             }
             #main {
                 width: 90%;
-                float: right;
-                position: relative;
-                top: 50px;
-            }
-    
-            #left {
-                float: left;
-                width: 10%;
-                position: relative;
-            }
-            #back {
-                margin: 20px;
-                font-weight: bold;
             }
             #header {
                 width: 100%;
@@ -51,9 +38,7 @@
                 color: #ffffff;
             }
             div#content {
-                clear: both;
                 width: 100%;
-                position: relative;
             }
             #c-top {
                 width: 50%;
@@ -86,9 +71,6 @@
                 width: 310px;
                 height:30px;
                 text-align: left;
-                color: white;
-            }
-            ::placeholder {
                 color: white;
             }
             input[type=submit] {

@@ -123,8 +123,8 @@ session_start();
                 <div id="c-r-top">
                     <h2>ตรวจสอบสถานะ</h2>
                     <form id="login" method="post" action="recruit-login-check.php">
-                        <input type="text" name="id" id="id" placeholder="รหัสประจำตัวผู้สมัคร" required><br>
-                        <input type="password" name="pswd" id="pswd" placeholder="รหัสประจำตัวประชาชน" required><br>
+                        <input type="text" name="id" id="id" placeholder="รหัสประจำตัวผู้สมัคร" ><br>
+                        <input type="password" name="pswd" id="pswd" placeholder="รหัสประจำตัวประชาชน" ><br>
                         <button id="submit">เข้าสู่ระบบ</button>
                     </form>
                 </div>
