@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Profile</title>
+    <title>Subject</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -77,12 +77,36 @@
             <div id="menu1" class="tab-pane fade"></div>
             <div id="menu2" class="tab-pane fade"></div>
             <div id="menu3" class="tab-pane fade"></div>
-            <div id="menu4" class="tab-pane fade"></div>
+            <div id="menu4" class="tab-pane fade">
+                <h3>ลงทะเบียนรายวิชา</h3>
+                <p><h5>วิชา:</h5>
+					<span>อันดับที่ 1 </span><?php
+                                include "dblink.php";
+								$result = mysqli_query($conn,"SELECT * FROM subjectinfo");
+
+								echo"<select name = 'Subject[]' class='check subject'>";
+								echo"<option value = ''>โปรดเลือก</option>";
+								while($row = mysqli_fetch_array($result)){
+									echo "<option value = '" . $row['SubjectID']."'>".$row['SubjectID']."</option>";
+								}
+								echo"</select>";
+							?>
+					<button type="button" id="add" class="check" >+</button>
+					<button type="button" id="remove" class="check" >-</button>
+
+					<div id="demo"></div>
+					*สามารถเลือกได้สูงสุด4อันดับและระบบจะเลือกความสำคัญตามลำดับ
+					<br><br>
+					
+					<input type="submit" value="ยืนยัน" id="submit">
+					<div id="alert"></div>
+					<div id="alert1"></div>
+            </div>
         </div>
      </div>
     </form>
 
-    <script>
+    <script type="text/javascript">
 		load();
 
         function load(){
@@ -100,7 +124,7 @@
 
         function display(response) {
             arr = JSON.parse(response);
-            var out1 = "<h3>ลงทะเบียนรายวิชา</h3>"+
+            /*var out1 = "<h3>ลงทะเบียนรายวิชา</h3>"+
 					"<p>รหัสประจำตัวนักศึกษา: "+ arr[0].StudentID +"<br>"+
                     "<p>ชื่อ: "+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"<br>"+
 					"<p>รหัสบัตรประชาชน: "+arr[0].IDCardNumber+"<br>"+
@@ -175,9 +199,9 @@
 			else if( arr[0].Religion=='อิสลาม' )
 				document.getElementById('inRe').selectedIndex = '2';
 			else
-				document.getElementById('inRe').selectedIndex = '3';
+				document.getElementById('inRe').selectedIndex = '3';*/
 
-			var out2 = "<h3>ข้อมูลติดต่อ</h3>"+
+			/*var out2 = "<h3>ข้อมูลติดต่อ</h3>"+
 					"<form>"+
 					"<p><h5>ที่อยู่:</h5><textarea style='resize: none' rows=3 cols=50 id='inAdd'>"+arr[0].Address+"</textarea><br>"+
                     "<h5>จังหวัด:</h5><input type='text' id='inPr' value='"+arr[0].Province+"'><br>"+
@@ -187,7 +211,7 @@
 					"<br><input type='button' value='แก้ไข' onclick='update2()'>"+
 					"<div id='res2'></div>"
 					"</form>";
-            document.getElementById("menu2").innerHTML = out2;
+            document.getElementById("menu2").innerHTML = out2;*/
 
 			/*var out3 = "<h3>ข้อมูลผู้ปกครอง</h3>"+
 					"<form>"+
@@ -318,7 +342,7 @@
 			else
 				document.getElementById('inpBl').selectedIndex = '-1';*/
 
-			var out4 = "<h3>ข้อมูลด้านการศึกษา</h3>"+
+			/*var out4 = "<h3>ข้อมูลด้านการศึกษา</h3>"+
 					"<p>ระดับการศึกษา: "+arr[0].EducationBackground+"<br>"+
 					"<p>สาขา: "+arr[0].Branch+"<br>"+
 					"<p>GPAX: "+arr[0].SchoolGPAX+"<br>"+
@@ -327,7 +351,7 @@
 					"<p>จังหวัด: "+arr[0].sProvince+"<br>"+
 					"<p>รหัสไปรษณีย์: "+arr[0].sPostcode+"<br>"+
 					"<p>โทรศัพท์: "+arr[0].sTelNumber+"<br>";
-            document.getElementById("menu4").innerHTML = out4;
+            document.getElementById("menu4").innerHTML = out4;*/
         }
 
 		function update1(){
@@ -369,7 +393,7 @@
             }
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
-		}
+        }
 
 		/*function update3(){
 			var xmlhttp = new XMLHttpRequest();
@@ -403,6 +427,64 @@
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
 		}*/
+
+        $(function(){
+		var n = 2;
+		if(n==2){	$('button[id="remove"]').prop('disabled', true);	}
+		else{	$('button[id="remove"]').prop('disabled', false);	}
+		if(n==5){	$('button[id="add"]').prop('disabled', true);	}
+		else{	$('button[id="add"]').prop('disabled', false);	}
+			
+			<?php
+				$result = mysqli_query($conn,"SELECT * FROM subjectinfo");
+
+				echo"var input = '<select name = \"Subject[]\" class=\"check subject\">'+";
+				echo"'<option value = \"\">โปรดเลือก</option>'+";
+				while($row = mysqli_fetch_array($result)){
+					echo "'<option value = \"" . $row['SubjectID']."\">".$row['SubjectID']."</option>'+";
+				}
+				echo"'</select>'";
+			?>
+			// var input = '<select name="Department[]" class="check department">' +
+			// 							'<option value="">โปรดเลือก</option>' +
+			// 							'<option value="วิศวกรรมคอมพิวเตอร์">วิศวกรรมคอมพิวเตอร์</option>' +
+			// 							'<option value="วิศวกรรมไฟฟ้า">วิศวกรรมไฟฟ้า</option>' +
+			// 							'<option value="วิศวกรรมเครื่องกล">วิศวกรรมเครื่องกล</option>' +
+			// 							'<option value="วิศวกรรมสิ่งแวดล้อม">วิศวกรรมสิ่งแวดล้อม</option>' +
+			// 							'<option value="วิศวกรรมไฟฟ้าสื่อสารและอิเล็กทรอนิกส์">วิศวกรรมไฟฟ้าสื่อสารและอิเล็กทรอนิกส์</option>' +
+			// 							'<option value="วิศวกรรมเคมี">วิศวกรรมเคมี</option>' +
+			// 							'<option value="วิศวกรรมโยธา">วิศวกรรมโยธา</option>' +
+			// 							'<option value="วิทยาการคอมพิวเตอร์ประยุกต์">วิทยาการคอมพิวเตอร์ประยุกต์</option>' +
+			// 							'<option value="วิทยาศาสตร์และเทคโนโลยีการอาหาร">วิทยาศาสตร์และเทคโนโลยีการอาหาร</option>' +
+			// 							'<option value="ฟิสิกส์ประยุกต์">ฟิสิกส์ประยุกต์</option>' +
+			// 							'<option value="จุลชีววิทยา">จุลชีววิทยา</option>' +
+			// 							'<option value="เคมี">เคมี</option>' +
+			// 							'<option value="เทคโนโลยีการศึกษาและสื่อสารมวลชน">เทคโนโลยีการศึกษาและสื่อสารมวลชน</option>' +
+			// 							'<option value="สถาปัตยกรรมภายใน">สถาปัตยกรรมภายใน</option>' +
+			// 							'<option value="สถาปัตยกรรม">สถาปัตยกรรม</option>' +
+			// 						'</select>';		
+
+			$('#add').click(function(){
+				$("#demo").append('<span>อันดับที่' +' '+ n +' '+'</span>'+input+ '<br>' );
+				n++;
+				if(n==2){	$('button[id="remove"]').prop('disabled', true);	}
+				else{	$('button[id="remove"]').prop('disabled', false);	}
+				if(n==5){	$('button[id="add"]').prop('disabled', true);	}
+				else{	$('button[id="add"]').prop('disabled', false);	}
+			})
+			$('#remove').click(function(){
+				$('#demo > select[name^=Subject]:last').remove();
+				$("#demo > br:last").remove();
+				$("span:last-child").remove();
+				n--;
+				if(n==2){	$('button[id="remove"]').prop('disabled', true);	}
+				else{	$('button[id="remove"]').prop('disabled', false);	}
+				if(n==5){	$('button[id="add"]').prop('disabled', true);	}
+				else{	$('button[id="add"]').prop('disabled', false);	}
+				
+			})	
+		})
+
     </script>
 </body>
 </html>
