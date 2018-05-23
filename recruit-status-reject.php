@@ -18,12 +18,19 @@
             margin-right: 20px;
             margin-top: 20px;
             border-radius: 10px;
+            color:white;
         }
         #profile,#detail {
             margin-left:30%;
         }
         #button {
             margin-left:30px;
+        }
+        #sm-sub{
+            background-color:#3085d6;
+        }
+        #sm{
+            background-color:#d33;
         }
 
     </style>
