@@ -42,6 +42,7 @@
                 <button onclick="window.location.href='recruit-status.php'">ย้อนกลับ</button>
             </div>
         </div>
+        <?php include "recruit-footer.php"; ?>
     </div>
     
 

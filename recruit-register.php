@@ -31,18 +31,20 @@
         #tab-content {
             position: absolute;
             top:80px;
-            margin-left: 30px;
+			margin-left: 30px;
+			width:100%;
+              
         }
         #main {
-            width: 85%;
             float: left;
-            position: relative;
+			position: relative;
+			width:80%;
             top: 50px;
             background: #ebebeb;
         }
         #header {
-            width: 100%;
-            top: 80px;
+			width: 100%;
+			height: 80px;
             position: relative;
         }
         #header > h1 {
@@ -58,7 +60,13 @@
         }
         select {
             margin-bottom: 10px;
-        }
+		}
+		#menu1 {
+			width:100%;
+		}
+		footer {
+			width:97%;
+		}
 
     </style>
 </head>
@@ -79,7 +87,7 @@
         </div>
         
         <div class="tab-content" id="tab-content">
-            <div id="menu1" class="tab-pane fade">
+            <div id="menu1" class="tab-pane fade active">
                 <h3>ประวัติส่วนตัว</h3>
                 <p><h5>คำนำหน้า:</h5>
 					<select name="Prefix" class="check" id="a1" >
@@ -217,6 +225,7 @@
 					<div id="alert"></div>
 					<div id="alert1"></div>
             </div>
+			<?php include "recruit-footer.php"; ?>
         </div>
      </div>
 	</form>

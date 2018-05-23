@@ -9,7 +9,7 @@
 		<script src="js/jquery-1.9.1.min.js"></script>
 		<script src="js/jquery-ui.min.js"></script>
 
-        <link href ="js/sweetalert2all.js" rel="stylesheet">
+        <link href ="js/sweetalert2.all.js" rel="stylesheet">
 		<script src="js/sweetalert21.js"></script>
 		<title>Recruit Form</title>
 </head>
@@ -234,9 +234,6 @@
 						})
 					</script>
 					 
-			
-				
-					
 				</form>
 					<button id="eiei">submit</button>
 					
