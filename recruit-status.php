@@ -184,23 +184,12 @@
                             cancelButtonColor: '#d33',
                             confirmButtonText: '<a href="recruit-status-confirm.php" ><font color="white">ยืนยันสิทธิ์</font></a>',
                             cancelButtonText: 'ยกเลิก'
-                        }).then(function(isConfirm){
-                            if (isConfirm){
+                        }).then((result) => {
+                            if (result.value){
                                 updateRecruit();
                             }
                         })
                     })
-                    // $('#sm').on('click',function(){
-                    //     swal({
-                    //         title: 'คุณต้องการที่จะสละสิทธ์ใช่หรือไม่',
-                    //         text: "หากคุณสละสิทธิ์แล้ว คุณไม่สามารถกดยกเลิกได้",
-                    //         type: 'warning',
-                    //         showCancelButton: true,
-                    //         cancelButtonColor: '#d33',
-                    //         confirmButtonText: '<a href="recruit-status-confirm.php" ><font color="white">ยืนยันสิทธิ์</font></a>',
-                    //         cancelButtonText: 'ยกเลิก',
-                    //     })
-                    // })
                 })
             }else if(arr[0].Status == "รอจ่ายค่าเทอม"){
                 document.getElementById("submit").innerHTML = "<button id='sm-sub' onclick=\"window.location.href='recruit-status-confirm.php'\">ดูรายละเอียด</button>";
