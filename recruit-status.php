@@ -106,9 +106,8 @@
         loadRecruit();
         function loadRecruit(){
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID="+
-            <?php echo $_SESSION['id']; ?>
-            
+            var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID="+ <?php echo $_SESSION['id']; ?> 
+            console.log(url)
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     displayResponse(xmlhttp.responseText);
@@ -118,6 +117,7 @@
             xmlhttp.send();
         }
         function displayResponse(response) {
+            console.log(response)
             var arr = JSON.parse(response);
             var i;
             var out = "<table id='tb1'>";
