@@ -38,9 +38,9 @@ session_start();
             }       
             #sub{
                 width: 310px;
-                padding-left: 25px;
+                padding-left:25px;
                 margin-top:20px;
-                text-align: center;
+                text-align: left;
             }
             div#text >a {
                 text-decoration: underline;
@@ -58,9 +58,6 @@ session_start();
                 exit('</body></html>');
             }
         ?> 
-        <div id="left">
-            <br><a href="home.php" id="back">< back</a>
-        </div>
         <div id="main">
             <div id="header">
                 <h1>ยินดีต้อนรับ</h1>
