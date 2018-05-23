@@ -118,7 +118,7 @@ session_start();
     </div>
     <div id="main">
         <div id="header">
-            <h1>ยินดีต้อนรับ</h1>
+            <h1>สำหรับนักเรียนที่ต้องการเข้าศึกษา   </h1>
         </div>
         <div id="content">
             <div id="c-left">

@@ -59,11 +59,9 @@ a {
     color: #444444;
 }
 input[type = "text"] {
-    background-color:rgba(0,0,0,0.8);
     font-family: "supermarket";
 }
 input[type = "password"] {
-    background-color:rgba(0,0,0,0.8);
     font-family: "supermarket";
 }
 input[type = "submit"]{
