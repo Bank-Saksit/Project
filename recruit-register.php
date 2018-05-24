@@ -73,7 +73,7 @@
 <body>
     <form action = "recruit-form.php" method = "post" accept-charset = "UTF-8" id="ismForm" >
      <div id="left">
-        <br><a href="recruit-login.php" id="back">< back</a>
+        <br><a href="#" id="back"></a>
         <ul class="nav nav-pills nav-stacked" id="tab">
             <li><a data-toggle="tab" href="#menu1">ประวัติส่วนตัว</a></li>
             <li><a data-toggle="tab" href="#menu2">ที่อยุ่ปัจจุบัน</a></li>
