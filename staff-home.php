@@ -7,6 +7,9 @@ session_start();
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>สำหรับบุคลากร</title>
         <style>
             @import "global1.css";
@@ -29,7 +32,9 @@ session_start();
             }
         ?> 
         <div id="left">
-            <br><a href="#" id="back"></a>
+            <a href="home.php" class="btn btn-info btn-lg" id = "back">
+                <span class="glyphicon glyphicon-chevron-left"></span> 
+            </a>
         </div>
         <div id="main">
             <div id="header">
@@ -38,12 +43,15 @@ session_start();
             <div id="content">
                 <div id="c-top">
                     <form method="post" action="staff-home-link.php">
-                        <h1>ระบบสารสนเทศ<br>สำหรับบุคลากรของมหาวิทยาลัย</h1>
-                        <input type="text" name="id" placeholder="รหัสประจำตัวบุคลากร"><br>
-                        <input type="password" name="pswd" placeholder="รหัสผ่าน"><br>
-                        <div id = "sub">
-                            <input type="submit" value="เข้าสู่ระบบ">
-                            <a href = "staff-forgetpassword.php">ลืมรหัสผ่าน?</a>
+                        <h1>ระบบสารสนเทศ</h1>
+                        <h1>สำหรับบุคลากรของมหาวิทยาลัย</h1>
+                        <div id = "c-in">
+                            <input type="text" name="id" placeholder="รหัสประจำตัวบุคลากร"><br>
+                            <input type="password" name="pswd" placeholder="รหัสผ่าน"><br>
+                            <div id = "sub">
+                                <input type="submit" value="เข้าสู่ระบบ">
+                                <a href = "staff-forgetpassword.php">ลืมรหัสผ่าน?</a>
+                            </div>
                         </div>
                     </form>
                 </div>

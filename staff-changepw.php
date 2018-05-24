@@ -7,6 +7,9 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>แก้ไขรหัสผ่าน</title>
     <style>
         @import "global1.css";
@@ -23,7 +26,10 @@ session_start();
         }
     ?>
     <div id="left">
-        <br><a href="staff-new-logout.php" id="back">< logout</a>
+        <br><a href="staff-new-logout.php" id="back"></a>
+        <!-- <a href="staff-new-logout.php" class="btn btn-info btn-lg" id = "back">
+                <span class="glyphicon glyphicon-chevron-left"></span> 
+            </a> -->
     </div>
     <div id="main">
         <div id="header">
@@ -32,17 +38,23 @@ session_start();
         <div id="content">
             <div id="c-left">
                 <h1>ข้อมูลบุคลากร</h1>
-                <div id ="data">
+                <div id = "c-in">
+                    <div id ="data">
                     
+                    </div>
                 </div>
             </div>
             <div id="c-right">
                 <form method="post" action ="staff-update-pw.php" >
                     <h1>สร้างรหัสผ่านใหม่</h1>
-                    <input type="password" name="pw" placeholder="รหัสผ่านใหม่"><br>
-                    <input type="password" name="pw2" placeholder="ยืนยันรหัสผ่านใหม่"><br>
-                    <input type="submit" value="ยืนยัน">
-                    <input type="button" id="cancle" onclick ="window.location.href='staff-new-logout.php'" value = "ยกเลิก">
+                    <div id = "c-in">
+                        <input type="password" name="pw" placeholder="รหัสผ่านใหม่"><br>
+                        <input type="password" name="pw2" placeholder="ยืนยันรหัสผ่านใหม่"><br>
+                        <div id = "sub">
+                            <input type="submit" value="ยืนยัน">
+                            <input type="button" id="cancle" onclick ="window.location.href='student-new-logout.php'" value = "ยกเลิก">
+                        </div>
+                    </div>
                 </form>
                 
             </div>
