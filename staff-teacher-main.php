@@ -35,7 +35,7 @@
     </div>
    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a data-toggle="tab" href="#menu1">ข้อมูลส่วนตัว</a></li>
+            <li class = "active"><a data-toggle="tab" href="#menu1">ข้อมูลส่วนตัว</a></li>
             <li><a data-toggle="tab" href="#menu2">ข้อมูลติดต่อ</a></li>
             <!-- <li><a data-toggle="tab" href="#menu3">ข้อมูลด้านการศึกษา</a></li> -->
         </ul>
@@ -51,7 +51,7 @@
             }
         ?>
         <div class="tab-content" id="tab-content">
-            <div id="menu1" class="tab-pane fade">
+            <div id="menu1" class="tab-pane fade in active">
                 
             </div>
             <div id="menu2" class="tab-pane fade">
