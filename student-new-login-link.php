@@ -14,7 +14,7 @@
         $pswd = mysqli_real_escape_string($conn,$_POST['pswd']);
         $result = $conn->query("SELECT Password
                                 FROM studentinfo
-                                WHERE StudentID = $id AND IDCardNumber =$pswd;");
+                                WHERE StudentID = '$id' AND IDCardNumber ='$pswd';");
             if($id==NULL || $pswd==NULL){
                 $conn->close();
                 echo    "<script>
