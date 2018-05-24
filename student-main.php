@@ -20,12 +20,6 @@
     <style>
         @import "global1.css";
         @import "temple.css";
-        #tab-content {
-            position: absolute;
-            top:5%;
-            padding-left:0px;
-            margin-left: 20%;
-        }
     </style>
     
 </head>

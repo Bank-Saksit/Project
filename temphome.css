@@ -16,8 +16,15 @@ html, body {
     position: relative;
 }
 #back {
-    margin: 20px;
-    font-weight: bold;
+    margin-left: 25px;
+    text-align: center;
+    margin-top: 90px;
+}
+.button{
+    width: 60px;
+    color: black;
+    border-radius: 8px;
+    background: white;
 }
 #header {
     width: 100%;
@@ -31,10 +38,17 @@ html, body {
     width: 100%;
     border-bottom: 5px solid;
 }
-div#left > a {
+#header > a {
+    float: right;
+    font-size: 30px;
+    text-align: center;
     text-decoration: none;
-    margin: 5px;
     color: #444444;
+}
+#header > a:hover {
+    text-decoration: underline;
+    color: #444444;
+    transition: 0.2s;
 }
 div#sub > a {
     text-decoration: underline;
@@ -43,7 +57,8 @@ div#sub > a {
 }
 div#content {
     clear: both;
-    width: 100%;-
+    width: 100%;
+    margin-top: 30px;
     position: relative;
     display:inline-block;
 }
@@ -54,6 +69,9 @@ div#content {
     text-align: left;
     position: relative;
     color: white;
+}
+#c-in{
+    margin-top: 40px;
 }
 #c-bot {
     width: 100%;
@@ -91,6 +109,7 @@ input[type=password] {
 }
 input[type=submit] {
     width: 80px;
+    color: black;
     border-radius: 8px;
     background: white;
 }       
@@ -111,4 +130,33 @@ input[type=button] {
     border-radius: 8px;    
     width: 80px;
     background: white;
+}
+
+#c-left {
+    width: 50%;
+    height: 350px;
+    top: 0;
+    text-align: left;
+    position: relative;
+    color: white;
+    float: left;
+}
+#c-left > h1{
+    margin-left: 30px;
+}
+#c-right {
+    width: 50%;
+    height: 350px;
+    top: 0;
+    text-align: left;
+    position: relative;
+    color: #ffffff;
+    float: right;
+}
+#data{
+    margin-left: 30px;
+    padding-left:20px;
+    border-radius: 8px;
+    width:85%;
+    background-color:rgba(0,0,0,0.5);
 }

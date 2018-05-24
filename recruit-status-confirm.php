@@ -22,6 +22,12 @@
             margin-top: 5%;
             border-radius: 10px;
         }
+        #sm{
+            background:#d33;
+        }
+        #sm-sub{
+            background:#3085d6;
+        }
     </style>
 </head>
 <body>
