@@ -125,7 +125,7 @@ session_start();
     }
     ?>  
     <div id="left">
-        <a href="้home.php" class="btn btn-info btn-lg" id = "back">
+        <a href="home.php" class="btn btn-info btn-lg" id = "back">
                 <span class="glyphicon glyphicon-chevron-left"></span> 
 		</a>
     </div>
