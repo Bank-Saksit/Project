@@ -22,7 +22,7 @@
                             type: 'error',
                             title: 'เข้าสู่ระบบล้มเหลว',
                             text: 'กรุณากรอกข้อมูลให้ครบทุกช่อง',
-                            confirmButtonText: '<a href=\"student-home.php\" style=\"text-decoration: none\"><font color=\"white\">กรอกข้อมูลใหม่</font></a>',
+                            confirmButtonText: '<a href=\"student-home.php\" style=\"text-decoration: none\"><font color=\"white\">ลองใหม่อีกครั้ง</font></a>',
                         });
                         $(document).on('click',function(){
                             window.location='student-home.php'; 
@@ -43,7 +43,7 @@
                             type: 'error',
                             title: 'เข้าสู่ระบบล้มเหลว',
                             text: 'รหัสนักศึกษาหรือรหัสผ่านไม่ถูกต้อง',
-                            confirmButtonText: '<a href=\"student-home.php\" style=\"text-decoration: none\"><font color=\"white\">กรอกข้อมูลใหม่</font></a>',
+                            confirmButtonText: '<a href=\"student-home.php\" style=\"text-decoration: none\"><font color=\"white\">ลองใหม่อีกครั้ง</font></a>',
                         });
                         $(document).on('click',function(){
                             window.location='student-home.php'; 

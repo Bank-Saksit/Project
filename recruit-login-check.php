@@ -26,7 +26,7 @@ if($id==NULL || $pswd==NULL){
                     type: 'error',
                     title: 'เข้าสู่ระบบล้มเหลว',
                     text: 'รหัสนักศึกษาหรือรหัสผ่านไม่ถูกต้อง',
-                    confirmButtonText: '<a href=\"recruit-login.php\" style=\"text-decoration: none\"><font color=\"white\">กรอกข้อมูลใหม่</font></a>',
+                    confirmButtonText: '<a href=\"recruit-login.php\" style=\"text-decoration: none\"><font color=\"white\">ลองใหม่อีกครั้ง</font></a>',
                 });
                 $(document).on('click',function(){
                     window.location='recruit-login.php'; 
@@ -51,7 +51,7 @@ else {
                     type: 'error',
                     title: 'เข้าสู่ระบบล้มเหลว',
                     text: 'รหัสประจำตัวผู้สมัครหรือรหัสบัตรประจำตัวประชาชนไม่ถูกต้อง',
-                    confirmButtonText: '<a href=\"recruit-login.php\" style=\"text-decoration: none\"><font color=\"white\">กรอกข้อมูลใหม่</font></a>',
+                    confirmButtonText: '<a href=\"recruit-login.php\" style=\"text-decoration: none\"><font color=\"white\">ลองใหม่อีกครั้ง</font></a>',
                 });
                 $(document).on('click',function(){
                     window.location='recruit-login.php'; 

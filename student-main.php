@@ -40,7 +40,7 @@
         }
     ?>
     <div class="top" id="top">
-            <a class = "active" href="student-main.php">ข้อมูลนักศึกษา</a>
+            <a class = "active" href="student-main.php" >ข้อมูลนักศึกษา</a>
             <a href="student-main2.php">ลงทะเบียนเรียน</a>
             <a href="student-main3.php">ตารางเรียน</a>
             <a href="student-main4.php">ผลการเรียน</a>
@@ -51,7 +51,7 @@
     </div>
     <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a data-toggle="tab" href="#menu1"> ข้อมูลส่วนตัว</a></li>
+            <li><a data-toggle="tab" href="#menu1" > ข้อมูลส่วนตัว</a></li>
             <li><a data-toggle="tab" href="#menu2">ข้อมูลติดต่อ</a></li>
             <!-- <li><a data-toggle="tab" href="#menu3">ประวัติด้านการศึกษา</a></li> -->
             <li><a data-toggle="tab" href="#menu4">ข้อมูลด้านการศึกษา</a></li>
@@ -381,24 +381,6 @@
                 xmlhttp.open("GET", url, true);
                 xmlhttp.send();
             }
-
-            $(function(){
-                $('#edit1').on('click',function(){
-                    swal({
-                        title:'<hi>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
-                        confirmButtonText:'ตกลง',
-                    })
-                    
-                })
-            })
-                $('#edit2').on('click',function(){
-                    swal({
-                        title:'<hi>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
-                        confirmButtonText:'ตกลง',
-                    })
-                    
-                })
-            
 
             /*function update3(){
                 var xmlhttp = new XMLHttpRequest();

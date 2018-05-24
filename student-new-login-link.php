@@ -15,6 +15,7 @@
         $result = $conn->query("SELECT Password
                                 FROM studentinfo
                                 WHERE StudentID = '$id' AND IDCardNumber ='$pswd';");
+            
             if($id==NULL || $pswd==NULL){
                 $conn->close();
                 echo    "<script>
@@ -47,8 +48,8 @@
                                 swal({
                                     type: 'error',
                                     title: 'เข้าสู่ระบบล้มเหลว',
-                                    text: 'คุณมีรหัสอยู่ผ่านแล้ว สามารถเข้าสู่ระบบได้เลย หากลืมรหัสผ่านกด ลืมรหัสผ่าน?',
-                                    confirmButtonText: '<a href=\"student-home.php\" style=\"text-decoration: none\"><font color=\"white\">กรอกข้อมูลใหม่</font></a>',
+                                    text: 'คุณมีรหัสผ่านแล้ว สามารถเข้าสู่ระบบได้เลย หากลืมรหัสผ่านกด ลืมรหัสผ่าน?',
+                                    confirmButtonText: '<a href=\"student-home.php\" style=\"text-decoration: none\"><font color=\"white\">ตกลง</font></a>',
                                 });
                                 $(document).on('click',function(){
                                     window.location='student-home.php'; 

@@ -1,5 +1,4 @@
-<<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
 <html>
 ้<head>
 <link href ="js/jquery-ui.min.css" rel="stylesheet">
