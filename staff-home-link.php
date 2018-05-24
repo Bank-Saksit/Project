@@ -43,6 +43,9 @@
                 if($_SESSION['role']=='Teacher'){
                    header("Location:staff-teacher-main.php");
                 }
+                elseif($_SESSION['role']=='Admin'){
+                    header("Location:staff-admin-main.php");
+                 }
                    
             }
             else{
