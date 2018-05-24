@@ -10,81 +10,10 @@ session_start();
     <title>แก้ไขรหัสผ่าน</title>
     <style>
         @import "global1.css";
-        #main {
-                width: 90%;
-                float: right;
-                position: relative;
-                top: 50px;
-        }
-        #c-left > h1{
-            margin-left: 30px;
-        }
-        div#left > a {
-            margin: 5px;
-        }
-        div#content {
-            width: 100%;
-            background-image: url(img/gallery/980x380/065.jpg);
-        }
-        
-        #c-left {
-            width: 50%;
-            height: 350px;
-            top: 0;
-            text-align: left;
-            position: relative;
-            color: white;
-            float: left;
-        }
-        #c-right {
-            width: 50%;
-            height: 350px;
-            top: 0;
-            text-align: left;
-            position: relative;
-            color: #ffffff;
-            float: left;
-        }
-        #data{
-            margin-left: 30px;
-            padding-left:20px; 
-            width:85%;
-            background-color:rgba(0,0,0,0.8);
-        }
-        form{
-            padding-left : 30px;
-        }
-        input[type=text] {
-            background-color:rgba(0,0,0,0.8);
-            margin-top: 0px;
-            padding-left: 30px;
-            width: 310px;
-            height:30px;
-            text-align: left;
-            color: white;
-        }
-        input[type=password] {
-            background-color:rgba(0,0,0,0.8);
-            margin-top: 15px;
-            padding-left: 30px;
-            width: 310px;
-            height: 30px;
-            text-align: left;
-            color: white;
-        }
-        input[type=submit] {
-            margin-top: 20px;
-            margin-left: 10px;
-            width: 60px;
-            background: white;
-        }
-        input[type=button]{
-            font-family: "supermarket";
-            width: 60px;
-            margin-top: 20px;
-            margin-left: 25px;
-            background: white;
-        }
+        @import "temphome.css";
+            div#content{          
+                background-image: url(img/gallery/980x380/065.jpg);
+            }
     </style>
 </head>
 <body>

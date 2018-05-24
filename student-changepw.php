@@ -7,119 +7,24 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>แก้ไขรหัสผ่าน</title>
     <style>
         @import "global1.css";
-        html, body { 
-            margin: 0;
-            padding: 0;
-            background: #dfdfdf;
-            color: #444444;
-        }
-        #main {
-                width: 90%;
-                float: right;
-                position: relative;
-                top: 50px;
-        }
-        #left {
-            float: left;
-            width: 10%;
-            position: relative;
-        }
-        #back {
-            margin: 20px;
-            font-weight: bold;
-        }
-        #header {
-                width: 100%;
-                position: relative;
+        @import "temphome.css";
+            div#content{          
+                background-image: url(img/gallery/980x380/064.jpg);
             }
-        #header > h1 {
-                font-size: 50px;
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                border-bottom: 5px solid;
-        }
-        #c-left > h1{
-            margin-left: 30px;
-        }
-        div#left > a {
-            text-decoration: none;
-            margin: 5px;
-            color: #444444;
-        }
-        div#content {
-            clear: both;
-            width: 100%;
-            position: relative;
-        }
-        .con{
-            background-image: url(img/gallery/980x380/064.jpg);
-            height: 350px;
-        }
-        #c-left {
-            width: 50%;
-            height: 350px;
-            top: 0;
-            text-align: left;
-            position: relative;
-            color: white;
-            float: left;
-        }
-        #c-right {
-            width: 50%;
-            height: 350px;
-            top: 0;
-            text-align: left;
-            position: relative;
-            color: #ffffff;
-            float: right;
-        }
-        #data{
-            margin-left: 30px;
-            padding-left:20px; 
-            width:85%;
-            background-color:rgba(0,0,0,0.8);
-        }
-        form{
-            padding-left : 30px;
-        }
-        input[type=text] {
-            background-color:rgba(0,0,0,0.8);
-            margin-top: 0px;
-            padding-left: 30px;
-            width: 310px;
-            height:30px;
-            text-align: left;
-            color: white;
-        }
-        ::placeholder {
-            color: white;
-        }
-        input[type=password] {
-            background-color:rgba(0,0,0,0.8);   
-            margin-top: 15px;
-            padding-left: 30px;
-            width: 310px;
-            height: 30px;
-            text-align: left;
-            color: white;
-        }
-        input[type=submit] {
-            margin-top: 20px;
-            margin-left: 10px;
-            width: 60px;
-            background: white;
-        }
-        input[type=button]{
-            font-family: "supermarket";
-            width: 60px;
-            margin-top: 20px;
-            margin-left: 25px;
-            background: white;
-        }
+            /* input[type=submit] {
+                color:white;
+                background:#3085d6;
+            }
+            input[type=button] {
+                color:white;
+                background:#d33;
+            } */
     </style>
 </head>
 <body>
@@ -129,29 +34,38 @@ session_start();
         }
     ?>
     <div id="left">
-        <br><a href="student-new-logout.php" id="back">< logout</a>
+            <a href="#" id = "back"></a>
+            <!-- <a href="student-new-login.php" class="btn btn-info btn-lg" id = "back">
+                <span class="glyphicon glyphicon-chevron-left"></span> 
+            </a> -->
+            
     </div>
     <div id="main">
         <div id="header">
              <h1>แก้ไขรหัสผ่าน</h1>
+             <!-- <a href="student-new-logout.php">ออกจากระบบ</a> -->
         </div>
         <div id="content">
-            <div class = "con">
             <div id="c-left">
                 <h1>ข้อมูลนักศึกษา</h1>
-                <div id ="data">
+                <div id = "c-in">
+                    <div id ="data">
                     
+                    </div>
                 </div>
             </div>
             <div id="c-right">
                 <form method="post" action="student-update-pw.php">
                     <h1>สร้างรหัสผ่านใหม่</h1>
-                    <input type="password" name="pw" placeholder="รหัสผ่านใหม่"><br>
-                    <input type="password" name="pw2" placeholder="ยืนยันรหัสผ่านใหม่"><br>
-                    <input type="submit" value="ยืนยัน">
-                    <input type="button" id="cancle" onclick ="window.location.href='student-new-logout.php'" value = "ยกเลิก">
+                    <div id = "c-in">
+                        <input type="password" name="pw" placeholder="รหัสผ่านใหม่"><br>
+                        <input type="password" name="pw2" placeholder="ยืนยันรหัสผ่านใหม่"><br>
+                        <div id = "sub">
+                            <input type="submit" value="ยืนยัน">
+                            <input type="button" id="cancle" onclick ="window.location.href='student-new-logout.php'" value = "ยกเลิก">
+                        </div>
+                    </div>
                 </form>
-            </div>
             </div>
         </div>
             

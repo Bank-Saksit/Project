@@ -16,7 +16,7 @@ html, body {
     position: relative;
 }
 #back {
-    margin-left: 25px;
+    margin-left: 50%;
     text-align: center;
     margin-top: 90px;
 }
@@ -130,6 +130,7 @@ input[type=button] {
     border-radius: 8px;    
     width: 80px;
     background: white;
+    color: black;
 }
 
 #c-left {
