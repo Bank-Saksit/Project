@@ -7,92 +7,9 @@
         <title>สำหรับบุคลากร</title>
         <style>
             @import "global1.css";
-            html, body { 
-                margin: 0;
-                padding: 0;
-                background: #dfdfdf;
-                color: #444444;
-            }
-            #main {
-                width: 90%;
-            }
-            #header {
-                width: 100%;
-                position: relative;
-            }
-            #header > h1 {
-                font-size: 50px;
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                border-bottom: 5px solid;
-            }
-            div#left > a {
-                text-decoration: none;
-                margin: 5px;
-                color: #444444;
-            }
-            div#sub > a {
-                text-decoration: underline;
-                margin: 5px;
-                color: #ffffff;
-            }
-            div#content {
-                width: 100%;
+            @import "temphome.css";
+            div#content{          
                 background-image: url(img/gallery/980x380/065.jpg);
-            }
-            #c-top {
-                width: 50%;
-                height: 350px;
-                top: 0;
-                text-align: left;
-                position: relative;
-                color: white;
-                float: left;
-            }
-            #c-bot {
-                width: 50%;
-                height: 350px;
-                top: 0;
-                text-align: left;
-                position: relative;
-                color: white;
-                float: right;
-            }
-            form{
-                
-                padding-left : 30px;
-            }
-            input[type=text] {
-                background-color:rgba(0,0,0,0.8);
-                margin-top: 10px;
-                padding-left: 30px;
-                width: 310px;
-                height:30px;
-                text-align: left;
-                color: white;
-            }
-            input[type=submit] {
-                width: 60px;
-                background: white;
-            }
-            input[type=button] {
-                font-family: "supermarket";
-                width: 60px;
-                background: white;
-            }
-            #sub{
-                width: 310px;
-                padding-left: 10px;
-                margin-top:20px;
-                text-align: left;
-            }
-            div#c-bot >a {
-                text-decoration: underline;
-                color : white;
-            }
-            #text{
-                padding-left : 30px;
             }
         </style>    
 
@@ -134,9 +51,6 @@
                             <input type="button" value="ตรวจสอบ" onclick ="showpw()"  >
                         </div>
                     </form>
-                </div>
-                <div id="c-bot">
-                    
                 </div>
             </div>
             <?php include "recruit-footer.php"; ?>

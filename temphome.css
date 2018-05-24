@@ -130,6 +130,7 @@ input[type=button] {
     border-radius: 8px;    
     width: 80px;
     background: white;
+    color: black;
 }
 
 #c-left {

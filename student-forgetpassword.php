@@ -49,11 +49,14 @@
             <div id="content">
                 <div id="c-top">
                     <form method="post" >
-                        <h1>ระบบสารสนเทศ<br>เพื่อการบริหารการศึกษา</h1>
-                        <input type="text" id="id" name="id" placeholder="รหัสนักศึกษา"><br>
-                        <input type="password" id="email" name="email" placeholder="Email"><br>
-                        <div id = "sub">
-                            <input type="button" value="ตรวจสอบ" onclick ="showpw()"  >
+                        <h1>สำหรับนักศึกษาใหม่</h1>
+                        <h4>กรุณากรอกรหัสนักศึกษาและอีเมลเพื่อสร้างรหัสผ่านใหม่</h4>
+                        <div id ="c-in">
+                            <input type="text" id="id" name="id" placeholder="รหัสนักศึกษา"><br>
+                            <input type="password" id="email" name="email" placeholder="Email"><br>
+                            <div id = "sub">
+                                <input type="button" value="ตรวจสอบ" onclick ="showpw()"  >
+                            </div>
                         </div>
                     </form>
                 </div>
