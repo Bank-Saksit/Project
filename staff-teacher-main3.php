@@ -15,6 +15,9 @@
 	<script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href ="js/jquery-ui.min.css" rel="stylesheet">
+	<link href ="js/sweetalert2.all.js" rel="stylesheet">
+    <script src="js/sweetalert21.js"></script>
     <style>
         @import "global1.css";
         @import "temple.css";
@@ -89,7 +92,7 @@
                 var arr = JSON.parse(response);
                 var out1 = "<form> เลือกรายวิชาที่ต้องการตัดเกรด: <select id='sub'>";
                         for(i=0;i<arr.length;i++){
-                            out1+="<option value="+arr[i].SubjectSectionID+">"+arr[i].SubjectID+"&nbspsec:"+arr[i].SectionNumber+"&nbsp"+arr[i].SubjectName+"</option>";
+                            out1+="<option value="+arr[i].SubjectSectionID+">"+arr[i].SubjectID+"&nbsp"+arr[i].SubjectName+"&nbspsec:"+arr[i].SectionNumber+"</option>";
                         }
                     out1 += "</select><br>"+
                             "<br><input type='button' value='ยืนยัน' id='edit1' onclick='selectSub()'>"+
@@ -144,8 +147,15 @@
                 for(i=0;i<x.length;i++){
                     sendGrade(x[i].value,arr[i].StudentID);
                 }
-                alert("ตัดเกรดเรียบร้อยแล้ว");
+                
+                swal({
+                    type: 'success',
+                    title: 'ตัดเกรดเรียบร้อยแล้ว'
+                });
                 load();
+                
+                
+                
 
             }
             function sendGrade(gpa,SID){
