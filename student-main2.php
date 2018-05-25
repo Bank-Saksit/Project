@@ -104,11 +104,25 @@
                 }
             }
 
-            load();
+            getID();
+
+            function getID(){
+                var xmlhttp = new XMLHttpRequest();
+                var url = location.protocol+'//'+location.host+"/Project/student-main2-link.php?type=02&inID=59070501083";
+                
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        sname = JSON.parse(xmlhttp.responseText);
+                        load();
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
 
             function load(){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol+'//'+location.host+"/Project/student-main2-link.php?type=01&inID=59070501083";
+                var url = location.protocol+'//'+location.host+"/Project/student-main2-link.php?type=01&inID="+sname[0].StudentID;
                 
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -174,7 +188,7 @@
                 var xmlhttp = new XMLHttpRequest();
                 var sub = document.getElementsByClassName('subject');
                 var sec = document.getElementsByClassName('section');
-                var url = location.protocol + '//' + location.host+"/Project/student-main2-link.php?type=11&inID="+arr[0].StudentID;
+                var url = location.protocol + '//' + location.host+"/Project/student-main2-link.php?type=11&inID="+sname[0].StudentID;
                     for( var i=0 ; i<6 ; i++ ){
                         if( sub[i] && sub[i].value!='' ) url+="&sub"+i+"="+sub[i].value+"&sec"+i+"="+sec[i].value;
                         else url+="&sub"+i+"=''&sec"+i+"=''";
@@ -193,7 +207,7 @@
                 var xmlhttp = new XMLHttpRequest();
                 var sub = document.getElementsByClassName('subject2');
                 var sec = document.getElementsByClassName('section2');
-                var url = location.protocol + '//' + location.host+"/Project/student-main2-link.php?type=12&inID="+arr[0].StudentID;
+                var url = location.protocol + '//' + location.host+"/Project/student-main2-link.php?type=12&inID="+sname[0].StudentID;
                     for( var i=0 ; i<3 ; i++ ){
                         if( sub[i] && sub[i].value!='' ) url+="&sub"+i+"="+sub[i].value+"&sec"+i+"="+sec[i].value;
                         else url+="&sub"+i+"=''&sec"+i+"=''";
@@ -212,7 +226,7 @@
                 var xmlhttp = new XMLHttpRequest();
                 var sub = document.getElementById('inSub3').value;
                 var sec = document.getElementById('inSec3').value;
-                var url = location.protocol + '//' + location.host+"/Project/student-main2-link.php?type=13&inID="+arr[0].StudentID;
+                var url = location.protocol + '//' + location.host+"/Project/student-main2-link.php?type=13&inID="+sname[0].StudentID;
                     url+="&inSub="+sub+"&inSec="+sec;
 
                 xmlhttp.onreadystatechange=function() {
@@ -227,7 +241,7 @@
             function update4(){
                 var xmlhttp = new XMLHttpRequest();
                 var sub = document.getElementById('inSub4').value;
-                var url = location.protocol + '//' + location.host+"/Project/student-main2-link.php?type=14&inID="+arr[0].StudentID;
+                var url = location.protocol + '//' + location.host+"/Project/student-main2-link.php?type=14&inID="+sname[0].StudentID;
                     url+="&inSub="+sub;
 
                 xmlhttp.onreadystatechange=function() {

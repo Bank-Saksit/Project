@@ -1,6 +1,20 @@
 <?php
 include "dblink.php";
-if( $_GET['type']=='01' ){
+if( $_GET['type']=='02' ){
+    $result = $conn->query("SELECT StudentID, FirstName
+                            FROM studentinfo
+                            WHERE StudentID = '".$_GET['inID']."';");
+
+    $outp = "[";
+    while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+        if ($outp != "[") {$outp .= ",";}
+        $outp .= '{"StudentID":"'.$rs["StudentID"].'",';
+        $outp .= '"FirstName":"'.$rs["FirstName"].'"}';
+    }
+    $outp .="]";
+    echo($outp);
+}
+elseif( $_GET['type']=='01' ){
     $result = $conn->query("SELECT s.StudentID, ss.SubjectSectionID, se.SubjectID, se.SectionNumber
                             FROM studentinfo s, student_subject ss, sectioninfo se
                             WHERE s.StudentID=ss.StudentID AND ss.SubjectSectionID=se.SubjectSectionID AND s.StudentID = '".$_GET['inID']."';");
@@ -12,51 +26,6 @@ if( $_GET['type']=='01' ){
         $outp .= '"SubjectSectionID":"'.$rs["SubjectSectionID"].'",';
         $outp .= '"SubjectID":"'.$rs["SubjectID"].'",';
         $outp .= '"SectionNumber":"'.$rs["SectionNumber"].'"}';
-        // $outp .= '"MobileNumber":"'.$rs["MobileNumber"].'",';
-        // $outp .= '"TelNumber":"'.$rs["TelNumber"].'",';
-        // $outp .= '"Email":"'.$rs["Email"].'",';
-        // $outp .= '"Status":"'.$rs["Status"].'",';
-        // $outp .= '"IDCardNumber":"'.$rs["IDCardNumber"].'",';
-        // $outp .= '"Prefix":"'.$rs["Prefix"].'",';
-        // $outp .= '"FirstName":"'.$rs["FirstName"].'",';
-        // $outp .= '"LastName":"'.$rs["LastName"].'",';
-        // $outp .= '"Gender":"'.$rs["Gender"].'",';
-        // $outp .= '"DOB":"'.$rs["DOB"].'",';
-        // $outp .= '"Nationality":"'.$rs["Nationality"].'",';
-        // $outp .= '"Race":"'.$rs["Race"].'",';
-        // $outp .= '"Religion":"'.$rs["Religion"].'",';
-        // $outp .= '"BloodGroup":"'.$rs["BloodGroup"].'",';
-        // $outp .= '"Address":"'.$rs["Address"].'",';
-        // $outp .= '"Province":"'.$rs["Province"].'",';
-        // $outp .= '"Postcode":"'.$rs["Postcode"].'",';
-        // $outp .= '"Course":"'.$rs["Course"].'",';
-        // $outp .= '"Status":"'.$rs["Status"].'",';
-        // $outp .= '"EducationBackground":"'.$rs["EducationBackground"].'",';
-        // $outp .= '"Branch":"'.$rs["Branch"].'",';
-        // $outp .= '"SchoolGPAX":"'.$rs["SchoolGPAX"].'",';
-        // $outp .= '"SchoolName":"'.$rs["SchoolName"].'",';
-        // $outp .= '"Faculty":"'.$rs["Faculty"].'",';
-        // $outp .= '"sAddress":"'.$rs["Address"].'",';
-        // $outp .= '"sProvince":"'.$rs["Province"].'",';
-        // $outp .= '"sPostcode":"'.$rs["Postcode"].'",';
-        // $outp .= '"sTelNumber":"'.$rs["TelNumber"].'"}';
-        // $outp .= '"Relation":"'.$rs["Relation"].'",';
-        // $outp .= '"pMobileNumber":"'.$rs["pMobileNumber"].'",';
-        // $outp .= '"pTelNumber":"'.$rs["pTelNumber"].'",';
-        // $outp .= '"pEmail":"'.$rs["pEmail"].'",';
-        // $outp .= '"pIDCardNumber":"'.$rs["pIDCardNumber"].'",';
-        // $outp .= '"pPrefix":"'.$rs["pPrefix"].'",';
-        // $outp .= '"pFirstName":"'.$rs["pFirstName"].'",';
-        // $outp .= '"pLastName":"'.$rs["pLastName"].'",';
-        // $outp .= '"pGender":"'.$rs["pGender"].'",';
-        // $outp .= '"pDOB":"'.$rs["pDOB"].'",';
-        // $outp .= '"pNationality":"'.$rs["pNationality"].'",';
-        // $outp .= '"pRace":"'.$rs["pRace"].'",';
-        // $outp .= '"pReligion":"'.$rs["pReligion"].'",';
-        // $outp .= '"pBloodGroup":"'.$rs["pBloodGroup"].'",';
-        // $outp .= '"pAddress":"'.$rs["pAddress"].'",';
-        // $outp .= '"pProvince":"'.$rs["pProvince"].'",';
-        // $outp .= '"pPostcode":"'.$rs["pPostcode"].'"}';
     }
     $outp .="]";
     echo($outp);
