@@ -30,7 +30,7 @@
         }
         #tab-content {
             position: absolute;
-            top:80px;
+            top:90px;
 			margin-left: 30px;
 			width:100%;
         }
@@ -38,7 +38,7 @@
             float: left;
 			position: relative;
 			width:80%;
-            top: 50px;
+            top: 60px;
             background: #ebebeb;
         }
         #header {
@@ -46,14 +46,14 @@
 			height: 80px;
             position: relative;
         }
-        #header > h1 {
+        /* #header > h1 {
             font-family: "supermarket";
-            font-size: 70px;
+            font-size: 60px;
             position: absolute;
             bottom: 0;
             width: 100%;
             border-bottom: 5px solid;
-        }
+        } */
         li{
             font-size: 20px;
         }
