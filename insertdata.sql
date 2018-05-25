@@ -19,3 +19,11 @@ WHERE   t.SubjectSectionID=sc.SubjectSectionID AND
         sc.Semester = '1' AND
         sc.AcademicYear = '2018'AND
         t.StaffID = 10001;
+
+SELECT st.StudentID,st.FirstName,st.LastName, SUM(ss.GPA*su.Credit)/SUM(su.Credit) AS GPAX
+FROM   student_subject ss,studentinfo st,subjectinfo su,sectioninfo sc
+WHERE   st.StudentID = ss.StudentID AND
+        sc.SubjectSectionID=ss.SubjectSectionID AND
+        sc.SubjectID = su.SubjectID AND
+        st.Status = $
+GROUP BY st.StudentID;

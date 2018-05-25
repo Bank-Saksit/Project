@@ -53,7 +53,7 @@
    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
             <li class = "active"><a data-toggle="tab" href="#menu1" onclick="load()">บันทึกเกรดในรายวิชา</a></li>
-            <li><a data-toggle="tab" href="#menu2" onclick="" >เกรดของนักเรียนของแต่ละปี</a></li>
+            <li><a data-toggle="tab" href="#menu2" onclick="load2()" >เกรดของนักเรียนของแต่ละปี</a></li>
             <li><a data-toggle="tab" href="#menu3" onclick="load3()" >เกรดของนักเรียนของแต่ละรายวิชา</a></li>
         </ul>
      </div>
@@ -71,7 +71,7 @@
         </div>
         <script>
             load();
-
+            load2();
             load3();
 
             function myFunction() {
@@ -108,7 +108,82 @@
                             "</form>";
                     document.getElementById("menu1").innerHTML = out1;
             }
+
+            function load2(){
+                var xmlhttp = new XMLHttpRequest();
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-seeGPAyear.php";
+                    
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        display2(xmlhttp.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+
+            function display2(response){
+                var arr = JSON.parse(response);
+                var out2 = "<form> เลือกชั้นปีที่ต้องการดูเกรด: <select id='year'>";
+                        for(i=0;i<arr.length;i++){
+                            out2+="<option value="+arr[i].Status+">"+arr[i].Status+"</option>";
+                        }
+                    out2 += "</select><br>"+
+                            "<br><input type='button' value='ตรวจสอบ' onclick='selectYear()'>"+
+                            "</form>";
+                    document.getElementById("menu2").innerHTML = out2;
+            }
             
+            function selectYear(){
+                var xmlhttp = new XMLHttpRequest();
+                var year = document.getElementById('year').value;
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-seeGPAyear-link.php?year="+year;
+                    
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        disGrade2(xmlhttp.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+
+            function disGrade2(response){
+                var arr = JSON.parse(response);
+                var out2;
+                if(arr[0].nop =="not found" ){
+                    out2 =  arr[0].Year+
+                            "<br><br>"+"ไม่พบข้อมูล" ;
+                }
+                else{
+                    out2=   arr[0].Year+
+                            "<br><br><table>"+
+                            "<tr><td>" +
+                            "รหัสนักศึกษา"+
+                            "</td><td>" +
+                            "ชื่อจริง"+
+                            "</td><td>" +
+                            "นามสกุล"+
+                            "</td><td>" +
+                            "GPA"+
+                            "</td></tr>";
+                    for(i=0;i<arr.length;i++){
+                        out2+=  "<tr><td>" +
+                                arr[i].StudentID+
+                                "</td><td>" +
+                                arr[i].FirstName+
+                                "</td><td>" +
+                                arr[i].LastName+
+                                "</td><td>" +
+                                arr[i].GPAX+
+                                "</td></tr>";
+                    }
+                    out2+= "</table>"
+                }
+                
+                document.getElementById("menu2").innerHTML = out2;
+            }
+
             function load3(){
                 var xmlhttp = new XMLHttpRequest();
                 var url = location.protocol+'//'+location.host+"/Project/staff-teacher-seeGPAsubject.php";
@@ -124,7 +199,7 @@
 
             function display3(response){
                 var arr = JSON.parse(response);
-                var out3 = "<form> เลือกรายวิชาที่ต้องการดูเกรด: <select id='sub2'>";
+                var out3 = "<form> เลือกรายวิชาที่ต้องการดูเกรด: <select id='sub3'>";
                         for(i=0;i<arr.length;i++){
                             out3+="<option value="+
                                     arr[i].SubjectSectionID+">"+
@@ -136,26 +211,26 @@
                                     "</option>";
                         }
                     out3 += "</select><br>"+
-                            "<br><input type='button' value='ตรวจสอบ' onclick='selectSub2()'>"+
+                            "<br><input type='button' value='ตรวจสอบ' onclick='selectSub3()'>"+
                             "</form>";
                     document.getElementById("menu3").innerHTML = out3;
             }
 
-            function selectSub2(){
+            function selectSub3(){
                 var xmlhttp = new XMLHttpRequest();
-                var sub = document.getElementById('sub2').value;
+                var sub = document.getElementById('sub3').value;
                 var url = location.protocol+'//'+location.host+"/Project/staff-teacher-seeGPAsubject-link.php?sub="+sub;
                     
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        disGrade2(xmlhttp.responseText);
+                        disGrade3(xmlhttp.responseText);
                     }
                 }
                 xmlhttp.open("GET", url, true);
                 xmlhttp.send();
             }
 
-            function disGrade2(response){
+            function disGrade3(response){
                 var arr = JSON.parse(response);
                 var out3;
                 if(arr[0].nop =="not found" ){
