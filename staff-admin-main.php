@@ -89,38 +89,86 @@
             arr = JSON.parse(response);
             var i;
             var out = "<table>";
-
+            
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td>RecruitID</td><td>Prefix</td><td>First name</td><td>LastName</td><td>RecruitPlanName</td><td>SchoolID</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                    out += "<tr><td>RecruitID</td><td>คำนำหน้า</td><td>ชื่อจริง</td><td>นามสกุล</td><td>เบอร์โทรติดต่อ</td><td>โรงเรียน</td><td>โครงการ</td><td>อันดับ</td><td>คณะ</td><td>ภาควิชา</td><td>สถานะ</td><td>อันดับที่ได้</td><td colspan='4'>แก้ไข</td></tr>";
                 }
                 out += "<tr><td>" + arr[i].RecruitID +
                 "</td><td>" + arr[i].Prefix +
                 "</td><td>" + arr[i].FirstName+
                 "</td><td>" + arr[i].LastName+
-                "</td><td>" + arr[i].RecruitPlanName+
-                "</td><td>" + arr[i].SchoolID+
-                "</td><td>" + arr[i].SchoolGPAX+
                 "</td><td>" + arr[i].MobileNumber+
-                "</td><td>" + arr[i].Status+
                 "</td><td>" + arr[i].SchoolName+
+                "</td><td>" + arr[i].RecruitPlanName+
                 "</td><td>" + arr[i].No+
-                "</td><td>" + arr[i].Department+
-                "</td><td>" + arr[i].NoPass+
                 "</td><td>" + arr[i].Faculty+
+                "</td><td>" + arr[i].Department+
+                "</td><td>" + arr[i].Status+
+                "</td><td>" + arr[i].NoPass+
                 // "</td><td>" + arr[i].+
                 "</td><td>" +
-                "<button onclick=\"deletePaper('"+arr[i].RecruitID+"')\">Delete</button>"+
+                "<button onclick=\"updateStatus('"+arr[i].RecruitID+"')\">เปลี่ยนสถานะ</button>"+
+                "</td><td>" +
+                "<button onclick=\"failed('"+arr[i].RecruitID+"')\">สอบไม่ผ่าน</button>"+
+                "</td><td>" +
+                "<select name='NPass' id='pass"+i+"'><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='0'>0</option></select>" + 
+                "<button onclick=\"NumberPass('"+arr[i].RecruitID+"','"+i+"')\">อัพเดตคณะ</button>"+
+                "</td><td>" +
+                "<button onclick=\"deleteRecruit('"+arr[i].RecruitID+"')\">ลบช้อมูล</button>"+
                 "</td></tr>";
             }
             out += "</table>";
             document.getElementById("menu1").innerHTML =out;
-        
-
-
         }
         
-        function deletePaper(RecruitID) {
+        function updateStatus(RecruitID) {
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+"/Project/staff-admin-recruit-link-update.php?RecruitID="+RecruitID;
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //displayResponse(xmlhttp.responseText);
+                load();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+        }
+
+        function failed(RecruitID) {
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+"/Project/staff-admin-recruit-link-failed.php?RecruitID="+RecruitID;
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //displayResponse(xmlhttp.responseText);
+                load();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+        }
+
+        function NumberPass(RecruitID,i) {
+            var xmlhttp = new XMLHttpRequest();
+            var NPass = document.getElementById('pass'+i).value;
+            var url = location.protocol + '//' + location.host+"/Project/staff-admin-recruit-link-NumberPass.php?RecruitID="+RecruitID+"&NPass="+NPass;
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //displayResponse(xmlhttp.responseText);
+                load();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+        }
+
+        function deleteRecruit(RecruitID) {
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol + '//' + location.host+"/Project/staff-admin-recruit-link-delete.php?RecruitID="+RecruitID;
 
@@ -134,6 +182,7 @@
             xmlhttp.send();
 
         }
+
 
 
 

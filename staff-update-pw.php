@@ -4,7 +4,10 @@
 	<script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
 	<link href ="js/sweetalert2.all.js" rel="stylesheet">
-	<script src="js/sweetalert21.js"></script>
+    <script src="js/sweetalert21.js"></script>
+    <style>
+        @import "global1.css";
+    </style>
 </head>
 <body>
 <?php
@@ -38,7 +41,7 @@
                         swal({
                         
                             title: 'การตั้งรหัสผ่านสำเร็จ',
-                            text: 'สามารถเข้าใช้ระบบสารสนเทศเพื่อการบริหารการศึกษาได้แล้ว',
+                            text: 'สามารถเข้าใช้ระบบสารสนเทศสำหรับบุคลากรของมหาวิทยาลัยได้แล้ว',
                             showCancelButton: false,
                             confirmButtonText: '<a href=\"staff-home.php\" style=\"text-decoration: none\"><font color=\"white\">ตกลง</font></a>',
                         });

@@ -4,6 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>หน้าหลัก</title>
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <style>
@@ -41,6 +44,7 @@
                 border-bottom: 5px solid;
             }
             #content {
+                margin-top: 2%;
                 position: relative;
                 width:100%;
                 display: inline-block;  
@@ -55,8 +59,8 @@
                 cursor: pointer;
             }
             .s1{
-                top: 5%;
-                font-size: 30px;
+                margin-top:9%;
+                font-size: 32px;
             }
             #center {
                 float: left;
@@ -103,8 +107,8 @@
                 width:100%;
                 margin-left: 15px;
                 }
-                #center,#right{
-                    float: left;
+                #left,#center,#right{
+                    float: center;
                     margin-left:0px;
                 }
             }
@@ -115,6 +119,15 @@
                 bottom: -60px;
                 border-top: 2px solid;
                 
+            }
+            footer>a{   
+                padding: 15px 10px;
+                font-size: 20px;
+            }
+            footer> a:hover{   
+                color: #444444;
+                text-decoration: underline;
+                transition: 0.5s;
             }
             a {
                 text-decoration: none;
