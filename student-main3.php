@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,22 +41,53 @@
      <div id="main">
         <div class="tab-content" id="tab-content">
             <div id="menu1" class="tab-pane fade">
-            
+
             </div>
             <div id="menu2" class="tab-pane fade">
                 
             </div>
         </div>
         <script>
-        function myFunction() {
-            var x = document.getElementById("top");
-            if (x.className === "top") {
-                x.className += " responsive";
-                } 
-            else {
-                x.className = "top";
+        var out = " ปีการศึกษา <select name = 'AcademicYear'>" +
+                    "<option value = ''>โปรดเลือก</option>" +
+                    "<option value = '2561'>2561</option></select><br>" + 
+                    " ภาคเรียนที่ <select name='Semester'>" + 
+                    "<option value = ''>โปรดเลือก</option>" +
+                    "<option value ='2'>2</option></select>"+
+                    "<br><input type='button' value='ยืนยัน' onclick=\"load()\">";
+        document.getElementById("menu1").innerHTML = out ;
+
+        //load();
+        function load(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+"/Project/student-main3-link.php?Year="+ 
+            $('select[name="AcademicYear"]').val() + "&Semester=" + $('select[name="Semeter"]').val();
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    displayResponse(xmlhttp.responseText);
                 }
             }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        
+        function displayResponse(response) {
+            window.arr = JSON.parse(response);
+            
+            var out = "รหัสวิชา : "+ arr[0].SubjectID +"<br>"+
+                    "ชื่อวิชา : "+ arr[0].SubjectName +"<br>"+
+                    "หน่วยกิต : "+ arr[0].Credit +"<br>"+
+                    "คำอธิบายวิชา : "+ arr[0].Description +"<br>"+
+                    "กลุ่ม : "+ arr[0].SectionNumber +"<br>"+
+                    "ห้อง : "+ arr[0].Room +"<br>"+
+                    "วัน : "+arr[0].Day + "<br>"+
+                    "ภาคเรียน : "+ arr[0].Semester +"<br>"+
+                    "ปีการศึกษา : "+ arr[0].AcademicYear +"<br>"+
+                    "เวลาเรียน : "+ arr[0].StartTime + ' น. - ' + arr[0].EndTime +" น. <br>";
+
+            document.getElementById("menu1").innerHTML = out;
+        }
         </script>
      </div>
 </body>
