@@ -101,7 +101,7 @@
                         "<h4>สถานะ: "+arr[0].Status+"</h4>"+
                         "<h4>เพศ: "+arr[0].Gender+"</h4>"+
                      "</div>"+
-                     "<div class= 'col-sm-4' >"+
+                     "<div class= 'col-sm-4'>"+
                         "<form>"+
                         "<h4>หมู่เลือด: </h4><select id='inBl'>"+
                             "<option value='A'>A</option>"+
@@ -184,19 +184,11 @@
                     "<div class = 'row'>"+
                      "<div class= 'col-sm-4' >"+
                         "<form>"+
-<<<<<<< HEAD
                         "<h4>ที่อยู่:</h4><textarea style='resize: none' rows=3 cols=50 id='inAdd'>"+arr[0].Address+"</textarea><br>"+
-                        "<h4>จังหวัด:</h4><input type='text' id='inPr' value='"+arr[0].Province+"'><br>"+
-                        "<h4>รหัสไปรษณีย์:</h4><input type='text' id='inPo' value='"+arr[0].Postcode+"'><br>"+
-                        "<h4>เบอร์โทรศัพท์มือถือ:</h4><input type='text' id='inMN' value='"+arr[0].MobileNumber+"'><br>"+
-                        "<h4>เบอร์โทรศัพท์บ้าน:</h4><input type='text' id='inTN' value='"+arr[0].TelNumber+"'><br>"+
-=======
-                        "<p><h5>ที่อยู่:</h5><textarea style='resize: none' rows=3 cols=50 id='inAdd'>"+arr[0].Address+"</textarea><br>"+
-                        "<h5>จังหวัด:</h5><input type='text' id='inPr' class='bg' value='"+arr[0].Province+"'><br>"+
-                        "<h5>รหัสไปรษณีย์:</h5><input type='text' id='inPo' class='bg' value='"+arr[0].Postcode+"'><br>"+
-                        "<h5>เบอร์โทรศัพท์มือถือ:</h5><input type='text' id='inMN' class='bg' value='"+arr[0].MobileNumber+"'><br>"+
-                        "<h5>เบอร์โทรศัพท์บ้าน:</h5><input type='text' id='inTN' class='bg' value='"+arr[0].TelNumber+"'><br>"+
->>>>>>> 509dc743f168da7e43b84a7eace577c607e56930
+                        "<h4>จังหวัด:</h4><input type='text' id='inPr' class='bg' value='"+arr[0].Province+"'><br>"+
+                        "<h4>รหัสไปรษณีย์:</h4><input type='text' id='inPo' class='bg' value='"+arr[0].Postcode+"'><br>"+
+                        "<h4>เบอร์โทรศัพท์มือถือ:</h4><input type='text' id='inMN' class='bg' value='"+arr[0].MobileNumber+"'><br>"+
+                        "<h4>เบอร์โทรศัพท์บ้าน:</h4><input type='text' id='inTN' class='bg' value='"+arr[0].TelNumber+"'><br>"+
                         "<br><input type='button' value='แก้ไข' id='edit2' onclick='update2()'>"+
                         "<div id='res2'></div>"
                         "</form>"+
@@ -216,24 +208,24 @@
 
                 /*var out3 = "<h3>ข้อมูลผู้ปกครอง</h3>"+
                         "<form>"+
-                        "<p><h5>ความสัมพันธ์:</h5><select id='inRela'><br>"+
+                        "<p><h4>ความสัมพันธ์:</h4><select id='inRela'><br>"+
                             "<option value='บิดา'>บิดา</option>"+
                             "<option value='มารดา'>มารดา</option>"+
                             "<option value='พี่'>พี่</option>"+
                             "<option value='อื่นๆ'>อื่นๆ</option>"+
                         "</select><br>"+
-                        "<h5>เบอร์โทรศัพท์มือถือ:</h5><input type='text' id='inpMN' value='"+arr[0].pMobileNumber+"'><br>"+
-                        "<h5>เบอร์โทรศัพท์บ้าน:</h5><input type='text' id='inpTN' value='"+arr[0].pTelNumber+"'><br>"+
-                        "<h5>Email:</h5><input type='text' id='inpEm' value='"+arr[0].pEmail+"'><br>"+
-                        "<h5>รหัสบัตรประชาชน:</h5><input type='text' id='inpID' value='"+arr[0].pIDCardNumber+"'><br>"+
-                        "<h5>คำนำหน้า:</h5><select id='inpPre'><br>"+
+                        "<h4>เบอร์โทรศัพท์มือถือ:</h4><input type='text' id='inpMN' value='"+arr[0].pMobileNumber+"'><br>"+
+                        "<h4>เบอร์โทรศัพท์บ้าน:</h4><input type='text' id='inpTN' value='"+arr[0].pTelNumber+"'><br>"+
+                        "<h4>Email:</h4><input type='text' id='inpEm' value='"+arr[0].pEmail+"'><br>"+
+                        "<h4>รหัสบัตรประชาชน:</h4><input type='text' id='inpID' value='"+arr[0].pIDCardNumber+"'><br>"+
+                        "<h4>คำนำหน้า:</h4><select id='inpPre'><br>"+
                             "<option value='นาย'>นาย</option>"+
                             "<option value='นางสาว'>นางสาว</option>"+
                             "<option value='นาง'>นาง</option>"+
                         "</select><br>"+
-                        "<h5>ชื่อจริง:</h5><input type='text' id='inpFn' value='"+arr[0].pFirstName+"'><br>"+
-                        "<h5>นามสกุล:</h5><input type='text' id='inpLn' value='"+arr[0].pLastName+"'><br>"+
-                        "<h5>เพศ:</h5><select id='inpGe'><br>"+
+                        "<h4>ชื่อจริง:</h4><input type='text' id='inpFn' value='"+arr[0].pFirstName+"'><br>"+
+                        "<h4>นามสกุล:</h4><input type='text' id='inpLn' value='"+arr[0].pLastName+"'><br>"+
+                        "<h4>เพศ:</h4><select id='inpGe'><br>"+
                             "<option value='ชาย'>ชาย</option>"+
                             "<option value='หญิง'>หญิง</option>"+
                             "<option value='ไม่ระบุ'>ไม่ระบุ</option>"+
@@ -263,9 +255,9 @@
                             "<option value='AB'>AB</option>"+
                             "<option value='O'>O</option>"+
                         "</select><br>"+
-                        "<p><h5>ที่อยู่:</h5><textarea style='resize: none' rows=3 cols=50 id='inpAdd'>"+arr[0].pAddress+"</textarea><br>"+
-                        "<h5>จังหวัด:</h5><input type='text' id='inpPr' value='"+arr[0].pProvince+"'><br>"+
-                        "<h5>รหัสไปรษณีย์:</h5><input type='text' id='inpPo' value='"+arr[0].pPostcode+"'><br>"+
+                        "<p><h4>ที่อยู่:</h4><textarea style='resize: none' rows=3 cols=50 id='inpAdd'>"+arr[0].pAddress+"</textarea><br>"+
+                        "<h4>จังหวัด:</h4><input type='text' id='inpPr' value='"+arr[0].pProvince+"'><br>"+
+                        "<h4>รหัสไปรษณีย์:</h4><input type='text' id='inpPo' value='"+arr[0].pPostcode+"'><br>"+
                         "<br><input type='button' value='แก้ไข' id='edit3' onclick='update2()'>"+
                         "<div id='res3'></div>"
                         "</form>";
