@@ -16,11 +16,18 @@
     <script src="js/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href ="js/jquery-ui.min.css" rel="stylesheet">
+	<script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
 	<link href ="js/sweetalert2.all.js" rel="stylesheet">
     <script src="js/sweetalert21.js"></script>
     <style>
         @import "global1.css";
         @import "temple.css";
+        table, th, td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
     </style>
     
 </head>
@@ -45,9 +52,9 @@
     </div>
    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li class = "active"><a data-toggle="tab" href="#menu1">บันทึกเกรดในรายวิชา</a></li>
-            <li><a data-toggle="tab" href="#menu2">เกรดของนักเรียนของแต่ละปี</a></li>
-            <li><a data-toggle="tab" href="#menu3">เกรดของนักเรียนของแต่ละรายวิชา</a></li>
+            <li class = "active"><a data-toggle="tab" href="#menu1" onclick="load()">บันทึกเกรดในรายวิชา</a></li>
+            <li><a data-toggle="tab" href="#menu2" onclick="" >เกรดของนักเรียนของแต่ละปี</a></li>
+            <li><a data-toggle="tab" href="#menu3" onclick="load3()" >เกรดของนักเรียนของแต่ละรายวิชา</a></li>
         </ul>
      </div>
      <div id="main">
@@ -64,6 +71,8 @@
         </div>
         <script>
             load();
+
+            load3();
 
             function myFunction() {
                 var x = document.getElementById("top");
@@ -98,6 +107,84 @@
                             "<br><input type='button' value='ยืนยัน' id='edit1' onclick='selectSub()'>"+
                             "</form>";
                     document.getElementById("menu1").innerHTML = out1;
+            }
+            
+            function load3(){
+                var xmlhttp = new XMLHttpRequest();
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-seeGPAsubject.php";
+                    
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        display3(xmlhttp.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+
+            function display3(response){
+                var arr = JSON.parse(response);
+                var out3 = "<form> เลือกรายวิชาที่ต้องการดูเกรด: <select id='sub2'>";
+                        for(i=0;i<arr.length;i++){
+                            out3+="<option value="+
+                                    arr[i].SubjectSectionID+">"+
+                                    arr[i].SubjectID+
+                                    "&nbsp"+arr[i].SubjectName+
+                                    "&nbspsec:"+arr[i].SectionNumber+
+                                    "&nbspภาคเรียนที่:"+arr[i].Semester+
+                                    "&nbspปีการศึกษา:"+arr[i].AcademicYear+
+                                    "</option>";
+                        }
+                    out3 += "</select><br>"+
+                            "<br><input type='button' value='ตรวจสอบ' onclick='selectSub2()'>"+
+                            "</form>";
+                    document.getElementById("menu3").innerHTML = out3;
+            }
+
+            function selectSub2(){
+                var xmlhttp = new XMLHttpRequest();
+                var sub = document.getElementById('sub2').value;
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-seeGPAsubject-link.php?sub="+sub;
+                    
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        disGrade2(xmlhttp.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+
+            function disGrade2(response){
+                var arr = JSON.parse(response);
+                var out3=   arr[0].SubjectID+
+                            "&nbsp"+arr[0].SubjectName+
+                            "&nbspsec:"+arr[0].SectionNumber+
+                            "&nbspภาคเรียนที่:"+arr[0].Semester+
+                            "&nbspปีการศึกษา:"+arr[0].AcademicYear+
+                            "<br><br><table>";
+                    out3+=  "<tr><td>" +
+                            "รหัสนักศึกษา"+
+                            "</td><td>" +
+                            "ชื่อจริง"+
+                            "</td><td>" +
+                            "นามสกุล"+
+                            "</td><td>" +
+                            "GPA"+
+                            "</td></tr>";
+                for(i=0;i<arr.length;i++){
+                    out3+=  "<tr><td>" +
+                            arr[i].StudentID+
+                            "</td><td>" +
+                            arr[i].FirstName+
+                            "</td><td>" +
+                            arr[i].LastName+
+                            "</td><td>" +
+                            arr[i].GPA+
+                            "</td></tr>";
+                }
+                out3+= "</table>"
+                document.getElementById("menu3").innerHTML = out3;
             }
 
             function selectSub(){
@@ -141,6 +228,7 @@
                     out1+= "</form></table><br><button value='ยืนยัน' onclick='Grade("+JSON.stringify(response)+")'>ยืนยัน</button>"
                     document.getElementById("menu1").innerHTML = out1;
             }
+
             function Grade(response){
                 var arr = JSON.parse(response);
                 var x = document.getElementsByClassName("GPA");
@@ -154,10 +242,8 @@
                 });
                 load();
                 
-                
-                
-
             }
+
             function sendGrade(gpa,SID){
                 var xmlhttp = new XMLHttpRequest();
                 var url = location.protocol+'//'+location.host+"/Project/staff-teacher-cutgrade-link.php?type=03&inID="+<?php echo $_SESSION['id'];?>+"&sub=0"+"&gpa="+gpa+"&SID="+SID;
@@ -170,6 +256,7 @@
                 xmlhttp.open("GET", url, true);
                 xmlhttp.send();
             }
+
         </script>
      </div>
 </body>
