@@ -18,7 +18,7 @@
     <link href ="js/jquery-ui.min.css" rel="stylesheet">
 	<script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-	<link href ="js/sweetalert2.all.js" rel="stylesheet">
+	<!-- <link href ="js/sweetalert2.all.js" rel="stylesheet"> -->
     <script src="js/sweetalert21.js"></script>
     <style>
         @import "global1.css";
@@ -157,13 +157,23 @@
 
             function disGrade2(response){
                 var arr = JSON.parse(response);
-                var out3=   arr[0].SubjectID+
+                var out3;
+                if(arr[0].nop =="not found" ){
+                    out3 =  arr[0].SubjectID+
                             "&nbsp"+arr[0].SubjectName+
                             "&nbspsec:"+arr[0].SectionNumber+
                             "&nbspภาคเรียนที่:"+arr[0].Semester+
                             "&nbspปีการศึกษา:"+arr[0].AcademicYear+
-                            "<br><br><table>";
-                    out3+=  "<tr><td>" +
+                            "<br><br>"+"ไม่พบข้อมูล" ;
+                }
+                else{
+                        out3= arr[0].SubjectID+
+                            "&nbsp"+arr[0].SubjectName+
+                            "&nbspsec:"+arr[0].SectionNumber+
+                            "&nbspภาคเรียนที่:"+arr[0].Semester+
+                            "&nbspปีการศึกษา:"+arr[0].AcademicYear+
+                            "<br><br><table>"+
+                            "<tr><td>" +
                             "รหัสนักศึกษา"+
                             "</td><td>" +
                             "ชื่อจริง"+
@@ -172,18 +182,20 @@
                             "</td><td>" +
                             "GPA"+
                             "</td></tr>";
-                for(i=0;i<arr.length;i++){
-                    out3+=  "<tr><td>" +
-                            arr[i].StudentID+
-                            "</td><td>" +
-                            arr[i].FirstName+
-                            "</td><td>" +
-                            arr[i].LastName+
-                            "</td><td>" +
-                            arr[i].GPA+
-                            "</td></tr>";
+                    for(i=0;i<arr.length;i++){
+                        out3+=  "<tr><td>" +
+                                arr[i].StudentID+
+                                "</td><td>" +
+                                arr[i].FirstName+
+                                "</td><td>" +
+                                arr[i].LastName+
+                                "</td><td>" +
+                                arr[i].GPA+
+                                "</td></tr>";
+                    }
+                    out3+= "</table>"
                 }
-                out3+= "</table>"
+                
                 document.getElementById("menu3").innerHTML = out3;
             }
 
@@ -203,7 +215,11 @@
 
             function disGrade(response){
                 var arr = JSON.parse(response);
-                var out1 = "<table><form>";
+                var out1 =  arr[0].SubjectID+
+                            "&nbsp"+arr[0].SubjectName+
+                            "&nbspsec:"+arr[0].SectionNumber+
+                            "<br><br>"+
+                            "<table><form>";
                     for(i=0;i<arr.length;i++){
                         out1+=  "<tr><td>" +
                                 arr[i].StudentID+"&nbsp"+

@@ -23,7 +23,7 @@ $sub=mysqli_real_escape_string($conn,$_GET['sub']);
             echo($outp);    
     }
     else if( $_GET['type']=='02' ){
-        $result = $conn->query("SELECT ss.StudentID,st.FirstName,st.LastName
+        $result = $conn->query("SELECT ss.StudentID,st.FirstName,st.LastName,sc.SubjectID,sc.SectionNumber,su.SubjectName
                                 FROM teachersec t,sectioninfo sc,student_subject ss,subjectinfo su,studentinfo st
                                 WHERE   t.SubjectSectionID=ss.SubjectSectionID AND 
                                         t.SubjectSectionID=sc.SubjectSectionID AND 
@@ -39,7 +39,10 @@ $sub=mysqli_real_escape_string($conn,$_GET['sub']);
                 if ($outp != "[") {$outp .= ",";}
                 $outp .= '{"StudentID":"'.$rs["StudentID"].'",';
                 $outp .= '"FirstName":"'.$rs["FirstName"].'",';
-                $outp .= '"LastName":"'.$rs["LastName"].'"}';
+                $outp .= '"LastName":"'.$rs["LastName"].'",';
+                $outp .= '"SubjectID":"'.$rs["SubjectID"].'",';
+                $outp .= '"SectionNumber":"'.$rs["SectionNumber"].'",';
+                $outp .= '"SubjectName":"'.$rs["SubjectName"].'"}';
             }
             $outp .="]";
             echo($outp);    
