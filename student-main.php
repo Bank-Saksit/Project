@@ -20,6 +20,18 @@
     <style>
         @import "global1.css";
         @import "temple.css";
+<<<<<<< HEAD
+        #tab-content {
+            position: absolute;
+            top:5%;
+            padding-left:0px;
+            margin-left: 20%;
+        }
+        input.bg {
+            background: white;
+        }
+=======
+>>>>>>> 61ce5484ef312af26696bc26127cfa3d386931c6
     </style>
     
 </head>
@@ -184,11 +196,19 @@
                     "<div class = 'row'>"+
                      "<div class= 'col-sm-4' >"+
                         "<form>"+
+<<<<<<< HEAD
                         "<h4>ที่อยู่:</h4><textarea style='resize: none' rows=3 cols=50 id='inAdd'>"+arr[0].Address+"</textarea><br>"+
                         "<h4>จังหวัด:</h4><input type='text' id='inPr' value='"+arr[0].Province+"'><br>"+
                         "<h4>รหัสไปรษณีย์:</h4><input type='text' id='inPo' value='"+arr[0].Postcode+"'><br>"+
                         "<h4>เบอร์โทรศัพท์มือถือ:</h4><input type='text' id='inMN' value='"+arr[0].MobileNumber+"'><br>"+
                         "<h4>เบอร์โทรศัพท์บ้าน:</h4><input type='text' id='inTN' value='"+arr[0].TelNumber+"'><br>"+
+=======
+                        "<p><h5>ที่อยู่:</h5><textarea style='resize: none' rows=3 cols=50 id='inAdd'>"+arr[0].Address+"</textarea><br>"+
+                        "<h5>จังหวัด:</h5><input type='text' id='inPr' class='bg' value='"+arr[0].Province+"'><br>"+
+                        "<h5>รหัสไปรษณีย์:</h5><input type='text' id='inPo' class='bg' value='"+arr[0].Postcode+"'><br>"+
+                        "<h5>เบอร์โทรศัพท์มือถือ:</h5><input type='text' id='inMN' class='bg' value='"+arr[0].MobileNumber+"'><br>"+
+                        "<h5>เบอร์โทรศัพท์บ้าน:</h5><input type='text' id='inTN' class='bg' value='"+arr[0].TelNumber+"'><br>"+
+>>>>>>> 509dc743f168da7e43b84a7eace577c607e56930
                         "<br><input type='button' value='แก้ไข' id='edit2' onclick='update2()'>"+
                         "<div id='res2'></div>"
                         "</form>"+
