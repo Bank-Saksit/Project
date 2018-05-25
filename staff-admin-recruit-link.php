@@ -1,8 +1,9 @@
 <?php
 include "dblink.php";
-$result = $conn->query("SELECT st.studentID,st.perfix,st. 
-                        FROM studentunfo st, departmentinfo d,subjectinfo s,student_subject ss,sectioninfo sec
-                        WHERE st.studentID = ss.studentID and ss.SubjectSectionID = sec.SubjectSectionID and st.department = d.department
+$result = $conn->query("SELECT r.RecruitID, r.Prefix, r.FirstName, r.LastName, r.RecruitPlanName, r.SchoolID, r.SchoolGPAX, r.MobileNumber, r.Status, s.SchoolName, n.No, n.Department, d.Faculty, r.NoPass
+                        FROM recruitinfo r, schoolinfo s, nodepartment n, departmentinfo d
+                        WHERE r.SchoolID=s.SchoolID AND r.RecruitID=n.RecruitID AND n.Department=d.Department
+                        order by r.RecruitID,n.No;");
 
 $outp = "[";
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -19,7 +20,9 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     $outp .= '"SchoolName":"'.$rs["SchoolName"].'",';
     $outp .= '"No":"'.$rs["No"].'",';
     $outp .= '"Department":"'.$rs["Department"].'",';
+    $outp .= '"NoPass":"'.$rs["NoPass"].'",';
     $outp .= '"Faculty":"'.$rs["Faculty"].'"}';
+    
 }
 $outp .="]";
 

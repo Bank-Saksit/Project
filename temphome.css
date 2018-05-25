@@ -1,7 +1,7 @@
 html, body { 
     margin: 0;
     padding: 0;
-    background-image: #dfdfdf;
+    background: #dfdfdf;
     color: #444444;
 }
 #main {
@@ -10,19 +10,26 @@ html, body {
     position: relative;
     top: 50px;
 }
-
 #left {
     float: left;
     width: 10%;
     position: relative;
 }
 #back {
-    margin: 20px;
-    font-weight: bold;
+    margin-left: 50%;
+    text-align: center;
+    margin-top: 90px;
+}
+.button{
+    width: 60px;
+    color: black;
+    border-radius: 8px;
+    background: white;
 }
 #header {
     width: 100%;
     position: relative;
+    margin-top: 15px;
 }
 #header > h1 {
     font-size: 50px;
@@ -31,10 +38,17 @@ html, body {
     width: 100%;
     border-bottom: 5px solid;
 }
-div#left > a {
+#header > a {
+    float: right;
+    font-size: 30px;
+    text-align: center;
     text-decoration: none;
-    margin: 5px;
     color: #444444;
+}
+#header > a:hover {
+    text-decoration: underline;
+    color: #444444;
+    transition: 0.2s;
 }
 div#sub > a {
     text-decoration: underline;
@@ -44,9 +58,9 @@ div#sub > a {
 div#content {
     clear: both;
     width: 100%;
+    margin-top: 30px;
     position: relative;
     display:inline-block;
-    background-image: url(img/gallery/980x380/064.jpg);
 }
 #c-top {
     width: 100%;
@@ -56,15 +70,94 @@ div#content {
     position: relative;
     color: white;
 }
+#c-in{
+    margin-top: 40px;
+}
 #c-bot {
     width: 100%;
-    height: 60px;
+    height: 65px;
     top: 0;
     text-align: left;
     position: relative;
     background: white;
     color: black;
-}
+}   
 form{
     padding-left : 30px;
+}
+input[type=text] {
+    background-color:rgba(0,0,0,0.8);
+    margin-top: 0px;
+    padding-left: 30px;
+    width: 310px;
+    height:30px;
+    text-align: left;
+    color: white; 
+}
+::placeholder {
+    color: white;
+    font-size:15px;
+}
+input[type=password] {
+    background-color:rgba(0,0,0,0.8);
+    margin-top: 15px;
+    padding-left: 30px;
+    width: 310px;
+    height: 30px;
+    text-align: left;
+    color: white;
+}
+input[type=submit] {
+    width: 80px;
+    color: black;
+    border-radius: 8px;
+    background: white;
+}       
+#sub{
+    width: 310px;
+    padding-left:25px;
+    margin-top:20px;
+    text-align: left;
+}
+div#text >a {
+    text-decoration: underline;
+}
+#text{
+    padding-left : 30px;
+}
+input[type=button] {
+    font-family: "supermarket";
+    border-radius: 8px;    
+    width: 80px;
+    background: white;
+    color: black;
+}
+
+#c-left {
+    width: 50%;
+    height: 350px;
+    top: 0;
+    text-align: left;
+    position: relative;
+    color: white;
+    float: left;
+}
+#c-left > h1{
+    margin-left: 30px;
+}
+#c-right {
+    width: 50%;
+    height: 350px;
+    top: 0;
+    text-align: left;
+    position: relative;
+    color: #ffffff;
+    float: right;
+}
+#data{
+    margin-left: 30px;
+    padding-left:20px;
+    border-radius: 8px;
+    width:85%;
+    background-color:rgba(0,0,0,0.5);
 }

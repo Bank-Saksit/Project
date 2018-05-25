@@ -30,16 +30,15 @@
         }
         #tab-content {
             position: absolute;
-            top:80px;
+            top:90px;
 			margin-left: 30px;
 			width:100%;
-              
         }
         #main {
             float: left;
 			position: relative;
 			width:80%;
-            top: 50px;
+            top: 60px;
             background: #ebebeb;
         }
         #header {
@@ -47,14 +46,14 @@
 			height: 80px;
             position: relative;
         }
-        #header > h1 {
+        /* #header > h1 {
             font-family: "supermarket";
-            font-size: 70px;
+            font-size: 60px;
             position: absolute;
             bottom: 0;
             width: 100%;
             border-bottom: 5px solid;
-        }
+        } */
         li{
             font-size: 20px;
         }
@@ -73,9 +72,12 @@
 <body>
     <form action = "recruit-form.php" method = "post" accept-charset = "UTF-8" id="ismForm" >
      <div id="left">
-        <br><a href="recruit-login.php" id="back">< back</a>
+        <a href="recruit-login.php" class="btn btn-info btn-lg" id = "back">
+                <span class="glyphicon glyphicon-chevron-left"></span> 
+		</a>
+		<br>
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a data-toggle="tab" href="#menu1">ประวัติส่วนตัว</a></li>
+            <li class = "active"><a data-toggle="tab" href="#menu1">ประวัติส่วนตัว</a></li>
             <li><a data-toggle="tab" href="#menu2">ที่อยุ่ปัจจุบัน</a></li>
             <li><a data-toggle="tab" href="#menu3">ประวัติด้านการศึกษา</a></li>
             <li><a data-toggle="tab" href="#menu4">โครงการที่เข้าศึกษา</a></li>
@@ -87,31 +89,35 @@
         </div>
         
         <div class="tab-content" id="tab-content">
-            <div id="menu1" class="tab-pane fade active">
-                <h3>ประวัติส่วนตัว</h3>
-                <p><h5>คำนำหน้า:</h5>
+            <div id="menu1" class="tab-pane fade in active">
+				<h3>ประวัติส่วนตัว</h3>
+				<div class = "row">
+				<div class="col-sm-4" >
+                <h4>คำนำหน้า:</h4>
 					<select name="Prefix" class="check" id="a1" >
 						<option value="">โปรดเลือก</option>
 						<option value="นาย">นาย</option>
 						<option value="นางสาว">นางสาว</option>
 						<option value="นาง">นาง</option>
 					</select>
-					<h5>ชื่อจริง:</h5>
+					<h4>ชื่อจริง:</h4>
 					<input type="text" name="Fname" class="check" id="a2"><br>
-					<h5>นามสกุล:</h5>
+					<h4>นามสกุล:</h4>
 					<input type="text" name="Lname" class="check" id="a3"><br>
-					<h5>รหัสบัตรประชาชน:</h5>
+					<h4>รหัสบัตรประชาชน:</h4>
 					<input type="text" name="IDCardNumber" class="check" id="a4"><br>
-					<h5>วันเกิด:</h5>
+					<h4>วันเกิด:</h4>
 					<input type="date" name="DOB" class="check" id="a5"><br>
-					<h5>เพศ:</h5>
+				</div>
+				<div class="col-sm-4" >
+					<h4>เพศ:</h4>
 					<select name="Gender" class="check" id="a6">
 							<option value="">โปรดเลือก</option>
 							<option value="ชาย">ชาย</option>
 							<option value="หญิง">หญิง</option>
 							<option value="ไม่ระบุ">ไม่ระบุ</option>
 					</select><br>
-					<h5>หมู่เลือด:</h5>
+					<h4>หมู่เลือด:</h4>
 					<select name="BloodGroup" class="check" id="a7">
 						<option value="">โปรดเลือก</option>
 						<option value="A">A</option>
@@ -119,7 +125,7 @@
 						<option value="AB">AB</option>
 						<option value="O">O</option>
 					</select><br>
-					<h5>สัญชาติ:</h5>
+					<h4>สัญชาติ:</h4>
 					<select name="Nationality" class="check" id="a8">
 							<option value="">โปรดเลือก</option>
 							<option value="ไทย">ไทย</option>
@@ -127,7 +133,7 @@
 							<option value="ญี่ปุ่น">ญี่ปุ่น</option>
 							<option value="ไม่ระบุ">ไม่ระบุ</option>
 					</select><br>
-					<h5>เชื้อชาติ:</h5>
+					<h4>เชื้อชาติ:</h4>
 					<select name="Race" class="check" id="a9">
 							<option value="">โปรดเลือก</option>
 							<option value="ไทย">ไทย</option>
@@ -135,7 +141,7 @@
 							<option value="ญี่ปุ่น">ญี่ปุ่น</option>
 							<option value="ไม่ระบุ">ไม่ระบุ</option>
 					</select><br>
-					<h5>ศาสนา:</h5>
+					<h4>ศาสนา:</h4>
 					<select name="Religion" class="check" id="a10">
 							<option value="">โปรดเลือก</option>
 							<option value="ไทย">พุทธ</option>
@@ -143,26 +149,33 @@
 							<option value="อิสลาม">อิสลาม</option>
 							<option value="ไม่ระบุ">ไม่ระบุ</option>
 					</select><br>
-					
+					</div>	
+				</div>
             </div>
             <div id="menu2" class="tab-pane fade">
-                <h3>ข้อมูลติดต่อ</h3>
-                <p>	<h5>ที่อยู่:</h5>
+				<h3>ข้อมูลติดต่อ</h3>
+				<div class = "row">
+				<div class="col-sm-4" >
+                	<h4>ที่อยู่:</h4>
                     <textarea style="resize:none" rows='3' cols='50' name="Address" class="check" id="b1"></textarea><br>
-					<h5>จังหวัด:</h5>
+					<h4>จังหวัด:</h4>
 					<input type="text" name="Province" class="check" id="b2"><br>
-					<h5>รหัสไปรษณีย์:</h5>
+					<h4>รหัสไปรษณีย์:</h4>
 					<input type="text" name="PostCode" class="check" id="b3"></p></p>
-                    <h5>เบอร์โทรศัพท์มือถือ:</h5>
+                    <h4>เบอร์โทรศัพท์มือถือ:</h4>
 					<input type="text" name="MobileNo" class="check" id="b4"><br>
-					<h5>เบอร์โทรศัพท์บ้าน:</h5>
+					<h4>เบอร์โทรศัพท์บ้าน:</h4>
 					<input type="text" name="TelNo" class="check" id="b5"><br>
-					<h5>E-mail:</h5>
+					<h4>E-mail:</h4>
 					<input type="text" name="Email" class="check" id="b6">
+				</div>
+				</div>
             </div>
             <div id="menu3" class="tab-pane fade">
-                <h3>ประวัติด้านการศึกษา</h3>
-                <p><h5>โรงเรียน:</h5>
+				<h3>ประวัติด้านการศึกษา</h3>
+				<div class = "row">
+				<div class="col-sm-4" >
+                <h4>โรงเรียน:</h4>
 						<?php
 						 include "dblink.php";
 						$result = mysqli_query($conn,"SELECT * FROM schoolinfo");
@@ -175,35 +188,41 @@
 						echo"</select>";
 						?>
 					<br>
-					<h5>ระดับการศึกษา:</h5>
+					<h4>ระดับการศึกษา:</h4>
 					<select name="EducationBackground" class="check" id="c2">
 						<option value="">โปรดเลือก</option>
 						<option value="ม.6">ม.6</option>
 						<option value="ปวช.">ปวช.</option>
 					</select><br>
-					<h5>สาขา:</h5>
+					<h4>สาขา:</h4>
 					<select name="Branch"class="check" id="c3">
 						<option value="">โปรดเลือก</option>
 						<option value="วิทย์-คณิต">วิทย์-คณิต</option>
 						<option value="ศิลป์-คณิต">ศิลป์-คณิต</option>
 						<option value="ศิลป์-ภาษา">ศิลป์-ภาษา</option>
 					</select><br>
-					<h5>GPAX:</h5>
+					<h4>GPAX:</h4>
 					<input type="text" name="SchoolGPAX" class="check" id="c4"><br></p>
+				</div>
+				</div>
             </div>
             <div id="menu4" class="tab-pane fade">
-                <h3>โครงการที่เข้าศึกษา</h3>
-                <p><h5>โครงการ:</h5>
-					<?php
-						$result = mysqli_query($conn,"SELECT * FROM recruitplaninfo");
-						echo"<select name = 'RecruitPlanName' class='check' id='d1'>";
-						echo"<option value = ''>โปรดเลือก</option>";
-						while($row = $result->fetch_array(MYSQLI_ASSOC)){
-							echo "<option value = '" . $row['RecruitPlanName']."'>".$row['RecruitPlanName']."</option>";
-						}
-						echo"</select>";
-					?><br><br>
-					<h5>สาขา:</h5>
+				<h3>โครงการที่เข้าศึกษา</h3>
+				<div class = "row">
+					<div class="col-sm-4">
+					<h4>โครงการ:</h4>
+						<?php
+							$result = mysqli_query($conn,"SELECT * FROM recruitplaninfo");
+							echo"<select name = 'RecruitPlanName' class='check' id='d1'>";
+							echo"<option value = ''>โปรดเลือก</option>";
+							while($row = $result->fetch_array(MYSQLI_ASSOC)){
+								echo "<option value = '" . $row['RecruitPlanName']."'>".$row['RecruitPlanName']."</option>";
+							}
+							echo"</select>";
+						?><br>
+					</div>
+					<div class="col-sm-4" >
+					<h4>สาขา:</h4>
 					<span>อันดับที่ 1 </span><?php
 								$result = mysqli_query($conn,"SELECT * FROM departmentinfo");
 
@@ -214,16 +233,18 @@
 								}
 								echo"</select>";
 							?>
+							
 					 <button type="button" id="add" class="check" >+</button>
 					 <button type="button" id="remove" class="check" >-</button>
-
+					 			
 					 <div id="demo"></div>
-					 *สามารถเลือกได้สูงสุด4อันดับและระบบจะเลือกความสำคัญตามลำดับ
-					<br><br>
-					
+					 <h4>*สามารถเลือกได้สูงสุด4อันดับและระบบจะเลือกความสำคัญตามลำดับ</h4>
+					<br>
 					<input type="submit" value="ยืนยัน" id="submit">
-					<div id="alert"></div>
-					<div id="alert1"></div>
+					<h4><div id="alert"></div></h4>
+					<h4><div id="alert1"></div></h4>
+					</div>
+					</div>
             </div>
 			<?php include "recruit-footer.php"; ?>
         </div>

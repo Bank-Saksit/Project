@@ -13,7 +13,9 @@
         }
         #tab-content {
             position: absolute;
+            width: 100%;
             top:5%;
+            padding-left:0px;
             margin-left: 20%;
         }
         #main {
@@ -55,7 +57,7 @@
         .top .icon {
             display: none;
         }
-        @media screen and (max-width: 820px) {
+        @media screen and (max-width: 1000px) {
             .top  a {display: none;}
             #top {
                 padding-left: 0px;
@@ -69,7 +71,7 @@
                 display: block;
             }
         }
-        @media screen and (max-width: 820px) {
+        @media screen and (max-width: 1000px) {
             .top.responsive {position: relative;}
             .top.responsive .icon {
                 position: absolute;
