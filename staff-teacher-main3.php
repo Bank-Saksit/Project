@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +22,15 @@
     
 </head>
 <body>
+        <?php 
+            if(isset($_SESSION['id']) && isset($_SESSION['pswd']) && $_SESSION['role'] == 'Teacher') {
+                
+            }
+            else{
+                header("location: staff-home.php");
+                exit('</body></html>');
+            }
+        ?>
     <div class="top" id="top">
             <a href="staff-teacher-main.php">ข้อมูลอาจารย์</a>
             <a href="staff-teacher-main2.php">ลงทะเบียนสอน</a>
