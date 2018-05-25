@@ -94,6 +94,41 @@ elseif( $_GET['type']=='14' ){
                                                                             FROM sectioninfo
                                                                             WHERE SubjectID='".$_GET['inSub']."')" );
 }
+elseif( $_GET['type']=='15' ){
+    $result = $conn->query("SELECT SeatAmount, Day, StartTime, EndTime, Room
+                            FROM sectioninfo
+                            WHERE SubjectID = '".$_GET['inSub']."' AND SectionNumber = ".$_GET['inSec'].";");
+
+    $outp = "[";
+    while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+        if ($outp != "[") {$outp .= ",";}
+        $outp .= '{"SeatAmount":"'.$rs["SeatAmount"].'",';
+        $outp .= '"Day":"'.$rs["Day"].'",';
+        $outp .= '"StartTime":"'.$rs["StartTime"].'",';
+        $outp .= '"EndTime":"'.$rs["EndTime"].'",';
+        $outp .= '"Room":"'.$rs["Room"].'"}';
+    }
+    $outp .="]";
+    echo($outp);
+}
+elseif( $_GET['type']=='21' ){
+    $result = $conn->query( "SELECT SeatAmount, Day, StartTime, EndTime, Room
+                FROM sectioninfo
+                WHERE SubjectID='".$_GET['inSub']."' AND SectionNumber=".$_GET['inSec']."
+                " );
+
+    $outp = "[";
+    while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+        if ($outp != "[") {$outp .= ",";}
+        $outp .= '{"SeatAmount":"'.$rs["SeatAmount"].'",';
+        $outp .= '"Day":"'.$rs["Day"].'",';
+        $outp .= '"StartTime":"'.$rs["StartTime"].'",';
+        $outp .= '"EndTime":"'.$rs["EndTime"].'",';
+        $outp .= '"Room":"'.$rs["Room"].'"}';
+    }
+    $outp .="]";
+    echo($outp);
+}
 
 $conn->close();
 ?>

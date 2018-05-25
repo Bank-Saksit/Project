@@ -35,6 +35,7 @@
             <li><a data-toggle="tab" href="#menu2">เพิ่มรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu3">ย้ายกลุ่ม</a></li>
             <li><a data-toggle="tab" href="#menu4">ลดรายวิชา</a></li>
+            <li><a data-toggle="tab" href="#menu5">รายละเอียดกลุ่มวิชา</a></li>
         </ul>
      </div>
      <div id="main">
@@ -46,21 +47,22 @@
                     <?php
                         include "dblink.php";
                         $result = mysqli_query($conn,"SELECT * FROM subjectinfo");
-                        echo"<select name = 'Subject[]' class='subject'>";
+                        echo"<select name = 'Subject1[]' class='subject1'>";
                         echo"<option value = ''>โปรดเลือก</option>";
                         while($row = mysqli_fetch_array($result)){
                             echo "<option value = '" . $row['SubjectID']."'>".$row['SubjectID']."</option>";
                         }
                         echo"</select>";
-                        echo" กลุ่ม <select name = \"Section[]\" class='section'>";
+                        echo" กลุ่ม <select name = \"Section1[]\" class='section1'>";
                         echo"<option value = 01 >1</option>";
                         echo"<option value = 02 >2</option>";
                         echo"<option value = 03 >3</option>";
                         echo"</select>";
                     ?>
+                    <div id="demo"></div>
                     <button type="button" id="add" class="check" >+</button>
                     <button type="button" id="remove" class="check" >-</button>
-                    <div id="demo"></div><br>
+                    <br><br>
                     <input type="button" value="ยืนยัน" onclick="update1()">
                 </form>
             </div>
@@ -83,14 +85,16 @@
                         echo"<option value = 03 >3</option>";
                         echo"</select>";
                     ?>
+                    <div id="demo2"></div>
                     <button type="button" id="add2" class="check2" >+</button>
                     <button type="button" id="remove2" class="check2" >-</button>
-                    <div id="demo2"></div><br>
+                    <br><br>
                     <input type="button" value="ยืนยัน" onclick="update2()">
                 </form>
             </div>
             <div id="menu3" class="tab-pane fade"></div>
             <div id="menu4" class="tab-pane fade"></div>
+            <div id="menu5" class="tab-pane fade"></div>
         </div>
 
         <script>
@@ -156,12 +160,25 @@
                 for( var i=0 ; i<arr.length ; i++ )
                     out4+="<option value='"+arr[i].SubjectID+"'>"+arr[i].SubjectID+"</option>";
                 out4+="</select> <div id='outSec4'></div>"+
-                        "<br><br><input type='button' value='ยืนยัน' onclick='update4()'>"+
+                        "<br><input type='button' value='ยืนยัน' onclick='update4()'>"+
                         "</form>";
                 document.getElementById("menu4").innerHTML = out4;
 
+                var out5 = "<h3>รายละเอียดกลุ่มวิชา</h3>"+
+                        "<p>วิชา: <select id='inSub5' onchange='change5()'>";
+                for( var i=0 ; i<arr.length ; i++ )
+                    out5+="<option value='"+arr[i].SubjectID+"'>"+arr[i].SubjectID+"</option>";
+                out5+="</select> กลุ่ม <select id='inSec5' onchange='change5()'>"+
+                        "<option value=01>1</option>"+
+                        "<option value=02>2</option>"+
+                        "<option value=03>3</option>"+
+                        "</select>"+
+                        "<br><div id='in5'></div>";
+                document.getElementById("menu5").innerHTML = out5;
+
                 change3();
                 change4();
+                change5();
             }
 
             function change3(){
@@ -184,10 +201,32 @@
                 }
             }
 
+            function change5(){
+                var sub = document.getElementById('inSub5').value;
+                var sec = document.getElementById('inSec5').value;
+                var xmlhttp = new XMLHttpRequest();
+                var url = location.protocol + '//' + location.host+"/Project/student-main2-link.php?type=15&inID="+sname[0].StudentID;
+                    url += "&inSub="+sub+"&inSec="+sec;
+
+                    xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        var tmp = JSON.parse(xmlhttp.responseText);
+                        out5 = "วิชา "+document.getElementById('inSub5').value+" กลุ่ม "+document.getElementById('inSec5').value+"<br>"+
+                            "จำนวนที่นั่ง "+tmp[0].SeatAmount+"<br>"+
+                            "เวลา "+tmp[0].Day+" "+tmp[0].StartTime+" ถึง "+tmp[0].EndTime+"<br>"+
+                            "ห้องเรียน "+tmp[0].Room;
+
+                        document.getElementById('in5').innerHTML = out5;
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+
             function update1(){
                 var xmlhttp = new XMLHttpRequest();
-                var sub = document.getElementsByClassName('subject');
-                var sec = document.getElementsByClassName('section');
+                var sub = document.getElementsByClassName('subject1');
+                var sec = document.getElementsByClassName('section1');
                 var url = location.protocol + '//' + location.host+"/Project/student-main2-link.php?type=11&inID="+sname[0].StudentID;
                     for( var i=0 ; i<6 ; i++ ){
                         if( sub[i] && sub[i].value!='' ) url+="&sub"+i+"="+sub[i].value+"&sec"+i+"="+sec[i].value;
@@ -196,11 +235,14 @@
 
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-
+                        document.getElementById("menu3").innerHTML = '';
+                        document.getElementById("menu4").innerHTML = '';
+                        load();
                     }
                 }
                 xmlhttp.open("GET", url, true);
                 xmlhttp.send();
+                
             }
 
             function update2(){
@@ -215,11 +257,14 @@
 
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-
+                        document.getElementById("menu3").innerHTML = '';
+                        document.getElementById("menu4").innerHTML = '';
+                        load();
                     }
                 }
                 xmlhttp.open("GET", url, true);
                 xmlhttp.send();
+                load();
             }
 
             function update3(){
@@ -231,7 +276,7 @@
 
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-
+                        load();
                     }
                 }
                 xmlhttp.open("GET", url, true);
@@ -246,12 +291,34 @@
 
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-
+                        load();
                     }
                 }
                 xmlhttp.open("GET", url, true);
                 xmlhttp.send();
             }
+
+            // function detail( part, line ){
+            //     alert(part+''+line);
+            //     // var sub = document.getElementsByClassName('subject'+part);
+            //     // var sec = document.getElementsByClassName('section'+part);
+            //     ssub = sub[line].value;
+            //     ssec = sec[line].value
+                
+            //     var xmlhttp = new XMLHttpRequest();
+            //     var url = location.protocol + '//' + location.host+"/Project/student-main2-link.php?type=21&inID="+sname[0].StudentID;
+            //         url+="&inSub="+ssub+"&inSec="+ssec;
+
+            //     xmlhttp.onreadystatechange=function() {
+            //         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            //             var tmp = JSON.parse(xmlhttp.responseText);
+            //             alert("วิชา "+ssub+" กลุ่ม "+ssec+"\nจำนวนที่นั่ง "+tmp[0].SeatAmount+"\nวัน "+tmp[0].Day+"\nเวลา "+tmp[0].StartTime+" ถึง "+tmp[0].EndTime+"\nห้อง "+tmp[0].Room);
+            //         }
+            //     }
+                
+            //     xmlhttp.open("GET", url, true);
+            //     xmlhttp.send();
+            // }
 
             $(function(){
                 var n = 2;
@@ -263,13 +330,13 @@
                 <?php
                     $result = mysqli_query($conn,"SELECT * FROM subjectinfo");
 
-                    echo"var input = '<select name = \"Subject[]\" class=\"subject\">'+";
+                    echo"var input = '<select name = \"Subject1[]\" class=\"subject1\">'+";
                     echo"'<option value = \"\">โปรดเลือก</option>'+";
                     while($row = mysqli_fetch_array($result)){
                         echo "'<option value = \"" . $row['SubjectID']."\">".$row['SubjectID']."</option>'+";
                     }
                     echo"'</select>'+";
-                    echo" ' กลุ่ม <select name = \"Section[]\" class=\"section\">'+ ";
+                    echo" ' กลุ่ม <select name = \"Section1[]\" class=\"section1\">'+ ";
                     echo" '<option value = 1 >1</option>'+ ";
                     echo" '<option value = 2 >2</option>'+ ";
                     echo" '<option value = 3 >3</option>'+ ";
@@ -277,7 +344,7 @@
                 ?>	
 
                 $('#add').click(function(){
-                    $("#demo").append('<span>วิชาที่' +' '+ n +' '+input+'</span>'+ '<br>' );
+                    $("#demo").append('<span>วิชาที่' +' '+ n +' '+input+ '<br>' );
                     n++;
                     if(n==2){	$('button[id="remove"]').prop('disabled', true);	}
                     else{	$('button[id="remove"]').prop('disabled', false);	}
@@ -285,8 +352,8 @@
                     else{	$('button[id="add"]').prop('disabled', false);	}
                 })
                 $('#remove').click(function(){
-                    $('#demo > select[name^=Subject]:last').remove();
-                    $('#demo > select[name^=Section]:last').remove();
+                    $('#demo > select[name^=Subject1]:last').remove();
+                    $('#demo > select[name^=Section1]:last').remove();
                     $("#demo > br:last").remove();
                     $("span:last-child").remove();
                     n--;
@@ -321,7 +388,7 @@
                 ?>	
 
                 $('#add2').click(function(){
-                    $("#demo2").append('<span>วิชาที่' +' '+ n +' '+input+'</span>'+ '<br>' );
+                    $("#demo2").append('<span>วิชาที่' +' '+ n +' '+input+ '<br>' );
                     n++;
                     if(n==2){	$('button[id="remove2"]').prop('disabled', true);	}
                     else{	$('button[id="remove2"]').prop('disabled', false);	}
