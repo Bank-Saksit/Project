@@ -112,7 +112,7 @@
                 "</td><td>" +
                 "<button onclick=\"failed('"+arr[i].RecruitID+"')\">สอบไม่ผ่าน</button>"+
                 "</td><td>" +
-                "<select name='NPass' id='pass"+i+"'><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='0'>0</option></select>" + 
+                "<select name='NPass' id='pass"+i+"'><option value='0'>0</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option></select>" + 
                 "<button onclick=\"NumberPass('"+arr[i].RecruitID+"','"+i+"')\">อัพเดตคณะ</button>"+
                 "</td><td>" +
                 "<button onclick=\"deleteRecruit('"+arr[i].RecruitID+"')\">ลบช้อมูล</button>"+
