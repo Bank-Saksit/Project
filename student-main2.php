@@ -31,7 +31,7 @@
     </div>
     <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a data-toggle="tab" href="#menu1">ลงทะเบียนรายวิชา</a></li>
+            <li class = "active"><a data-toggle="tab" href="#menu1">ลงทะเบียนรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu2">เพิ่มรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu3">ย้ายกลุ่ม</a></li>
             <li><a data-toggle="tab" href="#menu4">ลดรายวิชา</a></li>
@@ -39,7 +39,7 @@
      </div>
      <div id="main">
         <div class="tab-content" id="tab-content">
-            <div id="menu1" class="tab-pane fade">
+            <div id="menu1" class="tab-pane fade in active">
                 <h3>ลงทะเบียนรายวิชา</h3>
                 <form>
                     <span>วิชาที่ 1 </span>
