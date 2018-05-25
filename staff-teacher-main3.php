@@ -113,11 +113,15 @@
 
             function disGrade(response){
                 var arr = JSON.parse(response);
-                var out1 = "<form>";
+                var out1 = "<table><form>";
                     for(i=0;i<arr.length;i++){
-                        out1+=  arr[i].StudentID+"&nbsp"+
+                        out1+=  "<tr><td>" +
+                                arr[i].StudentID+"&nbsp"+
+                                "</td><td>" +
                                 arr[i].FirstName+"&nbsp"+
+                                "</td><td>" +
                                 arr[i].LastName+"&nbsp"+
+                                "</td><td>" +
                                 "<select class='GPA'>"+
                                 "<option value=-1>-</option>"+
                                 "<option value=4.00>A</option>"+
@@ -128,9 +132,10 @@
                                 "<option value=1.50>D+</option>"+
                                 "<option value=1.00>D</option>"+
                                 "<option value=0.00>F</option>"+
-                                "</select><br>";
+                                "</select><br>"+
+                                "</td></tr>";
                     }
-                    out1+= "<br><input type='button' value='ยืนยัน' onclick='Grade("+JSON.stringify(response)+")'></form>"
+                    out1+= "</table><br><input type='button' value='ยืนยัน' onclick='Grade("+JSON.stringify(response)+")'></form>"
                     document.getElementById("menu1").innerHTML = out1;
             }
             function Grade(response){
