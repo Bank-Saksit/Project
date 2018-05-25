@@ -15,6 +15,17 @@
     <style>
         @import "global1.css";
         @import "temple.css";
+        table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+        table tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+        table tr:nth-child(even) {
+            background-color: #ffffff;
+        }
     </style>
     
 </head>
@@ -28,16 +39,16 @@
             </a>
             <a href="staff-home.php" class="logout">ออกจากระบบ</a>
     </div>
-   <div id="left">
+    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
-        <li><a data-toggle="tab" href="#menu1">ข้อมูลผู้สมัคร</a></li>
-            <li><a data-toggle="tab" href="#menu2">ข้อมูลนักศึกษา</a></li>
-            <li><a data-toggle="tab" href="#menu3">ข้อมูลอาจารย์</a></li>
+        <li class = "active"><a data-toggle="tab" href="#menu1">ข้อมูลผู้สมัคร</a></li>
+        <li><a data-toggle="tab" href="#menu2">ข้อมูลนักศึกษา</a></li>
+        <li><a data-toggle="tab" href="#menu3">ข้อมูลอาจารย์</a></li>
         </ul>
      </div>
      <div id="main">
         <div class="tab-content" id="tab-content">
-            <div id="menu1" class="tab-pane fade">
+            <div id="menu1" class="tab-pane fade in active">
                 
             </div>
             <div id="menu2" class="tab-pane fade">
@@ -47,7 +58,10 @@
                 
             </div>
         </div>
-        <script>
+    
+    <script>
+        load();
+
         function myFunction() {
             var x = document.getElementById("top");
             if (x.className === "top") {
@@ -57,7 +71,75 @@
                 x.className = "top";
                 }
             }
-        </script>
-     </div>
+        
+        function load(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol+'//'+location.host+"/Project/staff-admin-recruit-link.php";
+            
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    display(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function display(response) {
+            arr = JSON.parse(response);
+            var i;
+            var out = "<table>";
+
+            for(i = 0; i < arr.length; i++) {
+                if(i==0){
+                    out += "<tr><td>RecruitID</td><td>Prefix</td><td>First name</td><td>LastName</td><td>RecruitPlanName</td><td>SchoolID</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                }
+                out += "<tr><td>" + arr[i].RecruitID +
+                "</td><td>" + arr[i].Prefix +
+                "</td><td>" + arr[i].FirstName+
+                "</td><td>" + arr[i].LastName+
+                "</td><td>" + arr[i].RecruitPlanName+
+                "</td><td>" + arr[i].SchoolID+
+                "</td><td>" + arr[i].SchoolGPAX+
+                "</td><td>" + arr[i].MobileNumber+
+                "</td><td>" + arr[i].Status+
+                "</td><td>" + arr[i].SchoolName+
+                "</td><td>" + arr[i].No+
+                "</td><td>" + arr[i].Department+
+                "</td><td>" + arr[i].NoPass+
+                "</td><td>" + arr[i].Faculty+
+                // "</td><td>" + arr[i].+
+                "</td><td>" +
+                "<button onclick=\"deletePaper('"+arr[i].RecruitID+"')\">Delete</button>"+
+                "</td></tr>";
+            }
+            out += "</table>";
+            document.getElementById("menu1").innerHTML =out;
+        
+
+
+        }
+        
+        function deletePaper(RecruitID) {
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+"/Project/staff-admin-recruit-link-delete.php?RecruitID="+RecruitID;
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //displayResponse(xmlhttp.responseText);
+                load();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+        }
+
+
+
+    
+    </script>
+    
+    </div>
 </body>
 </html>

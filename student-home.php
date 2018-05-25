@@ -6,116 +6,15 @@ session_start();
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>สำหรับนักศึกษา</title>
         <style>
             @import "global1.css";
-            html, body { 
-                margin: 0;
-                padding: 0;
-                background-image: #dfdfdf;
-                color: #444444;
-            }
-            #main {
-                width: 90%;
-                float: right;
-                position: relative;
-                top: 50px;
-            }
-    
-            #left {
-                float: left;
-                width: 10%;
-                position: relative;
-            }
-            #back {
-                margin: 20px;
-                font-weight: bold;
-            }
-            #header {
-                width: 100%;
-                position: relative;
-            }
-            #header > h1 {
-                font-size: 50px;
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                border-bottom: 5px solid;
-            }
-            div#left > a {
-                text-decoration: none;
-                margin: 5px;
-                color: #444444;
-            }
-            div#sub > a {
-                text-decoration: underline;
-                margin: 5px;
-                color: #ffffff;
-            }
-            div#content {
-                clear: both;
-                width: 100%;
-                position: relative;
-                display:inline-block;
+            @import "temphome.css";
+            div#content{          
                 background-image: url(img/gallery/980x380/064.jpg);
-            }
-            #c-top {
-                width: 100%;
-                height: 300px;
-                top: 0;
-                text-align: left;
-                position: relative;
-                color: white;
-            }
-            #c-bot {
-                width: 100%;
-                height: 60px;
-                top: 0;
-                text-align: left;
-                position: relative;
-                background: white;
-                color: black;
-            }
-            form{
-                padding-left : 30px;
-            }
-            input[type=text] {
-                background-color:rgba(0,0,0,0.8);
-                margin-top: 0px;
-                padding-left: 30px;
-                width: 310px;
-                height:30px;
-                text-align: left;
-                color: white;
-            }
-            ::placeholder {
-                color: white;
-            }
-            input[type=password] {
-                background-color:rgba(0,0,0,0.8);
-                margin-top: 15px;
-                padding-left: 30px;
-                width: 310px;
-                height: 30px;
-                text-align: left;
-                color: white;
-            }
-            input[type=submit] {
-                width: 60px;
-                background: white;
-            }
-            #sub{
-                width: 310px;
-                padding-left: 25px;
-                margin-top:20px;
-                text-align: center;
-            }
-            div#text >a {
-                text-decoration: underline;
-            }
-            #text{
-                padding-left : 30px;
             }
         </style>    
 
@@ -127,26 +26,30 @@ session_start();
                 exit('</body></html>');
             }
         ?> 
-        <div id="left">
-            <br><a href="home.php" id="back">< back</a>
+        <div id = "left">
+            <a href="home.php" class="btn btn-info btn-lg" id = "back">
+                <span class="glyphicon glyphicon-chevron-left"></span> 
+            </a>
         </div>
-        <div id="main">
+        <div id="main" >
             <div id="header">
                 <h1>ยินดีต้อนรับ</h1>
             </div>
             <div id="content">
                 <div id="c-top">
                     <form method="post" action="student-home-link.php">
-                        <h1>ระบบสารสนเทศ<br>เพื่อการบริหารการศึกษา</h1>
-                        <input type="text" name="id" placeholder="รหัสนักศึกษา"><br>
-                        <input type="password" name="pswd" placeholder="รหัสผ่าน"><br>
-                        <div id = "sub">
-                            <input type="submit" value="เข้าสู่ระบบ">
-                            <a href = "student-forgetpassword.php">ลืมรหัสผ่าน?</a>
+                        <h1 class = "header">ระบบสารสนเทศ</h1>
+                        <h1 class = "header">เพื่อการบริหารการศึกษา</h1>
+                        <div id = "c-in">
+                            <input type="text" name="id" placeholder="รหัสนักศึกษา"><br>
+                            <input type="password" name="pswd" placeholder="รหัสผ่าน"><br>
+                            <div id = "sub">
+                                <input type="submit" value="เข้าสู่ระบบ">
+                                <a href = "student-forgetpassword.php">ลืมรหัสผ่าน?</a>
+                            </div>
                         </div>
                     </form>
                 </div>
-                    
                 <div id= "c-bot">
                     <div id = "text">
                         <br>สำหรับนักศึกษาใหม่ <a href= "student-new-login.php">ลงทะเบียนนักศึกษาใหม่</a>

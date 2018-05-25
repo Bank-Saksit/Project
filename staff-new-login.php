@@ -7,103 +7,15 @@ session_start();
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>สำหรับบุคลากร</title>
         <style>
             @import "global1.css";
-            html, body { 
-                margin: 0;
-                padding: 0;
-                background: #dfdfdf;
-                color: #444444;
-            }
-            #main {
-                width: 90%;
-                float: right;
-                position: relative;
-                top: 50px;
-            }
-    
-            #left {
-                float: left;
-                width: 10%;
-                position: relative;
-            }
-            #back {
-                margin: 20px;
-                font-weight: bold;
-            }
-            #header {
-                width: 100%;
-                position: relative;
-            }
-            #header > h1 {
-                font-size: 50px;
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                border-bottom: 5px solid;
-            }
-            div#left > a {
-                text-decoration: none;
-                margin: 5px;
-                color: #444444;
-            }
-            div#sub > a {
-                text-decoration: underline;
-                margin: 5px;
-                color: #ffffff;
-            }
-            div#content {
-                clear: both;
-                width: 100%;
-                position: relative;
-                display: inline-block;
+            @import "temphome.css";
+            div#content{          
                 background-image: url(img/gallery/980x380/065.jpg);
-            }
-            #c-top {
-                width: 100%;
-                height: 360px;
-                top: 0;
-                text-align: left;
-                position: relative;
-                color: white;
-            }
-            form{
-                padding-top : 5px;
-                padding-left : 30px;
-            }
-            input[type=text] {
-                background-color:rgba(0,0,0,0.8);
-                margin-top: 10px;
-                padding-left: 30px;
-                width: 310px;
-                height:30px;
-                text-align: left;
-                color: white;
-            }
-            input[type=password] {
-                background-color:rgba(0,0,0,0.8);
-                margin-top: 20px;
-                padding-left: 30px;
-                width: 310px;
-                height: 30px;
-                text-align: left;
-                color: white;
-            }
-            ::placeholder {
-                color: white;
-            }
-            input[type=submit] {
-                width: 60px;
-                margin-top: 25px;
-                margin-left: 10px;
-                background: white;
-            }
-            div#text >a {
-                text-decoration: underline;
-            }
-            #text{
-                padding-left : 30px;
             }
         </style>    
 
@@ -116,19 +28,26 @@ session_start();
         }
         ?> 
         <div id="left">
-            <br><a href="staff-home.php" id="back">< back</a>
+            <a href="staff-home.php" class="btn btn-info btn-lg" id = "back">
+                <span class="glyphicon glyphicon-chevron-left"></span> 
+            </a>
         </div>
         <div id="main">
             <div id="header">
-                <h1>ลงทะเบียนสำหรับบุคลากรใหม่</h1>
+                <h1>ลงทะเบียนบุคลากรใหม่</h1>
             </div>
             <div id="content">
                 <div id="c-top">
                     <form action="staff-new-login-link.php" method="post" >
-                        <h1>ระบบสารสนเทศ<br>สำหรับบุคคลากรของมหาวิทยาลัย</h1>
-                        <input type="text" name="id" placeholder="รหัสประจำตัวบุคลากร"><br>
-                        <input type="password" name="pswd" placeholder="รหัสบัตรประจำตัวประชาชน"><br>
-                        <input type="submit" value="เข้าสู่ระบบ">
+                        <h1>สำหรับบุคลากรใหม่</h1>
+                        <h4>กรุณากรอกรหัสประจำตัวบุคลากรและรหัสบัตรประชาชนเพื่อทำการเข้าระบบและสร้างรหัสผ่าน</h4>
+                        <div id = "c-in">
+                            <input type="text" name="id" placeholder="รหัสประจำตัวบุคลากร"><br>
+                            <input type="password" name="pswd" placeholder="รหัสบัตรประจำตัวประชาชน"><br>
+                            <div id  = "sub">
+                                <input type="submit" value="เข้าสู่ระบบ">
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

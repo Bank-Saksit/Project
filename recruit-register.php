@@ -73,9 +73,12 @@
 <body>
     <form action = "recruit-form.php" method = "post" accept-charset = "UTF-8" id="ismForm" >
      <div id="left">
-        <br><a href="recruit-login.php" id="back">< back</a>
+        <a href="recruit-login.php" class="btn btn-info btn-lg" id = "back">
+                <span class="glyphicon glyphicon-chevron-left"></span> 
+		</a>
+		<br>
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a data-toggle="tab" href="#menu1">ประวัติส่วนตัว</a></li>
+            <li class = "active"><a data-toggle="tab" href="#menu1">ประวัติส่วนตัว</a></li>
             <li><a data-toggle="tab" href="#menu2">ที่อยุ่ปัจจุบัน</a></li>
             <li><a data-toggle="tab" href="#menu3">ประวัติด้านการศึกษา</a></li>
             <li><a data-toggle="tab" href="#menu4">โครงการที่เข้าศึกษา</a></li>
@@ -87,7 +90,7 @@
         </div>
         
         <div class="tab-content" id="tab-content">
-            <div id="menu1" class="tab-pane fade active">
+            <div id="menu1" class="tab-pane fade in active">
                 <h3>ประวัติส่วนตัว</h3>
                 <p><h5>คำนำหน้า:</h5>
 					<select name="Prefix" class="check" id="a1" >

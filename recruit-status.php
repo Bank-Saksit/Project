@@ -59,6 +59,7 @@
             border:2px solid;
             width:33.33%;
             background: #efefef;
+            position:relative;
             border-collapse: collapse;
         }
         #t4 {
@@ -72,13 +73,19 @@
             margin-top:40px;
         }
         #sm,#sm-sub {
+            color:white;
             width: 100px;
             height: 40px;
             margin-left: 20px;
             margin-right: 20px;
-            border-radius: 10px;
+            border-radius: 8px;
         }
-
+        #sm{
+            background:#d33;
+        }
+        #sm-sub{
+            background:#3085d6;
+        }
     </style>
 </head>
 <body>
@@ -184,8 +191,8 @@
                             cancelButtonColor: '#d33',
                             confirmButtonText: '<a href="recruit-status-confirm.php" ><font color="white">ยืนยันสิทธิ์</font></a>',
                             cancelButtonText: 'ยกเลิก'
-                        }).then(function(isConfirm){
-                            if (isConfirm){
+                        }).then((result) => {
+                            if (result.value){
                                 updateRecruit();
                             }
                         })

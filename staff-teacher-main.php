@@ -14,6 +14,8 @@
     <link href ="js/jquery-ui.min.css" rel="stylesheet">
 	<script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <link href ="js/sweetalert2.all.js" rel="stylesheet" >
+	<script src="js/sweetalert21.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         @import "global1.css";
@@ -33,7 +35,7 @@
     </div>
    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a data-toggle="tab" href="#menu1">ข้อมูลส่วนตัว</a></li>
+            <li class = "active"><a data-toggle="tab" href="#menu1">ข้อมูลส่วนตัว</a></li>
             <li><a data-toggle="tab" href="#menu2">ข้อมูลติดต่อ</a></li>
             <!-- <li><a data-toggle="tab" href="#menu3">ข้อมูลด้านการศึกษา</a></li> -->
         </ul>
@@ -49,7 +51,7 @@
             }
         ?>
         <div class="tab-content" id="tab-content">
-            <div id="menu1" class="tab-pane fade">
+            <div id="menu1" class="tab-pane fade in active">
                 
             </div>
             <div id="menu2" class="tab-pane fade">
@@ -120,10 +122,20 @@
                             "<option value='อิสลาม'>อิสลาม</option>"+
                             "<option value='ไม่ระบุ'>ไม่ระบุ</option>"+
                         "</select><br>"+
-                        "<br><input type='button' value='แก้ไข' onclick='update1()'>"+
+                        "<br><input type='button' value='แก้ไข' id='edit1' onclick='update1()'>"+
                         "<div id='res1'></div>"
                         "</form>";
                 document.getElementById("menu1").innerHTML = out1;
+
+                $(function(){
+                    $('#edit1').on('click',function(){
+                        swal({
+                            title:'<hi>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
+                            confirmButtonText:'ตกลง',
+                        })    
+                    })
+                })
+
                 if( arr[0].BloodGroup=='A' )
                     document.getElementById('inBl').selectedIndex = '0';
                 else if( arr[0].BloodGroup=='B' )
@@ -166,10 +178,20 @@
                         "<h5>รหัสไปรษณีย์:</h5><input type='text' id='inPo' value='"+arr[0].Postcode+"'><br>"+
                         "<h5>เบอร์โทรศัพท์มือถือ:</h5><input type='text' id='inMN' value='"+arr[0].MobileNumber+"'><br>"+
                         "<h5>เบอร์โทรศัพท์บ้าน:</h5><input type='text' id='inTN' value='"+arr[0].TelNumber+"'><br>"+
-                        "<br><input type='button' value='แก้ไข' onclick='update2()'>"+
+                        "<br><input type='button' value='แก้ไข' id='edit2' onclick='update2()'>"+
                         "<div id='res2'></div>"
                         "</form>";
                 document.getElementById("menu2").innerHTML = out2;
+
+                 $(function(){
+                    $('#edit2').on('click',function(){
+                        swal({
+                            title:'<hi>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
+                            confirmButtonText:'ตกลง',
+                        })
+                        
+                    })
+                })
         }
         function update1(){
             var xmlhttp = new XMLHttpRequest();
@@ -186,7 +208,6 @@
 
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById("res1").innerHTML = "แก้ไขสำเร็จ";
                 }
             }
             xmlhttp.open("GET", url, true);
@@ -205,7 +226,6 @@
 
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById("res2").innerHTML = "แก้ไขสำเร็จ";
                 }
             }
             xmlhttp.open("GET", url, true);

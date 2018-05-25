@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link href ="js/jquery-ui.min.css" rel="stylesheet">
+	<script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
 	<link href ="js/sweetalert2.all.js" rel="stylesheet">
 	<script src="js/sweetalert21.js"></script>
 </head>
@@ -57,9 +60,13 @@ if($result->num_rows == 0){
 		echo "	<script>			
 					swal({
 						type: 'success',
-						title: '<h1>การสมัครเสร็จเรียบร้อย<br>รหัสประจำตัวผู้สมัครของคุณคือ". $row['RecruitID'] ." <br></h1><br><h4>สามารถตรวจสถานะได้ในเว็บ</h4>',
+						title: 'การสมัครเสร็จเรียบร้อย<br>รหัสประจำตัวผู้สมัครของคุณคือ". $row['RecruitID']."',
+						text: 'สามารถตรวจสถานะได้ในเว็บ',
 						confirmButtonText: '<a href=\"recruit-login.php\" style=\"text-decoration: none\"><font color=\"white\">กลับสู่หน้าเว็บ</font></a>',
 					});
+					$(document).on('click',function(){
+						window.location='recruit-login.php'; 
+					})
 				</script>";
 	}
 
@@ -69,11 +76,13 @@ else{
 	echo "	<script>			
 				swal({
 					type: 'error',
-					title: '<h1>การสมัครล้มเหลว</h1><br><h5>ไม่สามารถสมัครโครงการเดียวกันซ้ำได้</h5>',
-					showConfirmButton: 'false',
-					showCancelButton: 'false',
-					footer: '<a href=\"recruit-register.php\">กรอกข้อมูลใหม่</a>',
+					title: 'การสมัครล้มเหลว',
+					text: 'ไม่สามารถสมัครโครงการเดียวกันซ้ำได้',
+					confirmButtonText: '<a href=\"recruit-login.php\" style=\"text-decoration: none\"><font color=\"white\">กรุณาลองใหม่อีกครั้ง</font></a>',
 				});
+				$(document).on('click',function(){
+					window.location='recruit-login.php'; 
+				})
 			</script>";
 }
 
