@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +22,15 @@
     
 </head>
 <body>
+    <?php 
+            if(isset($_SESSION['id']) && isset($_SESSION['pswd']) && $_SESSION['role'] == 'Teacher') {
+                
+            }
+            else{
+                header("location: staff-home.php");
+                exit('</body></html>');
+            }
+    ?>
     <div class="top" id="top">
             <a href="staff-teacher-main.php">ข้อมูลอาจารย์</a>
             <a class = "active" href="staff-teacher-main2.php">ลงทะเบียนสอน</a>
@@ -26,17 +38,17 @@
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="staff-home.php" class="logout">ออกจากระบบ</a>
+            <a href="staff-logout.php" class="logout">ออกจากระบบ</a>
     </div>
    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a data-toggle="tab" href="#menu1">ลงทะเบียนสอน</a></li>
+            <li class = "active"><a data-toggle="tab" href="#menu1">ลงทะเบียนสอน</a></li>
             <li><a data-toggle="tab" href="#menu2">ตารางสอน</a></li>
         </ul>
      </div>
      <div id="main">
         <div class="tab-content" id="tab-content">
-            <div id="menu1" class="tab-pane fade">
+            <div id="menu1" class="tab-pane fade in active">
                 
             </div>
             <div id="menu2" class="tab-pane fade">

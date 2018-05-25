@@ -1,12 +1,13 @@
 <?php
 session_start();
 include "dblink.php";
-if($_GET['Year']==2561 ){
+if($_GET['Year'] != NULL && $_GET['Semester'] != NULL){
 $result = $conn->query("SELECT sj.SubjectID, sj.SubjectName, sj.Credit, sj.Description, st.SectionNumber,
                              st.Day, st.Semester, st.AcademicYear, st.StartTime, st.EndTime, st.Room   
                         FROM subjectinfo sj,sectioninfo st,student_subject ss,studentinfo sd
                         WHERE sj.SubjectID = st.SubjectID AND st.SubjectSectionID = ss.SubjectSectionID 
-                                AND ss.StudentID = sd.StudentID AND sd.StudentID = '". $_SESSION['id'] ."';");
+                                AND ss.StudentID = sd.StudentID AND sd.StudentID = '". $_SESSION['id'] .
+                                 "' AND st.AcademicYear =" .$_GET['Year']." AND st.Semester =" .$_GET['Semester']);
 $outp = "[";
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     if ($outp != "[") {$outp .= ",";}
