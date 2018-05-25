@@ -5,7 +5,10 @@
 	<script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
 	<link href ="js/sweetalert2.all.js" rel="stylesheet">
-	<script src="js/sweetalert21.js"></script>
+    <script src="js/sweetalert21.js"></script>
+    <style>
+        @import "global1.css";
+    </style>
 </head>
 <body>
     <?php
