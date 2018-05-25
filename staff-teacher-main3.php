@@ -87,12 +87,12 @@
 
             function display(response){
                 var arr = JSON.parse(response);
-                var out1 = "<form> รายวิชาที่ต้องการตัดเกรด: <select id='sub'>";
+                var out1 = "<form> เลือกรายวิชาที่ต้องการตัดเกรด: <select id='sub'>";
                         for(i=0;i<arr.length;i++){
                             out1+="<option value="+arr[i].SubjectSectionID+">"+arr[i].SubjectID+"&nbspsec:"+arr[i].SectionNumber+"&nbsp"+arr[i].SubjectName+"</option>";
                         }
                     out1 += "</select><br>"+
-                            "<br><input type='button' value='เลือก' id='edit1' onclick='selectSub()'>"+
+                            "<br><input type='button' value='ยืนยัน' id='edit1' onclick='selectSub()'>"+
                             "</form>";
                     document.getElementById("menu1").innerHTML = out1;
             }
@@ -135,7 +135,7 @@
                                 "</select><br>"+
                                 "</td></tr>";
                     }
-                    out1+= "</table><br><input type='button' value='ยืนยัน' onclick='Grade("+JSON.stringify(response)+")'></form>"
+                    out1+= "</form></table><br><button value='ยืนยัน' onclick='Grade("+JSON.stringify(response)+")'>ยืนยัน</button>"
                     document.getElementById("menu1").innerHTML = out1;
             }
             function Grade(response){
