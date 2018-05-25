@@ -24,6 +24,9 @@ session_start();
             position: relative;
             top: 50px;
         }
+        #content{
+            margin-top: 2%;
+        }
         #c-right,#c-left{
             width: 80%;
             height: 380px;  
@@ -40,7 +43,7 @@ session_start();
             position: relative;
         }
         .cr{
-            background-image: url(img/gallery/980x380/063.jpg);
+            background-image: url(img/gallery/980x380/065.jpg);
         }
         #c-r-top {
             width: 100%;
@@ -48,7 +51,7 @@ session_start();
             top: 0;
             text-align: center;
             position: absolute;
-            background-color:rgba(0,0,0,0.8);
+            background-color:#ff9999;;
             color: white;
         }
         #c-r-bottom {
@@ -56,7 +59,7 @@ session_start();
             height: 170px;
             position: absolute;
             bottom: 0;
-            background-color:rgba(0,0,0,0.8);
+            background:#ff9999;
             cursor: pointer;
         }
         #c-r-bottom > h1 {
@@ -138,7 +141,7 @@ session_start();
             <?php include "js/jssor/examples-jquery/recruit-slides.php"; ?>
             </div>
             <div id="c-right">
-                <div id="c-r-top" class = "cr">
+                <div id="c-r-top" >
                     <h2>ตรวจสอบสถานะ</h2>
                     <form id="login" method="post" action="recruit-login-check.php">
                         <input type="text" name="id" id="id" placeholder="รหัสประจำตัวผู้สมัคร" ><br>

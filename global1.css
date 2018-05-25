@@ -55,6 +55,16 @@ footer {
     border-top: 2px solid;
     bottom: -30px;
 }
+footer>a{   
+    color: #444444;
+    padding: 15px 10px;
+    font-size: 20px;
+}
+footer> a:hover{   
+    color: #444444;
+    text-decoration: underline;
+    transition: 0.2s;
+}
 a {
     text-decoration: none;
     margin: 5px;

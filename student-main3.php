@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +18,13 @@
     <style>
         @import "global1.css";
         @import "temple.css";
+        #me {
+            width:100%;
+            text-align:center; 
+        }
+        #menu1 {
+            width:100%;
+        }
     </style>
     
 </head>
@@ -31,13 +41,14 @@
     </div>
    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li><a data-toggle="tab" href="#menu1">ตารางเรียน</a></li>
+            <li class = "active"><a data-toggle="tab" href="#menu1">ตารางเรียน</a></li>
             <li><a data-toggle="tab" href="#menu2">ตารางสอบ</a></li>
         </ul>
      </div>
      <div id="main">
         <div class="tab-content" id="tab-content">
-            <div id="menu1" class="tab-pane fade">
+            <div id="menu1" class="tab-pane fade in active">
+                <div id="me"><div>
             
             </div>
             <div id="menu2" class="tab-pane fade">
@@ -45,15 +56,46 @@
             </div>
         </div>
         <script>
-        function myFunction() {
-            var x = document.getElementById("top");
-            if (x.className === "top") {
-                x.className += " responsive";
-                } 
-            else {
-                x.className = "top";
+        var out = " ปีการศึกษา <select name = 'AcademicYear'>" +
+                    "<option value = ''>โปรดเลือก</option>" +
+                    "<option value = '2561'>2561</option></select><br>" + 
+                    " ภาคเรียนที่ <select name='Semester'>" + 
+                    "<option value = ''>โปรดเลือก</option>" +
+                    "<option value ='1'>1</option></select>"+
+                    "<br><input type='button' value='ยืนยัน' onclick=\"load()\">";
+        document.getElementById("menu1").innerHTML = out ;
+
+        //load();
+        function load(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+"/Project/student-main3-link.php?Year="+ 
+            $('select[name="AcademicYear"]').val() + "&Semester=" + $('select[name="Semester"]').val();
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    displayResponse(xmlhttp.responseText);
                 }
             }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        
+        function displayResponse(response) {
+            window.arr = JSON.parse(response);
+            
+            var out ="<h3 id='me1'>ปีการศึกษา : "+ arr[0].AcademicYear +
+                    " ภาคเรียน : "+ arr[0].Semester +"</h3><br>";
+            out += "รหัสวิชา : "+ arr[0].SubjectID +"<br>"+
+                    "ชื่อวิชา : "+ arr[0].SubjectName +"<br>"+
+                    "หน่วยกิต : "+ arr[0].Credit +"<br>"+
+                    "คำอธิบายวิชา : "+ arr[0].Description +"<br>"+
+                    "กลุ่ม : "+ arr[0].SectionNumber +"<br>"+
+                    "ห้อง : "+ arr[0].Room +"<br>"+
+                    "วัน : "+arr[0].Day + "<br>"+
+                    "เวลาเรียน : "+ arr[0].StartTime + ' น. - ' + arr[0].EndTime +" น. <br>";
+
+            document.getElementById("menu1").innerHTML = out;
+        }
         </script>
      </div>
 </body>
