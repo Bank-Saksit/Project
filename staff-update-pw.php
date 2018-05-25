@@ -38,7 +38,7 @@
                         swal({
                         
                             title: 'การตั้งรหัสผ่านสำเร็จ',
-                            text: 'สามารถเข้าใช้ระบบสารสนเทศเพื่อการบริหารการศึกษาได้แล้ว',
+                            text: 'สามารถเข้าใช้ระบบสารสนเทศสำหรับบุคลากรของมหาวิทยาลัยได้แล้ว',
                             showCancelButton: false,
                             confirmButtonText: '<a href=\"staff-home.php\" style=\"text-decoration: none\"><font color=\"white\">ตกลง</font></a>',
                         });
