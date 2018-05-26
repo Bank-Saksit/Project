@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -31,9 +31,9 @@
 </head>
 <body>
     <div class="top" id="top">
-            <a class = "active" href="staff-admin-main.php">ตรวจสอบข้อมูล</a>
-            <a href="staff-admin-main2.php">แก้ไขรายวิชา</a>
-            <a href="staff-admin-main3.php">menu3</a>
+            <a class = "active" href="staff-admin-main.php">นักเรียนสอบเข้าโครงการ</a>
+            <a href="staff-admin-main2.php">นักศึกษา</a>
+            <a href="staff-admin-main3.php">อาจารย์</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
@@ -42,7 +42,7 @@
     <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
         <li class = "active"><a data-toggle="tab" href="#menu1">ข้อมูลผู้สมัคร</a></li>
-        <li><a data-toggle="tab" href="#menu2">ข้อมูลนักศึกษา</a></li>
+        <li><a data-toggle="tab" href="#menu2">สร้างรหัสนักศึกษา</a></li>
         <li><a data-toggle="tab" href="#menu3">ข้อมูลอาจารย์</a></li>
         </ul>
      </div>
@@ -60,7 +60,8 @@
         </div>
     
     <script>
-        load();
+        load1();
+        load2();
 
         function myFunction() {
             var x = document.getElementById("top");
@@ -70,64 +71,113 @@
             else {
                 x.className = "top";
                 }
-            }
+        }
         
-        function load(){
+        //1
+        function load1(){
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol+'//'+location.host+"/Project/staff-admin-recruit-link.php";
+            var url = location.protocol+'//'+location.host+"/Project/staff-admin-recruit-link1.php";
             
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    display(xmlhttp.responseText);
+                    display1(xmlhttp.responseText);
                 }
             }
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
         }
 
-        function display(response) {
+        function display1(response) {
             arr = JSON.parse(response);
             var i;
             var out = "<table>";
-
+            
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td>RecruitID</td><td>Prefix</td><td>First name</td><td>LastName</td><td>RecruitPlanName</td><td>SchoolID</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                    out += "<tr><td>RecruitID</td><td>คำนำหน้า</td><td>ชื่อจริง</td><td>นามสกุล</td><td>เบอร์โทรติดต่อ</td><td>โรงเรียน</td><td>โครงการ</td><td>อันดับ</td><td>คณะ</td><td>ภาควิชา</td><td>สถานะ</td><td>อันดับที่ได้</td><td colspan='4'>แก้ไข</td></tr>";
                 }
                 out += "<tr><td>" + arr[i].RecruitID +
                 "</td><td>" + arr[i].Prefix +
                 "</td><td>" + arr[i].FirstName+
                 "</td><td>" + arr[i].LastName+
-                "</td><td>" + arr[i].RecruitPlanName+
-                "</td><td>" + arr[i].SchoolID+
-                "</td><td>" + arr[i].SchoolGPAX+
                 "</td><td>" + arr[i].MobileNumber+
-                "</td><td>" + arr[i].Status+
                 "</td><td>" + arr[i].SchoolName+
+                "</td><td>" + arr[i].RecruitPlanName+
                 "</td><td>" + arr[i].No+
-                "</td><td>" + arr[i].Department+
-                "</td><td>" + arr[i].NoPass+
                 "</td><td>" + arr[i].Faculty+
+                "</td><td>" + arr[i].Department+
+                "</td><td>" + arr[i].Status+
+                "</td><td>" + arr[i].NoPass+
                 // "</td><td>" + arr[i].+
                 "</td><td>" +
-                "<button onclick=\"deletePaper('"+arr[i].RecruitID+"')\">Delete</button>"+
+                "<button onclick=\"updateStatus('"+arr[i].RecruitID+"')\">เปลี่ยนสถานะ</button>"+
+                "</td><td>" +
+                "<button onclick=\"failed('"+arr[i].RecruitID+"')\">สอบไม่ผ่าน</button>"+
+                "</td><td>" +
+                "<select name='NPass' id='pass"+i+"'><option value='0'>0</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option></select>" + 
+                "<button onclick=\"NumberPass('"+arr[i].RecruitID+"','"+i+"')\">ผ่านสัมภาษณ์ เลือกคณะ</button>"+
+                "</td><td>" +
+                "<button onclick=\"deleteRecruit('"+arr[i].RecruitID+"')\">ลบข้อมูล</button>"+
                 "</td></tr>";
             }
             out += "</table>";
             document.getElementById("menu1").innerHTML =out;
-        
-
-
         }
         
-        function deletePaper(RecruitID) {
+        function updateStatus(RecruitID) {
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+"/Project/staff-admin-recruit-link-update.php?RecruitID="+RecruitID;
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //displayResponse(xmlhttp.responseText);
+                load1();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+        }
+
+        function failed(RecruitID) {
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+"/Project/staff-admin-recruit-link-failed.php?RecruitID="+RecruitID;
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //displayResponse(xmlhttp.responseText);
+                load1();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+        }
+
+        function NumberPass(RecruitID,i) {
+            var xmlhttp = new XMLHttpRequest();
+            var NPass = document.getElementById('pass'+i).value;
+            var url = location.protocol + '//' + location.host+"/Project/staff-admin-recruit-link-NumberPass.php?RecruitID="+RecruitID+"&NPass="+NPass;
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //displayResponse(xmlhttp.responseText);
+                load1();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+        }
+
+        function deleteRecruit(RecruitID) {
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol + '//' + location.host+"/Project/staff-admin-recruit-link-delete.php?RecruitID="+RecruitID;
 
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
-                load();
+                load1();
                 }
             }
             xmlhttp.open("GET", url, true);
@@ -135,7 +185,62 @@
 
         }
 
+        //2
+        function load2(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol+'//'+location.host+"/Project/staff-admin-recruit-link2.php";
+            
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    display2(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
 
+        function display2(response) {
+            arr = JSON.parse(response);
+            var i;
+            var out = "<table>";
+            
+            for(i = 0; i < arr.length; i++) {
+                if(i==0){
+                    out += "<tr><td>คณะ</td><td>ภาควิชา</td><td>RecruitID</td><td>คำนำหน้า</td><td>ชื่อจริง</td><td>นามสกุล</td><td>รหัสบัตรประชาชน</td><td>เบอร์โทรติดต่อ</td><td>โครงการ</td><td>สถานะ</td><td colspan='4'>แก้ไข</td></tr>";
+                }
+                out += "<tr><td>" + arr[i].Faculty +
+                "</td><td>" + arr[i].Department+
+                "</td><td>" + arr[i].RecruitID +
+                "</td><td>" + arr[i].Prefix +
+                "</td><td>" + arr[i].FirstName +
+                "</td><td>" + arr[i].LastName +
+                "</td><td>" + arr[i].IDCardNumber +
+                "</td><td>" + arr[i].MobileNumber +
+                "</td><td>" + arr[i].RecruitPlanName +
+                "</td><td>" + arr[i].Status +
+                "</td><td>" +
+                "<button onclick=\"moveToStudent('"+arr[i].RecruitID+"')\">สร้างรหัสนศ.+ย้ายข้อมูล</button>"+
+                "<button onclick=\"deleteRecruit('"+arr[i].RecruitID+"')\">ลบข้อมูล</button>"+
+                "</td></tr>";
+            }
+            out += "</table>";
+            document.getElementById("menu2").innerHTML =out;
+        }
+        
+        function moveToStudent(RecruitID) {
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+"/Project/staff-admin-recruit-link-moveToStudent?RecruitID="+RecruitID;
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //displayResponse(xmlhttp.responseText);
+                load2();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+        }
 
     
     </script>

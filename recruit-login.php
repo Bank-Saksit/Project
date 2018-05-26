@@ -17,12 +17,18 @@ session_start();
     </script>
     <style>
         @import "global1.css";
+        #left {
+            float: left;
+            width: 13%;
+            position: relative;
+            height: 100%;
+        }
         #main {
-            width: 1100px;
+            width: 72%;
             height: 100%;
             margin: auto;
             position: relative;
-            top: 50px;
+            top: 60px;
         }
         #content{
             margin-top: 2%;

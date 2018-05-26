@@ -87,52 +87,67 @@
         }
         function display(response){
             arr = JSON.parse(response);
-                var out1 = "<h3>ข้อมูลส่วนตัว</h3>"+
-                        "<p>รหัสประจำตัวบุคคลากร: "+ arr[0].StaffID +"<br>"+
-                        "<p>ชื่อ: "+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"<br>"+
-                        "<p>รหัสบัตรประชาชน: "+arr[0].IDCardNumber+"<br>"+
-                        "<p>Email: "+arr[0].Email+"<br>"+
-                        "<p>ภาควิชา: "+arr[0].Department+"<br>"+
-                        "<p>ระดับการศึกษา: "+arr[0].EducationBackground+"<br>"+
-                        "<p>สถานะการเป็นที่ปรึกษา: "+arr[0].ConsultantStatus+"<br>"+
-                        "<br><p>เพศ: "+arr[0].Gender+"<br>"+
+            var out1 = "<h2>ข้อมูลส่วนตัว</h2><br>"+
+                    "<div class = 'row'>"+
+                     "<div class= 'col-sm-4' >"+
+                        "<p>รหัสประจำตัวบุคคลากร : &nbsp"+ arr[0].StaffID +"</p>"+
+                        "<p>ชื่อ : &nbsp"+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"</p>"+
+                        "<p>รหัสบัตรประชาชน : &nbsp"+arr[0].IDCardNumber+"</p>"+
+                        "<p>Email : &nbsp"+arr[0].Email+"</p>"+
+                        "<p>เพศ : &nbsp"+arr[0].Gender+"</p>"+
+                        "</div>"+
+                        "<div class= 'col-sm-4'>"+
+                        "<p>ระดับการศึกษา : &nbsp"+arr[0].Degree+"</p>"+
+                        "<p>คณะ : &nbsp"+arr[0].Faculty+"</p>"+
+                        "<p>ภาควิชา : &nbsp"+arr[0].Department+"</p>"+
+                        "<p>หลักสูตร : &nbsp"+arr[0].Course+"</p>"+
+                        "<p>สถานะ : &nbsp"+arr[0].Status+"</p>"+
+                     "</div>"+
+                     "</div>"+
+                     "<div class= 'row'>"+"<br>"+"</div>"+
+                     "<div class= 'row'>"+
+                     "<div class= 'col-sm-4' >"+
                         "<form>"+
-                        "<p>หมู่เลือด: <select id='inBl'>"+
+                        "<p>หมู่เลือด : <select id='inBl'>"+
                             "<option value='A'>A</option>"+
                             "<option value='B'>B</option>"+
                             "<option value='AB'>AB</option>"+
                             "<option value='O'>O</option>"+
-                        "</select><br>"+
-                        "<p>วันเกิด: <input type='date' id='inDOB' value='"+arr[0].DOB+"'><br>"+
+                        "</select> </p>"+
+                        "<p>วันเกิด :<input type='date' id='inDOB' value='"+arr[0].DOB+"'></p>"+
                         "<p>สัญชาติ: <select id='inNa'>"+
                             "<option value='ไทย'>ไทย</option>"+
                             "<option value='จีน'>จีน</option>"+
                             "<option value='ญี่ปุ่น'>ญี่ปุ่น</option>"+
                             "<option value='ไม่ระบุ'>ไม่ระบุ</option>"+
-                        "</select><br>"+
-                        "<p>เชื้อชาติ: <select id='inRa'><br>"+
+                        "</select> </p>"+
+                        "</div>"+
+                        "<div class= 'col-sm-4' >"+
+                        "<p>เชื้อชาติ : <select id='inRa'><br>"+
                             "<option value='ไทย'>ไทย</option>"+
                             "<option value='จีน'>จีน</option>"+
                             "<option value='ญี่ปุ่น'>ญี่ปุ่น</option>"+
                             "<option value='ไม่ระบุ'>ไม่ระบุ</option>"+
-                        "</select><br>"+
-                        "<p>ศาสนา: <select id='inRe'><br>"+
+                        "</select> </p>"+
+                        "<p>ศาสนา : <select id='inRe'><br>"+
                             "<option value='พุทธ'>พุทธ</option>"+
                             "<option value='คริสต์'>คริสต์</option>"+
                             "<option value='อิสลาม'>อิสลาม</option>"+
                             "<option value='ไม่ระบุ'>ไม่ระบุ</option>"+
-                        "</select><br>"+
-                        "<br><input type='button' value='แก้ไข' id='edit1' onclick='update1()'>"+
+                        "</select> </p>"+
+                        "<br><p><input type='button' value='แก้ไข' id='edit1' onclick='update1()'> </p>"+
                         "<div id='res1'></div>"
-                        "</form>";
+                        "</form>"+
+                        "</div>"+
+                        "</div>";
                 document.getElementById("menu1").innerHTML = out1;
-
+                
                 $(function(){
                     $('#edit1').on('click',function(){
                         swal({
-                            title:'<hi>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
+                            title:'<h1>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
                             confirmButtonText:'ตกลง',
-                        })    
+                        })
                     })
                 })
 
@@ -171,22 +186,28 @@
                     document.getElementById('inRe').selectedIndex = '2';
                 else
                     document.getElementById('inRe').selectedIndex = '3';
-                var out2 = "<h3>ข้อมูลติดต่อ</h3>"+
-                        "<form>"+
-                        "<p><h5>ที่อยู่:</h5><textarea style='resize: none' rows=3 cols=50 id='inAdd'>"+arr[0].Address+"</textarea><br>"+
-                        "<h5>จังหวัด:</h5><input type='text' id='inPr' value='"+arr[0].Province+"'><br>"+
-                        "<h5>รหัสไปรษณีย์:</h5><input type='text' id='inPo' value='"+arr[0].Postcode+"'><br>"+
-                        "<h5>เบอร์โทรศัพท์มือถือ:</h5><input type='text' id='inMN' value='"+arr[0].MobileNumber+"'><br>"+
-                        "<h5>เบอร์โทรศัพท์บ้าน:</h5><input type='text' id='inTN' value='"+arr[0].TelNumber+"'><br>"+
-                        "<br><input type='button' value='แก้ไข' id='edit2' onclick='update2()'>"+
-                        "<div id='res2'></div>"
-                        "</form>";
+    
+                var out2 = "<h2>ข้อมูลติดต่อ</h2><br>"+
+                "<div class = 'row'>"+
+                    "<div class= 'col-sm-4' >"+
+                    "<form>"+
+                    "<p>ที่อยู่ :<textarea style='resize: none' rows=3 cols=50 id='inAdd'>"+arr[0].Address+"</textarea></p>"+
+                    "<p>จังหวัด :<input type='text' id='inPr' class='bg' value='"+arr[0].Province+"'></p>"+
+                    "<p>รหัสไปรษณีย์ : <input type='text' id='inPo' class='bg' value='"+arr[0].Postcode+"'></p>"+
+                    "</div>"+"<div class= 'col-sm-4' >"+
+                    "<p>เบอร์โทรศัพท์มือถือ : <input type='text' id='inMN' class='bg' value='"+arr[0].MobileNumber+"'></p>"+
+                    "<p>เบอร์โทรศัพท์บ้าน : <input type='text' id='inTN' class='bg' value='"+arr[0].TelNumber+"'></p>"+
+                    "<br><p><input type='button' value='แก้ไข' id='edit2' onclick='update2()'></p>"+
+                    "<div id='res2'></div>"
+                    "</form>"+
+                    "</div>"+
+                    "</div>";
                 document.getElementById("menu2").innerHTML = out2;
-
-                 $(function(){
+                
+                $(function(){
                     $('#edit2').on('click',function(){
                         swal({
-                            title:'<hi>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
+                            title:'<h1>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
                             confirmButtonText:'ตกลง',
                         })
                         
