@@ -52,7 +52,6 @@
             <form>
                 <div id="detail"></div>
                 <div id="but"></div>
-                <div id="test"> </div>
             </form>
         </div>
         <?php include "recruit-footer.php"; ?>
@@ -84,17 +83,9 @@
             var outlist =
                 "<h3>ชื่อมหาวิทยาลัยที่เลือกศึกษาต่อ</h3>"+
                 "<select name=\"inUni\" id=\"inUni\" onchange=\"otherField(this.value)\">"+
-                    "<option value=\"ลาดกระบัง\">ลาดกระบัง</option>"+
-                    "<option value=\"พระนครเหนือ\">พระนครเหนือ</option>"+
-                    "<option value=\"จุฬา\">จุฬา</option>"+
-                    "<option value=\"ธรรมศาสตร์\">ธรรมศาสตร์</option>"+
-                    "<option value=\"มหิดล\">มหิดล</option>"+
-                    "<option value=\"เกษตร\">เกษตร</option>"+
-                    "<option value=\"มช\">มช</option>"+
-                    "<option value=\"ABAC\">ABAC</option>"+
-                    "<option value=\"ราม\">ราม</option>"+
-                    "<option value=\"other\">อื่นๆ</option>"+
-                "</select>"+
+                    "<option value='จุฬาลงกรณ์'>จุฬาลงกรณ์มหาวิทยาลัย</option><option value='เกษตรศาสตร์'>มหาวิทยาลัยเกษตรศาสตร์</option><option value='ธรรมศาสตร์'>มหาวิทยาลัยธรรมศาสตร์</option><option value='พระนครเหนือ'>สถาบันเทคโนโลยีพระจอมเกล้าพระนครเหนือ</option>"+
+                    "<option value='ลาดกระบัง'>สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</option><option value='มหิดล'>มหาวิทยาลัยมหิดล</option><option value='อื่น'>อื่นๆ</option>"+
+                "</select><br><div id='addbut'></div>"+
                 "<br>เหตุผล<br>"+
                 "<textarea rows=3 cols=50 name=\"reason\" style=\"resize:none\"></textarea><br>"+
                 "<div id='button'>"+
@@ -142,10 +133,10 @@
         }
 
         function otherField(val) {
-            if( val=="other" )
-                document.getElementById("test").innerHTML = "โปรดระบุ: <input type=\"text\" name=\"other\" id=\"other\"><br>";
+            if( val=="อื่น" )
+                document.getElementById("addbut").innerHTML = "โปรดระบุ: <input type=\"text\" name=\"other\" id=\"other\"><br>";
             else
-                document.getElementById("test").innerHTML = "";
+                document.getElementById("addbut").innerHTML = "";
         }
 
          
