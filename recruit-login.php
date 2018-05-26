@@ -19,7 +19,7 @@ session_start();
         @import "global1.css";
         #left {
             float: left;
-            width: 15%;
+            width: 13%;
             position: relative;
             height: 100%;
         }
