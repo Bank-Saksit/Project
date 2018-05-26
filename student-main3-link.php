@@ -1,7 +1,6 @@
 <?php
 session_start();
 include "dblink.php";
-if($_GET['Year'] != NULL && $_GET['Semester'] != NULL){
 $result = $conn->query("SELECT sj.SubjectID, sj.SubjectName, sj.Credit, sj.Description, st.SectionNumber,
                              st.Day, st.Semester, st.AcademicYear, st.StartTime, st.EndTime, st.Room   
                         FROM subjectinfo sj,sectioninfo st,student_subject ss,studentinfo sd
@@ -24,7 +23,6 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     $outp .= '"EndTime":"'.$rs["EndTime"].'"}';
 }
 $outp .= "]";
-}
 $conn->close();
 
 echo($outp);
