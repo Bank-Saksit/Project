@@ -24,7 +24,7 @@ include "dblink.php";
                             FROM sectioninfo sc,subjectinfo su,teachersec t
                             WHERE   sc.SubjectID = su.SubjectID AND
                                     sc.SubjectSectionID = t.SubjectSectionID AND
-                                    sc.Day = 'วันจันทร์' AND
+                                    sc.Day = 'จันทร์' AND
                                     sc.Semester = '$sem' AND
                                     sc.AcademicYear = '$year' AND
                                     t.StaffID = $id
@@ -33,7 +33,7 @@ include "dblink.php";
                             FROM sectioninfo sc,subjectinfo su,teachersec t
                             WHERE   sc.SubjectID = su.SubjectID AND
                                     sc.SubjectSectionID = t.SubjectSectionID AND
-                                    sc.Day = 'วันอังคาร' AND
+                                    sc.Day = 'อังคาร' AND
                                     sc.Semester = '$sem' AND
                                     sc.AcademicYear = '$year' AND
                                     t.StaffID = $id
@@ -42,7 +42,7 @@ include "dblink.php";
                             FROM sectioninfo sc,subjectinfo su,teachersec t
                             WHERE   sc.SubjectID = su.SubjectID AND
                                     sc.SubjectSectionID = t.SubjectSectionID AND
-                                    sc.Day = 'วันพุธ' AND
+                                    sc.Day = 'พุธ' AND
                                     sc.Semester = '$sem' AND
                                     sc.AcademicYear = '$year' AND
                                     t.StaffID = $id
@@ -51,7 +51,7 @@ include "dblink.php";
                             FROM sectioninfo sc,subjectinfo su,teachersec t
                             WHERE   sc.SubjectID = su.SubjectID AND
                                     sc.SubjectSectionID = t.SubjectSectionID AND
-                                    sc.Day = 'วันพฤหัสบดี' AND
+                                    sc.Day = 'พฤหัสบดี' AND
                                     sc.Semester = '$sem' AND
                                     sc.AcademicYear = '$year' AND
                                     t.StaffID = $id
@@ -60,7 +60,7 @@ include "dblink.php";
                             FROM sectioninfo sc,subjectinfo su,teachersec t
                             WHERE   sc.SubjectID = su.SubjectID AND
                                     sc.SubjectSectionID = t.SubjectSectionID AND
-                                    sc.Day = 'วันศุกร์' AND
+                                    sc.Day = 'ศุกร์' AND
                                     sc.Semester = '$sem' AND
                                     sc.AcademicYear = '$year' AND
                                     t.StaffID = $id
@@ -69,7 +69,7 @@ include "dblink.php";
                             FROM sectioninfo sc,subjectinfo su,teachersec t
                             WHERE   sc.SubjectID = su.SubjectID AND
                                     sc.SubjectSectionID = t.SubjectSectionID AND
-                                    sc.Day = 'วันเสาร์' AND
+                                    sc.Day = 'เสาร์' AND
                                     sc.Semester = '$sem' AND
                                     sc.AcademicYear = '$year' AND
                                     t.StaffID = $id
@@ -78,7 +78,7 @@ include "dblink.php";
                             FROM sectioninfo sc,subjectinfo su,teachersec t
                             WHERE   sc.SubjectID = su.SubjectID AND
                                     sc.SubjectSectionID = t.SubjectSectionID AND
-                                    sc.Day = 'วันอาทิตย์' AND
+                                    sc.Day = 'อาทิตย์' AND
                                     sc.Semester = '$sem' AND
                                     sc.AcademicYear = '$year' AND
                                     t.StaffID = $id
