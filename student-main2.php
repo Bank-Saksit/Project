@@ -171,7 +171,7 @@
                 for( var i=0 ; i<arr.length ; i++ )
                     out4+="<option value='"+arr[i].SubjectID+"'>"+arr[i].SubjectID+"</option>";
                 out4+="</select> <div id='outSec4'></div>"+
-                        "<br><input type='button' value='ยืนยัน' onclick='update4()'>"+
+                        "<p><input type='button' value='ยืนยัน' onclick='update4()'>"+
                         "</form></div></div>";
                 document.getElementById("menu4").innerHTML = out4;
 
