@@ -90,39 +90,46 @@
                 var out1 = "<h2>ข้อมูลส่วนตัว</h2>"+
                     "<div class = 'row'>"+
                      "<div class= 'col-sm-4' >"+
-                        "<h4>รหัสประจำตัวนักศึกษา: "+ arr[0].StudentID +"</h4>"+
-                        "<h4>ชื่อ: "+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"</h4>"+
-                        "<h4>รหัสบัตรประชาชน: "+arr[0].IDCardNumber+"</h4>"+
-                        "<h4>Email: "+arr[0].Email+"</h4><br>"+
-                        "<h4>ระดับการศึกษา: "+arr[0].Degree+"</h4>"+
-                        "<h4>คณะ: "+arr[0].Faculty+"</h4>"+
-                        "<h4>ภาควิชา: "+arr[0].Department+"</h4>"+
-                        "<h4>หลักสูตร: "+arr[0].Course+"</h4>"+
-                        "<h4>สถานะ: "+arr[0].Status+"</h4>"+
-                        "<h4>เพศ: "+arr[0].Gender+"</h4>"+
+                        "<h4>รหัสประจำตัวนักศึกษา : &nbsp"+ arr[0].StudentID +"</h4>"+
+                        "<h4>ชื่อ : &nbsp"+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"</h4>"+
+                        "<h4>รหัสบัตรประชาชน : &nbsp"+arr[0].IDCardNumber+"</h4>"+
+                        "<h4>Email : &nbsp"+arr[0].Email+"</h4>"+
+                        "<h4>เพศ : &nbsp"+arr[0].Gender+"</h4>"+
+                        "</div>"+
+                        "<div class= 'col-sm-4'>"+
+                        "<h4>ระดับการศึกษา : &nbsp"+arr[0].Degree+"</h4>"+
+                        "<h4>คณะ : &nbsp"+arr[0].Faculty+"</h4>"+
+                        "<h4>ภาควิชา : &nbsp"+arr[0].Department+"</h4>"+
+                        "<h4>หลักสูตร : &nbsp"+arr[0].Course+"</h4>"+
+                        "<h4>สถานะ : &nbsp"+arr[0].Status+"</h4>"+
                      "</div>"+
-                     "<div class= 'col-sm-4'>"+
+                     "</div>"+
+                     "<div class= 'row'>"+"<br>"+"</div>"+
+                     "<div class= 'row'>"+
+                     "<div class= 'col-sm-4' >"+
                         "<form>"+
-                        "<h4>หมู่เลือด: </h4><select id='inBl'>"+
+                        "<h4>หมู่เลือด : </h4><select id='inBl'>"+
                             "<option value='A'>A</option>"+
                             "<option value='B'>B</option>"+
                             "<option value='AB'>AB</option>"+
                             "<option value='O'>O</option>"+
                         "</select>"+
-                        "<h4>วันเกิด: </h4><input type='date' id='inDOB' value='"+arr[0].DOB+"'><br>"+
+                        "<h4>วันเกิด : </h4><input type='date' id='inDOB' value='"+arr[0].DOB+"'><br>"+
                         "<h4>สัญชาติ: </h4><select id='inNa'>"+
                             "<option value='ไทย'>ไทย</option>"+
                             "<option value='จีน'>จีน</option>"+
                             "<option value='ญี่ปุ่น'>ญี่ปุ่น</option>"+
                             "<option value='ไม่ระบุ'>ไม่ระบุ</option>"+
                         "</select>"+
-                        "<h4>เชื้อชาติ: </h4><select id='inRa'><br>"+
+                        "</div>"+
+                        "<div class= 'col-sm-4' >"+
+                        "<h4>เชื้อชาติ : </h4><select id='inRa'><br>"+
                             "<option value='ไทย'>ไทย</option>"+
                             "<option value='จีน'>จีน</option>"+
                             "<option value='ญี่ปุ่น'>ญี่ปุ่น</option>"+
                             "<option value='ไม่ระบุ'>ไม่ระบุ</option>"+
                         "</select>"+
-                        "<h4>ศาสนา: </h4><select id='inRe'><br>"+
+                        "<h4>ศาสนา : </h4><select id='inRe'><br>"+
                             "<option value='พุทธ'>พุทธ</option>"+
                             "<option value='คริสต์'>คริสต์</option>"+
                             "<option value='อิสลาม'>อิสลาม</option>"+
@@ -184,11 +191,12 @@
                     "<div class = 'row'>"+
                      "<div class= 'col-sm-4' >"+
                         "<form>"+
-                        "<h4>ที่อยู่:</h4><textarea style='resize: none' rows=3 cols=50 id='inAdd'>"+arr[0].Address+"</textarea><br>"+
-                        "<h4>จังหวัด:</h4><input type='text' id='inPr' class='bg' value='"+arr[0].Province+"'><br>"+
-                        "<h4>รหัสไปรษณีย์:</h4><input type='text' id='inPo' class='bg' value='"+arr[0].Postcode+"'><br>"+
-                        "<h4>เบอร์โทรศัพท์มือถือ:</h4><input type='text' id='inMN' class='bg' value='"+arr[0].MobileNumber+"'><br>"+
-                        "<h4>เบอร์โทรศัพท์บ้าน:</h4><input type='text' id='inTN' class='bg' value='"+arr[0].TelNumber+"'><br>"+
+                        "<h4>ที่อยู่ :</h4><textarea style='resize: none' rows=3 cols=50 id='inAdd'>"+arr[0].Address+"</textarea><br>"+
+                        "<h4>จังหวัด :</h4><input type='text' id='inPr' class='bg' value='"+arr[0].Province+"'><br>"+
+                        "<h4>รหัสไปรษณีย์ :</h4><input type='text' id='inPo' class='bg' value='"+arr[0].Postcode+"'><br>"+
+                        "</div>"+"<div class= 'col-sm-4' >"+
+                        "<h4>เบอร์โทรศัพท์มือถือ :</h4><input type='text' id='inMN' class='bg' value='"+arr[0].MobileNumber+"'><br>"+
+                        "<h4>เบอร์โทรศัพท์บ้าน :</h4><input type='text' id='inTN' class='bg' value='"+arr[0].TelNumber+"'><br>"+
                         "<br><input type='button' value='แก้ไข' id='edit2' onclick='update2()'>"+
                         "<div id='res2'></div>"
                         "</form>"+
@@ -199,7 +207,7 @@
                 $(function(){
                     $('#edit2').on('click',function(){
                         swal({
-                            title:'<hi>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
+                            title:'<h1>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
                             confirmButtonText:'ตกลง',
                         })
                         
@@ -338,16 +346,16 @@
                 var out4 = "<h2>ข้อมูลด้านการศึกษา</h2>"+
                     "<div class = 'row'>"+
                      "<div class= 'col-sm-4' >"+
-                        "<h4>ระดับการศึกษา: "+arr[0].EducationBackground+"</h4>"+
-                        "<h4>สาขา: "+arr[0].Branch+"</h4>"+
-                        "<h4>GPAX: "+arr[0].SchoolGPAX+"</h4>"+
+                        "<h4>ระดับการศึกษา : &nbsp"+arr[0].EducationBackground+"</h4>"+
+                        "<h4>สาขา : &nbsp"+arr[0].Branch+"</h4>"+
+                        "<h4>GPAX : &nbsp"+arr[0].SchoolGPAX+"</h4>"+
                         "</div>"+
                         "<div class= 'col-sm-4' >"+
-                        "<h4>โรงเรียน: "+arr[0].SchoolName+"</h4>"+
-                        "<h4>ที่อยู่: "+arr[0].sAddress+"</h4>"+
-                        "<h4>จังหวัด: "+arr[0].sProvince+"</h4>"+
-                        "<h4>รหัสไปรษณีย์: "+arr[0].sPostcode+"</h4>"+
-                        "<h4>โทรศัพท์: "+arr[0].sTelNumber+"</h4>"+
+                        "<h4>โรงเรียน : &nbsp"+arr[0].SchoolName+"</h4>"+
+                        "<h4>ที่อยู่ : &nbsp"+arr[0].sAddress+"</h4>"+
+                        "<h4>จังหวัด : &nbsp"+arr[0].sProvince+"</h4>"+
+                        "<h4>รหัสไปรษณีย์ : &nbsp"+arr[0].sPostcode+"</h4>"+
+                        "<h4>โทรศัพท์ : &nbsp"+arr[0].sTelNumber+"</h4>"+
                         "</div>"+
                         "</div>";
                 document.getElementById("menu4").innerHTML = out4;

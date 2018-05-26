@@ -15,9 +15,19 @@
 	<script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href ="js/jquery-ui.min.css" rel="stylesheet">
+	<script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+	<!-- <link href ="js/sweetalert2.all.js" rel="stylesheet"> -->
+    <script src="js/sweetalert21.js"></script>
     <style>
         @import "global1.css";
         @import "temple.css";
+        table, th, td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
     </style>
     
 </head>
@@ -38,13 +48,13 @@
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="staff-home.php" class="logout">ออกจากระบบ</a>
+            <a href="staff-logout.php" class="logout">ออกจากระบบ</a>
     </div>
    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li class = "active"><a data-toggle="tab" href="#menu1">บันทึกเกรดในรายวิชา</a></li>
-            <li><a data-toggle="tab" href="#menu2">เกรดของนักเรียนของแต่ละปี</a></li>
-            <li><a data-toggle="tab" href="#menu3">เกรดของนักเรียนของแต่ละรายวิชา</a></li>
+            <li class = "active"><a data-toggle="tab" href="#menu1" onclick="load()">บันทึกเกรดในรายวิชา</a></li>
+            <li><a data-toggle="tab" href="#menu2" onclick="load2()" >เกรดของนักเรียนของแต่ละปี</a></li>
+            <li><a data-toggle="tab" href="#menu3" onclick="load3()" >เกรดของนักเรียนของแต่ละรายวิชา</a></li>
         </ul>
      </div>
      <div id="main">
@@ -60,15 +70,284 @@
             </div>
         </div>
         <script>
-        function myFunction() {
-            var x = document.getElementById("top");
-            if (x.className === "top") {
-                x.className += " responsive";
+            load();
+            load2();
+            load3();
+
+            function myFunction() {
+                var x = document.getElementById("top");
+                if (x.className === "top") {
+                    x.className += " responsive";
                 } 
-            else {
-                x.className = "top";
+                else {
+                    x.className = "top";
                 }
             }
+
+            function load(){
+                var xmlhttp = new XMLHttpRequest();
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-cutgrade-link.php?type=01&inID="+<?php echo $_SESSION['id'];?>+"&sub=0"+"&gpa=''&SID=''";
+                    
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        display(xmlhttp.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+
+            function display(response){
+                var arr = JSON.parse(response);
+                var out1 = "<form> เลือกรายวิชาที่ต้องการตัดเกรด: <select id='sub'>";
+                        for(i=0;i<arr.length;i++){
+                            out1+="<option value="+arr[i].SubjectSectionID+">"+arr[i].SubjectID+"&nbsp"+arr[i].SubjectName+"&nbspsec:"+arr[i].SectionNumber+"</option>";
+                        }
+                    out1 += "</select><br>"+
+                            "<br><input type='button' value='ยืนยัน' id='edit1' onclick='selectSub()'>"+
+                            "</form>";
+                    document.getElementById("menu1").innerHTML = out1;
+            }
+
+            function load2(){
+                var xmlhttp = new XMLHttpRequest();
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-seeGPAyear.php";
+                    
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        display2(xmlhttp.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+
+            function display2(response){
+                var arr = JSON.parse(response);
+                var out2 = "<form> เลือกชั้นปีที่ต้องการดูเกรด: <select id='year'>";
+                        for(i=0;i<arr.length;i++){
+                            out2+="<option value="+arr[i].Status+">"+arr[i].Status+"</option>";
+                        }
+                    out2 += "</select><br>"+
+                            "<br><input type='button' value='ตรวจสอบ' onclick='selectYear()'>"+
+                            "</form>";
+                    document.getElementById("menu2").innerHTML = out2;
+            }
+            
+            function selectYear(){
+                var xmlhttp = new XMLHttpRequest();
+                var year = document.getElementById('year').value;
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-seeGPAyear-link.php?year="+year;
+                    
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        disGrade2(xmlhttp.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+
+            function disGrade2(response){
+                var arr = JSON.parse(response);
+                var out2;
+                if(arr[0].nop =="not found" ){
+                    out2 =  arr[0].Year+
+                            "<br><br>"+"ไม่พบข้อมูล" ;
+                }
+                else{
+                    out2=   arr[0].Year+
+                            "<br><br><table>"+
+                            "<tr><td>" +
+                            "รหัสนักศึกษา"+
+                            "</td><td>" +
+                            "ชื่อจริง"+
+                            "</td><td>" +
+                            "นามสกุล"+
+                            "</td><td>" +
+                            "GPA"+
+                            "</td></tr>";
+                    for(i=0;i<arr.length;i++){
+                        out2+=  "<tr><td>" +
+                                arr[i].StudentID+
+                                "</td><td>" +
+                                arr[i].FirstName+
+                                "</td><td>" +
+                                arr[i].LastName+
+                                "</td><td>" +
+                                arr[i].GPAX+
+                                "</td></tr>";
+                    }
+                    out2+= "</table>"
+                }
+                
+                document.getElementById("menu2").innerHTML = out2;
+            }
+
+            function load3(){
+                var xmlhttp = new XMLHttpRequest();
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-seeGPAsubject.php";
+                    
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        display3(xmlhttp.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+
+            function display3(response){
+                var arr = JSON.parse(response);
+                var out3 = "<form> เลือกรายวิชาที่ต้องการดูเกรด: <select id='sub3'>";
+                        for(i=0;i<arr.length;i++){
+                            out3+="<option value="+
+                                    arr[i].SubjectSectionID+">"+
+                                    arr[i].SubjectID+
+                                    "&nbsp"+arr[i].SubjectName+
+                                    "&nbspsec:"+arr[i].SectionNumber+
+                                    "&nbspภาคเรียนที่:"+arr[i].Semester+
+                                    "&nbspปีการศึกษา:"+arr[i].AcademicYear+
+                                    "</option>";
+                        }
+                    out3 += "</select><br>"+
+                            "<br><input type='button' value='ตรวจสอบ' onclick='selectSub3()'>"+
+                            "</form>";
+                    document.getElementById("menu3").innerHTML = out3;
+            }
+
+            function selectSub3(){
+                var xmlhttp = new XMLHttpRequest();
+                var sub = document.getElementById('sub3').value;
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-seeGPAsubject-link.php?sub="+sub;
+                    
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        disGrade3(xmlhttp.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+
+            function disGrade3(response){
+                var arr = JSON.parse(response);
+                var out3;
+                if(arr[0].nop =="not found" ){
+                    out3 =  arr[0].SubjectID+
+                            "&nbsp"+arr[0].SubjectName+
+                            "&nbspsec:"+arr[0].SectionNumber+
+                            "&nbspภาคเรียนที่:"+arr[0].Semester+
+                            "&nbspปีการศึกษา:"+arr[0].AcademicYear+
+                            "<br><br>"+"ไม่พบข้อมูล" ;
+                }
+                else{
+                        out3= arr[0].SubjectID+
+                            "&nbsp"+arr[0].SubjectName+
+                            "&nbspsec:"+arr[0].SectionNumber+
+                            "&nbspภาคเรียนที่:"+arr[0].Semester+
+                            "&nbspปีการศึกษา:"+arr[0].AcademicYear+
+                            "<br><br><table>"+
+                            "<tr><td>" +
+                            "รหัสนักศึกษา"+
+                            "</td><td>" +
+                            "ชื่อจริง"+
+                            "</td><td>" +
+                            "นามสกุล"+
+                            "</td><td>" +
+                            "GPA"+
+                            "</td></tr>";
+                    for(i=0;i<arr.length;i++){
+                        out3+=  "<tr><td>" +
+                                arr[i].StudentID+
+                                "</td><td>" +
+                                arr[i].FirstName+
+                                "</td><td>" +
+                                arr[i].LastName+
+                                "</td><td>" +
+                                arr[i].GPA+
+                                "</td></tr>";
+                    }
+                    out3+= "</table>"
+                }
+                
+                document.getElementById("menu3").innerHTML = out3;
+            }
+
+            function selectSub(){
+                var xmlhttp = new XMLHttpRequest();
+                var sub = document.getElementById('sub').value;
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-cutgrade-link.php?type=02&inID="+<?php echo $_SESSION['id'];?>+"&sub="+sub+"&gpa=''&SID=''";
+                    
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        disGrade(xmlhttp.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+
+            function disGrade(response){
+                var arr = JSON.parse(response);
+                var out1 =  arr[0].SubjectID+
+                            "&nbsp"+arr[0].SubjectName+
+                            "&nbspsec:"+arr[0].SectionNumber+
+                            "<br><br>"+
+                            "<table><form>";
+                    for(i=0;i<arr.length;i++){
+                        out1+=  "<tr><td>" +
+                                arr[i].StudentID+"&nbsp"+
+                                "</td><td>" +
+                                arr[i].FirstName+"&nbsp"+
+                                "</td><td>" +
+                                arr[i].LastName+"&nbsp"+
+                                "</td><td>" +
+                                "<select class='GPA'>"+
+                                "<option value=-1>-</option>"+
+                                "<option value=4.00>A</option>"+
+                                "<option value=3.50>B+</option>"+
+                                "<option value=3.00>B</option>"+
+                                "<option value=2.50>C+</option>"+
+                                "<option value=2.00>C</option>"+
+                                "<option value=1.50>D+</option>"+
+                                "<option value=1.00>D</option>"+
+                                "<option value=0.00>F</option>"+
+                                "</select><br>"+
+                                "</td></tr>";
+                    }
+                    out1+= "</form></table><br><button value='ยืนยัน' onclick='Grade("+JSON.stringify(response)+")'>ยืนยัน</button>"
+                    document.getElementById("menu1").innerHTML = out1;
+            }
+
+            function Grade(response){
+                var arr = JSON.parse(response);
+                var x = document.getElementsByClassName("GPA");
+                for(i=0;i<x.length;i++){
+                    sendGrade(x[i].value,arr[i].StudentID);
+                }
+                
+                swal({
+                    type: 'success',
+                    title: 'ตัดเกรดเรียบร้อยแล้ว'
+                });
+                load();
+                
+            }
+
+            function sendGrade(gpa,SID){
+                var xmlhttp = new XMLHttpRequest();
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-cutgrade-link.php?type=03&inID="+<?php echo $_SESSION['id'];?>+"&sub=0"+"&gpa="+gpa+"&SID="+SID;
+                    
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+
         </script>
      </div>
 </body>
