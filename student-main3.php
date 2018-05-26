@@ -18,19 +18,24 @@ session_start();
     <style>
         @import "global1.css";
         @import "temple.css";
-  
-        th,td {
-            text-align:center;
-            border:2px solid;
+        table {
+            border-collapse: collapse;
         }
         #t1 {
-            width:5%;
+            text-align:center;
+            font-size:20px;
+            font-weight: bold;
+            border:1px solid;
         }
         #t2 {
-            width:10%;
+            vertical-align:center;
+            height: 100px;
+            font-size:16px;
+            border:1px solid;
         }
         #h4 {
-            margin-bottom:-20px;
+            margin-top: 5px;
+            font-size:16px;
         }
     </style>
     
@@ -57,17 +62,20 @@ session_start();
     </div>
    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li class = "active"><a data-toggle="tab" href="#menu1">ตารางเรียน</a></li>
-            <li><a data-toggle="tab" href="#menu2">ตารางสอบ</a></li>
+            <li class = "active"><a data-toggle="tab" href="#menu1">แผนการเรียน</a></li>
+            <li><a data-toggle="tab" href="#menu2">ตารางเรียน</a></li>
         </ul>
      </div>
      <div id="main">
         <div class="tab-content" id="tab-content">
             <div id="menu1" class="tab-pane fade in active">
+                <div class = "row">
                 <div id="me1-1"></div>
                 <div id="me1-2"></div>
+                </div>
+                <div id ="h4">
                 <div id="me1-3"></div>
-            
+                </div>
             </div>
             <div id="menu2" class="tab-pane fade">
                 
@@ -75,8 +83,8 @@ session_start();
         </div>
         <script>
         loadYear();
-        document.getElementById("me1-2").innerHTML = "<h4> ภาคเรียนที่ <select name='Semester' onclick=\"check()\">" + 
-                        "<option value = ''>โปรดเลือก</option></select></h4>";
+        document.getElementById("me1-2").innerHTML = "<div class = 'col-sm-3' ><p> ภาคเรียนที่ : <select name='Semester' onclick=\"check()\">" + 
+                        "<option value = ''>โปรดเลือก</option></select></p></div>";
         function loadYear(){
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol + '//' + location.host+ "/Project/student-main3-link1.php";
@@ -103,24 +111,24 @@ session_start();
         }
         function showYear(response){
             window.arr1 = JSON.parse(response);
-            var out = " <h4 id='h4'> ปีการศึกษา <select name = 'AcademicYear' onclick=\"loadSemester()\">" +
+            var out = " <div class = 'col-sm-3' ><p> ปีการศึกษา : <select name = 'AcademicYear' onclick=\"loadSemester()\">" +
                         "<option value = ''>โปรดเลือก</option>";
                         for(i = 0; i < arr1.length; i++){
                             out += "<option value = '"+ arr1[i].AcademicYear+"' >"+arr1[i].AcademicYear+"</option>";
                         }
-                out +=  "</select></h4><br>";
+                out +=  "</select></p></div>";
                 document.getElementById("me1-1").innerHTML = out ;
                 loadSemester();
         }
         function showSemester(response){
             document.getElementById("me1-3").innerHTML = '';
             window.arr2 = JSON.parse(response);
-            var out  = " <h4>ภาคเรียนที่ <select name='Semester' onclick=\"check()\">" + 
+            var out  = " <div class = 'col-sm-3' ><p>ภาคเรียนที่ : <select name='Semester' onclick=\"check()\">" + 
                         "<option value = ''>โปรดเลือก</option>";
                         for(i = 0; i < arr2.length; i++){
                             out += "<option value = '"+ arr2[i].Semester+"'>"+arr2[i].Semester+"</option>";
                         }
-                out +=  "</select></h4>";
+                out +=  "</select></p></div>";
             document.getElementById("me1-2").innerHTML = out ;
             
         }
@@ -149,19 +157,19 @@ session_start();
         function displayResponse(response) {
             window.arr = JSON.parse(response);
         
-            var out ="<table><tr><th id='t1'>รหัสวิชา</th><th  id='t2'>ชื่อวิชา</th><th id='t1'>กลุ่ม</th><th th id='t1'>วัน</th>" +
-                 "<th id='t2'>เวลาเรียน</th><th id='t1'>ห้อง</th><th id='t2'>คำอธิบายวิชา</th><th id='t1'>หน่วยกิต</th></tr>";
+            var out ="<table><tr><div class = 'row'><div class = 'col-sm-1' id ='t1'>รหัสวิชา</div><div class = 'col-sm-2' id ='t1'>ชื่อวิชา</div><div class = 'col-sm-1' id ='t1'>กลุ่ม</div><div class = 'col-sm-1' id ='t1'>วัน</div>" +
+                 "<div class = 'col-sm-2' id ='t1'>เวลาเรียน</div><div class = 'col-sm-1' id ='t1'>ห้อง</div><div class = 'col-sm-2' id ='t1'>คำอธิบายวิชา</div><div class = 'col-sm-1' id ='t1'>หน่วยกิต</div></div></tr>";
             for(i = 0; i < arr.length; i++){
-            out += "<tr><td>"+ arr[i].SubjectID +"</td>"+
-                    "<td>"+ arr[i].SubjectName +"</td>"+
-                    "<td>"+ arr[i].SectionNumber +"</td>"+
-                    "<td>"+ arr[i].Day +"</td>"+
-                    "<td>"+ arr[i].StartTime + ' น. - ' + arr[i].EndTime +"น. </td>"+
-                    "<td>"+ arr[i].Room +"</td>"+
-                    "<td>"+ arr[i].Description + "</td>"+
-                    "<td>"+ arr[i].Credit +"</td></tr>";
+            out += "<tr><div class = 'row'><div class = 'col-sm-1' id ='t2'>"+ arr[i].SubjectID +"</div>"+
+                    "<div class = 'col-sm-2' id ='t2'>"+ arr[i].SubjectName +"</div>"+
+                    "<div class = 'col-sm-1' id ='t2'>"+ arr[i].SectionNumber +"</div>"+
+                    "<div class = 'col-sm-1' id ='t2'>"+ arr[i].Day +"</div>"+
+                    "<div class = 'col-sm-2' id ='t2'>"+ arr[i].StartTime + ' น. - ' + arr[i].EndTime +"น. </div>"+
+                    "<div class = 'col-sm-1' id ='t2'>"+ arr[i].Room +"</div>"+
+                    "<div class = 'col-sm-2' id ='t2'>"+ arr[i].Description + "</div>"+
+                    "<div class = 'col-sm-1' id ='t2'>"+ arr[i].Credit +"</div></div></tr>";
             }
-            out +="</table>";
+            out +="</table></div>";
 
             document.getElementById("me1-3").innerHTML = out;
         }
