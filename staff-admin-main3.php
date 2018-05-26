@@ -190,12 +190,26 @@
 				}
 			})
 		})
-
 		$('html').bind('keypress', function(e){ //Disable keyboard <enter>
 			if(e.keyCode == 13){
 				return false;
 			}
 		});
+
+        
+        function load(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+ "/Project/student-main3-link.php";
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    displayResponse(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+       
         </script>
      </div>
 </body>
