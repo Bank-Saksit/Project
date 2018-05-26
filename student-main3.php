@@ -18,14 +18,7 @@ session_start();
     <style>
         @import "global1.css";
         @import "temple.css";
-        #me {
-            width:100%;
-            text-align:center; 
-        }
-        #menu1 {
-            width:100%;
-            
-        }
+  
         th,td {
             text-align:center;
             border:2px solid;
@@ -36,8 +29,8 @@ session_start();
         #t2 {
             width:10%;
         }
-        #me {
-           margin: auto; 
+        #h4 {
+            margin-bottom:-20px;
         }
     </style>
     
@@ -73,8 +66,8 @@ session_start();
         </div>
         <script>
         loadYear();
-        document.getElementById("me1-2").innerHTML = " ภาคเรียนที่ <select name='Semester' onclick=\"check()\">" + 
-                        "<option value = ''>โปรดเลือก</option></select>";
+        document.getElementById("me1-2").innerHTML = "<h4> ภาคเรียนที่ <select name='Semester' onclick=\"check()\">" + 
+                        "<option value = ''>โปรดเลือก</option></select></h4>";
         function loadYear(){
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol + '//' + location.host+ "/Project/student-main3-link1.php";
@@ -101,24 +94,24 @@ session_start();
         }
         function showYear(response){
             window.arr1 = JSON.parse(response);
-            var out = " ปีการศึกษา <select name = 'AcademicYear' onclick=\"loadSemester()\">" +
+            var out = " <h4 id='h4'> ปีการศึกษา <select name = 'AcademicYear' onclick=\"loadSemester()\">" +
                         "<option value = ''>โปรดเลือก</option>";
                         for(i = 0; i < arr1.length; i++){
                             out += "<option value = '"+ arr1[i].AcademicYear+"' >"+arr1[i].AcademicYear+"</option>";
                         }
-                out +=  "</select><br>";
+                out +=  "</select></h4><br>";
                 document.getElementById("me1-1").innerHTML = out ;
                 loadSemester();
         }
         function showSemester(response){
             document.getElementById("me1-3").innerHTML = '';
             window.arr2 = JSON.parse(response);
-            var out  = " ภาคเรียนที่ <select name='Semester' onclick=\"check()\">" + 
+            var out  = " <h4>ภาคเรียนที่ <select name='Semester' onclick=\"check()\">" + 
                         "<option value = ''>โปรดเลือก</option>";
                         for(i = 0; i < arr2.length; i++){
                             out += "<option value = '"+ arr2[i].Semester+"'>"+arr2[i].Semester+"</option>";
                         }
-                out +=  "</select>";
+                out +=  "</select></h4>";
             document.getElementById("me1-2").innerHTML = out ;
             
         }
@@ -146,10 +139,8 @@ session_start();
         
         function displayResponse(response) {
             window.arr = JSON.parse(response);
-            
-            var out ="<h3 id='me'>ภาคเรียนที่ : "+ arr[0].Semester + "<br>" +
-                    " ปีการศึกษา : "+ arr[0].AcademicYear +"</h3><br>";
-            out +="<table><tr><th id='t1'>รหัสวิชา</th><th  id='t2'>ชื่อวิชา</th><th id='t1'>กลุ่ม</th><th th id='t1'>วัน</th>" +
+        
+            var out ="<table><tr><th id='t1'>รหัสวิชา</th><th  id='t2'>ชื่อวิชา</th><th id='t1'>กลุ่ม</th><th th id='t1'>วัน</th>" +
                  "<th id='t2'>เวลาเรียน</th><th id='t1'>ห้อง</th><th id='t2'>คำอธิบายวิชา</th><th id='t1'>หน่วยกิต</th></tr>";
             for(i = 0; i < arr.length; i++){
             out += "<tr><td>"+ arr[i].SubjectID +"</td>"+
