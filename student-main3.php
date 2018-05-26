@@ -24,13 +24,14 @@ session_start();
         #t1 {
             text-align:center;
             font-size:20px;
-            font-weight: bold;
             border:1px solid;
+            color:white;
+            background:rgba(0,0,0,0.8);
         }
         #t2 {
-            vertical-align:center;
+            text-align:center;
             height: 100px;
-            font-size:16px;
+            font-size:18px;
             border:1px solid;
         }
         #h4 {
