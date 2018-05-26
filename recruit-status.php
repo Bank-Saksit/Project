@@ -79,7 +79,7 @@
             position: relative;
             margin-left: 35%;
             top:20px;
-            width:100%;
+            width:80%;
         }
         #tb-status {
             border:2px solid;
