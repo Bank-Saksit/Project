@@ -4,29 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href ="js/jquery-ui.min.css" rel="stylesheet">
+	<script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <link href ="js/sweetalert2.all.js" rel="stylesheet" >
+    <script src="js/sweetalert21.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>ยืนยันสิทธิ์</title>
     <style>
         @import "global1.css";
+        #left {
+            float: left;
+            width: 13%;
+            position: relative;
+            height: 100%;
+        }
+        #main {
+            width: 72%;
+            height: 100%;
+            margin: auto;
+            position: relative;
+            top: 60px;
+        }
+        #header {
+			width: 100%;
+			height: 80px;
+            position: relative;
+        }
         #content {
+            margin-top: 2%;
             font-size: 20px;
         }
         #bill {
             width: 100%;
             text-align: center;
         }
-        #bill > button {
+        #sm,#sm-sub {
+            margin-top: 2%;
+            color:white;
             width: 100px;
             height: 40px;
             margin-left: 20px;
             margin-right: 20px;
-            margin-top: 5%;
-            border-radius: 10px;
+            border-radius: 8px;
+            font-size:18px;
+            font-weight:none;
         }
         #sm{
             background:#d33;
         }
         #sm-sub{
             background:#3085d6;
+        }
+        dd{
+            margin-left: 30%;
         }
     </style>
 </head>
@@ -42,10 +75,10 @@
             <h1>รอจ่ายเงิน</h1>
         </div>
         <div id="content">
-            <div id="detail"></div>
+            <div id="detail" ></div>
             <div id="bill">
-                <button onclick="window.location.href='#'">พิมพ์ใบเสร็จ</button>
-                <button onclick="window.location.href='recruit-status.php'">ย้อนกลับ</button>
+                <button id="sm-sub" onclick="window.location.href='#'">พิมพ์ใบเสร็จ</button>
+                <button id = "sm" onclick="window.location.href='recruit-status.php'">ย้อนกลับ</button>
             </div>
         </div>
         <?php include "recruit-footer.php"; ?>
@@ -72,15 +105,15 @@
         function displayResponse(response) {
             window.arr = JSON.parse(response);
             
-            var out = "รหัสประจำตัวผู้สมัคร : "+ arr[0].RecruitID +"<br>"+
-                    "ชื่อ : "+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"<br>"+
-                    "ชื่อโครงการ : "+ arr[0].RecruitPlanName +"<br>"+
-                    "คณะ : "+ arr[0].Faculty +"<br>"+
-                    "ภาควิชา : "+ arr[0].Department +"<br>"+
-                    "เลขที่ใบเสร็จ : "+ arr[0].BillRecruitID +"<br>"+
-                    "วันออกใบเสร็จ : "+ arr[0].DateRegister +"<br>"+
-                    "ปีการศึกษา : 1/"+ arr[0].AcademicYear +"<br>"+
-                    "จำนวนเงินที่ต้องจ่าย : 20,000 บาท";
+            var out = "<div class = 'row'><div class = 'col-sm-4' ><p>รหัสประจำตัวผู้สมัคร : "+ arr[0].RecruitID +"</p>"+
+                    "<p>ชื่อ : "+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"</p></div>"+
+                    "<div class = 'col-sm-4' ><p>ชื่อโครงการ : "+ arr[0].RecruitPlanName +"</p>"+
+                    "<p>คณะ : "+ arr[0].Faculty +"</p></div><div class = 'col-sm-4' >"+
+                    "<p>ภาควิชา : "+ arr[0].Department +"</p></div></div>"+
+                    "<br><div class = 'row'><div class = 'col-sm-4' ><p>เลขที่ใบเสร็จ : "+ arr[0].BillRecruitID +"</p>"+
+                    "<p>วันออกใบเสร็จ : "+ arr[0].DateRegister +"</p></div>"+
+                    "<div class = 'col-sm-4' ><p>ปีการศึกษา : 1/"+ arr[0].AcademicYear +"</p>"+
+                    "<p>จำนวนเงินที่ต้องจ่าย : 20,000 บาท</p></div></div>";
 
             document.getElementById("detail").innerHTML = out;
         }
