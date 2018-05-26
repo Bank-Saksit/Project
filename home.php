@@ -37,7 +37,7 @@
             }
             #header > h1 {
                 font-family: "supermarket";
-                font-size: 60px;
+                font-size: 50px;
                 position: absolute;
                 bottom: 0;
                 width: 100%;
@@ -87,7 +87,7 @@
             .container {
                 padding: 2px 16px;
             }
-            @media only screen and (max-width:820px) {
+            @media only screen and (max-width:1100px) {
             /* For mobile phones: */
                 #main {
                 width:100%;
