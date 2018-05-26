@@ -32,20 +32,16 @@
         <ul class="nav nav-pills nav-stacked" id="tab">
             <li class = "active"><a data-toggle="tab" href="#menu1">แก้ไขรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu2">เพิ่มรายวิชา</a></li>
-            <li><a data-toggle="tab" href="#menu3">ลบรายวิชา</a></li>
+            <li><a data-toggle="tab" href="#menu3">เพิ่มกลุ่มรายวิชา</a></li>
+            <li><a data-toggle="tab" href="#menu4">ลบรายวิชา</a></li>
         </ul>
     </div>
     <div id="main">
         <div class="tab-content" id="tab-content">
-            <div id="menu1" class="tab-pane fade in active">
-                
-            </div>
-            <div id="menu2" class="tab-pane fade">
-                
-            </div>
-            <div id="menu3" class="tab-pane fade">
-                
-            </div>
+            <div id="menu1" class="tab-pane fade in active"></div>
+            <div id="menu2" class="tab-pane fade"></div>
+            <div id="menu3" class="tab-pane fade"></div>
+            <div id="menu4" class="tab-pane fade"></div>
         </div>
 
         <script>
@@ -112,13 +108,35 @@
                 "</div>";
             document.getElementById("menu2").innerHTML = out2;
 
-            var out3 = "<h2>ลบรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
-                    "<form>"+
+            var out3 = "<h2>เพิ่มกลุ่มรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
                     "<p>วิชา: <select id='inSub3'>";
             for( var i=0 ; i<vsub.length ; i++ )
                 out3+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
-            out3 += "</select><br><br><input type='button' value='ยืนยัน' onclick='update3()'></form></div></div>";
+            out3+="</select><p>กลุ่ม: <select id='inSec3'>"+
+                        "<option value=1>1</option>"+
+                        "<option value=2>2</option>"+
+                        "<option value=3>3</option>"+
+                        "</select>"+
+                "<p>เทอมการศึกษา: <select id='inSem3'>"+
+                        "<option value=1>1</option>"+
+                        "<option value=2>2</option>"+
+                        "</select>"+
+                "<p>ปีการศึกษา: <input type='text' id='inY' class='bg'></p>"+
+                "<p>จำนวนที่นั่ง: <input type='text' id='inSA' class='bg'></p>"+
+                "<p>วัน: <input type='text' id='inD' class='bg'></p>"+
+                "<p>เวลา: <input type='text' id='inTS' class='bg'> ถึง <input type='text' id='inTE' class='bg'></p>"+
+                "<p>ห้องเรียน: <input type='text' id='inR' class='bg'></p>"+
+                "<br><p><input type='button' value='ยืนยัน' onclick='update3()'></p>"+
+                "</div></div>";
             document.getElementById("menu3").innerHTML = out3;
+
+            var out4 = "<h2>ลบรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
+                    "<form>"+
+                    "<p>วิชา: <select id='inSub4'>";
+            for( var i=0 ; i<vsub.length ; i++ )
+                out4+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
+            out4 += "</select><br><br><input type='button' value='ยืนยัน' onclick='update4()'></form></div></div>";
+            document.getElementById("menu4").innerHTML = out4;
 
             change1();
         }
@@ -182,7 +200,30 @@
         function update3(){
             var xmlhttp = new XMLHttpRequest();
             var sub = document.getElementById('inSub3').value;
+            var sec = document.getElementById('inSec3').value;
+            var sem = document.getElementById('inSem3').value;
+            var year = document.getElementById('inY').value;
+            var sa = document.getElementById('inSA').value;
+            var day = document.getElementById('inD').value;
+            var ts = document.getElementById('inTS').value;
+            var te = document.getElementById('inTE').value;
+            var room = document.getElementById('inR').value;
             var url = location.protocol + '//' + location.host+"/Project/staff-admin-main2-link.php?type=13";
+                url+="&sub="+sub+"&sec="+sec+"&sem="+sem+"&year="+year+"&sa="+sa+"&day="+day+"&ts="+ts+"&te="+te+"&room="+room;
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    loadsubject();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function update4(){
+            var xmlhttp = new XMLHttpRequest();
+            var sub = document.getElementById('inSub4').value;
+            var url = location.protocol + '//' + location.host+"/Project/staff-admin-main2-link.php?type=14";
                 url+="&inSub="+sub;
 
             xmlhttp.onreadystatechange=function() {

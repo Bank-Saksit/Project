@@ -38,6 +38,10 @@ elseif( $_GET['type']=='12' ){
                 VALUES( '".$_GET['inSID']."', '".$_GET['inSN']."', '".$_GET['inDes']."', ".$_GET['inCre']." )");
 }
 elseif( $_GET['type']=='13' ){
+    $conn->query("INSERT INTO sectioninfo
+                VALUES( '', '".$_GET['sub']."', '".$_GET['sec']."', '".$_GET['sem']."', '".$_GET['year']."', ".$_GET['sa'].", '".$_GET['day']."', '".$_GET['ts']."', '".$_GET['te']."', '".$_GET['room']."' )");
+}
+elseif( $_GET['type']=='14' ){
     $conn->query("DELETE FROM subjectinfo
                 WHERE SubjectID='".$_GET['inSub']."'");
 }
