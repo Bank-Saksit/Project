@@ -186,22 +186,21 @@
             out += "</table>";
             document.getElementById("infoRecruit").innerHTML = out;
 
-            var list = "<table id='list'><tr><td id='t3'><t1>ลำดับ</t1></td><td id='t3'><t1>คณะ</t1></td><td id='t3'><t1>สาขา</t1></td></tr>";
+            var list = "<table id='list'><div class = 'row'><tr><td id='t3'><t1>ลำดับ</t1></td><td id='t3'><t1>คณะ</t1></td><td id='t3'><t1>สาขา</t1></td></tr></div>";
             for( i=0 ; i<arr.length ; i++ ){
                 if(arr[0].NoPass == 0){
-                    list += "<tr>"+
+                    list += "<div class = 'row'><tr>"+
                         "<td id='t3'><t2>"+ arr[i].No +"</t2></td>"+
                         "<td id='t3'><t2>"+ arr[i].Faculty +"</t2></td>"+
                         "<td id='t3'><t2>"+ arr[i].Department +"</t2></td>"+
-                    "</tr>";
+                    "</tr></div>";
                 }else if(arr[0].NoPass-1 == i) {
-                    list += "<tr>"+
+                    list += "<div class = 'row'><tr>"+
                         "<td id='t3'><t2>"+ arr[i].No +"</t2></td>"+
                         "<td id='t3'><t2>"+ arr[i].Faculty +"</t2></td>"+
                         "<td id='t3'><t2>"+ arr[i].Department +"</t2></td>"+
-                    "</tr>";
-                }
-                
+                    "</tr></div>";
+                }  
             }
             list += "</table>";
             document.getElementById("detail-rc").innerHTML = list;
