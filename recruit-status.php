@@ -15,8 +15,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>ตรวจสอบสถานะ</title>
     <style>
-         @import "global1.css";
-         #left {
+        @import "global1.css";
+        #left {
             float: left;
             width: 13%;
             position: relative;
@@ -44,7 +44,7 @@
             background: #efefef;
             position: relative;
             width: 100%;
-            margin-top: 5%;
+            margin-top: 1%;
             border: 2px solid;
             border-collapse: collapse;
         }
@@ -98,6 +98,7 @@
             text-align:center;
             margin-top:40px;
         }
+        
         #sm,#sm-sub {
             color:white;
             width: 100px;
@@ -105,6 +106,8 @@
             margin-left: 20px;
             margin-right: 20px;
             border-radius: 8px;
+            font-size:18px;
+            font-weight:none;
         }
         #sm{
             background:#d33;
@@ -185,7 +188,12 @@
                     "</div>";
             out += "</table>";
             document.getElementById("infoRecruit").innerHTML = out;
+<<<<<<< HEAD
             var list = "<table id='list'><div class = 'row'><tr><td id='t3'><t1>ลำดับ</t1></td><td id='t3'><t1>คณะ</t1></td><td id='t3'><t1>สาขา</t1></td></tr></div>";
+=======
+            var list = "<div  class = 'dd'><div class = 'row'><div class='col-sm-4'><t1>คณะที่ได้</t1></div></div></div>";
+            list += "<table id='list'><div class = 'row'><tr><td id='t3'><t1>ลำดับ</t1></td><td id='t3'><t1>คณะ</t1></td><td id='t3'><t1>สาขา</t1></td></tr></div>";
+>>>>>>> 3612c0ea2715e2feac4c960417a7753f283c104d
             for( i=0 ; i<arr.length ; i++ ){
                 if(arr[0].NoPass == 0){
                     list += "<div class = 'row'><tr>"+

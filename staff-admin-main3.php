@@ -15,6 +15,18 @@
     <style>
         @import "global1.css";
         @import "temple.css";
+        table, th , td {
+            border: 1px solid grey;
+            text-align:center;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+        table tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+        table tr:nth-child(even) {
+            background-color: #ffffff;
+        }
     </style>
     
 </head>
@@ -23,6 +35,7 @@
             <a href="staff-admin-main.php">นักเรียนสอบเข้าโครงการ</a>
             <a class = "active" href="staff-admin-main2.php">นักศึกษา</a>
             <a href="staff-admin-main3.php">อาจารย์</a>
+            <a class = "active"  href="staff-admin-main4.php">รายวิชา</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
@@ -45,12 +58,7 @@
                     <div class = "row">
                         <div class="col-sm-4" >
                             <h4>คำนำหน้า:</h4>
-                            <select name="Prefix" class="check" id="a1" >
-                                <option value="">โปรดเลือก</option>
-                                <option value="นาย">นาย</option>
-                                <option value="นางสาว">นางสาว</option>
-                                <option value="นาง">นาง</option>
-                            </select>
+                            <input type="text" name="Prefix" class="check" id="a1"><br>
                             <h4>ชื่อจริง:</h4>
                             <input type="text" name="Fname" class="check" id="a2"><br>
                             <h4>นามสกุล:</h4>
@@ -196,10 +204,10 @@
 			}
 		});
 
-        
+        load();
         function load(){
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol + '//' + location.host+ "/Project/student-main3-link.php";
+            var url = location.protocol + '//' + location.host+ "/Project/staff-admin-main3-show.php";
 
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -209,7 +217,69 @@
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
         }
-       
+
+        function displayResponse(response){
+            var arr = JSON.parse(response);
+            var out = "<h1>ข้อมูลผู้สอน</h1><table><tr><th>ID</th><th>ชื่อ</th><th>ภาควิชา</th><th>เบอร์</th><th>เพิ่มเติม</th></tr>";
+            for(i=0;i<arr.length;i++){
+                out += "<tr><td>"+ arr[i].StaffID +"</td>"+
+                    "<td>"+ arr[i].Prefix + arr[i].FirstName +' '+ arr[i].LastName +"</td>"+
+                    "<td>"+ arr[i].Faculty +' '+ arr[i].Department +"</td>"+
+                    "<td>"+ arr[i].MobileNumber +"</td>" +
+                    "<td><input type='button' id='bt' value='ดูข้อมูล' onclick=\"data("+arr[i].StaffID+")\">"+
+                    "<input type='button' id='bt' value='ลบข้อมูล' onclick=\"deleteData("+arr[i].StaffID+")\"></td></tr>";
+            }
+                out += "</table>";
+            document.getElementById("menu1").innerHTML = out;
+        }
+
+        function deleteData(staffID){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+ "/Project/staff-admin-main3-deleteData.php?SID="+staffID;
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    load();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        
+        function data(staffID){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+ "/Project/staff-admin-main3-data.php?SID="+staffID;
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    ShowData(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function ShowData(response){
+            var arr = JSON.parse(response);
+            var out = "<h1>ข้อมูลผู้สอน</h1>";
+            
+                out += "รหัสประจำตัว : "+ arr[0].StaffID +"<br>"+
+                    "ชื่อ : "+ arr[0].Prefix + arr[0].FirstName +' '+ arr[0].LastName +"<br>"+
+                    "เลขบัตรประจำตัวประชาชน : "+ arr[0].IDCardNumber +"<br>" +
+                    "วุฒิการศึกษา : "+ arr[0].EducationBackground +"<br>" +
+                    "ภาควิชา : "+ arr[0].Faculty +' '+ arr[0].Department +"<br>"+
+                    "เป็นที่ปรึกษา : "+ arr[0].ConsultantStatus +"<br>" +
+                    "เบอร์โทรศัพมือถือ : "+ arr[0].MobileNumber +"<br>" +
+                    "เบอร์โทร : "+ arr[0].TelNumber +"<br>" +
+                    "Email : "+ arr[0].Email +"<br>" +
+                    "เพศ : "+ arr[0].Gender +"<br>" +
+                    "วันเกิด : "+ arr[0].DOB +"<br>" +
+                    "สัญชาติ : "+ arr[0].Nationality +"<br>" +
+                    "เชื้อชาติ : "+ arr[0].Race +"<br>" +
+                    "ศาสนา : "+ arr[0].Religion +"<br>" +
+                    "กรุ๊ปเลือด : "+ arr[0].BloodGroup +"<br>" +
+                    "<button onclick=\"load()\">ย้อนกลับ</button>";
+                
+            document.getElementById("menu1").innerHTML = out;
+        }
         </script>
      </div>
 </body>
