@@ -9,10 +9,31 @@
 	<script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <link href ="js/sweetalert2.all.js" rel="stylesheet" >
-	<script src="js/sweetalert21.js"></script>
+    <script src="js/sweetalert21.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>ตรวจสอบสถานะ</title>
     <style>
          @import "global1.css";
+         #left {
+            float: left;
+            width: 13%;
+            position: relative;
+            height: 100%;
+        }
+        #main {
+            width: 72%;
+            height: 100%;
+            margin: auto;
+            position: relative;
+            top: 60px;
+        }
+        #header {
+			width: 100%;
+			height: 80px;
+            position: relative;
+        }
         table#tb1{
             position: relative;
             width: 100%;
@@ -36,16 +57,21 @@
         }
         #t1 {
             text-align: right;
+            font-size: 20px;
             font-weight:bold;
         }
         #t2 {
             text-align: left;
+            font-size: 18px;
         }
         #out {
             position: absolute;
-            bottom:30px;
+            bottom: 10px;
             right:0;
             cursor: pointer;
+        }
+        #out:hover{
+            text-decoration: underline;
         }
         #status {
             text-align: center;
@@ -98,7 +124,7 @@
     <div id="main">
         <div id="header">
             <h1>ตรวจสอบสถานะ</h1>
-            <h4 id="out" onclick="window.location.href='recruit-logout.php'">ออกจากระบบ</h3>
+            <h3 id="out" onclick="window.location.href='recruit-logout.php'" >ออกจากระบบ</h3>
         </div>
         <div id="content">
             <div id="infoRecruit"></div>
@@ -140,7 +166,7 @@
             console.log(response)
             var arr = JSON.parse(response);
             var i;
-            var out = "<table id='tb1'>";
+            var out = "<p><table id='tb1'>";
             var stat;
             
             out += "<tr>"+
@@ -153,7 +179,7 @@
                         "<td id='t1'>GPAX : </td><td id='t2'>"+ arr[0].SchoolGPAX +"</td>"+
                         "<td id='t1'>เบอร์ติดต่อ : </td><td id='t2'>"+ arr[0].MobileNumber +"</td>"+
                     "</tr>";
-            out += "</table>";
+            out += "</table></p>";
             document.getElementById("infoRecruit").innerHTML = out;
 
             var list = "<table id='list'><tr><td id='t3'>ลำดับ</td><td id='t3'>คณะ</td><td id='t3'>สาขา</td></tr>";

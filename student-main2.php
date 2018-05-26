@@ -151,7 +151,7 @@
             function display(response) {
                 arr = JSON.parse(response);
 
-                var out3 = "<h2>ย้ายกลุ่ม</h2><br><div class = 'row><div class = 'col-sm-8'>"+
+                var out3 = "<h2>ย้ายกลุ่ม</h2><br><div class = 'row'><div class = 'col-sm-8'>"+
                         "<form>"+
                         "<p>วิชา: <select id='inSub3' onchange='change3()'>";
                 for( var i=0 ; i<arr.length ; i++ )
@@ -165,7 +165,7 @@
                         "</form></div></div>";
                 document.getElementById("menu3").innerHTML = out3;
 
-                var out4 = "<h2>ลดรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
+                var out4 = "<h2>ลดรายวิชา</h2><br><div class = 'row'><div class = 'col-sm-8'>"+
                         "<form>"+
                         "<p>วิชา: <select id='inSub4' onchange='change4()'>";
                 for( var i=0 ; i<arr.length ; i++ )
@@ -175,7 +175,7 @@
                         "</form></div></div>";
                 document.getElementById("menu4").innerHTML = out4;
 
-                var out5 = "<h2>รายละเอียดกลุ่มวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
+                var out5 = "<h2>รายละเอียดกลุ่มวิชา</h2><br><div class = 'row'><div class = 'col-sm-8'>"+
                         "<p>วิชา: <select id='inSub5' onchange='change5()'>";
                 for( var i=0 ; i<arr.length ; i++ )
                     out5+="<option value='"+arr[i].SubjectID+"'>"+arr[i].SubjectID+"</option>";
@@ -206,7 +206,7 @@
                 var tmp = document.getElementById('inSub4').value;
                 for( var i=0 ; i<arr.length ; i++ ){
                     if( tmp==arr[i].SubjectID ){
-                        document.getElementById('outSec4').innerHTML = "กลุ่ม "+arr[i].SectionNumber;
+                        document.getElementById('outSec4').innerHTML = "<p>กลุ่ม "+arr[i].SectionNumber;
                         break;
                     }
                 }
@@ -222,7 +222,7 @@
                     xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                         var tmp = JSON.parse(xmlhttp.responseText);
-                        out5 = "วิชา "+document.getElementById('inSub5').value+" กลุ่ม "+document.getElementById('inSec5').value+"<br>"+
+                        out5 = "<p>วิชา "+document.getElementById('inSub5').value+" กลุ่ม "+document.getElementById('inSec5').value+"<br>"+
                             "จำนวนที่นั่ง "+tmp[0].SeatAmount+"<br>"+
                             "เวลา "+tmp[0].Day+" "+tmp[0].StartTime+" ถึง "+tmp[0].EndTime+"<br>"+
                             "ห้องเรียน "+tmp[0].Room;
