@@ -20,9 +20,9 @@
 </head>
 <body>
     <div class="top" id="top">
-            <a href="staff-admin-main.php">ตรวจสอบข้อมูล</a>
-            <a class = "active" href="staff-admin-main2.php">แก้ไขรายวิชา</a>
-            <a href="staff-admin-main3.php">menu3</a>
+            <a href="staff-admin-main.php">นักเรียนสอบเข้าโครงการ</a>
+            <a class = "active" href="staff-admin-main2.php">นักศึกษา</a>
+            <a href="staff-admin-main3.php">อาจารย์</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
@@ -32,7 +32,7 @@
         <ul class="nav nav-pills nav-stacked" id="tab">
             <li class = "active"><a data-toggle="tab" href="#menu1">แก้ไขรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu2">เพิ่มรายวิชา</a></li>
-            <li><a data-toggle="tab" href="#menu3">ลดรายวิชา</a></li>
+            <li><a data-toggle="tab" href="#menu3">ลบรายวิชา</a></li>
         </ul>
      </div>
      <div id="main">
