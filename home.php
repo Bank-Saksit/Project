@@ -91,6 +91,7 @@
             /* For mobile phones: */
                 #main {
                 width:100%;
+                margin-top: 0px;
                 margin-left: 15px;
                 }
                 #center{
@@ -100,6 +101,10 @@
                 #right{
                     float:left;
                 }
+                #header{
+                    margin-top: 0px;
+                }
+
             }
             @media only screen and (max-width:710px) {
             /* For mobile phones: */
