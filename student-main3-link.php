@@ -1,9 +1,8 @@
 <?php
 session_start();
 include "dblink.php";
-if($_GET['Year'] != NULL && $_GET['Semester'] != NULL){
 $result = $conn->query("SELECT sj.SubjectID, sj.SubjectName, sj.Credit, sj.Description, st.SectionNumber,
-                             st.Day, st.Semester, st.AcademicYear, st.StartTime, st.EndTime, st.Room   
+                             st.Day, st.Semester, st.AcademicYear, st.StartTime, st.EndTime, st.Room,ss.GPA   
                         FROM subjectinfo sj,sectioninfo st,student_subject ss,studentinfo sd
                         WHERE sj.SubjectID = st.SubjectID AND st.SubjectSectionID = ss.SubjectSectionID 
                                 AND ss.StudentID = sd.StudentID AND sd.StudentID = '". $_SESSION['id'] .
@@ -21,10 +20,10 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     $outp .= '"AcademicYear":"'.$rs["AcademicYear"].'",';
     $outp .= '"Room":"'.$rs["Room"].'",';
     $outp .= '"StartTime":"'.$rs["StartTime"].'",';
+    $outp .= '"GPA":"'.$rs["GPA"].'",';
     $outp .= '"EndTime":"'.$rs["EndTime"].'"}';
 }
 $outp .= "]";
-}
 $conn->close();
 
 echo($outp);

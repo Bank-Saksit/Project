@@ -20,22 +20,22 @@
 </head>
 <body>
     <div class="top" id="top">
-            <a href="staff-admin-main.php">ตรวจสอบข้อมูล</a>
-            <a class = "active" href="staff-admin-main2.php">แก้ไขรายวิชา</a>
-            <a href="staff-admin-main3.php">menu3</a>
+            <a href="staff-admin-main.php">นักเรียนสอบเข้าโครงการ</a>
+            <a class = "active" href="staff-admin-main2.php">นักศึกษา</a>
+            <a href="staff-admin-main3.php">อาจารย์</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
             <a href="staff-home.php" class="logout">ออกจากระบบ</a>
     </div>
-   <div id="left">
+    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
             <li class = "active"><a data-toggle="tab" href="#menu1">แก้ไขรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu2">เพิ่มรายวิชา</a></li>
-            <li><a data-toggle="tab" href="#menu3">ลดรายวิชา</a></li>
+            <li><a data-toggle="tab" href="#menu3">ลบรายวิชา</a></li>
         </ul>
-     </div>
-     <div id="main">
+    </div>
+    <div id="main">
         <div class="tab-content" id="tab-content">
             <div id="menu1" class="tab-pane fade in active">
                 
@@ -47,6 +47,7 @@
                 
             </div>
         </div>
+
         <script>
         function myFunction() {
             var x = document.getElementById("top");
@@ -57,7 +58,144 @@
                 x.className = "top";
                 }
             }
+
+        loadstudent();
+
+        function loadstudent(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol+'//'+location.host+"/Project/staff-admin-main2-link.php?type=01";
+            
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    vstu = JSON.parse(xmlhttp.responseText);
+                    loadsubject();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function loadsubject(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol+'//'+location.host+"/Project/staff-admin-main2-link.php?type=02";
+            
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    vsub = JSON.parse(xmlhttp.responseText);
+                    display();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function display() {
+
+            var out1 = "<h2>แก้ไขรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
+                    "<p>วิชา: <select id='inSub1' onchange='change1()'>";
+            for( var i=0 ; i<vsub.length ; i++ )
+                out1+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
+            out1+="</select><br><div id='in1'></div></div></div>";
+            document.getElementById("menu1").innerHTML = out1;
+
+            var out2 = "<h2>เพิ่มรายวิชา</h2><p>"+
+                "<div class = 'row'>"+
+                "<div class= 'col-sm-4' >"+
+                "<form>"+
+                "<p>รหัสวิชา : <input type='text' id='aSID' class='bg'></p>"+
+                "<p>ชื่อวิชา : <input type='text' id='aSN' class='bg'></p>"+
+                "<p>รายละเอียด : <textarea style='resize: none' rows=3 cols=40 id='aDes' class='bg'></textarea></p>"+
+                "<p>หน่วยกิต : <input type='text' id='aCre' class='bg'></p>"+
+                "<br><p><input type='button' value='ยืนยัน' onclick='update2()'></p>"+
+                "</form>"+
+                "</div>"+
+                "</div>";
+            document.getElementById("menu2").innerHTML = out2;
+
+            var out3 = "<h2>ลบรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
+                    "<form>"+
+                    "<p>วิชา: <select id='inSub3'>";
+            for( var i=0 ; i<vsub.length ; i++ )
+                out3+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
+            out3 += "</select><br><br><input type='button' value='ยืนยัน' onclick='update3()'></form></div></div>";
+            document.getElementById("menu3").innerHTML = out3;
+
+            change1();
+        }
+
+        function change1(){
+            var sub = document.getElementById('inSub1').value;
+            var index;
+            for( var i=0 ; i<vsub.length ; i++ )
+                if( sub==vsub[i].SubjectID ){ index=i; break;}
+            var out = "<p><div class = 'row'>"+
+                    "<div class= 'col-sm-4' >"+
+                    "<form>"+
+                    "<p>รหัสวิชา : <input type='text' id='cSID' class='bg' value='"+vsub[index].SubjectID+"'></p>"+
+                    "<p>ชื่อวิชา : <input type='text' id='cSN' class='bg' value='"+vsub[index].SubjectName+"'></p>"+
+                    "<p>รายละเอียด : <textarea style='resize: none' rows=3 cols=40 id='cDes' class='bg'>"+vsub[index].Description+"</textarea></p>"+
+                    "<p>หน่วยกิต : <input type='text' id='cCre' class='bg' value='"+vsub[index].Credit+"'></p>"+
+                    "<br><p><input type='button' value='ยืนยัน' onclick='update1()'></p>"+
+                    "</form>"+
+                    "</div>"+
+                    "</div>";
+            document.getElementById("in1").innerHTML = out;
+        }
+
+        function update1(){
+            var xmlhttp = new XMLHttpRequest();
+            var oldID = document.getElementById('inSub1').value;
+            var inSID = document.getElementById('cSID').value;
+            var inSN = document.getElementById('cSN').value;
+            var inDes = document.getElementById('cDes').value;
+            var inCre = document.getElementById('cCre').value;
+            var url = location.protocol + '//' + location.host+"/Project/staff-admin-main2-link.php?type=11";
+                url+="&oldID="+oldID+"&inSID="+inSID+"&inSN="+inSN+"&inDes="+inDes+"&inCre="+inCre;
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    loadsubject();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function update2(){
+            var xmlhttp = new XMLHttpRequest();
+            var inSID = document.getElementById('aSID').value;
+            var inSN = document.getElementById('aSN').value;
+            var inDes = document.getElementById('aDes').value;
+            var inCre = document.getElementById('aCre').value;
+            var url = location.protocol + '//' + location.host+"/Project/staff-admin-main2-link.php?type=12";
+                url+="&inSID="+inSID+"&inSN="+inSN+"&inDes="+inDes+"&inCre="+inCre;
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    loadsubject();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function update3(){
+            var xmlhttp = new XMLHttpRequest();
+            var sub = document.getElementById('inSub3').value;
+            var url = location.protocol + '//' + location.host+"/Project/staff-admin-main2-link.php?type=13";
+                url+="&inSub="+sub;
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    loadsubject();
+                    display();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
         </script>
-     </div>
+
+    </div>
 </body>
 </html>
