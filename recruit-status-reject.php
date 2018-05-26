@@ -7,10 +7,36 @@
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <link href ="js/sweetalert2.all.js" rel="stylesheet" >
-	<script src="js/sweetalert21.js"></script>
+    <script src="js/sweetalert21.js"></script>
+    <link href ="js/jquery-ui.min.css" rel="stylesheet">
+	<script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <link href ="js/sweetalert2.all.js" rel="stylesheet" >
+    <script src="js/sweetalert21.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>สละสิทธิ์</title>
     <style>
         @import "global1.css";
+        #left {
+            float: left;
+            width: 13%;
+            position: relative;
+            height: 100%;
+        }
+        #main {
+            width: 72%;
+            height: 100%;
+            margin: auto;
+            position: relative;
+            top: 60px;
+        }
+        #header {
+			width: 100%;
+			height: 80px;
+            position: relative;
+        }
         #sm,#sm-sub {
             width: 100px;
             height: 40px;
@@ -20,11 +46,17 @@
             border-radius: 10px;
             color:white;
         }
-        #profile,#detail {
-            margin-left:30%;
+        #profile{
+            margin-top: 2%;
+            margin-left:10%;
+        }
+        #detail{
+            margin-left:10%;
         }
         #button {
-            margin-left:30px;
+            margin-left:30%;
+            font-size:18px;
+            font-weight:none;
         }
         #sm-sub{
             background-color:#3085d6;
@@ -40,7 +72,7 @@
     include "recruit-checkLog.php";
     ?>
     <div id="left">
-        <a href="#" id="back"> < ออกจากระบบ </a>
+        <a href="#" id="back"> </a>
     </div>
     <div id="main">
         <div id="header">
@@ -77,13 +109,13 @@
         
         function displayResponse(response) {
             arr = JSON.parse(response);
-            var out = "<h3>รหัสประจำตัวผู้สมัคร : "+ arr[0].RecruitID +"</h3>"+
-                    "<h3>ชื่อ : "+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"</h3>";
+            var out = "<p>รหัสประจำตัวผู้สมัคร : "+ arr[0].RecruitID +"</p>"+
+                    "<p>ชื่อ : "+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"</p>";
             document.getElementById("profile").innerHTML = out;
 
             var outlist =
-                "<h3>ชื่อมหาวิทยาลัยที่เลือกศึกษาต่อ</h3>"+
-                "<select name=\"inUni\" id=\"inUni\" onchange=\"otherField(this.value)\">"+
+                "<p>ชื่อมหาวิทยาลัยที่เลือกศึกษาต่อ</p>"+
+                "<p><select name=\"inUni\" id=\"inUni\" onchange=\"otherField(this.value)\">"+
                     "<option value=\"ลาดกระบัง\">ลาดกระบัง</option>"+
                     "<option value=\"พระนครเหนือ\">พระนครเหนือ</option>"+
                     "<option value=\"จุฬา\">จุฬา</option>"+
@@ -94,8 +126,8 @@
                     "<option value=\"ABAC\">ABAC</option>"+
                     "<option value=\"ราม\">ราม</option>"+
                     "<option value=\"other\">อื่นๆ</option>"+
-                "</select>"+
-                "<br>เหตุผล<br>"+
+                "</select></p>"+
+                "<p>เหตุผล</p>"+
                 "<textarea rows=3 cols=50 name=\"reason\" style=\"resize:none\"></textarea><br>"+
                 "<div id='button'>"+
                 // "<input id='sm-sub' type=\"button\" value=\"ยืนยัน\" onclick=\"update()\">"+
