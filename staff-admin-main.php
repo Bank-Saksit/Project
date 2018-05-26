@@ -42,7 +42,7 @@
     <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
         <li class = "active"><a data-toggle="tab" href="#menu1">ข้อมูลผู้สมัคร</a></li>
-        <li><a data-toggle="tab" href="#menu2">สร้างรหัสนักศึกษา</a></li>
+        <li><a data-toggle="tab" href="#menu2">นักเรียนที่จ่ายค่าแรกเข้าแล้ว</a></li>
         <li><a data-toggle="tab" href="#menu3">ข้อมูลอาจารย์</a></li>
         </ul>
      </div>
@@ -86,15 +86,37 @@
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
         }
+        
+        function filter(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol+'//'+location.host+"/Project/staff-admin-recruit-link-filter.php?filter="+document.getElementById("cut").value;
+            
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    display1(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
 
         function display1(response) {
             var arr = JSON.parse(response);
             var i;
+            var but = "คัดกรอง<br><select id='cut'><option value='รอจ่ายค่าสมัคร'>รอจ่ายค่าสมัคร</option><option value='รอสอบ'>รอสอบ</option><option value='รอสัมภาษณ์'>รอสัมภาษณ์</option><option value='รอยืนยันสิทธิ์'>รอยืนยันสิทธิ์"+
+                                            "</option><option value='รอจ่ายค่าเทอม'>รอจ่ายค่าแรกเข้า</option><option value='จ่ายค่าเทอมแล้ว'>จ่ายค่าแรกเข้าแล้ว</option><option value='ไม่ผ่าน'>ไม่ผ่าน</option><option value='สละสิทธิ์'>สละสิทธิ์</option>"+
+                                "</select><button onclick=\"filter()\">ค้นหา</button><br><br>";
             var out = "<table>";
             
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td>RecruitID</td><td>คำนำหน้า</td><td>ชื่อจริง</td><td>นามสกุล</td><td>เบอร์โทรติดต่อ</td><td>โรงเรียน</td><td>โครงการ</td><td>อันดับ</td><td>คณะ</td><td>ภาควิชา</td><td>สถานะ</td><td>อันดับที่ได้</td><td colspan='4'>แก้ไข</td></tr>";
+                    out += "<tr><td align='center'>RecruitID</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อจริง</td><td align='center'>นามสกุล</td><td align='center'>เบอร์โทรติดต่อ</td><td align='center'>โรงเรียน</td><td align='center'>โครงการ</td><td align='center'>อันดับ</td><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>สถานะ</td><td align='center'>อันดับที่ได้</td><td colspan='4' align='center'>แก้ไข</td></tr>";
+                }
+                if(arr[i].Status == 'จ่ายค่าเทอมแล้ว'){
+                    var sta = 'จ่ายค่าแรกเข้าแล้ว';
+                }
+                else{
+                    var sta = arr[i].Status;
                 }
                 out += "<tr><td>" + arr[i].RecruitID +
                 "</td><td>" + arr[i].Prefix +
@@ -105,8 +127,8 @@
                 "</td><td>" + arr[i].RecruitPlanName+
                 "</td><td>" + arr[i].No+
                 "</td><td>" + arr[i].Faculty+
-                "</td><td>" + arr[i].Department+
-                "</td><td>" + arr[i].Status+
+                "</td><td>" + arr[i].Department+    
+                "</td><td>" + sta +
                 "</td><td>" + arr[i].NoPass+
                 // "</td><td>" + arr[i].+
                 "</td><td>" +
@@ -121,7 +143,7 @@
                 "</td></tr>";
             }
             out += "</table>";
-            document.getElementById("menu1").innerHTML =out;
+            document.getElementById("menu1").innerHTML = but+out;
         }
         
         function updateStatus(RecruitID) {
@@ -131,7 +153,7 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
-                load1();
+                load1();load2();
                 }
             }
             xmlhttp.open("GET", url, true);
@@ -146,7 +168,7 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
-                load1();
+                load1();load2();
                 }
             }
             xmlhttp.open("GET", url, true);
@@ -156,12 +178,13 @@
 
         function NumberPass(RecruitID,i) {
             var xmlhttp = new XMLHttpRequest();
+            var NPass = document.getElementById('pass'+i).value;
             var url = location.protocol + '//' + location.host+"/Project/staff-admin-recruit-link-NumberPass.php?RecruitID="+RecruitID+"&NPass="+NPass;
 
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
-                load1();
+                load1();load2();
                 }
             }
             xmlhttp.open("GET", url, true);
@@ -176,7 +199,7 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
-                load1();
+                load1();load2();
                 }
             }
             xmlhttp.open("GET", url, true);
@@ -205,7 +228,13 @@
             
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td>คณะ</td><td>ภาควิชา</td><td>RecruitID</td><td>คำนำหน้า</td><td>ชื่อจริง</td><td>นามสกุล</td><td>รหัสบัตรประชาชน</td><td>เบอร์โทรติดต่อ</td><td>โครงการ</td><td>สถานะ</td><td colspan='4'>แก้ไข</td></tr>";
+                    out += "<tr><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>RecruitID</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อจริง</td><td align='center'>นามสกุล</td><td align='center'>รหัสบัตรประชาชน</td><td align='center'>เบอร์โทรติดต่อ</td><td align='center'>โครงการ</td><td align='center'>สถานะ</td><td colspan='4' align='center'>แก้ไข</td></tr>";
+                }
+                if(arr[i].Status == 'จ่ายค่าเทอมแล้ว'){
+                    var sta = 'จ่ายค่าแรกเข้าแล้ว';
+                }
+                else{
+                    var sta = arr[i].Status;
                 }
                 out += "<tr><td>" + arr[i].Faculty +
                 "</td><td>" + arr[i].Department+
@@ -216,13 +245,13 @@
                 "</td><td>" + arr[i].IDCardNumber +
                 "</td><td>" + arr[i].MobileNumber +
                 "</td><td>" + arr[i].RecruitPlanName +
-                "</td><td>" + arr[i].Status +
-                "</td><td>" + arr[i].PostCode +
+                "</td><td>" + sta +
                 "</td><td>" +
                 "<button onclick=\"moveToStudent('"+arr[i].RecruitID+"','"+arr[i].RecruitPlanName+"','"+arr[i].Department+"','"+arr[i].MobileNumber+"','"+arr[i].TelNumber+"','"+
                 arr[i].Email+"','"+arr[i].SchoolID+"','"+arr[i].EducationBackground+"','"+arr[i].Branch+"','"+arr[i].SchoolGPAX+"','"+arr[i].IDCardNumber+"','"+arr[i].Prefix+"','"+
                 arr[i].FirstName+"','"+arr[i].LastName+"','"+arr[i].Gender+"','"+arr[i].DOB+"','"+arr[i].Nationality+"','"+arr[i].Race+"','"+arr[i].Religion+"','"+arr[i].BloodGroup+"','"+
                 arr[i].Address+"','"+arr[i].Province+"','"+arr[i].PostCode+"')\">สร้างรหัสนศ.+ย้ายข้อมูล</button>"+
+                "</td><td>" +   
                 "<button onclick=\"deleteRecruit('"+arr[i].RecruitID+"')\">ลบข้อมูล</button>"+
                 "</td></tr>";
             }
@@ -241,7 +270,7 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
-                load2();
+                load1();load2();
                 }
             }
             xmlhttp.open("GET", url, true);
