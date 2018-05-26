@@ -131,14 +131,14 @@
 
     <!-- Jssor Slider Begin -->
     
-    <div id="slider1_container" style="position: absolute; top: 0px; left: 0px; width: 470px; height: 300px;  margin:auto; ">
+    <div id="slider1_container" style="position: absolute; top: 0px; left: 0px; width: 570px; height: 300px;  margin:auto; ">
         <!-- Loading Screen -->
         <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
             <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="../svg/loading/static-svg/spin.svg" />
         </div>
 
         <!-- Slides Container -->
-        <div data-u="slides" style="cursor: pointer; position: absolute; left: 0px; top: 0px; width: 510px; height: 300px; ">
+        <div data-u="slides" style="cursor: pointer; position: absolute; left: 0px; top: 0px; width: 510px; height: 380px; ">
             <div>
                 <img data-u="image" src="img/gallery/980x380/059.jpg" />
             </div>
@@ -162,7 +162,7 @@
             .jssorb051 .iav .b {fill-opacity: 1;}
             .jssorb051 .i.idn {opacity:.3;}
         </style>
-        <div data-u="navigator" class="jssorb051" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
+        <div data-u="navigator" class="jssorb051" style="position:absolute;bottom:12px;right:16px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
             <div data-u="prototype" class="i" style="width:16px;height:16px;">
                 <svg viewBox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
                     <circle class="b" cx="8000" cy="8000" r="5800"></circle>
@@ -185,7 +185,7 @@
                 <polyline class="a" points="11040,1920 4960,8000 11040,14080 "></polyline>
             </svg>
         </div>
-        <div data-u="arrowright" class="jssora051" style="width:55px;height:55px;top:0px;right:-50px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
+        <div data-u="arrowright" class="jssora051" style="width:55px;height:55px;top:0px;right:-30px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
             <svg viewBox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
                 <polyline class="a" points="4960,1920 11040,8000 4960,14080 "></polyline>
             </svg>
