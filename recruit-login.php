@@ -24,7 +24,7 @@ session_start();
             height: 100%;
         }
         #main {
-            width: 72%;
+            width: 75%;
             height: 100%;
             margin: auto;
             position: relative;
@@ -35,7 +35,6 @@ session_start();
             margin-top: 2%;
         }
         #c-right,#c-left{
-            width: 80%;
             height: 380px;  
         }
         #c-left {
@@ -63,9 +62,9 @@ session_start();
         }
         #c-r-bottom {
             width: 100%;
-            height: 170px;
+            height: 180px;
             position: absolute;
-            bottom: 0;
+            bottom: -20px;
             background:#ff9999;
             cursor: pointer;
         }
@@ -114,18 +113,34 @@ session_start();
         h2 {
             margin:10px;
         } 
+        @media only screen and (max-width:1100px) {
+            /* For mobile phones: */
+                #main {
+                width:100%;
+                margin-left: 15px;
+                }
+                #c-left{
+                    width: 55%;
+                }
+                #c-right{
+                    margin-left: 10px;
+                    float:left;
+                }
+            }
         @media only screen and (max-width:820px) {
             /* For mobile phones: */
-                #content, #main,#back,#c-left,#id,#pswd,#submit{
+                #content,#main{
                     margin-left: 15px;
                     width:100%;
                 }
-                #c-right,#c-r-top,#c-r-bottom {
+                #c-left,#c-right,#header,#footer{
                     float: left;
+                    margin-top:15px;
                     margin-left:0px;
+                    width:90%;
                 }
         }
-            
+        
     </style>    
 </head>
 <body>
@@ -146,7 +161,45 @@ session_start();
         </div>
         <div id="content">
             <div id="c-left">
-            <?php include "js/jssor/examples-jquery/recruit-slides.php"; ?>
+            <?php #include "js/jssor/examples-jquery/recruit-slides.php"; ?>
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="img\gallery\980x380\059.jpg" style="width:100%;">
+                        </div>
+
+                        <div class="item">
+                            <img src="img\gallery\980x380\060.jpg" style="width:100%;">
+                        </div>
+                        
+                        <div class="item">
+                            <img src="img\gallery\980x380\061.jpg" style="width:100%;">
+                        </div>
+
+                        <div class="item">
+                            <img src="img\gallery\980x380\062.jpg" style="width:100%;">
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
             </div>
             <div id="c-right">
                 <div id="c-r-top" >

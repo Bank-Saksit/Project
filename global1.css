@@ -96,7 +96,7 @@ input[type = "submit"]{
             width:100%;
         }
         #back{
-            width: 30%;
+            width: 50px;
         }
 }
 .card {
