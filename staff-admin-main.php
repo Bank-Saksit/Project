@@ -88,7 +88,7 @@
         }
 
         function display1(response) {
-            arr = JSON.parse(response);
+            var arr = JSON.parse(response);
             var i;
             var out = "<table>";
             
@@ -156,7 +156,6 @@
 
         function NumberPass(RecruitID,i) {
             var xmlhttp = new XMLHttpRequest();
-            var NPass = document.getElementById('pass'+i).value;
             var url = location.protocol + '//' + location.host+"/Project/staff-admin-recruit-link-NumberPass.php?RecruitID="+RecruitID+"&NPass="+NPass;
 
             xmlhttp.onreadystatechange=function() {
@@ -200,7 +199,7 @@
         }
 
         function display2(response) {
-            arr = JSON.parse(response);
+            var arr = JSON.parse(response);
             var i;
             var out = "<table>";
             
@@ -218,8 +217,12 @@
                 "</td><td>" + arr[i].MobileNumber +
                 "</td><td>" + arr[i].RecruitPlanName +
                 "</td><td>" + arr[i].Status +
+                "</td><td>" + arr[i].PostCode +
                 "</td><td>" +
-                "<button onclick=\"moveToStudent('"+arr[i].RecruitID+"')\">สร้างรหัสนศ.+ย้ายข้อมูล</button>"+
+                "<button onclick=\"moveToStudent('"+arr[i].RecruitID+"','"+arr[i].RecruitPlanName+"','"+arr[i].Department+"','"+arr[i].MobileNumber+"','"+arr[i].TelNumber+"','"+
+                arr[i].Email+"','"+arr[i].SchoolID+"','"+arr[i].EducationBackground+"','"+arr[i].Branch+"','"+arr[i].SchoolGPAX+"','"+arr[i].IDCardNumber+"','"+arr[i].Prefix+"','"+
+                arr[i].FirstName+"','"+arr[i].LastName+"','"+arr[i].Gender+"','"+arr[i].DOB+"','"+arr[i].Nationality+"','"+arr[i].Race+"','"+arr[i].Religion+"','"+arr[i].BloodGroup+"','"+
+                arr[i].Address+"','"+arr[i].Province+"','"+arr[i].PostCode+"')\">สร้างรหัสนศ.+ย้ายข้อมูล</button>"+
                 "<button onclick=\"deleteRecruit('"+arr[i].RecruitID+"')\">ลบข้อมูล</button>"+
                 "</td></tr>";
             }
@@ -227,10 +230,14 @@
             document.getElementById("menu2").innerHTML =out;
         }
         
-        function moveToStudent(RecruitID) {
+        function moveToStudent(RecruitID,RecruitPlanName,Department,MobileNumber,TelNumber,Email,SchoolID,EducationBackground,Branch,SchoolGPAX,IDCardNumber
+                                ,Prefix,FirstName,LastName,Gender,DOB,Nationality,Race,Religion,BloodGroup,Address,Province,PostCode) {
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol + '//' + location.host+"/Project/staff-admin-recruit-link-moveToStudent?RecruitID="+RecruitID;
-
+            var url = location.protocol + '//' + location.host+"/Project/staff-admin-recruit-link-moveToStudent.php?RecruitID="+RecruitID+"&RecruitPlanName="+RecruitPlanName+"&Department="+Department+
+                        "&MobileNumber="+MobileNumber+"&TelNumber="+TelNumber+"&Email="+Email+"&SchoolID="+SchoolID+"&EducationBackground="+EducationBackground+"&Branch="+Branch+
+                        "&SchoolGPAX="+SchoolGPAX+"&IDCardNumber="+IDCardNumber+"&Prefix="+Prefix+"&FirstName="+FirstName+"&LastName="+LastName+"&Gender="+Gender+"&DOB="+DOB+
+                        "&Nationality="+Nationality+"&Race="+Race+"&Religion="+Religion+"&BloodGroup="+BloodGroup+"&Address="+Address+"&Province="+Province+"&PostCode="+PostCode;
+            alert (url);
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
