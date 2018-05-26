@@ -94,10 +94,10 @@
 
             var out2 = "<h2>ลบรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
                     "<form>"+
-                    "<p>วิชา: <select id='inSub2'>";
+                    "<p>วิชา: <select id='inSub2' onchange='change2()'>";
             for( var i=0 ; i<vsub.length ; i++ )
                 if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out2+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
-            out2 += "</select><br><br><input type='button' value='ยืนยัน' onclick='update2()'></form></div></div>";
+            out2 += "</select><div id='in2'></div><p><br><input type='button' value='ยืนยัน' onclick='update2()'></p></form></div></div>";
             document.getElementById("menu2").innerHTML = out2;
 
             var out3 = "<h2>แก้ไขรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
@@ -138,13 +138,13 @@
             document.getElementById("menu5").innerHTML = out5;
             out5 = "<h2>ลบกลุ่มรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
                     "<form>"+
-                    "<p>วิชา: <select id='inSub5'>";
+                    "<p>วิชา: <select id='inSub5' onclick='change5()'>";
             for( var i=0 ; i<vsub.length ; i++ )
                 if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out5+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
-            out5 += "</select> กลุ่ม: <select id='inSec5'>";
+            out5 += "</select> กลุ่ม: <select id='inSec5' onclick='change5()'>";
             for( var i=0 ; i<vsub.length ; i++ )
                 if( vsub[i].SubjectID==document.getElementById('inSub5').value ) out5+="<option value='"+vsub[i].SectionNumber+"'>"+vsub[i].SectionNumber+"</option>";
-            out5+="</select><br><br><input type='button' value='ยืนยัน' onclick='update5()'></form></div></div>";
+            out5+="</select><div id='in5'></div><p><br><input type='button' value='ยืนยัน' onclick='update5()'></p></form></div></div>";
             document.getElementById("menu5").innerHTML = out5;
 
             var out6 = "<h2>แก้ไขกลุ่มรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
@@ -164,15 +164,33 @@
             out6+="</select><br><br></form><div id='in6'></div></div></div>";
             document.getElementById("menu6").innerHTML = out6;
 
+            change2();
             change3();
+            change5();
             change6();
+        }
+
+        function change2(){
+            var sub = document.getElementById('inSub2').value;
+            var index;
+            for( var i=0 ; i<vsub.length ; i++ )
+                if( sub==vsub[i].SubjectID ){ index=i; break; }
+            var out = "<p><div class = 'row'>"+
+                    "<div class= 'col-sm-4' >"+
+                    "<p>รหัสวิชา : "+vsub[index].SubjectID+"</p>"+
+                    "<p>ชื่อวิชา : "+vsub[index].SubjectName+"</p>"+
+                    "<p>รายละเอียด : "+vsub[index].Description+"</p>"+
+                    "<p>หน่วยกิต : "+vsub[index].Credit+"</p>"+
+                    "</div>"+
+                    "</div>";
+            document.getElementById("in2").innerHTML = out;
         }
 
         function change3(){
             var sub = document.getElementById('inSub3').value;
             var index;
             for( var i=0 ; i<vsub.length ; i++ )
-                if( sub==vsub[i].SubjectID ){ index=i; break;}
+                if( sub==vsub[i].SubjectID ){ index=i; break; }
             var out = "<p><div class = 'row'>"+
                     "<div class= 'col-sm-4' >"+
                     "<form>"+
@@ -187,12 +205,31 @@
             document.getElementById("in3").innerHTML = out;
         }
 
+        function change5(){
+            var sub = document.getElementById('inSub5').value;
+            var sec = document.getElementById('inSec5').value;
+            var index;
+            for( var i=0 ; i<vsub.length ; i++ )
+                if( sub==vsub[i].SubjectID && sec==vsub[i].SectionNumber ){ index=i; break; }
+            var out = "<p><div class = 'row'>"+
+                    "<div class= 'col-sm-4' >"+
+                    "<p>เทอมการศึกษา: "+vsub[index].Semester+"</p>"+
+                    "<p>ปีการศึกษา: "+vsub[index].AcademicYear+"</p>"+
+                    "<p>จำนวนที่นั่ง: "+vsub[index].SeatAmount+"</p>"+
+                    "<p>วัน: "+vsub[index].Day+"</p>"+
+                    "<p>เวลา: "+vsub[index].StartTime+" ถึง "+vsub[index].EndTime+"</p>"+
+                    "<p>ห้องเรียน: "+vsub[index].Room+"</p>"+
+                    "</div>"+
+                    "</div>";
+            document.getElementById("in5").innerHTML = out;
+        }
+
         function change6(){
             var sub = document.getElementById('inSub6').value;
             var sec = document.getElementById('inSec6').value;
             var index;
             for( var i=0 ; i<vsub.length ; i++ )
-                if( sub==vsub[i].SubjectID && sec==vsub[i].SectionNumber ){ index=i; break;}
+                if( sub==vsub[i].SubjectID && sec==vsub[i].SectionNumber ){ index=i; break; }
             var out = "<p><div class = 'row'>"+
                     "<div class= 'col-sm-4' >"+
                     "<form>"+
