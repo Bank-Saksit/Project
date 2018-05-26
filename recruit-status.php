@@ -185,8 +185,7 @@
                     "</div>";
             out += "</table>";
             document.getElementById("infoRecruit").innerHTML = out;
-            var list = "<br><div class='col-sm-4'><t2>คณะที่ได้</t2></div>";
-            list += "<table id='list'><div class = 'row'><tr><td id='t3'><t1>ลำดับ</t1></td><td id='t3'><t1>คณะ</t1></td><td id='t3'><t1>สาขา</t1></td></tr></div>";
+            var list = "<table id='list'><div class = 'row'><tr><td id='t3'><t1>ลำดับ</t1></td><td id='t3'><t1>คณะ</t1></td><td id='t3'><t1>สาขา</t1></td></tr></div>";
             for( i=0 ; i<arr.length ; i++ ){
                 if(arr[0].NoPass == 0){
                     list += "<div class = 'row'><tr>"+
