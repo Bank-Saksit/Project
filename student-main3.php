@@ -147,7 +147,7 @@ session_start();
         }
         
         function displayResponse(response) {
-            window.arr = JSON.parse(response);
+            var arr = JSON.parse(response);
         
             var out ="<table><tr><th id='t1'>รหัสวิชา</th><th  id='t2'>ชื่อวิชา</th><th id='t1'>กลุ่ม</th><th th id='t1'>วัน</th>" +
                  "<th id='t2'>เวลาเรียน</th><th id='t1'>ห้อง</th><th id='t2'>คำอธิบายวิชา</th><th id='t1'>หน่วยกิต</th></tr>";

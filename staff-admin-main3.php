@@ -15,6 +15,22 @@
     <style>
         @import "global1.css";
         @import "temple.css";
+        .t {
+            width: 200px;
+            text-align:center;
+            border:2px solid;
+            height: 40px;
+        }
+        #t1,#t2 {
+            width:10%;
+        }
+        #t2 {
+            float:left;
+        }
+        #bt {
+            margin-right:10px;
+            margin-left:10px;
+        }
     </style>
     
 </head>
@@ -45,12 +61,7 @@
                     <div class = "row">
                         <div class="col-sm-4" >
                             <h4>คำนำหน้า:</h4>
-                            <select name="Prefix" class="check" id="a1" >
-                                <option value="">โปรดเลือก</option>
-                                <option value="นาย">นาย</option>
-                                <option value="นางสาว">นางสาว</option>
-                                <option value="นาง">นาง</option>
-                            </select>
+                            <input type="text" name="Prefix" class="check" id="a1"><br>
                             <h4>ชื่อจริง:</h4>
                             <input type="text" name="Fname" class="check" id="a2"><br>
                             <h4>นามสกุล:</h4>
@@ -196,10 +207,10 @@
 			}
 		});
 
-        
+        load();
         function load(){
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol + '//' + location.host+ "/Project/student-main3-link.php";
+            var url = location.protocol + '//' + location.host+ "/Project/staff-admin-main3-show.php";
 
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -209,7 +220,69 @@
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
         }
-       
+
+        function displayResponse(response){
+            var arr = JSON.parse(response);
+            var out = "<h1>ข้อมูลผู้สอน</h1><table><tr><th class='t'>ID</th><th class='t'>ชื่อ</th><th class='t'>ภาควิชา</th><th class='t'>เบอร์</th><th class='t'>เพิ่มเติม</th></tr>";
+            for(i=0;i<arr.length;i++){
+                out += "<tr><td class='t'>"+ arr[i].StaffID +"</td>"+
+                    "<td class='t'>"+ arr[i].Prefix + arr[i].FirstName +' '+ arr[i].LastName +"</td>"+
+                    "<td class='t'>"+ arr[i].Faculty +' '+ arr[i].Department +"</td>"+
+                    "<td class='t'>"+ arr[i].MobileNumber +"</td>" +
+                    "<td class='t'><input type='button' id='bt' value='ดูข้อมูล' onclick=\"data("+arr[i].StaffID+")\">"+
+                    "<input type='button' id='bt' value='ลบข้อมูล' onclick=\"deleteData("+arr[i].StaffID+")\"></td></tr>";
+            }
+                out += "</table>";
+            document.getElementById("menu1").innerHTML = out;
+        }
+
+        function deleteData(staffID){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+ "/Project/staff-admin-main3-deleteData.php?SID="+staffID;
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    load();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        
+        function data(staffID){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+ "/Project/staff-admin-main3-data.php?SID="+staffID;
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    ShowData(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function ShowData(response){
+            var arr = JSON.parse(response);
+            var out = "<h1>ข้อมูลผู้สอน</h1>";
+            
+                out += "รหัสประจำตัว : "+ arr[0].StaffID +"<br>"+
+                    "ชื่อ : "+ arr[0].Prefix + arr[0].FirstName +' '+ arr[0].LastName +"<br>"+
+                    "เลขบัตรประจำตัวประชาชน : "+ arr[0].IDCardNumber +"<br>" +
+                    "วุฒิการศึกษา : "+ arr[0].EducationBackground +"<br>" +
+                    "ภาควิชา : "+ arr[0].Faculty +' '+ arr[0].Department +"<br>"+
+                    "เป็นที่ปรึกษา : "+ arr[0].ConsultantStatus +"<br>" +
+                    "เบอร์โทรศัพมือถือ : "+ arr[0].MobileNumber +"<br>" +
+                    "เบอร์โทร : "+ arr[0].TelNumber +"<br>" +
+                    "Email : "+ arr[0].Email +"<br>" +
+                    "เพศ : "+ arr[0].Gender +"<br>" +
+                    "วันเกิด : "+ arr[0].DOB +"<br>" +
+                    "สัญชาติ : "+ arr[0].Nationality +"<br>" +
+                    "เชื้อชาติ : "+ arr[0].Race +"<br>" +
+                    "ศาสนา : "+ arr[0].Religion +"<br>" +
+                    "กรุ๊ปเลือด : "+ arr[0].BloodGroup +"<br>" +
+                    "<input type='button' id='bt' value='ย้อนกลับ' onclick=\"load()\">";
+                
+            document.getElementById("menu1").innerHTML = out;
+        }
         </script>
      </div>
 </body>
