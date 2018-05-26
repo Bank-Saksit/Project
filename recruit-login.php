@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -148,6 +149,7 @@ session_start();
     if(isset($_COOKIE['id']) && isset($_COOKIE['pswd'])) {
         header("location: recruit-status.php");
         exit('</body></html>');
+        ob_end_flush();
     }
     ?>  
     <div id="left">
