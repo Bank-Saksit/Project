@@ -39,13 +39,30 @@
         }
         else if($result->num_rows == 1){
             $rs = $result->fetch_array(MYSQLI_ASSOC);
-            
+            if($rs['Password']!=NULL){
+                $conn->close();
                 $_SESSION['id'] = $id;
                 $_SESSION['idcard'] = $pswd;
                 $_SESSION['role'] = 'staff';
                 header("Location:student-newpw.php");
+            }
+            else{
+                $conn->close();
+                echo    "<script> 
+                            swal({
+                                type: 'error',
+                                title: 'ล้มเหลว',
+                                text: 'คุณยังไม่มีรหัสผ่าน กรุณาลงทะเบียนนักศึกษาใหม่',
+                                confirmButtonText: '<a href=\"student-new-login.php\" style=\"text-decoration: none\"><font color=\"white\">ตกลง</font></a>',
+                            });
+                            $(document).on('click',function(){
+                                window.location='student-new-login.php'; 
+                            })
+                        </script>";
+            }
         }
-        else{$conn->close();
+        else{
+            $conn->close();
             echo    "<script>
                         swal({
                             type: 'error',

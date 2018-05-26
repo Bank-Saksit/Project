@@ -38,14 +38,32 @@
                     // </script>';
         }
         else if($result->num_rows == 1){
-            $rs = $result->fetch_array(MYSQLI_ASSOC);
             
+            $rs = $result->fetch_array(MYSQLI_ASSOC);
+            if($rs['Password']!=NULL){
+                $conn->close();
                 $_SESSION['id'] = $id;
                 $_SESSION['idcard'] = $pswd;
                 $_SESSION['role'] = 'staff';
                 header("Location:staff-newpw.php");
+            }
+            else{
+                $conn->close();
+                echo    "<script> 
+                            swal({
+                                type: 'error',
+                                title: 'ล้มเหลว',
+                                text: 'คุณยังไม่มีรหัสผ่าน กรุณาลงทะเบียนบุคลากรใหม่',
+                                confirmButtonText: '<a href=\"staff-new-login.php\" style=\"text-decoration: none\"><font color=\"white\">ตกลง</font></a>',
+                            });
+                            $(document).on('click',function(){
+                                window.location='staff-new-login.php'; 
+                            })
+                        </script>";
+            }
         }
-        else{$conn->close();
+        else{
+            $conn->close();
             echo    "<script>
                         swal({
                             type: 'error',
