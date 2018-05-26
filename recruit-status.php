@@ -200,8 +200,7 @@
                         "<td id='t3'><t2>"+ arr[i].Faculty +"</t2></td>"+
                         "<td id='t3'><t2>"+ arr[i].Department +"</t2></td>"+
                     "</tr>";
-                }
-                
+                }  
             }
             list += "</table>";
             document.getElementById("detail-rc").innerHTML = list;

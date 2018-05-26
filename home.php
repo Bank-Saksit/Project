@@ -37,7 +37,7 @@
             }
             #header > h1 {
                 font-family: "supermarket";
-                font-size: 50px;
+                font-size: 60px;
                 position: absolute;
                 bottom: 0;
                 width: 100%;
