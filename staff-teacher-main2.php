@@ -23,6 +23,12 @@
     <style>
         @import "global1.css";
         @import "temple.css";
+        table, th, td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+            text-align: center;
+        }
     </style>
     
 </head>
@@ -142,16 +148,33 @@
                 }
                 else{
                     var out2 = "<form> ภาคเรียนที่:<select id='sem'><option value='1'>1</option><option value='2'>2</option></select>" 
-                                +"&nbspปีการศึกษา : <select id='sub'>";
+                                +"&nbspปีการศึกษา : <select id='year'>";
                             for(i=0;i<arr.length;i++){
                                 out2+="<option value="+arr[i].AcademicYear+">"+arr[i].AcademicYear+"</option>";
                             }
                         out2 += "</select><br>"+
-                            "<br><input type='button' value='ตรวจสอบ' onclick=''>"+
+                            "<br><input type='button' value='ตรวจสอบ' onclick='timeTable()'>"+
                             "</form>";
                 }
                 document.getElementById("menu2").innerHTML = out2;
             }
+
+            function timeTable(){
+                var xmlhttp = new XMLHttpRequest();
+                var sem = document.getElementById('sem').value;
+                var year = document.getElementById('year').value;
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-timeTable-link.php?ID="+<?php echo $_SESSION['id'];?>+"&sem="+sem+"&year="+year;
+                    
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        //timeTableShow(xmlhttp.responseText);
+                        document.getElementById("menu2").innerHTML = xmlhttp.responseText;
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+
         </script>
      </div>
 </body>
