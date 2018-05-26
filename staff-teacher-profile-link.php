@@ -3,12 +3,14 @@ include "dblink.php";
 $id=(int)$_GET['inID'];
     if( $_GET['type']=='01' ){
         $result = $conn->query("SELECT * 
-                                FROM staffinfo 
-                                WHERE StaffID = $id;");
+                                FROM staffinfo s, departmentinfo d
+                                WHERE   StaffID = $id AND
+                                        s.Department=d.Department;");
         $outp = "[";
         while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
             if ($outp != "[") {$outp .= ",";}
             $outp .= '{"StaffID":"'.$rs["StaffID"].'",';
+            $outp .= '"Faculty":"'.$rs["Faculty"].'",';
             $outp .= '"Department":"'.$rs["Department"].'",';
             $outp .= '"MobileNumber":"'.$rs["MobileNumber"].'",';
             $outp .= '"TelNumber":"'.$rs["TelNumber"].'",';

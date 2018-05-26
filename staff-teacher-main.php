@@ -97,11 +97,10 @@
                         "<p>เพศ : &nbsp"+arr[0].Gender+"</p>"+
                         "</div>"+
                         "<div class= 'col-sm-4'>"+
-                        "<p>ระดับการศึกษา : &nbsp"+arr[0].Degree+"</p>"+
+                        "<p>ระดับการศึกษา : &nbsp"+arr[0].EducationBackground+"</p>"+
                         "<p>คณะ : &nbsp"+arr[0].Faculty+"</p>"+
                         "<p>ภาควิชา : &nbsp"+arr[0].Department+"</p>"+
-                        "<p>หลักสูตร : &nbsp"+arr[0].Course+"</p>"+
-                        "<p>สถานะ : &nbsp"+arr[0].Status+"</p>"+
+                        "<p>สถานะการเป็นที่ปรึกษา : &nbsp"+arr[0].ConsultantStatus+"</p>"+
                      "</div>"+
                      "</div>"+
                      "<div class= 'row'>"+"<br>"+"</div>"+
@@ -191,7 +190,7 @@
                 "<div class = 'row'>"+
                     "<div class= 'col-sm-4' >"+
                     "<form>"+
-                    "<p>ที่อยู่ :<textarea style='resize: none' rows=3 cols=50 id='inAdd'>"+arr[0].Address+"</textarea></p>"+
+                    "<p>ที่อยู่ :<textarea style='resize: none' rows=3 cols=45 id='inAdd'>"+arr[0].Address+"</textarea></p>"+
                     "<p>จังหวัด :<input type='text' id='inPr' class='bg' value='"+arr[0].Province+"'></p>"+
                     "<p>รหัสไปรษณีย์ : <input type='text' id='inPo' class='bg' value='"+arr[0].Postcode+"'></p>"+
                     "</div>"+"<div class= 'col-sm-4' >"+
