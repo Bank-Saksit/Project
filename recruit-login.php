@@ -19,7 +19,7 @@ session_start();
         @import "global1.css";
         #left {
             float: left;
-            width: 15%;
+            width: 13%;
             position: relative;
             height: 100%;
         }
@@ -114,15 +114,31 @@ session_start();
         h2 {
             margin:10px;
         } 
+        @media only screen and (max-width:1100px) {
+            /* For mobile phones: */
+                #main {
+                width:100%;
+                margin-left: 15px;
+                }
+                #center{
+                    float: left;
+                    margin-left:20px;
+                }
+                #right{
+                    float:left;
+                }
+            }
         @media only screen and (max-width:820px) {
             /* For mobile phones: */
-                #content, #main,#back,#c-left,#id,#pswd,#submit{
+                #content,#main,#id,#pswd,#submit{
                     margin-left: 15px;
                     width:100%;
                 }
-                #c-right,#c-r-top,#c-r-bottom {
+                #c-left,#c-right{
                     float: left;
+                    margin-top:10px;
                     margin-left:0px;
+                    width:100%;
                 }
         }
             

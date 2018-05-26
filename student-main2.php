@@ -189,8 +189,15 @@ session_start();
 
                 var out5 = "<h2>รายละเอียดกลุ่มวิชา</h2><br><div class = 'row'><div class = 'col-sm-8'>"+
                         "<p>วิชา: <select id='inSub5' onchange='change5()'>";
-                for( var i=0 ; i<arr.length ; i++ )
-                    out5+="<option value='"+arr[i].SubjectID+"'>"+arr[i].SubjectID+"</option>";
+                <?php
+                    include "dblink.php";
+                    $result = $conn->query("SELECT * FROM subjectinfo");
+                    while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+                        echo"out5+=\"<option value='".$rs['SubjectID']."'>".$rs['SubjectID']."</option>\";";
+                    }
+                ?>
+                // for( var i=0 ; i<arr.length ; i++ )
+                //     out5+="<option value='"+arr[i].SubjectID+"'>"+arr[i].SubjectID+"</option>";
                 out5+="</select> กลุ่ม <select id='inSec5' onchange='change5()'>"+
                         "<option value=01>1</option>"+
                         "<option value=02>2</option>"+
@@ -236,7 +243,7 @@ session_start();
                         var tmp = JSON.parse(xmlhttp.responseText);
                         out5 = "<p>วิชา "+document.getElementById('inSub5').value+" กลุ่ม "+document.getElementById('inSec5').value+"<br>"+
                             "จำนวนที่นั่ง "+tmp[0].SeatAmount+"<br>"+
-                            "เวลา "+tmp[0].Day+" "+tmp[0].StartTime+" ถึง "+tmp[0].EndTime+"<br>"+
+                            "วัน"+tmp[0].Day+" เวลา "+tmp[0].StartTime+" ถึง "+tmp[0].EndTime+"<br>"+
                             "ห้องเรียน "+tmp[0].Room;
 
                         document.getElementById('in5').innerHTML = out5;
