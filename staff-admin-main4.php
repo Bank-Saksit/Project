@@ -15,6 +15,17 @@
     <style>
         @import "global1.css";
         @import "temple.css";
+        table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+        table tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+        table tr:nth-child(even) {
+            background-color: #ffffff;
+        }
     </style>
     
 </head>
@@ -31,7 +42,8 @@
     </div>
     <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
-            <li class = "active"><a data-toggle="tab" href="#menu1">เพิ่มรายวิชา</a></li>
+            <li class = "active"><a data-toggle="tab" href="#menu0">ข้อมูลรายวิชา</a></li>
+            <li><a data-toggle="tab" href="#menu1">เพิ่มรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu2">ลบรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu3">แก้ไขรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu4">เพิ่มกลุ่มรายวิชา</a></li>
@@ -41,7 +53,8 @@
     </div>
     <div id="main">
         <div class="tab-content" id="tab-content">
-            <div id="menu1" class="tab-pane fade in active"></div>
+            <div id="menu0" class="tab-pane fade in active"></div>
+            <div id="menu1" class="tab-pane fade"></div>
             <div id="menu2" class="tab-pane fade"></div>
             <div id="menu3" class="tab-pane fade"></div>
             <div id="menu4" class="tab-pane fade"></div>
@@ -77,6 +90,24 @@
         }
 
         function display() {
+            var out0 = "<table>";
+            for( var i = 0 ; i < vsub.length ; i++ ) {
+                if( i==0 ) out0 += "<tr><td align='center'>รหัสวิชา</td><td align='center'>ชื่อวิชา</td><td align='center'>หน่วยกิต</td><td align='center'>กลุ่ม</td><td align='center'>เทอมการศึกษา</td><td align='center'>ปีการศึกษา</td><td align='center'>จำนวนที่นั่ง</td><td align='center'>วัน</td><td align='center'>เวลาเริ่ม</td><td align='center'>เวลาจบ</td><td align='center'>ห้องเรียน</td></tr>";
+                out0 += "</td><td>" + vsub[i].SubjectID +
+                "</td><td>" + vsub[i].SubjectName+
+                "</td><td>" + vsub[i].Credit+
+                "</td><td>" + vsub[i].SectionNumber+
+                "</td><td>" + vsub[i].Semester+
+                "</td><td>" + vsub[i].AcademicYear+
+                "</td><td>" + vsub[i].SeatAmount+
+                "</td><td>" + vsub[i].Day+
+                "</td><td>" + vsub[i].StartTime+    
+                "</td><td>" + vsub[i].EndTime+
+                "</td><td>" + vsub[i].Room+
+                "</td></tr>";
+            }
+            out0 += "</table>";
+            document.getElementById("menu0").innerHTML = out0;
 
             var out1 = "<h2>เพิ่มรายวิชา</h2><p>"+
                 "<div class = 'row'>"+
