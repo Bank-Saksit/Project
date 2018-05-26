@@ -138,7 +138,7 @@
         </div>
 
         <!-- Slides Container -->
-        <div data-u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 510px; height: 300px; ">
+        <div data-u="slides" style="cursor: pointer; position: absolute; left: 0px; top: 0px; width: 510px; height: 300px; ">
             <div>
                 <img data-u="image" src="img/gallery/980x380/059.jpg" />
             </div>

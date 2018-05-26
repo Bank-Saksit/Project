@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +22,15 @@
     
 </head>
 <body>
+    <?php 
+        if(isset($_SESSION['id']) && isset($_SESSION['pswd']) && $_SESSION['role'] == 'student') {
+            
+        }
+        else{
+            header("location: student-home.php");
+            exit('</body></html>');
+        }
+    ?>
     <div class="top" id="top">
         <a href="student-main.php">ข้อมูลนักศึกษา</a>
         <a class = "active" href="student-main2.php">ลงทะเบียนเรียน</a>

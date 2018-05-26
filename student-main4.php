@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +38,14 @@
     
 </head>
 <body>
+    <?php 
+        if(isset($_SESSION['id']) && isset($_SESSION['pswd'])) {
+            
+        }
+        else{
+            header("location: student-home.php");
+        }
+    ?>
     <div class="top" id="top">
             <a href="student-main.php">ข้อมูลนักศึกษา</a>
             <a href="student-main2.php">ลงทะเบียนเรียน</a>
