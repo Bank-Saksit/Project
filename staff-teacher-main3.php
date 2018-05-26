@@ -295,7 +295,11 @@
 
             function disGrade(response){
                 var arr = JSON.parse(response);
-                var out1 =  arr[0].SubjectID+
+                if(arr[0].nop=="not found"){
+                    var out1 = "ไม่พบข้อมูลนักศึกษา";
+                }
+                else{
+                    var out1 =  arr[0].SubjectID+
                             "&nbsp"+arr[0].SubjectName+
                             "&nbspsec:"+arr[0].SectionNumber+
                             "<br><br>"+
@@ -322,6 +326,8 @@
                                 "</td></tr>";
                     }
                     out1+= "</form></table><br><button value='ยืนยัน' onclick='Grade("+JSON.stringify(response)+")'>ยืนยัน</button>"
+                }
+                
                     document.getElementById("menu1").innerHTML = out1;
             }
 
