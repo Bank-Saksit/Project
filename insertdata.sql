@@ -27,3 +27,6 @@ WHERE   st.StudentID = ss.StudentID AND
         sc.SubjectID = su.SubjectID AND
         st.Status = $
 GROUP BY st.StudentID;
+
+INSERT INTO teachersec (StaffID,SubjectSectionID)
+VALUES ($id,$sub);
