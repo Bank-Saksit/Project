@@ -24,17 +24,18 @@ session_start();
         #t1 {
             text-align:center;
             font-size:20px;
-            font-weight: bold;
             border:1px solid;
+            color:white;
+            background:rgba(0,0,0,0.8);
         }
         #t2 {
-            vertical-align:center;
+            text-align:center;
             height: 100px;
-            font-size:16px;
+            font-size:18px;
             border:1px solid;
         }
         #h4 {
-            margin-top: 5px;
+            margin-top: 10px;
             font-size:16px;
         }
     </style>
@@ -155,7 +156,7 @@ session_start();
         }
         
         function displayResponse(response) {
-            window.arr = JSON.parse(response);
+            var arr = JSON.parse(response);
         
             var out ="<table><tr><div class = 'row'><div class = 'col-sm-1' id ='t1'>รหัสวิชา</div><div class = 'col-sm-2' id ='t1'>ชื่อวิชา</div><div class = 'col-sm-1' id ='t1'>กลุ่ม</div><div class = 'col-sm-1' id ='t1'>วัน</div>" +
                  "<div class = 'col-sm-2' id ='t1'>เวลาเรียน</div><div class = 'col-sm-1' id ='t1'>ห้อง</div><div class = 'col-sm-2' id ='t1'>คำอธิบายวิชา</div><div class = 'col-sm-1' id ='t1'>หน่วยกิต</div></div></tr>";
