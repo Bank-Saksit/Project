@@ -15,21 +15,17 @@
     <style>
         @import "global1.css";
         @import "temple.css";
-        .t {
-            width: 200px;
+        table, th , td {
+            border: 1px solid grey;
             text-align:center;
-            border:2px solid;
-            height: 40px;
+            border-collapse: collapse;
+            padding: 5px;
         }
-        #t1,#t2 {
-            width:10%;
+        table tr:nth-child(odd) {
+            background-color: #f1f1f1;
         }
-        #t2 {
-            float:left;
-        }
-        #bt {
-            margin-right:10px;
-            margin-left:10px;
+        table tr:nth-child(even) {
+            background-color: #ffffff;
         }
     </style>
     
@@ -223,13 +219,13 @@
 
         function displayResponse(response){
             var arr = JSON.parse(response);
-            var out = "<h1>ข้อมูลผู้สอน</h1><table><tr><th class='t'>ID</th><th class='t'>ชื่อ</th><th class='t'>ภาควิชา</th><th class='t'>เบอร์</th><th class='t'>เพิ่มเติม</th></tr>";
+            var out = "<h1>ข้อมูลผู้สอน</h1><table><tr><th>ID</th><th>ชื่อ</th><th>ภาควิชา</th><th>เบอร์</th><th>เพิ่มเติม</th></tr>";
             for(i=0;i<arr.length;i++){
-                out += "<tr><td class='t'>"+ arr[i].StaffID +"</td>"+
-                    "<td class='t'>"+ arr[i].Prefix + arr[i].FirstName +' '+ arr[i].LastName +"</td>"+
-                    "<td class='t'>"+ arr[i].Faculty +' '+ arr[i].Department +"</td>"+
-                    "<td class='t'>"+ arr[i].MobileNumber +"</td>" +
-                    "<td class='t'><input type='button' id='bt' value='ดูข้อมูล' onclick=\"data("+arr[i].StaffID+")\">"+
+                out += "<tr><td>"+ arr[i].StaffID +"</td>"+
+                    "<td>"+ arr[i].Prefix + arr[i].FirstName +' '+ arr[i].LastName +"</td>"+
+                    "<td>"+ arr[i].Faculty +' '+ arr[i].Department +"</td>"+
+                    "<td>"+ arr[i].MobileNumber +"</td>" +
+                    "<td><input type='button' id='bt' value='ดูข้อมูล' onclick=\"data("+arr[i].StaffID+")\">"+
                     "<input type='button' id='bt' value='ลบข้อมูล' onclick=\"deleteData("+arr[i].StaffID+")\"></td></tr>";
             }
                 out += "</table>";
@@ -279,7 +275,7 @@
                     "เชื้อชาติ : "+ arr[0].Race +"<br>" +
                     "ศาสนา : "+ arr[0].Religion +"<br>" +
                     "กรุ๊ปเลือด : "+ arr[0].BloodGroup +"<br>" +
-                    "<input type='button' id='bt' value='ย้อนกลับ' onclick=\"load()\">";
+                    "<button onclick=\"load()\">ย้อนกลับ</button>";
                 
             document.getElementById("menu1").innerHTML = out;
         }
