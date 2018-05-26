@@ -19,7 +19,7 @@ session_start();
         @import "global1.css";
         #left {
             float: left;
-            width: 13%;
+            width: 15%;
             position: relative;
             height: 100%;
         }
@@ -30,6 +30,7 @@ session_start();
             position: relative;
             top: 60px;
         }
+
         #content{
             margin-top: 2%;
         }
@@ -115,8 +116,9 @@ session_start();
         } 
         @media only screen and (max-width:820px) {
             /* For mobile phones: */
-                #content, #main,#c-left,#id,#pswd,#submit{
-                width:100%;
+                #content, #main,#back,#c-left,#id,#pswd,#submit{
+                    margin-left: 15px;
+                    width:100%;
                 }
                 #c-right,#c-r-top,#c-r-bottom {
                     float: left;
