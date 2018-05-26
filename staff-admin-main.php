@@ -42,7 +42,7 @@
     <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
         <li class = "active"><a data-toggle="tab" href="#menu1">ข้อมูลผู้สมัคร</a></li>
-        <li><a data-toggle="tab" href="#menu2">สร้างรหัสนักศึกษา</a></li>
+        <li><a data-toggle="tab" href="#menu2">นักเรียนที่จ่ายค่าแรกเข้าแล้ว</a></li>
         <li><a data-toggle="tab" href="#menu3">ข้อมูลอาจารย์</a></li>
         </ul>
      </div>
@@ -94,7 +94,7 @@
             
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td>RecruitID</td><td>คำนำหน้า</td><td>ชื่อจริง</td><td>นามสกุล</td><td>เบอร์โทรติดต่อ</td><td>โรงเรียน</td><td>โครงการ</td><td>อันดับ</td><td>คณะ</td><td>ภาควิชา</td><td>สถานะ</td><td>อันดับที่ได้</td><td colspan='4'>แก้ไข</td></tr>";
+                    out += "<tr><td align='center'>RecruitID</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อจริง</td><td align='center'>นามสกุล</td><td align='center'>เบอร์โทรติดต่อ</td><td align='center'>โรงเรียน</td><td align='center'>โครงการ</td><td align='center'>อันดับ</td><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>สถานะ</td><td align='center'>อันดับที่ได้</td><td colspan='4' align='center'>แก้ไข</td></tr>";
                 }
                 out += "<tr><td>" + arr[i].RecruitID +
                 "</td><td>" + arr[i].Prefix +
@@ -156,6 +156,7 @@
 
         function NumberPass(RecruitID,i) {
             var xmlhttp = new XMLHttpRequest();
+            var NPass = document.getElementById('pass'+i).value;
             var url = location.protocol + '//' + location.host+"/Project/staff-admin-recruit-link-NumberPass.php?RecruitID="+RecruitID+"&NPass="+NPass;
 
             xmlhttp.onreadystatechange=function() {
@@ -205,7 +206,7 @@
             
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td>คณะ</td><td>ภาควิชา</td><td>RecruitID</td><td>คำนำหน้า</td><td>ชื่อจริง</td><td>นามสกุล</td><td>รหัสบัตรประชาชน</td><td>เบอร์โทรติดต่อ</td><td>โครงการ</td><td>สถานะ</td><td colspan='4'>แก้ไข</td></tr>";
+                    out += "<tr><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>RecruitID</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อจริง</td><td align='center'>นามสกุล</td><td align='center'>รหัสบัตรประชาชน</td><td align='center'>เบอร์โทรติดต่อ</td><td align='center'>โครงการ</td><td align='center'>สถานะ</td><td colspan='4' align='center'>แก้ไข</td></tr>";
                 }
                 out += "<tr><td>" + arr[i].Faculty +
                 "</td><td>" + arr[i].Department+
@@ -217,12 +218,12 @@
                 "</td><td>" + arr[i].MobileNumber +
                 "</td><td>" + arr[i].RecruitPlanName +
                 "</td><td>" + arr[i].Status +
-                "</td><td>" + arr[i].PostCode +
                 "</td><td>" +
                 "<button onclick=\"moveToStudent('"+arr[i].RecruitID+"','"+arr[i].RecruitPlanName+"','"+arr[i].Department+"','"+arr[i].MobileNumber+"','"+arr[i].TelNumber+"','"+
                 arr[i].Email+"','"+arr[i].SchoolID+"','"+arr[i].EducationBackground+"','"+arr[i].Branch+"','"+arr[i].SchoolGPAX+"','"+arr[i].IDCardNumber+"','"+arr[i].Prefix+"','"+
                 arr[i].FirstName+"','"+arr[i].LastName+"','"+arr[i].Gender+"','"+arr[i].DOB+"','"+arr[i].Nationality+"','"+arr[i].Race+"','"+arr[i].Religion+"','"+arr[i].BloodGroup+"','"+
                 arr[i].Address+"','"+arr[i].Province+"','"+arr[i].PostCode+"')\">สร้างรหัสนศ.+ย้ายข้อมูล</button>"+
+                "</td><td>" +
                 "<button onclick=\"deleteRecruit('"+arr[i].RecruitID+"')\">ลบข้อมูล</button>"+
                 "</td></tr>";
             }
