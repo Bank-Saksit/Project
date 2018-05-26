@@ -15,7 +15,7 @@ session_start();
         @import "global1.css";
         @import "temphome.css";
             div#content{          
-                background-image: url(img/gallery/980x380/065.jpg);
+                background-image: url(img/gallery/980x380/064.jpg);
             }
     </style>
 </head>
@@ -37,7 +37,7 @@ session_start();
         </div>
         <div id="content">
             <div id="c-left">
-                <form method="post" action ="student-update-pw.php" >
+                <form method="post" action ="student-update-newpw.php" >
                         <h1>สร้างรหัสผ่านใหม่</h1>
                         <div id = "c-in">
                             <input type="password" name="pw" placeholder="รหัสผ่านใหม่"><br>

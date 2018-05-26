@@ -37,7 +37,7 @@ session_start();
         </div>
         <div id="content">
             <div id="c-left">
-                <form method="post" action ="staff-update-pw.php" >
+                <form method="post" action ="staff-update-newpw.php" >
                         <h1>สร้างรหัสผ่านใหม่</h1>
                         <div id = "c-in">
                             <input type="password" name="pw" placeholder="รหัสผ่านใหม่"><br>
