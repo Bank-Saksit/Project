@@ -41,9 +41,12 @@
      <div id="main">
         <div class="tab-content" id="tab-content">
             <div id="menu1" class="tab-pane fade in active">
-                <h3>ลงทะเบียนรายวิชา</h3>
+                <h2>ลงทะเบียนรายวิชา</h2>
+                <br>
+                <div class = "row">
+                <div class = "col-sm-8">
                 <form>
-                    <span>วิชาที่ 1 </span>
+                    <p><span>วิชาที่ 1 </span>
                     <?php
                         include "dblink.php";
                         $result = mysqli_query($conn,"SELECT * FROM subjectinfo");
@@ -59,17 +62,23 @@
                         echo"<option value = 03 >3</option>";
                         echo"</select>";
                     ?>
-                    <div id="demo"></div>
-                    <button type="button" id="add" class="check" >+</button>
-                    <button type="button" id="remove" class="check" >-</button>
+                    </p>
+                    <p><div id="demo"></div></p>
+                    <pp><button type="button" id="add" class="check" >+</button></pp>
+                    <pp><button type="button" id="remove" class="check" >-</button></pp>
                     <br><br>
-                    <input type="button" value="ยืนยัน" onclick="update1()">
+                    <p><input type="button" value="ยืนยัน" onclick="update1()"></p>
                 </form>
+                </div>
+                </div>
             </div>
             <div id="menu2" class="tab-pane fade">
-                <h3>เพิ่มวิชา</h3>
+                <h2>เพิ่มวิชา</h2>
+                <br>
+                <div class = "row">
+                <div class = "col-sm-8">
                 <form>
-                    <span>วิชาที่ 1 </span>
+                    <p><span>วิชาที่ 1 </span>
                     <?php
                         include "dblink.php";
                         $result = mysqli_query($conn,"SELECT * FROM subjectinfo");
@@ -84,13 +93,15 @@
                         echo"<option value = 02 >2</option>";
                         echo"<option value = 03 >3</option>";
                         echo"</select>";
-                    ?>
+                    ?></p>
                     <div id="demo2"></div>
-                    <button type="button" id="add2" class="check2" >+</button>
-                    <button type="button" id="remove2" class="check2" >-</button>
+                    <pp><button type="button" id="add2" class="check2" >+</button></pp>
+                    <pp><button type="button" id="remove2" class="check2" >-</button></pp>
                     <br><br>
-                    <input type="button" value="ยืนยัน" onclick="update2()">
+                    <p><input type="button" value="ยืนยัน" onclick="update2()"></p>
                 </form>
+                </div>
+                </div>
             </div>
             <div id="menu3" class="tab-pane fade"></div>
             <div id="menu4" class="tab-pane fade"></div>
@@ -140,7 +151,7 @@
             function display(response) {
                 arr = JSON.parse(response);
 
-                var out3 = "<h3>ย้ายกลุ่ม</h3>"+
+                var out3 = "<h2>ย้ายกลุ่ม</h2><br><div class = 'row><div class = 'col-sm-8'>"+
                         "<form>"+
                         "<p>วิชา: <select id='inSub3' onchange='change3()'>";
                 for( var i=0 ; i<arr.length ; i++ )
@@ -151,20 +162,20 @@
                         "<option value=03>3</option>"+
                         "</select>"+
                         "<br><br><input type='button' value='ยืนยัน' onclick='update3()'>"+
-                        "</form>";
+                        "</form></div></div>";
                 document.getElementById("menu3").innerHTML = out3;
 
-                var out4 = "<h3>ลดรายวิชา</h3>"+
+                var out4 = "<h2>ลดรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
                         "<form>"+
                         "<p>วิชา: <select id='inSub4' onchange='change4()'>";
                 for( var i=0 ; i<arr.length ; i++ )
                     out4+="<option value='"+arr[i].SubjectID+"'>"+arr[i].SubjectID+"</option>";
                 out4+="</select> <div id='outSec4'></div>"+
                         "<br><input type='button' value='ยืนยัน' onclick='update4()'>"+
-                        "</form>";
+                        "</form></div></div>";
                 document.getElementById("menu4").innerHTML = out4;
 
-                var out5 = "<h3>รายละเอียดกลุ่มวิชา</h3>"+
+                var out5 = "<h2>รายละเอียดกลุ่มวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
                         "<p>วิชา: <select id='inSub5' onchange='change5()'>";
                 for( var i=0 ; i<arr.length ; i++ )
                     out5+="<option value='"+arr[i].SubjectID+"'>"+arr[i].SubjectID+"</option>";
@@ -173,7 +184,7 @@
                         "<option value=02>2</option>"+
                         "<option value=03>3</option>"+
                         "</select>"+
-                        "<br><div id='in5'></div>";
+                        "<br><div id='in5'></div></div></div>";
                 document.getElementById("menu5").innerHTML = out5;
 
                 change3();
@@ -344,7 +355,7 @@
                 ?>	
 
                 $('#add').click(function(){
-                    $("#demo").append('<span>วิชาที่' +' '+ n +' '+input+ '<br>' );
+                    $("#demo").append('<span><p>วิชาที่' +' '+ n +' '+input+ '</p>' );
                     n++;
                     if(n==2){	$('button[id="remove"]').prop('disabled', true);	}
                     else{	$('button[id="remove"]').prop('disabled', false);	}
@@ -388,7 +399,7 @@
                 ?>	
 
                 $('#add2').click(function(){
-                    $("#demo2").append('<span>วิชาที่' +' '+ n +' '+input+ '<br>' );
+                    $("#demo2").append('<span><p>วิชาที่' +' '+ n +' '+input+ '</p>' );
                     n++;
                     if(n==2){	$('button[id="remove2"]').prop('disabled', true);	}
                     else{	$('button[id="remove2"]').prop('disabled', false);	}
