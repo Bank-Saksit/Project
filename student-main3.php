@@ -18,17 +18,33 @@ session_start();
     <style>
         @import "global1.css";
         @import "temple.css";
-        #me {
-            width:100%;
-            text-align:center; 
+  
+        th,td {
+            text-align:center;
+            border:2px solid;
         }
-        #menu1 {
-            width:100%;
+        #t1 {
+            width:5%;
+        }
+        #t2 {
+            width:10%;
+        }
+        #h4 {
+            margin-bottom:-20px;
         }
     </style>
     
 </head>
 <body>
+    <?php 
+        if(isset($_SESSION['id']) && isset($_SESSION['pswd']) && $_SESSION['role'] == 'student') {
+            
+        }
+        else{
+            header("location: student-home.php");
+            exit('</body></html>');
+        }
+    ?>
     <div class="top" id="top">
             <a href="student-main.php">ข้อมูลนักศึกษา</a>
             <a href="student-main2.php">ลงทะเบียนเรียน</a>
@@ -37,7 +53,7 @@ session_start();
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="student-home.php" class="logout">ออกจากระบบ</a>
+            <a href="student-logout.php" class="logout">ออกจากระบบ</a>
     </div>
    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
@@ -48,7 +64,9 @@ session_start();
      <div id="main">
         <div class="tab-content" id="tab-content">
             <div id="menu1" class="tab-pane fade in active">
-                <div id="me"><div>
+                <div id="me1-1"></div>
+                <div id="me1-2"></div>
+                <div id="me1-3"></div>
             
             </div>
             <div id="menu2" class="tab-pane fade">
@@ -56,19 +74,67 @@ session_start();
             </div>
         </div>
         <script>
-        var out = " ปีการศึกษา <select name = 'AcademicYear'>" +
-                    "<option value = ''>โปรดเลือก</option>" +
-                    "<option value = '2561'>2561</option></select><br>" + 
-                    " ภาคเรียนที่ <select name='Semester'>" + 
-                    "<option value = ''>โปรดเลือก</option>" +
-                    "<option value ='1'>1</option></select>"+
-                    "<br><input type='button' value='ยืนยัน' onclick=\"load()\">";
-        document.getElementById("menu1").innerHTML = out ;
+        loadYear();
+        document.getElementById("me1-2").innerHTML = "<h4> ภาคเรียนที่ <select name='Semester' onclick=\"check()\">" + 
+                        "<option value = ''>โปรดเลือก</option></select></h4>";
+        function loadYear(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+ "/Project/student-main3-link1.php";
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    showYear(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        function loadSemester(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+ "/Project/student-main3-link2.php?Year="+ 
+            $('select[name="AcademicYear"]').val();
 
-        //load();
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    showSemester(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        function showYear(response){
+            window.arr1 = JSON.parse(response);
+            var out = " <h4 id='h4'> ปีการศึกษา <select name = 'AcademicYear' onclick=\"loadSemester()\">" +
+                        "<option value = ''>โปรดเลือก</option>";
+                        for(i = 0; i < arr1.length; i++){
+                            out += "<option value = '"+ arr1[i].AcademicYear+"' >"+arr1[i].AcademicYear+"</option>";
+                        }
+                out +=  "</select></h4><br>";
+                document.getElementById("me1-1").innerHTML = out ;
+                loadSemester();
+        }
+        function showSemester(response){
+            document.getElementById("me1-3").innerHTML = '';
+            window.arr2 = JSON.parse(response);
+            var out  = " <h4>ภาคเรียนที่ <select name='Semester' onclick=\"check()\">" + 
+                        "<option value = ''>โปรดเลือก</option>";
+                        for(i = 0; i < arr2.length; i++){
+                            out += "<option value = '"+ arr2[i].Semester+"'>"+arr2[i].Semester+"</option>";
+                        }
+                out +=  "</select></h4>";
+            document.getElementById("me1-2").innerHTML = out ;
+            
+        }
+        function check(){
+            if($('select[name="AcademicYear"]').val() && $('select[name="Semester"]').val()){
+                document.getElementById("me1-3").innerHTML = '';
+                load();
+            }
+                
+        }
+
         function load(){
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol + '//' + location.host+"/Project/student-main3-link.php?Year="+ 
+            var url = location.protocol + '//' + location.host+ "/Project/student-main3-link.php?Year="+ 
             $('select[name="AcademicYear"]').val() + "&Semester=" + $('select[name="Semester"]').val();
 
             xmlhttp.onreadystatechange=function() {
@@ -82,19 +148,22 @@ session_start();
         
         function displayResponse(response) {
             window.arr = JSON.parse(response);
-            
-            var out ="<h3 id='me1'>ปีการศึกษา : "+ arr[0].AcademicYear +
-                    " ภาคเรียน : "+ arr[0].Semester +"</h3><br>";
-            out += "รหัสวิชา : "+ arr[0].SubjectID +"<br>"+
-                    "ชื่อวิชา : "+ arr[0].SubjectName +"<br>"+
-                    "หน่วยกิต : "+ arr[0].Credit +"<br>"+
-                    "คำอธิบายวิชา : "+ arr[0].Description +"<br>"+
-                    "กลุ่ม : "+ arr[0].SectionNumber +"<br>"+
-                    "ห้อง : "+ arr[0].Room +"<br>"+
-                    "วัน : "+arr[0].Day + "<br>"+
-                    "เวลาเรียน : "+ arr[0].StartTime + ' น. - ' + arr[0].EndTime +" น. <br>";
+        
+            var out ="<table><tr><th id='t1'>รหัสวิชา</th><th  id='t2'>ชื่อวิชา</th><th id='t1'>กลุ่ม</th><th th id='t1'>วัน</th>" +
+                 "<th id='t2'>เวลาเรียน</th><th id='t1'>ห้อง</th><th id='t2'>คำอธิบายวิชา</th><th id='t1'>หน่วยกิต</th></tr>";
+            for(i = 0; i < arr.length; i++){
+            out += "<tr><td>"+ arr[i].SubjectID +"</td>"+
+                    "<td>"+ arr[i].SubjectName +"</td>"+
+                    "<td>"+ arr[i].SectionNumber +"</td>"+
+                    "<td>"+ arr[i].Day +"</td>"+
+                    "<td>"+ arr[i].StartTime + ' น. - ' + arr[i].EndTime +"น. </td>"+
+                    "<td>"+ arr[i].Room +"</td>"+
+                    "<td>"+ arr[i].Description + "</td>"+
+                    "<td>"+ arr[i].Credit +"</td></tr>";
+            }
+            out +="</table>";
 
-            document.getElementById("menu1").innerHTML = out;
+            document.getElementById("me1-3").innerHTML = out;
         }
         </script>
      </div>

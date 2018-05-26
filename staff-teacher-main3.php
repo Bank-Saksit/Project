@@ -86,7 +86,7 @@
 
             function load(){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-cutgrade-link.php?type=01&inID="+<?php echo $_SESSION['id'];?>+"&sub=0"+"&gpa=''&SID=''";
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-cutgrade-link.php?type=01&inID="+<?php echo $_SESSION['id'];?>+"&sub=0"+"&gpa=''&SID=''"+"&ssID=''";
                     
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -99,13 +99,18 @@
 
             function display(response){
                 var arr = JSON.parse(response);
-                var out1 = "<form> เลือกรายวิชาที่ต้องการตัดเกรด: <select id='sub'>";
-                        for(i=0;i<arr.length;i++){
-                            out1+="<option value="+arr[i].SubjectSectionID+">"+arr[i].SubjectID+"&nbsp"+arr[i].SubjectName+"&nbspsec:"+arr[i].SectionNumber+"</option>";
-                        }
-                    out1 += "</select><br>"+
+                if(arr[0].nop =="not found" ){
+                    var out1 =  "<br>"+"ไม่พบรายวิชาที่ต้องตัดเกรด" ;
+                }
+                else{
+                    var out1 = "<form> เลือกรายวิชาที่ต้องการตัดเกรด: <select id='sub'>";
+                            for(i=0;i<arr.length;i++){
+                                out1+="<option value="+arr[i].SubjectSectionID+">"+arr[i].SubjectID+"&nbsp"+arr[i].SubjectName+"&nbspsec:"+arr[i].SectionNumber+"</option>";
+                            }
+                        out1 += "</select><br>"+
                             "<br><input type='button' value='ยืนยัน' id='edit1' onclick='selectSub()'>"+
                             "</form>";
+                }
                     document.getElementById("menu1").innerHTML = out1;
             }
 
@@ -277,7 +282,7 @@
             function selectSub(){
                 var xmlhttp = new XMLHttpRequest();
                 var sub = document.getElementById('sub').value;
-                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-cutgrade-link.php?type=02&inID="+<?php echo $_SESSION['id'];?>+"&sub="+sub+"&gpa=''&SID=''";
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-cutgrade-link.php?type=02&inID="+<?php echo $_SESSION['id'];?>+"&sub="+sub+"&gpa=''&SID=''"+"&ssID=''";
                     
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -324,7 +329,7 @@
                 var arr = JSON.parse(response);
                 var x = document.getElementsByClassName("GPA");
                 for(i=0;i<x.length;i++){
-                    sendGrade(x[i].value,arr[i].StudentID);
+                    sendGrade(x[i].value,arr[i].StudentID,arr[i].SubjectSectionID);
                 }
                 
                 swal({
@@ -335,9 +340,9 @@
                 
             }
 
-            function sendGrade(gpa,SID){
+            function sendGrade(gpa,SID,ssID){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-cutgrade-link.php?type=03&inID="+<?php echo $_SESSION['id'];?>+"&sub=0"+"&gpa="+gpa+"&SID="+SID;
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-cutgrade-link.php?type=03&inID="+<?php echo $_SESSION['id'];?>+"&sub=0"+"&gpa="+gpa+"&SID="+SID+"&ssID="+ssID;
                     
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {

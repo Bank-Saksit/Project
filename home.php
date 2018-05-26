@@ -87,7 +87,7 @@
             .container {
                 padding: 2px 16px;
             }
-            @media only screen and (max-width:820px) {
+            @media only screen and (max-width:1100px) {
             /* For mobile phones: */
                 #main {
                 width:100%;

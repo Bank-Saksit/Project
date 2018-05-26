@@ -9,10 +9,31 @@
 	<script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <link href ="js/sweetalert2.all.js" rel="stylesheet" >
-	<script src="js/sweetalert21.js"></script>
+    <script src="js/sweetalert21.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>ตรวจสอบสถานะ</title>
     <style>
          @import "global1.css";
+         #left {
+            float: left;
+            width: 13%;
+            position: relative;
+            height: 100%;
+        }
+        #main {
+            width: 72%;
+            height: 100%;
+            margin: auto;
+            position: relative;
+            top: 60px;
+        }
+        #header {
+			width: 100%;
+			height: 80px;
+            position: relative;
+        }
         table#tb1{
             position: relative;
             width: 100%;
@@ -34,26 +55,31 @@
             width:16.67%;
             text-align: center;
         }
-        #t1 {
-            text-align: right;
+        t1 {
+            text-align: left;
+            font-size: 20px;
             font-weight:bold;
         }
-        #t2 {
+        t2 {
             text-align: left;
+            font-size: 18px;
         }
         #out {
             position: absolute;
-            bottom:30px;
+            bottom: 10px;
             right:0;
             cursor: pointer;
+        }
+        #out:hover{
+            text-decoration: underline;
         }
         #status {
             text-align: center;
             font-style: bold;
             position: relative;
-            margin-left: 367px;
+            margin-left: 35%;
             top:20px;
-            width:100%;
+            width:80%;
         }
         #tb-status {
             border:2px solid;
@@ -86,6 +112,10 @@
         #sm-sub{
             background:#3085d6;
         }
+        .dd{
+            margin-top: 2%;
+            margin-left:5%;
+        }
     </style>
 </head>
 <body>
@@ -98,10 +128,10 @@
     <div id="main">
         <div id="header">
             <h1>ตรวจสอบสถานะ</h1>
-            <h4 id="out" onclick="window.location.href='recruit-logout.php'">ออกจากระบบ</h3>
+            <h3 id="out" onclick="window.location.href='recruit-logout.php'" >ออกจากระบบ</h3>
         </div>
         <div id="content">
-            <div id="infoRecruit"></div>
+            <div id="infoRecruit" class = "dd"></div>
             <div id="detail-rc"></div>
             <div id="status"></div>
             <div id="submit"></div>
@@ -143,40 +173,39 @@
             var out = "<table id='tb1'>";
             var stat;
             
-            out += "<tr>"+
-                        "<td id='t1'>รหัสประจำตัวผู้สมัคร : </td><td id='t2'>"+ arr[0].RecruitID +"</td>"+
-                        "<td id='t1'>ชื่อ : </td><td id='t2'>"+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"</td>"+
-                        "<td id='t1'>ชื่อโครงการ : </td><td id='t2'>"+ arr[0].RecruitPlanName +"</td>"+
-                    "</tr>"+
-                    "<tr>"+
-                        "<td id='t1'>โรงเรียนของฉัน : </td><td id='t2'>"+ arr[0].SchoolName +"</td>"+
-                        "<td id='t1'>GPAX : </td><td id='t2'>"+ arr[0].SchoolGPAX +"</td>"+
-                        "<td id='t1'>เบอร์ติดต่อ : </td><td id='t2'>"+ arr[0].MobileNumber +"</td>"+
-                    "</tr>";
+            out += "<div class = 'row'>"+
+                        "<div class = 'col-sm-4' ><t1>รหัสประจำตัวผู้สมัคร : </t1><t2>"+ arr[0].RecruitID +"</t2></div>"+
+                        "<div class = 'col-sm-4'><t1>ชื่อ : </t1><t2>"+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"</t2></div>"+
+                        "<div class = 'col-sm-4'><t1>ชื่อโครงการ : </t1><t2>"+ arr[0].RecruitPlanName +"</t2></div>"+
+                    "</div>"+
+                    "<div class = 'row'>"+
+                        "<div class = 'col-sm-4'><t1>โรงเรียนของฉัน : </t1><t2>"+ arr[0].SchoolName +"</t2></div>"+
+                        "<div class = 'col-sm-4'><t1>GPAX : </t1><t2>"+ arr[0].SchoolGPAX +"</t2></div>"+
+                        "<div class = 'col-sm-4'><t1>เบอร์ติดต่อ : </t1><t2>"+ arr[0].MobileNumber +"</t2></div>"+
+                    "</div>";
             out += "</table>";
             document.getElementById("infoRecruit").innerHTML = out;
 
-            var list = "<table id='list'><tr><td id='t3'>ลำดับ</td><td id='t3'>คณะ</td><td id='t3'>สาขา</td></tr>";
+            var list = "<table id='list'><div class = 'row'><tr><td id='t3'><t1>ลำดับ</t1></td><td id='t3'><t1>คณะ</t1></td><td id='t3'><t1>สาขา</t1></td></tr></div>";
             for( i=0 ; i<arr.length ; i++ ){
                 if(arr[0].NoPass == 0){
-                    list += "<tr>"+
-                        "<td id='t3'>"+ arr[i].No +"</td>"+
-                        "<td id='t3'>"+ arr[i].Faculty +"</td>"+
-                        "<td id='t3'>"+ arr[i].Department +"</td>"+
-                    "</tr>";
+                    list += "<div class = 'row'><tr>"+
+                        "<td id='t3'><t2>"+ arr[i].No +"</t2></td>"+
+                        "<td id='t3'><t2>"+ arr[i].Faculty +"</t2></td>"+
+                        "<td id='t3'><t2>"+ arr[i].Department +"</t2></td>"+
+                    "</tr></div>";
                 }else if(arr[0].NoPass-1 == i) {
-                    list += "<tr>"+
-                        "<td id='t3'>"+ arr[i].No +"</td>"+
-                        "<td id='t3'>"+ arr[i].Faculty +"</td>"+
-                        "<td id='t3'>"+ arr[i].Department +"</td>"+
-                    "</tr>";
-                }
-                
+                    list += "<div class = 'row'><tr>"+
+                        "<td id='t3'><t2>"+ arr[i].No +"</t2></td>"+
+                        "<td id='t3'><t2>"+ arr[i].Faculty +"</t2></td>"+
+                        "<td id='t3'><t2>"+ arr[i].Department +"</t2></td>"+
+                    "</tr></div>";
+                }  
             }
             list += "</table>";
             document.getElementById("detail-rc").innerHTML = list;
 
-            stat = "<table id='tb-status'<tr><td id='t4'> สถานะ </td><td>" + arr[0].Status; +"</td></tr></table>";
+            stat = "<table id='tb-status'<tr><td id='t4'><t1> สถานะ </t1></td><td><t2>" + arr[0].Status; +"<t2></td></tr></table>";
             document.getElementById("status").innerHTML = stat;
 
             if(arr[0].Status == "รอยืนยันสิทธิ์"){
