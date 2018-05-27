@@ -91,3 +91,6 @@ pp{
     font-size:18px;
     display: inline-block;
 }
+.swal2-popup {
+    font-size: 2rem;
+}

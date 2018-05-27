@@ -14,6 +14,9 @@
             div#content{          
                 background-image: url(img/gallery/980x380/065.jpg);
             }
+            .swal2-popup {
+                font-size: 2rem;
+            }
         </style>  
 
     </head>

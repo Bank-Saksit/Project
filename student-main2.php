@@ -18,6 +18,9 @@ session_start();
     <style>
         @import "global1.css";
         @import "temple.css";
+        .swal2-popup {
+            font-size: 2rem;
+        }
     </style>
     
 </head>
@@ -135,7 +138,7 @@ session_start();
 
             function getID(){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol+'//'+location.host+"/Project/student-main2-link.php?type=02&inID=59070501083";
+                var url = location.protocol+'//'+location.host+"/Project/student-main2-link.php?type=02&inID="+<?php echo $_SESSION['id'];?>;
                 
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {

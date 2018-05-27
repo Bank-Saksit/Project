@@ -17,6 +17,9 @@ session_start();
             div#content{          
                 background-image: url(img/gallery/980x380/064.jpg);
             }
+            .swal2-popup {
+                font-size: 2rem;
+            }
             /* input[type=submit] {
                 color:white;
                 background:#3085d6;

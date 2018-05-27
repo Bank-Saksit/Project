@@ -27,6 +27,9 @@
         table tr:nth-child(even) {
             background-color: #ffffff;
         }
+        .ei {
+            width:15%;
+        }
     </style>
     
 </head>
@@ -39,12 +42,13 @@
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="staff-home.php" class="logout">ออกจากระบบ</a>
+            <a href="staff-logout.php" class="logout">ออกจากระบบ</a>
     </div>
    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
             <li class = "active"><a data-toggle="tab" href="#menu1">ข้อมูลอาจารย์</a></li>
             <li><a data-toggle="tab" href="#menu2">ลงทะเบียนอาจารย์</a></li>
+            <li><a data-toggle="tab" href="#menu3">สถิติ</a></li>
         </ul>
      </div>
     <div id="main">
@@ -150,11 +154,43 @@
                     <div id="alert"></div>
                 </form>
             </div>
+            <div id="menu3" class="tab-pane fade in active">
+                
+            </div>
             
                 
         </div>
     </div>
         <script type="text/javascript">
+        loadreport14();
+        function loadreport14(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+ "/Project/staff-admin-report14.php";
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    showreport14(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        function showreport14(response){
+            var arr = JSON.parse(response);
+            var out1 = "<h1>จํานวนนักศึกษาใหม่ระดับบปริญญาตรี</h1><table><tr><th rowspan='2'>คณะ</th><th colspan='6'>ประเภทการเข้า</th></tr>"+
+                        "<tr><th class='ei'>2B</th><th class='ei'>Active Recruitment</th><th class='ei'>Clearing House</th><th class='ei'>เรียนดี</th><th class='ei'>Admission</th><th class='ei'>รวม</th></tr>";
+            var B2 = 0;
+            var Active = 0;
+            var ch = 0;
+            var good = 0;
+            var adm = 0;
+            var total = 0;
+            for(i=0;i<arr.length;i++){
+                
+            }
+                out1 += "</table>";
+            document.getElementById("menu3").innerHTML = out1;
+        }
 
         function myFunction() {
             var x = document.getElementById("top");
