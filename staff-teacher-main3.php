@@ -337,7 +337,7 @@
                                 "</select>"+
                                 "</td></tr>";
                     }
-                    out1+= "</form></table><p><button value='ยืนยัน' onclick='Grade("+JSON.stringify(response)+")'>ยืนยัน</button></p>"
+                    out1+= "</form></table><br><p><button value='ยืนยัน' onclick='Grade("+JSON.stringify(response)+")'>ยืนยัน</button></p>"
                 }
                 
                     document.getElementById("menu1").innerHTML = out1;
