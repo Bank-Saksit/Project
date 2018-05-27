@@ -145,32 +145,57 @@
             out1 += "</table>";
             document.getElementById("menu1").innerHTML = out1;
 
-            var countm = 0, countw = 0;
             var out2 = "<table>";
-            out2 += "<tr><td align='center'>ภาควิชา</td><td align='center'>ชาย</td><td align='center'>หญิง</td><td align='center'>รวม</td></tr>";
+            for( var i = 0; i < ssub.length; i++) {
+                var secnum;
+                if( ssub[i].GPA=='-1' ) secnum = 'ถอนแล้ว';
+                else secnum = ssub[i].GPA;
+                if(i==0) out2 += "<tr><td align='center'>รหัสนักศึกษา</td><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>ระดับการศึกษา</td><td align='center'>หลักสูตร</td><td align='center'>สถานะ</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อ</td><td align='center'>นามสกุล</td><td align='center'>รหัสวิชา</td><td align='center'>กลุ่ม</td><td align='center'>GPA</td><td align='center'>แก้ไข</td></tr>";
+                out2 += "<tr><td>" + ssub[i].StudentID +
+                "</td><td>" + ssub[i].Faculty+
+                "</td><td>" + ssub[i].Department+
+                "</td><td>" + ssub[i].Degree+
+                "</td><td>" + ssub[i].Course+
+                "</td><td>" + ssub[i].Status+
+                "</td><td>" + ssub[i].Prefix+    
+                "</td><td>" + ssub[i].FirstName+
+                "</td><td>" + ssub[i].LastName+
+                "</td><td>" + ssub[i].SubjectID+
+                "</td><td>" + ssub[i].SectionNumber+
+                "</td><td>" + secnum+
+                "</td><td>" +
+                "<button onclick=\"sdrop('"+ssub[i].StudentID+"', '"+ssub[i].SubjectSectionID+"')\">ถอน</button>"+
+                "</td></tr>";
+            }
+            out2 += "</table>";
+            document.getElementById("menu2").innerHTML = out2;
+
+            var countm = 0, countw = 0;
+            var out3 = "<table>";
+            out3 += "<tr><td align='center'>ภาควิชา</td><td align='center'>ชาย</td><td align='center'>หญิง</td><td align='center'>รวม</td></tr>";
             for( var i=0 ; i<report1.length ; i++ ){
-                out2 += "<tr><td>"+report1[i].Department+"</td>";
+                out3 += "<tr><td>"+report1[i].Department+"</td>";
                 if( i+1<report1.length && report1[i].Department==report1[i+1].Department ){
                     var tmp = parseInt(report1[i].Count)+parseInt(report1[i+1].Count);
-                    out2 += "<td align='center'>"+report1[i].Count+"</td><td align='center'>"+report1[i+1].Count+"</td><td align='center'>"+tmp+"</td></tr>";
+                    out3 += "<td align='center'>"+report1[i].Count+"</td><td align='center'>"+report1[i+1].Count+"</td><td align='center'>"+tmp+"</td></tr>";
                     i++;
                 }
                 else if ( report1[i].Gender=='ชาย' ){
                     var tmp = parseInt(report1[i].Count);
-                    out2 += "<td align='center'>"+report1[i].Count+"</td><td align='center'>0</td><td align='center'>"+tmp+"</td></tr>";
+                    out3 += "<td align='center'>"+report1[i].Count+"</td><td align='center'>0</td><td align='center'>"+tmp+"</td></tr>";
                 }
                 else{
                     var tmp = parseInt(report1[i].Count);
-                    out2 += "<td align='center'>0</td><td align='center'>"+report1[i].Count+"</td><td align='center'>"+tmp+"</td></tr>";
+                    out3 += "<td align='center'>0</td><td align='center'>"+report1[i].Count+"</td><td align='center'>"+tmp+"</td></tr>";
                 }
             }
             for( var i=0 ; i<report1.length ; i++ ){
                 if( report1[i].Gender=='ชาย' ) countm+=parseInt(report1[i].Count);
                 else countw+=parseInt(report1[i].Count);
             }
-            out2 += "<tr><td align='center'>รวม</td><td align='center'>"+countm+"</td><td align='center'>"+countw+"</td><td align='center'>"+(countm+countw)+"</td></tr>";
-            out2 += "</table>";
-            document.getElementById("menu2").innerHTML = out2;
+            out3 += "<tr><td align='center'>รวม</td><td align='center'>"+countm+"</td><td align='center'>"+countw+"</td><td align='center'>"+(countm+countw)+"</td></tr>";
+            out3 += "</table>";
+            document.getElementById("menu3").innerHTML = out3;
         }
 
         function updateStatus( sid, st ) {
@@ -205,6 +230,20 @@
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol + '//' + location.host+"/Project/staff-admin-main2-link.php?type=13";
                 url+="&sid="+sid;
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    load();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function sdrop( sid, secid ){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+"/Project/staff-admin-main2-link.php?type=14";
+                url+="&sid="+sid+"&secid="+secid;
 
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {

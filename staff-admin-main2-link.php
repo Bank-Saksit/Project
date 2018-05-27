@@ -42,9 +42,9 @@ if( $_GET['type']=='01' ){
 }
 elseif( $_GET['type']=='02' ){
     $result = $conn->query("SELECT *
-                            FROM studentinfo s, departmentinfo d
-                            WHERE s.Department=d.Department
-                            ORDER BY s.StudentID ASC");
+                            FROM studentinfo s, departmentinfo d, sectioninfo sec, student_subject ss
+                            WHERE s.Department=d.Department AND s.StudentID=ss.StudentID AND ss.SubjectSectionID=sec.SubjectSectionID
+                            ORDER BY s.StudentID ASC, sec.SubjectID ASC, sec.SectionNumber ASC");
 
     $outp = "[";
     while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -75,7 +75,11 @@ elseif( $_GET['type']=='02' ){
         $outp .= '"Address":"'.$rs["Address"].'",';
         $outp .= '"Province":"'.$rs["Province"].'",';
         $outp .= '"Postcode":"'.$rs["Postcode"].'",';
-        $outp .= '"Faculty":"'.$rs["Faculty"].'"}';
+        $outp .= '"Faculty":"'.$rs["Faculty"].'",';
+        $outp .= '"SubjectSectionID":"'.$rs["SubjectSectionID"].'",';
+        $outp .= '"SubjectID":"'.$rs["SubjectID"].'",';
+        $outp .= '"GPA":"'.$rs["GPA"].'",';
+        $outp .= '"SectionNumber":"'.$rs["SectionNumber"].'"}';
     }
     $outp .="]";
     echo($outp);
@@ -99,6 +103,9 @@ elseif( $_GET['type']=='12' ){
 elseif( $_GET['type']=='13' ){
     $conn->query("DELETE FROM studentinfo
                 WHERE StudentID='".$_GET['sid']."'");
+}
+elseif( $_GET['type']=='14' ){
+    mysqli_query($conn,"UPDATE student_subject SET GPA=-1 WHERE StudentID='".$_GET['sid']."' AND SubjectSectionID=".$_GET['secid']);
 }
 elseif( $_GET['type']=='21' ){
     $result = $conn->query("SELECT Department, Gender, COUNT(*) AS mycount 
