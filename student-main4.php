@@ -50,12 +50,13 @@ session_start();
 </head>
 <body>
     <?php 
-        if(isset($_SESSION['id']) && isset($_SESSION['pswd'])) {
+        // if(isset($_SESSION['id']) && isset($_SESSION['pswd'])) {
             
-        }
-        else{
-            header("location: student-home.php");
-        }
+        // }
+        // else{
+        //     header("location: student-home.php");
+        // }
+        $_SESSION['id'] = '59070501066';
     ?>
     <div class="top" id="top">
             <a href="student-main.php">ข้อมูลนักศึกษา</a>
@@ -221,6 +222,9 @@ session_start();
                             }
                             else if(arr[i].GPA == 0) {
                                 GPA = 'F';
+                            }
+                            else if(arr[i].GPA == -1){
+                                GPA = 'ถอนรายวิชา';
                             }
                     out +=  "<div class = 'col-sm-2' id ='t2'>"+ GPA +"</div></div></tr>";
                 }

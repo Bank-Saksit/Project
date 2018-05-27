@@ -8,7 +8,7 @@ $result = $conn->query("SELECT ss.GPA,sj.Credit
 $GPAX = 0;
 $cd = 0;
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
-    if($rs['GPA'] !=""){
+    if($rs['GPA'] !="" && $rs['GPA'] != -1){
         $GPAX =($rs['GPA'] * $rs['Credit']) + $GPAX;
         $cd = $rs['Credit'] + $cd;  
     }
