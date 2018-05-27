@@ -26,6 +26,12 @@
         table tr:nth-child(even) {
             background-color: #ffffff;
         }
+        td{
+            font-size:12px;
+        }
+        #t{
+            font-size:18px;
+        }
     </style>
     
 </head>
@@ -57,7 +63,7 @@
             </div>
             <div id="menu3" class="tab-pane fade">
                 
-            </div>
+            </div> 
         </div>
     
     <script>
@@ -111,9 +117,9 @@
         function display1(response) {
             var arr = JSON.parse(response);
             var i;
-            var but = "คัดกรอง<br><select id='cut'><option value='ทั้งหมด'>ทั้งหมด</option><option value='รอจ่ายค่าสมัคร'>รอจ่ายค่าสมัคร</option><option value='รอสอบ'>รอสอบ</option><option value='รอสัมภาษณ์'>รอสัมภาษณ์</option><option value='รอยืนยันสิทธิ์'>รอยืนยันสิทธิ์"+
+            var but = "<p>คัดกรอง <select id='cut'><option value='ทั้งหมด'>ทั้งหมด</option><option value='รอจ่ายค่าสมัคร'>รอจ่ายค่าสมัคร</option><option value='รอสอบ'>รอสอบ</option><option value='รอสัมภาษณ์'>รอสัมภาษณ์</option><option value='รอยืนยันสิทธิ์'>รอยืนยันสิทธิ์"+
                                             "</option><option value='รอจ่ายค่าเทอม'>รอจ่ายค่าแรกเข้า</option><option value='จ่ายค่าเทอมแล้ว'>จ่ายค่าแรกเข้าแล้ว</option><option value='ไม่ผ่าน'>ไม่ผ่าน</option><option value='สละสิทธิ์'>สละสิทธิ์</option>"+
-                                "</select><button onclick=\"filter()\">ค้นหา</button><br><br>";
+                                "</select><button onclick=\"filter()\">ค้นหา</button></p><br>";
             var out = "<table>";
             
             for(i = 0; i < arr.length; i++) {
@@ -236,7 +242,7 @@
             
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>RecruitID</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อจริง</td><td align='center'>นามสกุล</td><td align='center'>รหัสบัตรประชาชน</td><td align='center'>เบอร์โทรติดต่อ</td><td align='center'>โครงการ</td><td align='center'>สถานะ</td><td colspan='4' align='center'>แก้ไข</td></tr>";
+                    out += "<tr><td id = 't' align='center'>คณะ</td><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>RecruitID</td><td id = 't' align='center'>คำนำหน้า</td><td id = 't' align='center'>ชื่อจริง</td><td id = 't' align='center'>นามสกุล</td><td id = 't' align='center'>รหัสบัตรประชาชน</td><td id = 't' align='center'>เบอร์โทรติดต่อ</td><td id = 't' align='center'>โครงการ</td><td id = 't' align='center'>สถานะ</td><td id = 't' colspan='4' align='center'>แก้ไข</td></tr>";
                 }
                 if(arr[i].Status == 'จ่ายค่าเทอมแล้ว'){
                     var sta = 'จ่ายค่าแรกเข้าแล้ว';
@@ -244,22 +250,22 @@
                 else{
                     var sta = arr[i].Status;
                 }
-                out += "<tr><td>" + arr[i].Faculty +
-                "</td><td>" + arr[i].Department+
-                "</td><td>" + arr[i].RecruitID +
-                "</td><td>" + arr[i].Prefix +
-                "</td><td>" + arr[i].FirstName +
-                "</td><td>" + arr[i].LastName +
-                "</td><td>" + arr[i].IDCardNumber +
-                "</td><td>" + arr[i].MobileNumber +
-                "</td><td>" + arr[i].RecruitPlanName +
-                "</td><td>" + sta +
-                "</td><td>" +
+                out += "<tr><td id = 't'>" + arr[i].Faculty +
+                "</td><td id = 't'>" + arr[i].Department+
+                "</td><td id = 't'>" + arr[i].RecruitID +
+                "</td><td id = 't'>" + arr[i].Prefix +
+                "</td><td id = 't'>" + arr[i].FirstName +
+                "</td><td id = 't'>" + arr[i].LastName +
+                "</td><td id = 't'>" + arr[i].IDCardNumber +
+                "</td><td id = 't'>" + arr[i].MobileNumber +
+                "</td><td id = 't'>" + arr[i].RecruitPlanName +
+                "</td><td id = 't'>" + sta +
+                "</td><td id = 't'>" +
                 "<button onclick=\"moveToStudent('"+arr[i].RecruitID+"','"+arr[i].RecruitPlanName+"','"+arr[i].Department+"','"+arr[i].MobileNumber+"','"+arr[i].TelNumber+"','"+
                 arr[i].Email+"','"+arr[i].SchoolID+"','"+arr[i].EducationBackground+"','"+arr[i].Branch+"','"+arr[i].SchoolGPAX+"','"+arr[i].IDCardNumber+"','"+arr[i].Prefix+"','"+
                 arr[i].FirstName+"','"+arr[i].LastName+"','"+arr[i].Gender+"','"+arr[i].DOB+"','"+arr[i].Nationality+"','"+arr[i].Race+"','"+arr[i].Religion+"','"+arr[i].BloodGroup+"','"+
                 arr[i].Address+"','"+arr[i].Province+"','"+arr[i].PostCode+"')\">สร้างรหัสนศ.+ย้ายข้อมูล</button>"+
-                "</td><td>" +   
+                "</td><td id = 't'>" +   
                 "<button onclick=\"deleteRecruit('"+arr[i].RecruitID+"')\">ลบข้อมูล</button>"+
                 "</td></tr>";
             }
@@ -321,15 +327,15 @@
         function display3(response) {
             var arr = JSON.parse(response);
             var i;
-            var but = "คัดกรอง<br><select id='cutuni'><option value='ทั้งหมด'>ทั้งหมด</option><option value='จุฬาลงกรณ์'>จุฬาลงกรณ์มหาวิทยาลัย</option><option value='เกษตรศาสตร์'>มหาวิทยาลัยเกษตรศาสตร์</option><option value='ธรรมศาสตร์'>มหาวิทยาลัยธรรมศาสตร์</option><option value='พระนครเหนือ'>สถาบันเทคโนโลยีพระจอมเกล้าพระนครเหนือ</option>"+
+            var but = "<p>คัดกรอง <select id='cutuni'><option value='ทั้งหมด'>ทั้งหมด</option><option value='จุฬาลงกรณ์'>จุฬาลงกรณ์มหาวิทยาลัย</option><option value='เกษตรศาสตร์'>มหาวิทยาลัยเกษตรศาสตร์</option><option value='ธรรมศาสตร์'>มหาวิทยาลัยธรรมศาสตร์</option><option value='พระนครเหนือ'>สถาบันเทคโนโลยีพระจอมเกล้าพระนครเหนือ</option>"+
                         "<option value='ลาดกระบัง'>สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</option><option value='มหิดล'>มหาวิทยาลัยมหิดล</option><option value='อื่น'>อื่นๆ</option>" + 
-                                "</select><button onclick=\"filterUni()\">ค้นหา</button><br><br>";
+                                "</select> <button onclick=\"filterUni()\">ค้นหา</button></p><br>";
             
             var out = "<table>";
             
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td align='center'>รหัสผู้สมัคร</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อจริง</td><td align='center'>นามสกุล</td><td align='center'>เบอร์โทรติดต่อ</td><td align='center'>โรงเรียน</td><td align='center'>โครงการ</td><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>สถานะ</td><td align='center'>มหาวิทยาลัยที่ย้ายไป</td></tr>";
+                    out += "<tr><td id = 't' align='center'>รหัสผู้สมัคร</td><td id = 't' align='center'>คำนำหน้า</td><td id = 't' align='center'>ชื่อจริง</td><td id = 't' align='center'>นามสกุล</td><td id = 't' align='center'>เบอร์โทรติดต่อ</td><td id = 't' align='center'>โรงเรียน</td><td id = 't' align='center'>โครงการ</td><td id = 't' align='center'>คณะ</td><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>สถานะ</td><td id = 't' align='center'>มหาวิทยาลัยที่ย้ายไป</td></tr>";
                 }
                 if(arr[i].Status == 'จ่ายค่าเทอมแล้ว'){
                     var sta = 'จ่ายค่าแรกเข้าแล้ว';
@@ -337,17 +343,17 @@
                 else{
                     var sta = arr[i].Status;
                 }
-                out += "<tr><td>" + arr[i].RecruitID +
-                "</td><td>" + arr[i].Prefix +
-                "</td><td>" + arr[i].FirstName+
-                "</td><td>" + arr[i].LastName+
-                "</td><td>" + arr[i].MobileNumber+
-                "</td><td>" + arr[i].SchoolName+
-                "</td><td>" + arr[i].RecruitPlanName+
-                "</td><td>" + arr[i].Faculty+
-                "</td><td>" + arr[i].Department+    
-                "</td><td>" + arr[i].Status+
-                "</td><td>" + arr[i].MovedUniversityName+
+                out += "<tr><td id = 't'>" + arr[i].RecruitID +
+                "</td><td id = 't'>" + arr[i].Prefix +
+                "</td><td id = 't'>" + arr[i].FirstName+
+                "</td><td id = 't'>" + arr[i].LastName+
+                "</td><td id = 't'>" + arr[i].MobileNumber+
+                "</td><td id = 't'>" + arr[i].SchoolName+
+                "</td><td id = 't'>" + arr[i].RecruitPlanName+
+                "</td><td id = 't'>" + arr[i].Faculty+
+                "</td><td id = 't'>" + arr[i].Department+    
+                "</td><td id = 't'>" + arr[i].Status+
+                "</td><td id = 't'>" + arr[i].MovedUniversityName+
                 "</td></tr>";
             }
             out += "</table>";
