@@ -61,7 +61,7 @@
             <div id="menu4" class="tab-pane fade"></div>
             <div id="menu5" class="tab-pane fade"></div>
             <div id="menu6" class="tab-pane fade"></div>
-            <div id="menu7" class="tab-pane fade"><div id='menu7-1'></div></div>
+            <div id="menu7" class="tab-pane fade"><div id='menu7-1'></div><div id='menu7-2'></div></div>
         </div>
 
         <script>
@@ -77,6 +77,7 @@
 
         loadsubject();
         loadstat();
+        loadeiei();
         function loadsubject(){
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol+'//'+location.host+"/Project/staff-admin-main4-link.php?type=01";
@@ -436,6 +437,19 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     document.getElementById("menu7-1").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function loadsubject(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol+'//'+location.host+"/Project/report7.php";
+            
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("menu7-2").innerHTML = xmlhttp.responseText;
                 }
             }
             xmlhttp.open("GET", url, true);
