@@ -44,8 +44,9 @@
         <ul class="nav nav-pills nav-stacked" id="tab">
         <li class = "active"><a data-toggle="tab" href="#menu1">ข้อมูลผู้สมัคร</a></li>
         <li><a data-toggle="tab" href="#menu2">นักเรียนที่จ่ายค่าแรกเข้าแล้ว</a></li>
-        <li><a data-toggle="tab" href="#menu3">ข้อมูลผู้สละสิทธื์</a></li>
-        <li><a data-toggle="tab" href="#menu4">ข้อมูลผู้สมัครเข้าแต่ละคณะ</a></li>
+        <li><a data-toggle="tab" href="#menu4">จำนวนผู้สมัครเข้าแต่ละคณะ</a></li>
+        <li><a data-toggle="tab" href="#menu3p5">จำนวนผู้สละสิทธื์แต่ละคณะ</a></li>
+        <li><a data-toggle="tab" href="#menu3">ข้อมูลผู้สละสิทธื์ที่ย้ายไปมหาวิทยาลัยอื่น</a></li>
         </ul>
      </div>
      <div id="main">
@@ -56,10 +57,13 @@
             <div id="menu2" class="tab-pane fade">
                 
             </div>
-            <div id="menu3" class="tab-pane fade">
+            <div id="menu4" class="tab-pane fade">
                 
             </div>
-            <div id="menu4" class="tab-pane fade">
+            <div id="menu3p5" class="tab-pane fade">
+                
+            </div>
+            <div id="menu3" class="tab-pane fade">
                 
             </div>
         </div>
@@ -72,6 +76,7 @@
             load2();
             load3();
             load4();
+            load3p5();
         }
 
         function myFunction() {
@@ -127,7 +132,7 @@
             
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td align='center'>รหัสผู้สมัคร</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อจริง</td><td align='center'>นามสกุล</td><td align='center'>เบอร์โทรติดต่อ</td><td align='center'>โรงเรียน</td><td align='center'>โครงการ</td><td align='center'>อันดับ</td><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>สถานะ</td><td align='center'>อันดับที่ได้</td><td colspan='4' align='center'>แก้ไข</td></tr>";
+                    out += "<tr><td align='center'>รหัสผู้สมัคร</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อ</td><td align='center'>นามสกุล</td><td align='center'>เบอร์โทรติดต่อ</td><td align='center'>โรงเรียน</td><td align='center'>โครงการ</td><td align='center'>อันดับ</td><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>สถานะ</td><td align='center'>อันดับที่ได้</td><td colspan='4' align='center'>แก้ไข</td></tr>";
                 }
                 if(arr[i].Status == 'จ่ายค่าเทอมแล้ว'){
                     var sta = 'จ่ายค่าแรกเข้าแล้ว';
@@ -245,7 +250,7 @@
             
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>RecruitID</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อจริง</td><td align='center'>นามสกุล</td><td align='center'>รหัสบัตรประชาชน</td><td align='center'>เบอร์โทรติดต่อ</td><td align='center'>โครงการ</td><td align='center'>สถานะ</td><td colspan='4' align='center'>แก้ไข</td></tr>";
+                    out += "<tr><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>รหัสผู้สมัคร</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อ</td><td align='center'>นามสกุล</td><td align='center'>รหัสบัตรประชาชน</td><td align='center'>เบอร์โทรติดต่อ</td><td align='center'>โครงการ</td><td align='center'>สถานะ</td><td colspan='4' align='center'>แก้ไข</td></tr>";
                 }
                 if(arr[i].Status == 'จ่ายค่าเทอมแล้ว'){
                     var sta = 'จ่ายค่าแรกเข้าแล้ว';
@@ -316,7 +321,7 @@
             }
             else{
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol+'//'+location.host+"/Project/staff-admin-recruit-link-filter-uni.php?filter="+document.getElementById("cutuni").value;
+                var url = location.protocol+'//'+location.host+"/Project/staff-admin-recruit-link-filter-uni.php?filter="+filter;
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                         display3(xmlhttp.responseText);
@@ -335,7 +340,6 @@
                                 "</select><button onclick=\"filterUni()\">ค้นหา</button><br><br>";
             
             var out = "<table>";
-            
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
                     out += "<tr><td align='center'>รหัสผู้สมัคร</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อจริง</td><td align='center'>นามสกุล</td><td align='center'>เบอร์โทรติดต่อ</td><td align='center'>โรงเรียน</td><td align='center'>โครงการ</td><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>สถานะ</td><td align='center'>มหาวิทยาลัยที่ย้ายไป</td></tr>";
@@ -360,10 +364,10 @@
                 "</td></tr>";
             }
             out += "</table>";
-            document.getElementById("menu3").innerHTML =but+out;
+            document.getElementById("menu3").innerHTML =but+out+"<br>รวมทั้งหมด "+arr.length+" คน";
         }
 
-        //4
+        //4 จำนวนผู้สมัครเข้าแต่ละคณะ
         function load4() {
             <?php
                 include "dblink.php";
@@ -373,16 +377,40 @@
                                                 WHERE r.SchoolID=s.SchoolID AND r.RecruitID=n.RecruitID AND n.Department=d.Department
                                                 AND n.No='1'
                                                 GROUP BY d.Faculty");
-
+                echo"var count=0;";
                 echo"var out = '<table><tr><td align=\'center\'>คณะ</td><td align=\'center\'>จำนวน(คน)</td></tr>';";
                 while($row = mysqli_fetch_array($result)){
-                    echo "out += '<tr><td>'+'".$row['Faculty']."'+'</td><td>'+'".$row['sum']."'+'</td></tr>';";            
+                    echo "out += '<tr><td>'+'".$row['Faculty']."'+'</td><td>'+'".$row['sum']."'+'</td></tr>';";  
+                    echo "count += parseInt(".$row['sum'].");";          
                 }
-                echo"out += '</table>';";
+                
             ?>
+            out += '<tr><td>รวม</td><td>'+count+'</td>';
+            out += '</table>';
             document.getElementById("menu4").innerHTML = out;
         }
         
+        //3p5 จำนวนผู้สละสิทธื์แต่ละคณะ
+        function load3p5(){
+            <?php
+                include "dblink.php";
+               
+                $result = mysqli_query($conn,"SELECT DISTINCT d.Faculty,d.Department,count(r.recruitID) AS sum
+                                                FROM recruitinfo r, schoolinfo s, nodepartment n, departmentinfo d
+                                                WHERE r.SchoolID=s.SchoolID AND r.RecruitID=n.RecruitID AND n.Department=d.Department AND r.Status = 'สละสิทธิ์' AND n.No=r.NoPass
+                                                GROUP BY d.Department");
+                echo"var count=0;";
+                echo"var out = '<table><tr><td align=\'center\'>ภาควิชา</td><td align=\'center\'>จำนวน(คน)</td></tr>';";
+                while($row = mysqli_fetch_array($result)){
+                    echo "out += '<tr><td>'+'".$row['Department']."'+'</td><td>'+'".$row['sum']."'+'</td></tr>';";  
+                    echo "count += parseInt(".$row['sum'].");";          
+                }
+                
+            ?>
+            out += '<tr><td>รวม</td><td>'+count+'</td>';
+            out += '</table>';
+            document.getElementById("menu3p5").innerHTML = out;
+        }
 
     
     </script>
