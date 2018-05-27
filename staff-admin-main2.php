@@ -26,6 +26,12 @@
         table tr:nth-child(even) {
             background-color: #ffffff;
         }
+        td{
+            font-size:15px;
+        }
+        #t{
+            font-size:18px;
+        }
     </style>
     
 </head>

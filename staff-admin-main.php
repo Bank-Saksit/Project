@@ -124,7 +124,7 @@
             
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td align='center'>รหัสผู้สมัคร</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อจริง</td><td align='center'>นามสกุล</td><td align='center'>เบอร์โทรติดต่อ</td><td align='center'>โรงเรียน</td><td align='center'>โครงการ</td><td align='center'>อันดับ</td><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>สถานะ</td><td align='center'>อันดับที่ได้</td><td colspan='4' align='center'>แก้ไข</td></tr>";
+                    out += "<tr><td align='center'>รหัสผู้สมัคร</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อ</td><td align='center'>นามสกุล</td><td align='center'>เบอร์โทรติดต่อ</td><td align='center'>โรงเรียน</td><td align='center'>โครงการ</td><td align='center'>อันดับ</td><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>สถานะ</td><td align='center'>อันดับที่ได้</td><td colspan='4' align='center'>แก้ไข</td></tr>";
                 }
                 if(arr[i].Status == 'จ่ายค่าเทอมแล้ว'){
                     var sta = 'จ่ายค่าแรกเข้าแล้ว';
@@ -242,7 +242,7 @@
             
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td id = 't' align='center'>คณะ</td><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>RecruitID</td><td id = 't' align='center'>คำนำหน้า</td><td id = 't' align='center'>ชื่อจริง</td><td id = 't' align='center'>นามสกุล</td><td id = 't' align='center'>รหัสบัตรประชาชน</td><td id = 't' align='center'>เบอร์โทรติดต่อ</td><td id = 't' align='center'>โครงการ</td><td id = 't' align='center'>สถานะ</td><td id = 't' colspan='4' align='center'>แก้ไข</td></tr>";
+                    out += "<tr><td id = 't' align='center'>คณะ</td><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>RecruitID</td><td id = 't' align='center'>คำนำหน้า</td><td id = 't' align='center'>ชื่อ</td><td id = 't' align='center'>นามสกุล</td><td id = 't' align='center'>รหัสบัตรประชาชน</td><td id = 't' align='center'>เบอร์โทรติดต่อ</td><td id = 't' align='center'>โครงการ</td><td id = 't' align='center'>สถานะ</td><td id = 't' colspan='4' align='center'>แก้ไข</td></tr>";
                 }
                 if(arr[i].Status == 'จ่ายค่าเทอมแล้ว'){
                     var sta = 'จ่ายค่าแรกเข้าแล้ว';
@@ -335,7 +335,7 @@
             
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td id = 't' align='center'>รหัสผู้สมัคร</td><td id = 't' align='center'>คำนำหน้า</td><td id = 't' align='center'>ชื่อจริง</td><td id = 't' align='center'>นามสกุล</td><td id = 't' align='center'>เบอร์โทรติดต่อ</td><td id = 't' align='center'>โรงเรียน</td><td id = 't' align='center'>โครงการ</td><td id = 't' align='center'>คณะ</td><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>สถานะ</td><td id = 't' align='center'>มหาวิทยาลัยที่ย้ายไป</td></tr>";
+                    out += "<tr><td id = 't' align='center'>รหัสผู้สมัคร</td><td id = 't' align='center'>คำนำหน้า</td><td id = 't' align='center'>ชื่อ</td><td id = 't' align='center'>นามสกุล</td><td id = 't' align='center'>เบอร์โทรติดต่อ</td><td id = 't' align='center'>โรงเรียน</td><td id = 't' align='center'>โครงการ</td><td id = 't' align='center'>คณะ</td><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>สถานะ</td><td id = 't' align='center'>มหาวิทยาลัยที่ย้ายไป</td></tr>";
                 }
                 if(arr[i].Status == 'จ่ายค่าเทอมแล้ว'){
                     var sta = 'จ่ายค่าแรกเข้าแล้ว';
