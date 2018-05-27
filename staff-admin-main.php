@@ -430,7 +430,7 @@
                 echo"var count=0;";
                 echo"var out = '<table><tr><td align=\'center\'>โครงการ</td><td align=\'center\'>รายละเอียด</td><td align=\'center\'>จำนวนที่รับสมัคร</td><td align=\'center\'>จำนวน(คน)</td></tr>';";
                 while($row = mysqli_fetch_array($result)){
-                    echo "out += '<tr><th >'+'".$row['RecruitPlanName']."'+'</th><th>'+'".$row['Details']."'+'</th><th align=\'center\'>'+'".$row['RecruitAmount']."'+'</th><th align=\'center\'>'+'".$row['sum']."'+'</th></tr>';";  
+                    echo "out += '<tr><th>'+'".$row['RecruitPlanName']."'+'</th><th>'+'".$row['Details']."'+'</th><th align=\'center\'>'+'".$row['RecruitAmount']."'+'</th><th align=\'center\'>'+'".$row['sum']."'+'</th></tr>';";  
                     echo "count += parseInt(".$row['sum'].");";          
                 }
                 
@@ -438,8 +438,9 @@
             out += '<tr><th colspan="3" align=\'center\'>รวม</th><th align=\'center\'>'+count+'</th>';
             out += '</table>';
             document.getElementById("menu5").innerHTML = out;
+            
         }
-    
+        
     </script>
     
     </div>
