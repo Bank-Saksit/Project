@@ -49,7 +49,7 @@
             <li><a data-toggle="tab" href="#menu4">เพิ่มกลุ่มรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu5">ลบกลุ่มรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu6">แก้ไขกลุ่มรายวิชา</a></li>
-            <li><a data-toggle="tab" href="#menu7">สถิติ</a></li>
+            <li><a data-toggle="tab" href="#menu7" onclick="loadstat()">สถิติ</a></li>
         </ul>
     </div>
     <div id="main">
@@ -76,7 +76,7 @@
             }
 
         loadsubject();
-
+        loadstat();
         function loadsubject(){
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol+'//'+location.host+"/Project/staff-admin-main4-link.php?type=01";
@@ -395,6 +395,37 @@
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
         }
+
+        function loadstat(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol+'//'+location.host+"/Project/report-8.php";
+                
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    disstat(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        
+        function disstat(response){
+            var arr = JSON.parse(response);
+            if(arr[0].nop =="not found" ){
+                var out1 =  "<h2>"+"ไม่พบรายวิชา</h2>" ;
+            }
+            else{
+                var out1 = "<form> <h2>เลือกรายวิชา: </h2><p><select id='sub'>";
+                        for(i=0;i<arr.length;i++){
+                            out1+="<option value="+arr[i].SubjectSectionID+">"+arr[i].SubjectID+"&nbsp"+arr[i].SubjectName+"&nbspsec:"+arr[i].SectionNumber+"</option>";
+                        }
+                    out1 += "</select></p>"+
+                        "<p><input type='button' value='ตรวจสอบ' id='edit1' onclick='show()'></p>"+
+                        "</form>";
+            }
+            document.getElementById("menu7").innerHTML = out1;
+        }
+
         </script>
 
     </div>
