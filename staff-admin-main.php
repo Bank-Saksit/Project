@@ -73,7 +73,6 @@
             <div id="menu3" class="tab-pane fade">
                 
             </div> 
-            </div>
             <div id="menu5" class="tab-pane fade">
                 
             </div> 
@@ -159,11 +158,11 @@
                 "</td><td>" + arr[i].MobileNumber+
                 "</td><td>" + arr[i].SchoolName+
                 "</td><td>" + arr[i].RecruitPlanName+
-                "</td><td>" + arr[i].No+
+                "</td><td align=\'center\'>" + arr[i].No+
                 "</td><td>" + arr[i].Faculty+
                 "</td><td>" + arr[i].Department+    
                 "</td><td>" + sta +
-                "</td><td>" + arr[i].NoPass+
+                "</td><td align=\'center\'>" + arr[i].NoPass+
                 // "</td><td>" + arr[i].+
                 "</td><td>" +
                 "<button onclick=\"updateStatus('"+arr[i].RecruitID+"')\">เปลี่ยนสถานะ</button>"+
@@ -392,12 +391,12 @@
                 echo"var count=0;";
                 echo"var out = '<table><tr><td align=\'center\'>คณะ</td><td align=\'center\'>จำนวน(คน)</td></tr>';";
                 while($row = mysqli_fetch_array($result)){
-                    echo "out += '<tr><td>'+'".$row['Faculty']."'+'</td><td>'+'".$row['sum']."'+'</td></tr>';";  
+                    echo "out += '<tr><td>'+'".$row['Faculty']."'+'</td><td align=\'center\'>'+'".$row['sum']."'+'</td></tr>';";  
                     echo "count += parseInt(".$row['sum'].");";          
                 }
                 
             ?>
-            out += '<tr><td>รวม</td><td>'+count+'</td>';
+            out += '<tr><td align=\'center\'>รวม</td><td align=\'center\'>'+count+'</td>';
             out += '</table>';
             document.getElementById("menu4").innerHTML = out;
         }
@@ -414,36 +413,36 @@
                 echo"var count=0;";
                 echo"var out = '<table><tr><td align=\'center\'>ภาควิชา</td><td align=\'center\'>จำนวน(คน)</td></tr>';";
                 while($row = mysqli_fetch_array($result)){
-                    echo "out += '<tr><td>'+'".$row['Department']."'+'</td><td>'+'".$row['sum']."'+'</td></tr>';";  
+                    echo "out += '<tr><td>'+'".$row['Department']."'+'</td><td align=\'center\'>'+'".$row['sum']."'+'</td></tr>';";  
                     echo "count += parseInt(".$row['sum'].");";          
                 }
                 
             ?>
-            out += '<tr><td>รวม</td><td>'+count+'</td>';
+            out += '<tr><td align=\'center\'>รวม</td><td align=\'center\'>'+count+'</td>';
             out += '</table>';
             document.getElementById("menu3p5").innerHTML = out;
         }
 
-         //5 จำนวนผู้สมัครเข้าแต่ละโครงกา
+         //5 จำนวนผู้สมัครเข้าแต่ละโครงการ
          function load5(){
             <?php
                 include "dblink.php";
                
-                $result = mysqli_query($conn,"SELECT DISTINCT d.Faculty,d.Department,count(r.recruitID) AS sum
-                                                FROM recruitinfo r, schoolinfo s, nodepartment n, departmentinfo d
-                                                WHERE r.SchoolID=s.SchoolID AND r.RecruitID=n.RecruitID AND n.Department=d.Department AND r.Status = 'สละสิทธิ์' AND n.No=r.NoPass
-                                                GROUP BY d.Department");
+                $result = mysqli_query($conn,"SELECT p.RecruitPlanName,p.Details,p.RecruitAmount,COUNT(r.RecruitID) AS sum
+                                                FROM recruitinfo r,recruitplaninfo p 
+                                                WHERE r.RecruitPlanName = p.RecruitPlanName AND r.Status != 'รอจ่ายค่าสมัคร'
+                                                GROUP BY p.RecruitPlanName");
                 echo"var count=0;";
-                echo"var out = '<table><tr><td align=\'center\'>ภาควิชา</td><td align=\'center\'>จำนวน(คน)</td></tr>';";
+                echo"var out = '<table><tr><td align=\'center\'>โครงการ</td><td align=\'center\'>รายละเอียด</td><td align=\'center\'>จำนวนที่รับสมัคร</td><td align=\'center\'>จำนวน(คน)</td></tr>';";
                 while($row = mysqli_fetch_array($result)){
-                    echo "out += '<tr><td>'+'".$row['Department']."'+'</td><td>'+'".$row['sum']."'+'</td></tr>';";  
+                    echo "out += '<tr><td >'+'".$row['RecruitPlanName']."'+'</td><td>'+'".$row['Details']."'+'</td><td align=\'center\'>'+'".$row['RecruitAmount']."'+'</td><td align=\'center\'>'+'".$row['sum']."'+'</td></tr>';";  
                     echo "count += parseInt(".$row['sum'].");";          
                 }
                 
             ?>
-            out += '<tr><td>รวม</td><td>'+count+'</td>';
+            out += '<tr><td colspan="3" align=\'center\'>รวม</td><td align=\'center\'>'+count+'</td>';
             out += '</table>';
-            document.getElementById("menu3p5").innerHTML = out;
+            document.getElementById("menu5").innerHTML = out;
         }
     
     </script>
