@@ -32,8 +32,8 @@
         #t{
             font-size:18px;
         }
-        header{
-            background:#001a33;
+        #top{
+            background-color:#001a33;
         }
     </style>
     
