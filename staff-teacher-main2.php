@@ -89,15 +89,15 @@
             function display(response){
                 var arr = JSON.parse(response);
                 if(arr[0].nop =="not found" ){
-                    var out1 =  "<br>"+"ไม่พบรายวิชาทีต้องลงทะเบียนสอน" ;
+                    var out1 =  "<h2>"+"ไม่พบรายวิชาทีต้องลงทะเบียนสอน</h2>" ;
                 }
                 else{
-                    var out1 = "<form> เลือกรายวิชาที่ต้องการลงทะเบียนสอน: <select id='sub'>";
+                    var out1 = "<form> <h2>เลือกรายวิชาที่ต้องการลงทะเบียนสอน : </h2><p><select id='sub'>";
                             for(i=0;i<arr.length;i++){
                                 out1+="<option value="+arr[i].SubjectSectionID+">"+arr[i].SubjectID+"&nbsp"+arr[i].SubjectName+"&nbspsec:"+arr[i].SectionNumber+"</option>";
                             }
-                        out1 += "</select><br>"+
-                            "<br><input type='button' value='ยืนยัน' id='edit1' onclick='regisSub()'>"+
+                        out1 += "</select></p>"+
+                            "<p><input type='button' value='ยืนยัน' id='edit1' onclick='regisSub()'></p>"+
                             "</form>";
                 }
                 document.getElementById("menu1").innerHTML = out1;
@@ -147,16 +147,16 @@
             function display2(response){
                 var arr = JSON.parse(response);
                 if(arr[0].nop =="not found" ){
-                    var out2 =  "<br>"+"ไม่พบข้อมูล" ;
+                    var out2 =  "<h2>"+"ไม่พบข้อมูล</h2>" ;
                 }
                 else{
-                    var out2 = "<form> ภาคเรียนที่:<select id='sem'><option value='1'>1</option><option value='2'>2</option></select>" 
-                                +"&nbspปีการศึกษา : <select id='year'>";
+                    var out2 = "<form><div class = 'row'><div class = 'col-sm-2'><p>ภาคเรียนที่ : <select id='sem'><option value='1'>1</option><option value='2'>2</option></p></select></div>" 
+                                +"<div class = 'col-sm-2'><p>ปีการศึกษา : <select id='year'>";
                             for(i=0;i<arr.length;i++){
                                 out2+="<option value="+arr[i].AcademicYear+">"+arr[i].AcademicYear+"</option>";
                             }
-                        out2 += "</select><br>"+
-                            "<br><input type='button' value='ตรวจสอบ' onclick='timeTable()'>"+
+                        out2 += "</select></p></div>"+
+                            "<div class = 'col-sm-2'><p><input type='button' value='ตรวจสอบ' onclick='timeTable()'></p></div.,/div>"+
                             "</form>";
                 }
                 document.getElementById("menu2").innerHTML = out2;
