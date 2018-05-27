@@ -117,20 +117,12 @@
                             "<option value='O'>O</option>"+
                         "</select> </p>"+
                         "<p>วันเกิด :<input type='date' id='inDOB' value='"+arr[0].DOB+"'></p>"+
-                        "<p>สัญชาติ: <select id='inNa'>"+
-                            "<option value='ไทย'>ไทย</option>"+
-                            "<option value='จีน'>จีน</option>"+
-                            "<option value='ญี่ปุ่น'>ญี่ปุ่น</option>"+
-                            "<option value='ไม่ระบุ'>ไม่ระบุ</option>"+
-                        "</select> </p>"+
+                        "<p>สัญชาติ: <input type = 'text' id='inNa' value ='"+arr[0].Nationality+"'>"+
+                        "</p>"+
                         "</div>"+
                         "<div class= 'col-sm-4' >"+
-                        "<p>เชื้อชาติ : <select id='inRa'><br>"+
-                            "<option value='ไทย'>ไทย</option>"+
-                            "<option value='จีน'>จีน</option>"+
-                            "<option value='ญี่ปุ่น'>ญี่ปุ่น</option>"+
-                            "<option value='ไม่ระบุ'>ไม่ระบุ</option>"+
-                        "</select> </p>"+
+                        "<p>เชื้อชาติ : <input type = 'text' id='inRa' value ='"+arr[0].Race+"'>"+
+                        "</p>"+
                         "<p>ศาสนา : <select id='inRe'><br>"+
                             "<option value='พุทธ'>พุทธ</option>"+
                             "<option value='คริสต์'>คริสต์</option>"+
@@ -153,40 +145,40 @@
                     })
                 })
 
-                if( arr[0].BloodGroup=='A' )
-                    document.getElementById('inBl').selectedIndex = '0';
-                else if( arr[0].BloodGroup=='B' )
-                    document.getElementById('inBl').selectedIndex = '1';
-                else if( arr[0].BloodGroup=='AB' )
-                    document.getElementById('inBl').selectedIndex = '2';
-                else
-                    document.getElementById('inBl').selectedIndex = '3';
+                // if( arr[0].BloodGroup=='A' )
+                //     document.getElementById('inBl').selectedIndex = '0';
+                // else if( arr[0].BloodGroup=='B' )
+                //     document.getElementById('inBl').selectedIndex = '1';
+                // else if( arr[0].BloodGroup=='AB' )
+                //     document.getElementById('inBl').selectedIndex = '2';
+                // else
+                //     document.getElementById('inBl').selectedIndex = '3';
 
-                if( arr[0].Nationality=='ไทย' )
-                    document.getElementById('inNa').selectedIndex = '0';
-                else if( arr[0].Nationality=='จีน' )
-                    document.getElementById('inNa').selectedIndex = '1';
-                else if( arr[0].Nationality=='ญี่ปุ่น' )
-                    document.getElementById('inNa').selectedIndex = '2';
-                else
-                    document.getElementById('inNa').selectedIndex = '3';
+                // if( arr[0].Nationality=='ไทย' )
+                //     document.getElementById('inNa').selectedIndex = '0';
+                // else if( arr[0].Nationality=='จีน' )
+                //     document.getElementById('inNa').selectedIndex = '1';
+                // else if( arr[0].Nationality=='ญี่ปุ่น' )
+                //     document.getElementById('inNa').selectedIndex = '2';
+                // else
+                //     document.getElementById('inNa').selectedIndex = '3';
 
-                if( arr[0].Race=='ไทย' )
-                    document.getElementById('inRa').selectedIndex = '0';
-                else if( arr[0].Race=='จีน' )
-                    document.getElementById('inRa').selectedIndex = '1';
-                else if( arr[0].Race=='ญี่ปุ่น' )
-                    document.getElementById('inRa').selectedIndex = '2';
-                else
-                    document.getElementById('inRa').selectedIndex = '3';
+                // if( arr[0].Race=='ไทย' )
+                //     document.getElementById('inRa').selectedIndex = '0';
+                // else if( arr[0].Race=='จีน' )
+                //     document.getElementById('inRa').selectedIndex = '1';
+                // else if( arr[0].Race=='ญี่ปุ่น' )
+                //     document.getElementById('inRa').selectedIndex = '2';
+                // else
+                //     document.getElementById('inRa').selectedIndex = '3';
 
-                if( arr[0].Religion=='พุทธ' )
-                    document.getElementById('inRe').selectedIndex = '0';
-                else if( arr[0].Religion=='คริสต์' )
-                    document.getElementById('inRe').selectedIndex = '1';
-                else if( arr[0].Religion=='อิสลาม' )
-                    document.getElementById('inRe').selectedIndex = '2';
-                else
+                // if( arr[0].Religion=='พุทธ' )
+                //     document.getElementById('inRe').selectedIndex = '0';
+                // else if( arr[0].Religion=='คริสต์' )
+                //     document.getElementById('inRe').selectedIndex = '1';
+                // else if( arr[0].Religion=='อิสลาม' )
+                //     document.getElementById('inRe').selectedIndex = '2';
+                // else
                     document.getElementById('inRe').selectedIndex = '3';
     
                 var out2 = "<h2>ข้อมูลติดต่อ</h2><p>"+
