@@ -411,19 +411,36 @@
         
         function disstat(response){
             var arr = JSON.parse(response);
-            if(arr[0].nop =="not found" ){
-                var out1 =  "<h2>"+"ไม่พบรายวิชา</h2>" ;
+            var out7 = "<form> เลือกรายวิชาที่ต้องการดูเกรด: <select id='sub3'>";
+            for(i=0;i<arr.length;i++){
+                out7+="<option value="+
+                        arr[i].SubjectSectionID+">"+
+                        arr[i].SubjectID+
+                        "&nbsp"+arr[i].SubjectName+
+                        "&nbspsec:"+arr[i].SectionNumber+
+                        "&nbspภาคเรียนที่:"+arr[i].Semester+
+                        "&nbspปีการศึกษา:"+arr[i].AcademicYear+
+                        "</option>";
             }
-            else{
-                var out1 = "<form> <h2>เลือกรายวิชา: </h2><p><select id='sub'>";
-                        for(i=0;i<arr.length;i++){
-                            out1+="<option value="+arr[i].SubjectSectionID+">"+arr[i].SubjectID+"&nbsp"+arr[i].SubjectName+"&nbspsec:"+arr[i].SectionNumber+"</option>";
-                        }
-                    out1 += "</select></p>"+
-                        "<p><input type='button' value='ตรวจสอบ' id='edit1' onclick='show()'></p>"+
-                        "</form>";
+            out7 += "</select><br>"+
+                    "<br><input type='button' value='ตรวจสอบ' onclick='show()'>"+
+                    "</form>";
             }
-            document.getElementById("menu7").innerHTML = out1;
+            document.getElementById("menu7").innerHTML = out7;
+        }
+
+        function show(){
+            var xmlhttp = new XMLHttpRequest();
+            var sub = document.getElementById('sub3').value;
+            var url = location.protocol+'//'+location.host+"/Project/report-8-link.php?sub="+sub;
+                
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    disGrade3(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
         }
 
         </script>
