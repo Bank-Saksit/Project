@@ -49,6 +49,7 @@
             <li><a data-toggle="tab" href="#menu4">เพิ่มกลุ่มรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu5">ลบกลุ่มรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu6">แก้ไขกลุ่มรายวิชา</a></li>
+            <li><a data-toggle="tab" href="#menu7">สถิติ</a></li>
         </ul>
     </div>
     <div id="main">
@@ -60,6 +61,7 @@
             <div id="menu4" class="tab-pane fade"></div>
             <div id="menu5" class="tab-pane fade"></div>
             <div id="menu6" class="tab-pane fade"></div>
+            <div id="menu7" class="tab-pane fade"></div>
         </div>
 
         <script>
