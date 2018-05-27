@@ -32,6 +32,9 @@
         #t{
             font-size:18px;
         }
+        #top{
+            background-color:#001a33;
+        }
     </style>
     
 </head>
@@ -427,9 +430,9 @@
                                                 WHERE r.RecruitPlanName = p.RecruitPlanName AND r.Status != 'รอจ่ายค่าสมัคร'
                                                 GROUP BY p.RecruitPlanName");
                 echo"var count=0;";
-                echo"var out = '<table><tr><td id = \'t\' align=\'center\'>โครงการ</td><td align=\'center\'>รายละเอียด</td><td id = \'t\' align=\'center\'>จำนวนที่รับสมัคร</td><td id = \'t\' align=\'center\'>จำนวน(คน)</td></tr>';";
+                echo"var out = '<table><tr><td id = \'t\' align=\'center\'>โครงการ</td><td id = \'t\' align=\'center\'>รายละเอียด</td><td id = \'t\' align=\'center\'>จำนวนที่รับสมัคร</td><td id = \'t\' align=\'center\'>จำนวน(คน)</td></tr>';";
                 while($row = mysqli_fetch_array($result)){
-                    echo "out += '<tr><td id = \'t\'>'+'".$row['RecruitPlanName']."'+'</td><td>'+'".$row['Details']."'+'</td><td id = \'t\' align=\'center\'>'+'".$row['RecruitAmount']."'+'</td><td id = \'t\' align=\'center\'>'+'".$row['sum']."'+'</td></tr>';";  
+                    echo "out += '<tr><td id = \'t\'>'+'".$row['RecruitPlanName']."'+'</td><td id = \'t\'>'+'".$row['Details']."'+'</td><td id = \'t\' align=\'center\'>'+'".$row['RecruitAmount']."'+'</td><td id = \'t\' align=\'center\'>'+'".$row['sum']."'+'</td></tr>';";  
                     echo "count += parseInt(".$row['sum'].");";          
                 }
                 
