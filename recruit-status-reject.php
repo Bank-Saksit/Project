@@ -64,7 +64,9 @@
         #sm{
             background-color:#d33;
         }
-
+        .swal2-popup {
+            font-size: 2rem;
+        }
     </style>
 </head>
 <body>
