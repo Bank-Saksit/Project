@@ -74,6 +74,8 @@
                 
             </div>
             <div id="menu2" class="tab-pane fade">
+                <div id="menu2-1"></div>
+                <div id="menu2-2"></div>
                 
             </div>
         </div>
@@ -167,7 +169,7 @@
                             "<div class = 'col-sm-2'><p><input type='button' value='ตรวจสอบ' onclick='timeTable()'></p></div.,/div>"+
                             "</form>";
                 }
-                document.getElementById("menu2").innerHTML = out2;
+                document.getElementById("menu2-1").innerHTML = out2;
             }
 
             function timeTable(){
@@ -179,7 +181,7 @@
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                         //timeTableShow(xmlhttp.responseText);
-                        document.getElementById("menu2").innerHTML = xmlhttp.responseText;
+                        document.getElementById("menu2-2").innerHTML = xmlhttp.responseText;
                     }
                 }
                 xmlhttp.open("GET", url, true);
