@@ -112,7 +112,7 @@
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                         swal({
                             type: 'success',
-                            title: 'ลงทะเบียนสอนเรียบร้อยแล้ว'
+                            title: '<h1>ลงทะเบียนสอนเรียบร้อยแล้ว</h1>'
                         });
                         load();
                     }
