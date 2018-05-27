@@ -183,7 +183,7 @@
 						echo"<select name = 'School'class='check' id='c1' >";
 						echo"<option value = ''>โปรดเลือก</option>";
 						while($row = $result->fetch_array(MYSQLI_ASSOC)){
-							echo "<option value = '" . $row['SchoolID']."'>".$row['SchoolID'].$row['SchoolName']."</option>";
+							echo "<option value = '" . $row['SchoolID']."'>".$row['SchoolName']."</option>";
 						}
 						echo"</select>";
 						?>

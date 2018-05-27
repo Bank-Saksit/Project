@@ -26,6 +26,12 @@
         table tr:nth-child(even) {
             background-color: #ffffff;
         }
+        td{
+            font-size:15px;
+        }
+        #t{
+            font-size:18px;
+        }
     </style>
     
 </head>
@@ -38,7 +44,7 @@
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="staff-home.php" class="logout">ออกจากระบบ</a>
+            <a href="staff-logout.php" class="logout">ออกจากระบบ</a>
     </div>
     <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
@@ -186,21 +192,21 @@
 
             var countm3 = 0, countw3 = 0;
             var out3 = "<table>";
-            out3 += "<tr><td align='center'>คณะ</td><td align='center'>ชาย</td><td align='center'>หญิง</td><td align='center'>รวม</td></tr>";
+            out3 += "<tr><td id = 't' align='center'>คณะ</td><td id = 't' align='center'>ชาย</td><td id = 't' align='center'>หญิง</td><td id = 't' align='center'>รวม</td></tr>";
             for( var i=0 ; i<report1.length ; i++ ){
-                out3 += "<tr><td>"+report1[i].Department+"</td>";
+                out3 += "<tr><td id = 't'>"+report1[i].Department+"</td>";
                 if( i+1<report1.length && report1[i].Department==report1[i+1].Department ){
                     var tmp = parseInt(report1[i].Count)+parseInt(report1[i+1].Count);
-                    out3 += "<td align='center'>"+report1[i].Count+"</td><td align='center'>"+report1[i+1].Count+"</td><td align='center'>"+tmp+"</td></tr>";
+                    out3 += "<td id = 't' align='center'>"+report1[i].Count+"</td><td id = 't' align='center'>"+report1[i+1].Count+"</td><td id = 't' align='center'>"+tmp+"</td></tr>";
                     i++;
                 }
                 else if ( report1[i].Gender=='ชาย' ){
                     var tmp = parseInt(report1[i].Count);
-                    out3 += "<td align='center'>"+report1[i].Count+"</td><td align='center'>0</td><td align='center'>"+tmp+"</td></tr>";
+                    out3 += "<td id = 't' align='center'>"+report1[i].Count+"</td><td id = 't' align='center'>0</td><td id = 't' align='center'>"+tmp+"</td></tr>";
                 }
                 else{
                     var tmp = parseInt(report1[i].Count);
-                    out3 += "<td align='center'>0</td><td align='center'>"+report1[i].Count+"</td><td align='center'>"+tmp+"</td></tr>";
+                    out3 += "<td id = 't' align='center'>0</td><td id = 't' align='center'>"+report1[i].Count+"</td><td id = 't' align='center'>"+tmp+"</td></tr>";
                 }
             }
             for( var i=0 ; i<report1.length ; i++ ){
@@ -234,7 +240,7 @@
                 if( report2[i].Status=='ลาออก' ) c41+=parseInt(report2[i].Count);
                 else c42+=parseInt(report2[i].Count);
             }
-            out4 += "<tr><td align='center'>รวม</td><td align='center'>"+c41+"</td><td align='center'>"+c42+"</td><td align='center'>"+(c41+c42)+"</td><td align='center'>"+arr.length+"</td><td align='center'>"+parseFloat(parseInt(c41+c42)/arr.length*100).toFixed(2)+"</td></tr>";
+            out4 += "<tr><td id = 't' align='center'>รวม</td><td id = 't' align='center'>"+c41+"</td><td id = 't' align='center'>"+c42+"</td><td id = 't' align='center'>"+(c41+c42)+"</td><td id = 't' align='center'>"+arr.length+"</td><td id = 't' align='center'>"+parseFloat(parseInt(c41+c42)/arr.length*100).toFixed(2)+"</td></tr>";
             out4 += "</table>";
             document.getElementById("menu4").innerHTML = out4;
         }

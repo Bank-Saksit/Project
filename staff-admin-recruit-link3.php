@@ -3,7 +3,7 @@ include "dblink.php";
 $result = $conn->query("SELECT r.*,s.*,n.*,d.*
                         FROM recruitinfo r, schoolinfo s, nodepartment n, departmentinfo d
                         WHERE r.SchoolID=s.SchoolID AND r.RecruitID=n.RecruitID AND n.Department=d.Department
-                              AND  r.Status='สละสิทธิ์' AND n.No='1'
+                              AND  r.Status='สละสิทธิ์' AND n.No=r.NoPass
                         order by r.RecruitID;");
 
 $outp = "[";

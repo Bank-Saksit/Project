@@ -8,6 +8,6 @@
                 '".$_GET['EducationBackground']."','".$_GET['Branch']."',".$_GET['SchoolGPAX'].",'ปี1','".$_GET['IDCardNumber']."','".$_GET['Prefix']."','".$_GET['FirstName']."','".$_GET['LastName']."',
                 '".$_GET['Gender']."','".$_GET['DOB']."','".$_GET['Nationality']."','".$_GET['Race']."','".$_GET['Religion']."','".$_GET['BloodGroup']."','".$_GET['Address']."','".$_GET['Province']."','".$_GET['PostCode']."')
                         ");
-    mysqli_query($conn,"DELETE FROM recruitinfo WHERE RecruitID='".$_GET['RecruitID']."'");
+    // mysqli_query($conn,"DELETE FROM recruitinfo WHERE RecruitID='".$_GET['RecruitID']."'");
     mysqli_close($conn);
 ?>

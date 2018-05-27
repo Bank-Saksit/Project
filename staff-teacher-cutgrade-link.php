@@ -56,7 +56,7 @@ $sub=mysqli_real_escape_string($conn,$_GET['sub']);
                     $outp .= '"SectionNumber":"'.$rs["SectionNumber"].'",';
                     $outp .= '"SubjectSectionID":"'.$rs["SubjectSectionID"].'",';
                     $outp .= '"SubjectName":"'.$rs["SubjectName"].'",';
-                    $outp .= '{"nop":"found"}';
+                    $outp .= '"nop":"found"}';
                 }
                 $outp .="]";
             }

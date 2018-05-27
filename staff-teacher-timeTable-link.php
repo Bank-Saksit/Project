@@ -84,12 +84,12 @@ include "dblink.php";
                                     t.StaffID = $id
                             ORDER BY sc.StartTime;");
     if($result->num_rows==0&&$result1->num_rows==0&&$result2->num_rows==0&&$result3->num_rows==0&&$result4->num_rows==0&&$result5->num_rows==0&&$result6->num_rows==0){
-        $outp = 'ไม่พบข้อมูล';
+        $outp = '<h2>ไม่พบข้อมูล<h2>';
     }
     else{
-        $outp = 'ตารางสอน<br>';
-        $outp .= "<table><tr><td>วันเวลา</td><td>8.00-9.00</td><td>9.00-10.00</td><td>10.00-11.00</td><td>11.00-12.00</td><td>12.00-13.00</td><td>13.00-14.00</td><td>14.00-15.00</td><td>15.00-16.00</td><td>16.00-17.00</td></tr>";
-        $outp .= '<tr><td>วันจันทร์</td>';
+        $outp = '<h2>ตารางสอน</h2>';
+        $outp .= "<table><tr><th>วันเวลา</th><th>8.00-9.00</th><th>9.00-10.00</th><th>10.00-11.00</th><th>11.00-12.00</th><th>12.00-13.00</th><th>13.00-14.00</th><th>14.00-15.00</th><th>15.00-16.00</th><th>16.00-17.00</td></tr>";
+        $outp .= '<tr><th>วันจันทร์</th>';
         if($result->num_rows==0){
             for($i=0;$i<9;$i++){
                 $outp .= '<td></td>';
@@ -122,7 +122,7 @@ include "dblink.php";
             }
             $outp .= "</tr>";
         }
-        $outp .= '<tr><td>วันอังคาร</td>';
+        $outp .= '<tr><th>วันอังคาร</th>';
         if($result1->num_rows==0){
             for($i=0;$i<9;$i++){
                 $outp .= '<td></td>';
@@ -154,7 +154,7 @@ include "dblink.php";
             }
             $outp .= "</tr>";
         }
-        $outp .= '<tr><td>พุธ</td>';
+        $outp .= '<tr><th>พุธ</th>';
         if($result2->num_rows==0){
             for($i=0;$i<9;$i++){
                 $outp .= '<td></td>';
@@ -187,7 +187,7 @@ include "dblink.php";
             }
             $outp .= "</tr>";
         }
-        $outp .= '<tr><td>วันพฤหัสบดี</td>';
+        $outp .= '<tr><th>วันพฤหัสบดี</th>';
         if($result3->num_rows==0){
             for($i=0;$i<9;$i++){
                 $outp .= '<td></td>';
@@ -220,7 +220,7 @@ include "dblink.php";
             }
             $outp .= "</tr>";
         }
-        $outp .= '<tr><td>วันศุกร์</td>';
+        $outp .= '<tr><th>วันศุกร์</th>';
         if($result4->num_rows==0){
             for($i=0;$i<9;$i++){
                 $outp .= '<td></td>';
@@ -253,7 +253,7 @@ include "dblink.php";
             }
             $outp .= "</tr>";
         }
-        $outp .= '<tr><td>วันเสาร์</td>';
+        $outp .= '<tr><th>วันเสาร์</th>';
         if($result5->num_rows==0){
             for($i=0;$i<9;$i++){
                 $outp .= '<td></td>';
@@ -286,7 +286,7 @@ include "dblink.php";
             }
             $outp .= "</tr>";
         }
-        $outp .= '<tr><td>วันอาทิตย์</td>';
+        $outp .= '<tr><th>วันอาทิตย์</th>';
         if($result6->num_rows==0){
             for($i=0;$i<9;$i++){
                 $outp .= '<td></td>';
