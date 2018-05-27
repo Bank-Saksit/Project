@@ -29,8 +29,9 @@
         td{
             font-size:12px;
         }
-        #t{
+        th{
             font-size:18px;
+            font-weight:normal;
         }
     </style>
     
@@ -58,15 +59,9 @@
      </div>
      <div id="main">
         <div class="tab-content" id="tab-content">
-            <div id="menu1" class="tab-pane fade in active">
-                
-            </div>
-            <div id="menu2" class="tab-pane fade">
-                
-            </div>
-            <div id="menu4" class="tab-pane fade">
-                
-            </div>
+            <div id="menu1" class="tab-pane fade in active"></div>
+            <div id="menu2" class="tab-pane fade"></div>
+            <div id="menu4" class="tab-pane fade"></div>
             <div id="menu3p5" class="tab-pane fade">
                 
             </div>
@@ -262,7 +257,7 @@
             
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td id = 't' align='center'>คณะ</td><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>รหัสผู้สมัคร</td><td id = 't' align='center'>คำนำหน้า</td><td id = 't' align='center'>ชื่อ</td><td id = 't' align='center'>นามสกุล</td><td id = 't' align='center'>รหัสบัตรประชาชน</td><td id = 't' align='center'>เบอร์โทรติดต่อ</td><td id = 't' align='center'>โครงการ</td><td id = 't' align='center'>สถานะ</td><td id = 't' colspan='4' align='center'>แก้ไข</td></tr>";
+                    out += "<tr><th align='center'>คณะ</th><th align='center'>ภาควิชา</th><th align='center'>รหัสผู้สมัคร</th><th align='center'>คำนำหน้า</th><th align='center'>ชื่อ</th><th align='center'>นามสกุล</th><th align='center'>รหัสบัตรประชาชน</th><th align='center'>เบอร์โทรติดต่อ</th><th align='center'>โครงการ</th><th align='center'>สถานะ</th><th colspan='4' align='center'>แก้ไข</th></tr>";
                 }
                 if(arr[i].Status == 'จ่ายค่าเทอมแล้ว'){
                     var sta = 'จ่ายค่าแรกเข้าแล้ว';
@@ -270,22 +265,22 @@
                 else{
                     var sta = arr[i].Status;
                 }
-                out += "<tr><td id = 't'>" + arr[i].Faculty +
-                "</td><td id = 't'>" + arr[i].Department+
-                "</td><td id = 't'>" + arr[i].RecruitID +
-                "</td><td id = 't'>" + arr[i].Prefix +
-                "</td><td id = 't'>" + arr[i].FirstName +
-                "</td><td id = 't'>" + arr[i].LastName +
-                "</td><td id = 't'>" + arr[i].IDCardNumber +
-                "</td><td id = 't'>" + arr[i].MobileNumber +
-                "</td><td id = 't'>" + arr[i].RecruitPlanName +
-                "</td><td id = 't'>" + sta +
-                "</td><td id = 't'>" +
+                out += "<tr><th>" + arr[i].Faculty +
+                "</th><th>" + arr[i].Department+
+                "</th><th>" + arr[i].RecruitID +
+                "</th><th>" + arr[i].Prefix +
+                "</th><th>" + arr[i].FirstName +
+                "</th><th>" + arr[i].LastName +
+                "</th><th>" + arr[i].IDCardNumber +
+                "</th><th>" + arr[i].MobileNumber +
+                "</th><th>" + arr[i].RecruitPlanName +
+                "</th><th>" + sta +
+                "</th><th>" +
                 "<button onclick=\"moveToStudent('"+arr[i].RecruitID+"','"+arr[i].RecruitPlanName+"','"+arr[i].Department+"','"+arr[i].MobileNumber+"','"+arr[i].TelNumber+"','"+
                 arr[i].Email+"','"+arr[i].SchoolID+"','"+arr[i].EducationBackground+"','"+arr[i].Branch+"','"+arr[i].SchoolGPAX+"','"+arr[i].IDCardNumber+"','"+arr[i].Prefix+"','"+
                 arr[i].FirstName+"','"+arr[i].LastName+"','"+arr[i].Gender+"','"+arr[i].DOB+"','"+arr[i].Nationality+"','"+arr[i].Race+"','"+arr[i].Religion+"','"+arr[i].BloodGroup+"','"+
                 arr[i].Address+"','"+arr[i].Province+"','"+arr[i].PostCode+"')\">สร้างรหัสนักศึกษา</button>"+
-                "</td><td id = 't'>" +   
+                "</td><th>" +   
                 "<button onclick=\"deleteRecruit('"+arr[i].RecruitID+"')\">ลบข้อมูล</button>"+
                 "</td></tr>";
             }
@@ -354,7 +349,7 @@
             var out = "<table>";
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td id = 't' align='center'>รหัสผู้สมัคร</td><td id = 't' align='center'>คำนำหน้า</td><td id = 't' align='center'>ชื่อ</td><td id = 't' align='center'>นามสกุล</td><td id = 't' align='center'>เบอร์โทรติดต่อ</td><td id = 't' align='center'>โรงเรียน</td><td id = 't' align='center'>โครงการ</td><td id = 't' align='center'>คณะ</td><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>สถานะ</td><td id = 't' align='center'>มหาวิทยาลัยที่ย้ายไป</td></tr>";
+                    out += "<tr><th align='center'>รหัสผู้สมัคร</th><th align='center'>คำนำหน้า</th><th align='center'>ชื่อ</th><th align='center'>นามสกุล</th><th align='center'>เบอร์โทรติดต่อ</th><th align='center'>โรงเรียน</th><th align='center'>โครงการ</th><th align='center'>คณะ</th><th align='center'>ภาควิชา</th><th align='center'>สถานะ</th><th align='center'>มหาวิทยาลัยที่ย้ายไป</th></tr>";
                 }
                 if(arr[i].Status == 'จ่ายค่าเทอมแล้ว'){
                     var sta = 'จ่ายค่าแรกเข้าแล้ว';
@@ -362,21 +357,21 @@
                 else{
                     var sta = arr[i].Status;
                 }
-                out += "<tr><td id = 't'>" + arr[i].RecruitID +
-                "</td><td id = 't'>" + arr[i].Prefix +
-                "</td><td id = 't'>" + arr[i].FirstName+
-                "</td><td id = 't'>" + arr[i].LastName+
-                "</td><td id = 't'>" + arr[i].MobileNumber+
-                "</td><td id = 't'>" + arr[i].SchoolName+
-                "</td><td id = 't'>" + arr[i].RecruitPlanName+
-                "</td><td id = 't'>" + arr[i].Faculty+
-                "</td><td id = 't'>" + arr[i].Department+    
-                "</td><td id = 't'>" + arr[i].Status+
-                "</td><td id = 't'>" + arr[i].MovedUniversityName+
-                "</td></tr>";
+                out += "<tr><th>" + arr[i].RecruitID +
+                "</th><th>" + arr[i].Prefix +
+                "</th><th>" + arr[i].FirstName+
+                "</th><th>" + arr[i].LastName+
+                "</th><th>" + arr[i].MobileNumber+
+                "</th><th>" + arr[i].SchoolName+
+                "</th><th>" + arr[i].RecruitPlanName+
+                "</th><th>" + arr[i].Faculty+
+                "</th><th>" + arr[i].Department+    
+                "</th><th>" + arr[i].Status+
+                "</th><th>" + arr[i].MovedUniversityName+
+                "</th></tr>";
             }
             out += "</table>";
-            document.getElementById("menu3").innerHTML =but+out+"<br>รวมทั้งหมด "+arr.length+" คน";
+            document.getElementById("menu3").innerHTML =but+out+"<br><p>รวมทั้งหมด "+arr.length+" คน</p>";
         }
 
         //4 จำนวนผู้สมัครเข้าแต่ละคณะ
@@ -390,14 +385,14 @@
                                                 AND n.No='1'
                                                 GROUP BY d.Faculty");
                 echo"var count=0;";
-                echo"var out = '<table><tr><td align=\'center\'>คณะ</td><td align=\'center\'>จำนวน(คน)</td></tr>';";
+                echo"var out = '<table><tr><th align=\'center\'>คณะ</th><th align=\'center\'>จำนวน(คน)</th></tr>';";
                 while($row = mysqli_fetch_array($result)){
-                    echo "out += '<tr><td>'+'".$row['Faculty']."'+'</td><td>'+'".$row['sum']."'+'</td></tr>';";  
+                    echo "out += '<tr><th>'+'".$row['Faculty']."'+'</th><th>'+'".$row['sum']."'+'</th></tr>';";  
                     echo "count += parseInt(".$row['sum'].");";          
                 }
                 
             ?>
-            out += '<tr><td>รวม</td><td>'+count+'</td>';
+            out += '<tr><th>รวม</th><th>'+count+'</th>';
             out += '</table>';
             document.getElementById("menu4").innerHTML = out;
         }
@@ -412,19 +407,19 @@
                                                 WHERE r.SchoolID=s.SchoolID AND r.RecruitID=n.RecruitID AND n.Department=d.Department AND r.Status = 'สละสิทธิ์' AND n.No=r.NoPass
                                                 GROUP BY d.Department");
                 echo"var count=0;";
-                echo"var out = '<table><tr><td align=\'center\'>ภาควิชา</td><td align=\'center\'>จำนวน(คน)</td></tr>';";
+                echo"var out = '<table><tr><th align=\'center\'>ภาควิชา</th><th align=\'center\'>จำนวน(คน)</th></tr>';";
                 while($row = mysqli_fetch_array($result)){
-                    echo "out += '<tr><td>'+'".$row['Department']."'+'</td><td>'+'".$row['sum']."'+'</td></tr>';";  
+                    echo "out += '<tr><th>'+'".$row['Department']."'+'</th><th>'+'".$row['sum']."'+'</th></tr>';";  
                     echo "count += parseInt(".$row['sum'].");";          
                 }
                 
             ?>
-            out += '<tr><td>รวม</td><td>'+count+'</td>';
+            out += '<tr><th>รวม</th><th>'+count+'</th></tr>';
             out += '</table>';
             document.getElementById("menu3p5").innerHTML = out;
         }
 
-         //5 จำนวนผู้สมัครเข้าแต่ละโครงกา
+         //5 จำนวนผู้สมัครเข้าแต่ละโครงการ
          function load5(){
             <?php
                 include "dblink.php";
@@ -434,14 +429,14 @@
                                                 WHERE r.SchoolID=s.SchoolID AND r.RecruitID=n.RecruitID AND n.Department=d.Department AND r.Status = 'สละสิทธิ์' AND n.No=r.NoPass
                                                 GROUP BY d.Department");
                 echo"var count=0;";
-                echo"var out = '<table><tr><td align=\'center\'>ภาควิชา</td><td align=\'center\'>จำนวน(คน)</td></tr>';";
+                echo"var out = '<table><tr><th align=\'center\'>ภาควิชา</th><th align=\'center\'>จำนวน(คน)</th></tr>';";
                 while($row = mysqli_fetch_array($result)){
-                    echo "out += '<tr><td>'+'".$row['Department']."'+'</td><td>'+'".$row['sum']."'+'</td></tr>';";  
+                    echo "out += '<tr><th>'+'".$row['Department']."'+'</td><td>'+'".$row['sum']."'+'</th></tr>';";  
                     echo "count += parseInt(".$row['sum'].");";          
                 }
                 
             ?>
-            out += '<tr><td>รวม</td><td>'+count+'</td>';
+            out += '<tr><th>รวม</th><th>'+count+'</th>';
             out += '</table>';
             document.getElementById("menu3p5").innerHTML = out;
         }
