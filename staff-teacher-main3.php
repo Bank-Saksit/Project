@@ -117,7 +117,7 @@
                 else{
                     var out1 = "<form><h2>เลือกรายวิชาที่ต้องการตัดเกรด : </h2><p><select id='sub'>";
                             for(i=0;i<arr.length;i++){
-                                out1+="<option value="+arr[i].SubjectSectionID+">"+arr[i].SubjectID+"&nbsp"+arr[i].SubjectName+"&nbspsec : "+arr[i].SectionNumber+"</option>";
+                                out1+="<option value="+arr[i].SubjectSectionID+">"+arr[i].SubjectID+"&nbsp"+arr[i].SubjectName+"&nbspsec :"+arr[i].SectionNumber+"</option>";
                             }
                         out1 += "</select></p>"+
                             "<p><input type='button' value='ยืนยัน' id='edit1' onclick='selectSub()'></p>"+
@@ -178,7 +178,7 @@
                             "<tr><th>" +
                             "รหัสนักศึกษา"+
                             "</th><th>" +
-                            "ชื่อ"+
+                            "ชื่อจริง"+
                             "</th><th>" +
                             "นามสกุล"+
                             "</th><th>" +
@@ -227,8 +227,8 @@
                                     "&nbspปีการศึกษา : "+arr[i].AcademicYear+
                                     "</option>";
                         }
-                    out3 += "</select></p>"+
-                            "<p><input type='button' value='ตรวจสอบ' onclick='selectSub3()'></p>"+
+                    out3 += "</select><p>"+
+                            "<p><input type='button' value='ตรวจสอบ' onclick='selectSub3()'><p>"+
                             "</form>";
                     document.getElementById("menu3").innerHTML = out3;
             }
@@ -314,8 +314,8 @@
                     var out1 =  "<h2>"+arr[0].SubjectID+
                             "&nbsp"+arr[0].SubjectName+
                             "&nbspsec :"+arr[0].SectionNumber+
-                            "&nbsp"+
-                            "</h2><form>";
+                            "</h2>"+
+                            "<table><form>";
                     for(i=0;i<arr.length;i++){
                         out1+=  "<tr><td>" +
                                 arr[i].StudentID+"&nbsp"+
@@ -334,10 +334,10 @@
                                 "<option value=1.50>D+</option>"+
                                 "<option value=1.00>D</option>"+
                                 "<option value=0.00>F</option>"+
-                                "</select><br>"+
+                                "</select>"+
                                 "</td></tr>";
                     }
-                    out1+= "</form></table><br><button value='ยืนยัน' onclick='Grade("+JSON.stringify(response)+")'>ยืนยัน</button>"
+                    out1+= "</form></table><p><button value='ยืนยัน' onclick='Grade("+JSON.stringify(response)+")'>ยืนยัน</button></p>"
                 }
                 
                     document.getElementById("menu1").innerHTML = out1;
