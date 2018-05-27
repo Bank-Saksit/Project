@@ -6,6 +6,15 @@
     <script src="js/jquery-ui.min.js"></script>
 	<link href ="js/sweetalert2.all.js" rel="stylesheet">
 	<script src="js/sweetalert21.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		@import "global1.css";
+		.swal2-popup {
+            font-size: 2rem;
+        }
+	</style>
 </head>
 <body>
 <?php
@@ -48,6 +57,9 @@ if($result->num_rows == 0){
 	$result = $conn ->query("SELECT RecruitID FROM recruitinfo WHERE IDCardNumber='$IDCardNum' AND RecruitPlanName='$RecruitPlanName'");
 	while($row = $result->fetch_array(MYSQLI_ASSOC)){	
 		for($i=0; $i<count($_POST["Department"]) ;$i++){
+			if($i==0){
+				$id = $row['RecruitID'];
+			}
 			if(trim($_POST["Department"][$i] != '' )){
 				$Department = mysqli_real_escape_string($conn, $_POST['Department'][$i]);
 				$j = $i+1;
@@ -57,6 +69,13 @@ if($result->num_rows == 0){
 				}
 			}
 		}
+
+		date_default_timezone_set('Asia/Bangkok');
+		$year = date('Y',time());
+		$year = (int)($year+543);
+		$sql = "INSERT INTO Billrecruit(RecruitID,DateRegister,AcademicYear) VAlUES($id,NOW(),$year)";
+		mysqli_query($conn,$sql);
+
 		echo "	<script>			
 					swal({
 						type: 'success',
@@ -68,6 +87,7 @@ if($result->num_rows == 0){
 						window.location='recruit-login.php'; 
 					})
 				</script>";
+		
 	}
 
 	

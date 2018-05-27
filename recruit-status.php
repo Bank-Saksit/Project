@@ -10,7 +10,7 @@
     <script src="js/jquery-ui.min.js"></script>
     <link href ="js/sweetalert2.all.js" rel="stylesheet" >
     <script src="js/sweetalert21.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>ตรวจสอบสถานะ</title>
@@ -119,6 +119,9 @@
             margin-top: 2%;
             margin-left:5%;
         }
+        .swal2-popup {
+            font-size: 2rem;
+        }
     </style>
 </head>
 <body>
@@ -188,12 +191,8 @@
                     "</div>";
             out += "</table>";
             document.getElementById("infoRecruit").innerHTML = out;
-<<<<<<< HEAD
-            var list = "<table id='list'><div class = 'row'><tr><td id='t3'><t1>ลำดับ</t1></td><td id='t3'><t1>คณะ</t1></td><td id='t3'><t1>สาขา</t1></td></tr></div>";
-=======
             var list = "<div  class = 'dd'><div class = 'row'><div class='col-sm-4'><t1>คณะที่ได้</t1></div></div></div>";
             list += "<table id='list'><div class = 'row'><tr><td id='t3'><t1>ลำดับ</t1></td><td id='t3'><t1>คณะ</t1></td><td id='t3'><t1>สาขา</t1></td></tr></div>";
->>>>>>> 3612c0ea2715e2feac4c960417a7753f283c104d
             for( i=0 ; i<arr.length ; i++ ){
                 if(arr[0].NoPass == 0){
                     list += "<div class = 'row'><tr>"+

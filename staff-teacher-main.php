@@ -20,6 +20,9 @@
     <style>
         @import "global1.css";
         @import "temple.css";
+        .swal2-popup {
+            font-size: 2rem;
+        }
     </style>
     
 </head>
@@ -186,12 +189,12 @@
                 else
                     document.getElementById('inRe').selectedIndex = '3';
     
-                var out2 = "<h2>ข้อมูลติดต่อ</h2><br>"+
+                var out2 = "<h2>ข้อมูลติดต่อ</h2><p>"+
                 "<div class = 'row'>"+
                     "<div class= 'col-sm-4' >"+
                     "<form>"+
-                    "<p>ที่อยู่ :<textarea style='resize: none' rows=3 cols=45 id='inAdd'>"+arr[0].Address+"</textarea></p>"+
-                    "<p>จังหวัด :<input type='text' id='inPr' class='bg' value='"+arr[0].Province+"'></p>"+
+                    "<p>ที่อยู่ : <textarea style='resize: none' rows=3 cols=40 id='inAdd'>"+arr[0].Address+"</textarea></p>"+
+                    "<p>จังหวัด : <input type='text' id='inPr' class='bg' value='"+arr[0].Province+"'></p>"+
                     "<p>รหัสไปรษณีย์ : <input type='text' id='inPo' class='bg' value='"+arr[0].Postcode+"'></p>"+
                     "</div>"+"<div class= 'col-sm-4' >"+
                     "<p>เบอร์โทรศัพท์มือถือ : <input type='text' id='inMN' class='bg' value='"+arr[0].MobileNumber+"'></p>"+

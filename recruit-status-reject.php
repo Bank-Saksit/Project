@@ -13,7 +13,7 @@
     <script src="js/jquery-ui.min.js"></script>
     <link href ="js/sweetalert2.all.js" rel="stylesheet" >
     <script src="js/sweetalert21.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>สละสิทธิ์</title>
@@ -64,7 +64,9 @@
         #sm{
             background-color:#d33;
         }
-
+        .swal2-popup {
+            font-size: 2rem;
+        }
     </style>
 </head>
 <body>
@@ -113,29 +115,12 @@
             document.getElementById("profile").innerHTML = out;
 
             var outlist =
-<<<<<<< HEAD
                 "<h3>ชื่อมหาวิทยาลัยที่เลือกศึกษาต่อ</h3>"+
                 "<select name=\"inUni\" id=\"inUni\" onchange=\"otherField(this.value)\">"+
                     "<option value='จุฬาลงกรณ์'>จุฬาลงกรณ์มหาวิทยาลัย</option><option value='เกษตรศาสตร์'>มหาวิทยาลัยเกษตรศาสตร์</option><option value='ธรรมศาสตร์'>มหาวิทยาลัยธรรมศาสตร์</option><option value='พระนครเหนือ'>สถาบันเทคโนโลยีพระจอมเกล้าพระนครเหนือ</option>"+
                     "<option value='ลาดกระบัง'>สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</option><option value='มหิดล'>มหาวิทยาลัยมหิดล</option><option value='อื่น'>อื่นๆ</option>"+
                 "</select><br><div id='addbut'></div>"+
                 "<br>เหตุผล<br>"+
-=======
-                "<p>ชื่อมหาวิทยาลัยที่เลือกศึกษาต่อ</p>"+
-                "<p><select name=\"inUni\" id=\"inUni\" onchange=\"otherField(this.value)\">"+
-                    "<option value=\"ลาดกระบัง\">ลาดกระบัง</option>"+
-                    "<option value=\"พระนครเหนือ\">พระนครเหนือ</option>"+
-                    "<option value=\"จุฬา\">จุฬา</option>"+
-                    "<option value=\"ธรรมศาสตร์\">ธรรมศาสตร์</option>"+
-                    "<option value=\"มหิดล\">มหิดล</option>"+
-                    "<option value=\"เกษตร\">เกษตร</option>"+
-                    "<option value=\"มช\">มช</option>"+
-                    "<option value=\"ABAC\">ABAC</option>"+
-                    "<option value=\"ราม\">ราม</option>"+
-                    "<option value=\"other\">อื่นๆ</option>"+
-                "</select></p>"+
-                "<p>เหตุผล</p>"+
->>>>>>> 3612c0ea2715e2feac4c960417a7753f283c104d
                 "<textarea rows=3 cols=50 name=\"reason\" style=\"resize:none\"></textarea><br>"+
                 "<div id='button'>"+
                 // "<input id='sm-sub' type=\"button\" value=\"ยืนยัน\" onclick=\"update()\">"+
