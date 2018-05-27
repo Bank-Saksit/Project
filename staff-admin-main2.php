@@ -50,10 +50,10 @@
         <ul class="nav nav-pills nav-stacked" id="tab">
             <li class = "active"><a data-toggle="tab" href="#menu1">ข้อมูลนักศึกษา</a></li>
             <li><a data-toggle="tab" href="#menu2">นักศึกษาถอนรายวิชา</a></li>
-            <li><a data-toggle="tab" href="#menu3">จำนวนนักศึกษาตามภาควิชา</a></li>
-            <li><a data-toggle="tab" href="#menu4">จำนวนนักศึกษาที่ลาออก/ถูกไล่ออกตามคณะ</a></li>
-            <!-- <li><a data-toggle="tab" href="#menu5">ลบกลุ่มรายวิชา</a></li>
-            <li><a data-toggle="tab" href="#menu6">แก้ไขกลุ่มรายวิชา</a></li> -->
+            <li><a data-toggle="tab" href="#menu3">จำนวนนักศึกษาแต่ละภาควิชา</a></li>
+            <li><a data-toggle="tab" href="#menu4">จำนวนนักศึกษาที่ลาออก/ถูกไล่ออกในแต่ละคณะ</a></li>
+            <li><a data-toggle="tab" href="#menu5">จำนวนนักศึกษาที่จบการศึกษาในแต่ละภาควิชา</a></li>
+            <!-- <li><a data-toggle="tab" href="#menu6">แก้ไขกลุ่มรายวิชา</a></li> -->
         </ul>
     </div>
     <div id="main">
@@ -62,8 +62,8 @@
             <div id="menu2" class="tab-pane fade"></div>
             <div id="menu3" class="tab-pane fade"></div>
             <div id="menu4" class="tab-pane fade"></div>
-            <!-- <div id="menu5" class="tab-pane fade"></div>
-            <div id="menu6" class="tab-pane fade"></div> -->
+            <div id="menu5" class="tab-pane fade"></div>
+            <!-- <div id="menu6" class="tab-pane fade"></div> -->
         </div>
 
         <script>
@@ -128,6 +128,20 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     report2 = JSON.parse(xmlhttp.responseText);
+                    load5();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function load5(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol+'//'+location.host+"/Project/staff-admin-main2-link.php?type=23";
+            
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    report3 = JSON.parse(xmlhttp.responseText);
                     display();
                 }
             }
@@ -218,6 +232,7 @@
             document.getElementById("menu3").innerHTML = out3;
 
             var c41 = 0, c42 = 0;
+            
             var out4 = "<table>";
             out4 += "<tr><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>ลาออก</td><td id = 't' align='center'>ไล่ออก</td><td id = 't' align='center'>รวม</td><td id = 't' align='center'>นักศึกษาทั้งหมด</td><td id = 't' align='center'>อัตราส่วน</td></tr>";
             for( var i=0 ; i<report2.length ; i++ ){
@@ -245,6 +260,24 @@
             out4 += "<tr><td id = 't' align='center'>รวม</td><td id = 't' align='center'>"+c41+"</td><td id = 't' align='center'>"+c42+"</td><td id = 't' align='center'>"+(c41+c42)+"</td><td id = 't' align='center'>"+arr.length+"</td><td id = 't' align='center'>"+parseFloat(parseInt(c41+c42)/arr.length*100).toFixed(2)+"</td></tr>";
             out4 += "</table>";
             document.getElementById("menu4").innerHTML = out4;
+
+            var countm5 = 0, countw5 = 0;
+            var out5 = "<table>";
+            out5 += "<tr><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>ชาย</td><td id = 't' align='center'>หญิง</td><td id = 't' align='center'>รวม</td></tr>";
+            for( var i=0 ; i<report3.length ; i++ ){
+                out5 += "<tr><td id = 't'>"+report3[i].Department+"</td>";
+                var m=0, w=0;
+                for( var j=0 ; j<arr.length ; j++ ){
+                    if( arr[j].Department==report3[i].Department && arr[j].Status=='จบการศึกษา' ){
+                        if( arr[j].Gender=='ชาย' ){ m++; countm5++ }
+                        else{ w++; countw5++; }
+                    }
+                }
+                out5 += "<td id = 't' align='center'>"+m+"</td><td id = 't' align='center'>"+w+"</td><td id = 't' align='center'>"+(m+w)+"</td></tr>";
+            }
+            out5 += "<tr><td id = 't' align='center'>รวม</td><td id = 't' align='center'>"+countm5+"</td><td id = 't' align='center'>"+countw5+"</td><td id = 't' align='center'>"+(countm5+countw5)+"</td></tr>";
+            out5 += "</table>";
+            document.getElementById("menu5").innerHTML = out5;
         }
 
         function updateStatus( sid, st ) {
