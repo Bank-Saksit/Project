@@ -27,6 +27,9 @@
         table tr:nth-child(even) {
             background-color: #ffffff;
         }
+        td{
+            font-size:18px;
+        }
         .ei {
             width:15%;
         }
@@ -181,8 +184,8 @@
         }
         function showreport14(response){
             var arr = JSON.parse(response);
-            var out1 = "<h1>จํานวนนักศึกษาใหม่ระดับบปริญญาตรี</h1><table><tr><th rowspan='2'>คณะ</th><th colspan='6'>ประเภทการเข้า</th></tr>"+
-                        "<tr><th class='ei'>2B</th><th class='ei'>Active Recruitment</th><th class='ei'>Clearing House</th><th class='ei'>เรียนดี</th><th class='ei'>Admission</th><th class='ei'>รวม</th></tr>";
+            var out1 = "<h2>จํานวนนักศึกษาใหม่ระดับบปริญญาตรี</h2><table><tr><td rowspan='2'>คณะ</td><td colspan='6'>ประเภทการเข้า</td></tr>"+
+                        "<tr><td class='ei'>2B</td><td class='ei'>Active Recruitment</td><td class='ei'>Clearing House</td><td class='ei'>เรียนดี</td><td class='ei'>Admission</td><td class='ei'>รวม</td></tr>";
             var B2 = 0;
             var Active = 0;
             var ch = 0;
@@ -260,7 +263,7 @@
 
         function displayResponse(response){
             var arr = JSON.parse(response);
-            var out = "<h1>ข้อมูลผู้สอน</h1><table><tr><th>ID</th><th>ชื่อ</th><th>ภาควิชา</th><th>เบอร์</th><th>เพิ่มเติม</th></tr>";
+            var out = "<h2>ข้อมูลผู้สอน</h2><table><tr><td>ID</td><td>ชื่อ</td><td>ภาควิชา</td><td>เบอร์</td><td>เพิ่มเติม</td></tr>";
             for(i=0;i<arr.length;i++){
                 out += "<tr><td>"+ arr[i].StaffID +"</td>"+
                     "<td>"+ arr[i].Prefix + arr[i].FirstName +' '+ arr[i].LastName +"</td>"+
@@ -299,7 +302,7 @@
 
         function ShowData(response){
             var arr = JSON.parse(response);
-            var out = "<h1>ข้อมูลผู้สอน</h1>";
+            var out = "<h2>ข้อมูลผู้สอน</h2>";
             
                 out += "รหัสประจำตัว : "+ arr[0].StaffID +"<br>"+
                     "ชื่อ : "+ arr[0].Prefix + arr[0].FirstName +' '+ arr[0].LastName +"<br>"+
