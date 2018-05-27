@@ -86,6 +86,10 @@
                                 <input type="text" name="EducationBackground" class="check" id="a11"></p>
                             </div>
                             <div class="col-sm-2" >
+                                <p>สัญชาติ : <br>
+                                <input type="text" name="Nationality" class="check" id="a8"></p>
+                                <p>เชื้อชาติ : <br>
+                                <input type="text" name="Race" class="check" id="a9"></p>
                                 <p>เพศ : <br>
                                 <select name="Gender" class="check" id="a6">
                                         <option value="">โปรดเลือก</option>
@@ -101,22 +105,6 @@
                                     <option value="AB">AB</option>
                                     <option value="O">O</option>
                                 </select></p>
-                                <p>สัญชาติ : <br>
-                                <select name="Nationality" class="check" id="a8">
-                                        <option value="">โปรดเลือก</option>
-                                        <option value="ไทย">ไทย</option>
-                                        <option value="จีน">จีน</option>
-                                        <option value="ญี่ปุ่น">ญี่ปุ่น</option>
-                                        <option value="ไม่ระบุ">ไม่ระบุ</option>
-                                </select></p>
-                                <p>เชื้อชาติ : <br>
-                                <select name="Race" class="check" id="a9">
-                                        <option value="">โปรดเลือก</option>
-                                        <option value="ไทย">ไทย</option>
-                                        <option value="จีน">จีน</option>
-                                        <option value="ญี่ปุ่น">ญี่ปุ่น</option>
-                                        <option value="ไม่ระบุ">ไม่ระบุ</option>
-                                </select></p>
                                 <p>ศาสนา : <br>
                                 <select name="Religion" class="check" id="a10">
                                         <option value="">โปรดเลือก</option>
@@ -128,7 +116,7 @@
                             </div>
                             <div class="col-sm-3" id="e1">
                                 <p>ที่อยู่ : <br>
-                                <textarea style="resize:none" rows='3' cols='30' name="Address" class="check" id="b1"></textarea></p>
+                                <textarea style="resize:none" rows='4' cols='30' name="Address" class="check" id="b1"></textarea></p>
                                 <p>จังหวัด:<br>
                                 <input type="text" name="Province" class="check" id="b2"></p>
                                 <p>รหัสไปรษณีย์:<br>
@@ -198,7 +186,7 @@
 
         function showreport14(response){
             var report = JSON.parse(response);
-            var out1 = "<h1>จํานวนนักศึกษาใหม่ระดับบปริญญาตรี</h1><table><tr><th rowspan='2'>คณะ</th><th colspan='6'>ประเภทการเข้า</th></tr>"+
+            var out1 = "<h2>จํานวนนักศึกษาใหม่ระดับบปริญญาตรี</h2><table><tr><th rowspan='2'>คณะ</th><th colspan='6'>ประเภทการเข้า</th></tr>"+
                         "<tr><th class='ei'>2B</th><th class='ei'>Active Recruitment</th><th class='ei'>Clearing House</th><th class='ei'>เรียนดี</th><th class='ei'>Admission</th><th class='ei'>รวม</th></tr>";
             var prev = report[0].Faculty;
             var B2 = 0,Active = 0,ch = 0,good = 0,adm = 0,total = 0;
