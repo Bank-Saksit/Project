@@ -6,7 +6,8 @@ $result = $conn->query("SELECT sj.SubjectID, sj.SubjectName, sj.Credit, sj.Descr
                         FROM subjectinfo sj,sectioninfo st,student_subject ss,studentinfo sd
                         WHERE sj.SubjectID = st.SubjectID AND st.SubjectSectionID = ss.SubjectSectionID 
                                 AND ss.StudentID = sd.StudentID AND sd.StudentID = '". $_SESSION['id'] .
-                                 "' AND st.AcademicYear =" .$_GET['Year']." AND st.Semester =" .$_GET['Semester']);
+                                 "' AND st.AcademicYear =" .$_GET['Year']." AND st.Semester =" .$_GET['Semester'] .
+                        " ORDER BY ss.GPA DESC");
 $outp = "[";
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     if ($outp != "[") {$outp .= ",";}
