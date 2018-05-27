@@ -27,7 +27,7 @@
             background-color: #ffffff;
         }
         td{
-            font-size:15px;
+            font-size:14px;
         }
         #t{
             font-size:18px;
