@@ -53,6 +53,7 @@
         <li><a data-toggle="tab" href="#menu4">จำนวนผู้สมัครเข้าแต่ละคณะ</a></li>
         <li><a data-toggle="tab" href="#menu3p5">จำนวนผู้สละสิทธื์แต่ละคณะ</a></li>
         <li><a data-toggle="tab" href="#menu3">ข้อมูลผู้สละสิทธื์ที่ย้ายไปมหาวิทยาลัยอื่น</a></li>
+        <li><a data-toggle="tab" href="#menu5">จำนวนผู้สมัครเข้าแต่ละโครงการ</a></li>
         </ul>
      </div>
      <div id="main">
@@ -72,6 +73,10 @@
             <div id="menu3" class="tab-pane fade">
                 
             </div> 
+            </div>
+            <div id="menu5" class="tab-pane fade">
+                
+            </div> 
         </div>
     
     <script>
@@ -83,6 +88,7 @@
             load3();
             load4();
             load3p5();
+            load5();
         }
 
         function myFunction() {
@@ -418,6 +424,27 @@
             document.getElementById("menu3p5").innerHTML = out;
         }
 
+         //5 จำนวนผู้สมัครเข้าแต่ละโครงกา
+         function load5(){
+            <?php
+                include "dblink.php";
+               
+                $result = mysqli_query($conn,"SELECT DISTINCT d.Faculty,d.Department,count(r.recruitID) AS sum
+                                                FROM recruitinfo r, schoolinfo s, nodepartment n, departmentinfo d
+                                                WHERE r.SchoolID=s.SchoolID AND r.RecruitID=n.RecruitID AND n.Department=d.Department AND r.Status = 'สละสิทธิ์' AND n.No=r.NoPass
+                                                GROUP BY d.Department");
+                echo"var count=0;";
+                echo"var out = '<table><tr><td align=\'center\'>ภาควิชา</td><td align=\'center\'>จำนวน(คน)</td></tr>';";
+                while($row = mysqli_fetch_array($result)){
+                    echo "out += '<tr><td>'+'".$row['Department']."'+'</td><td>'+'".$row['sum']."'+'</td></tr>';";  
+                    echo "count += parseInt(".$row['sum'].");";          
+                }
+                
+            ?>
+            out += '<tr><td>รวม</td><td>'+count+'</td>';
+            out += '</table>';
+            document.getElementById("menu3p5").innerHTML = out;
+        }
     
     </script>
     
