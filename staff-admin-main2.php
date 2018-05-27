@@ -153,28 +153,28 @@
 
             var countm = 0, countw = 0;
             var out2 = "<table>";
-            out2 += "<tr><td align='center'>ภาควิชา</td><td align='center'>ชาย</td><td align='center'>หญิง</td><td align='center'>รวม</td></tr>";
+            out2 += "<tr><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>ชาย</td><td id = 't' align='center'>หญิง</td><td id = 't' align='center'>รวม</td></tr>";
             for( var i=0 ; i<report1.length ; i++ ){
-                out2 += "<tr><td>"+report1[i].Department+"</td>";
+                out2 += "<tr><td id = 't'>"+report1[i].Department+"</td>";
                 if( i+1<report1.length && report1[i].Department==report1[i+1].Department ){
                     var tmp = parseInt(report1[i].Count)+parseInt(report1[i+1].Count);
-                    out2 += "<td align='center'>"+report1[i].Count+"</td><td align='center'>"+report1[i+1].Count+"</td><td align='center'>"+tmp+"</td></tr>";
+                    out2 += "<td id = 't' align='center'>"+report1[i].Count+"</td><td id = 't' align='center'>"+report1[i+1].Count+"</td><td id = 't' align='center'>"+tmp+"</td></tr>";
                     i++;
                 }
                 else if ( report1[i].Gender=='ชาย' ){
                     var tmp = parseInt(report1[i].Count);
-                    out2 += "<td align='center'>"+report1[i].Count+"</td><td align='center'>0</td><td align='center'>"+tmp+"</td></tr>";
+                    out2 += "<td id = 't' align='center'>"+report1[i].Count+"</td><td id = 't' align='center'>0</td><td id = 't' align='center'>"+tmp+"</td></tr>";
                 }
                 else{
                     var tmp = parseInt(report1[i].Count);
-                    out2 += "<td align='center'>0</td><td align='center'>"+report1[i].Count+"</td><td align='center'>"+tmp+"</td></tr>";
+                    out2 += "<td id = 't' align='center'>0</td><td id = 't' align='center'>"+report1[i].Count+"</td><td id = 't' align='center'>"+tmp+"</td></tr>";
                 }
             }
             for( var i=0 ; i<report1.length ; i++ ){
                 if( report1[i].Gender=='ชาย' ) countm+=parseInt(report1[i].Count);
                 else countw+=parseInt(report1[i].Count);
             }
-            out2 += "<tr><td align='center'>รวม</td><td align='center'>"+countm+"</td><td align='center'>"+countw+"</td><td align='center'>"+(countm+countw)+"</td></tr>";
+            out2 += "<tr><td id = 't' align='center'>รวม</td><td id = 't' align='center'>"+countm+"</td><td id = 't' align='center'>"+countw+"</td><td id = 't' align='center'>"+(countm+countw)+"</td></tr>";
             out2 += "</table>";
             document.getElementById("menu2").innerHTML = out2;
         }
