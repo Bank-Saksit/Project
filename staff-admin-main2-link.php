@@ -138,6 +138,21 @@ elseif( $_GET['type']=='22' ){
     $outp .="]";
     echo($outp);
 }
+elseif( $_GET['type']=='23' ){
+    $result = $conn->query("SELECT Department, COUNT(*) AS mycount
+                            FROM studentinfo
+                            WHERE Status='จบการศึกษา'
+                            GROUP BY Department ASC"); 
+
+    $outp = "[";
+    while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+        if ($outp != "[") {$outp .= ",";}
+        $outp .= '{"Department":"'.$rs["Department"].'",';
+        $outp .= '"Count":"'.$rs["mycount"].'"}';
+    }
+    $outp .="]";
+    echo($outp);
+}
 
 $conn->close();
 ?>
