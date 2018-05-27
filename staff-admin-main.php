@@ -16,7 +16,6 @@
         @import "global1.css";
         @import "temple.css";
         table, th , td {
-            align : center;
             border: 1px solid grey;
             border-collapse: collapse;
             padding: 5px;
@@ -425,7 +424,7 @@
             document.getElementById("menu3p5").innerHTML = out;
         }
 
-         //5 จำนวนผู้สมัครเข้าแต่ละโครงการ
+         //5 จำนวนผู้สมัครเข้าแต่ละโครงกา
          function load5(){
             <?php
                 include "dblink.php";
@@ -437,12 +436,12 @@
                 echo"var count=0;";
                 echo"var out = '<table><tr><td align=\'center\'>ภาควิชา</td><td align=\'center\'>จำนวน(คน)</td></tr>';";
                 while($row = mysqli_fetch_array($result)){
-                    echo "out += '<tr><td id = \'t\' align=\'center\'>'+'".$row['RecruitPlanName']."'+'</td><td id = \'t\' align=\'center\'>'+'".$row['Details']."'+'</td><td id = \'t\' align=\'center\'>'+'".$row['RecruitAmount']."'+'</td><td id = \'t\' align=\'center\'>'+'".$row['sum']."'+'</th></tr>';";  
+                    echo "out += '<tr><td>'+'".$row['Department']."'+'</td><td>'+'".$row['sum']."'+'</td></tr>';";  
                     echo "count += parseInt(".$row['sum'].");";          
                 }
                 
             ?>
-            out += '<tr><td id = \'t\' align=\'center\'>รวม</td><td id = \'t\' align=\'center\'>'+count+'</td>';
+            out += '<tr><td>รวม</td><td>'+count+'</td>';
             out += '</table>';
             document.getElementById("menu3p5").innerHTML = out;
         }
