@@ -38,7 +38,7 @@
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="staff-home.php" class="logout">ออกจากระบบ</a>
+            <a href="staff-logout.php" class="logout">ออกจากระบบ</a>
     </div>
     <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
@@ -49,6 +49,7 @@
             <li><a data-toggle="tab" href="#menu4">เพิ่มกลุ่มรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu5">ลบกลุ่มรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu6">แก้ไขกลุ่มรายวิชา</a></li>
+            <li><a data-toggle="tab" href="#menu7" onclick="loadstat()">สถิติ</a></li>
         </ul>
     </div>
     <div id="main">
@@ -60,6 +61,7 @@
             <div id="menu4" class="tab-pane fade"></div>
             <div id="menu5" class="tab-pane fade"></div>
             <div id="menu6" class="tab-pane fade"></div>
+            <div id="menu7" class="tab-pane fade"><div id='menu7-1'></div></div>
         </div>
 
         <script>
@@ -74,7 +76,7 @@
             }
 
         loadsubject();
-
+        loadstat();
         function loadsubject(){
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol+'//'+location.host+"/Project/staff-admin-main4-link.php?type=01";
@@ -190,8 +192,11 @@
             for( var i=0 ; i<vsub.length ; i++ )
                 if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out6+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
             out6 += "</select> กลุ่ม: <select id='inSec6' onchange='change6()'>";
-            for( var i=0 ; i<vsub.length ; i++ )
-                if( vsub[i].SubjectID==document.getElementById('inSub6').value ) out6+="<option value='"+vsub[i].SectionNumber+"'>"+vsub[i].SectionNumber+"</option>";
+            out6 += "<option value=1>1</option>"+
+                        "<option value=2>2</option>"+
+                        "<option value=3>3</option>";
+            // for( var i=0 ; i<vsub.length ; i++ )
+            //     if( vsub[i].SubjectID==document.getElementById('inSub6').value ) out6+="<option value='"+vsub[i].SectionNumber+"'>"+vsub[i].SectionNumber+"</option>";
             out6+="</select><br><br></form><div id='in6'></div></div></div>";
             document.getElementById("menu6").innerHTML = out6;
 
@@ -393,6 +398,53 @@
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
         }
+
+        function loadstat(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol+'//'+location.host+"/Project/report-8.php";
+                
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    disstat(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        
+        function disstat(response){
+            var arr = JSON.parse(response);
+            var out7 = "<form> เลือกรายวิชาที่ต้องการดูเกรด: <select id='sub'>";
+            for(i=0;i<arr.length;i++){
+                out7+="<option value="+
+                        arr[i].SubjectSectionID+">"+
+                        arr[i].SubjectID+
+                        "&nbsp"+arr[i].SubjectName+
+                        "&nbspsec:"+arr[i].SectionNumber+
+                        "&nbspภาคเรียนที่:"+arr[i].Semester+
+                        "&nbspปีการศึกษา:"+arr[i].AcademicYear+
+                        "</option>";
+            }
+            out7 += "</select><br>"+
+                    "<br><input type='button' value='ตรวจสอบ' onclick='show()'>"+
+                    "</form>";
+            document.getElementById("menu7-1").innerHTML = out7;
+        }
+
+        function show(){
+            var xmlhttp = new XMLHttpRequest();
+            var sub = document.getElementById('sub').value;
+            var url = location.protocol+'//'+location.host+"/Project/report-8-link.php?sub="+sub;
+                
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("menu7-1").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
         </script>
 
     </div>

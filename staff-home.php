@@ -30,7 +30,7 @@ session_start();
                 exit('</body></html>');
             }
             else if(isset($_SESSION['id']) && isset($_SESSION['pswd']) && $_SESSION['role'] == 'Admin') {
-                header("location: staff-afterlogin-test.php");
+                header("location: staff-admin-main.php");
                 exit('</body></html>');
             }
         ?> 

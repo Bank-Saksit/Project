@@ -27,8 +27,14 @@
         table tr:nth-child(even) {
             background-color: #ffffff;
         }
+        td{
+            font-size:18px;
+        }
         .ei {
             width:15%;
+        }
+        #ei {
+            margin-left:10px;
         }
     </style>
     
@@ -42,7 +48,7 @@
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="staff-home.php" class="logout">ออกจากระบบ</a>
+            <a href="staff-logout.php" class="logout">ออกจากระบบ</a>
     </div>
    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
@@ -58,100 +64,101 @@
             </div>
             <div id="menu2" class="tab-pane fade">
                 <form methode="get" action="staff-admin-main3-upteach.php">
-                    <h3>ประวัติส่วนตัว</h3>
-                    <div class = "row">
-                        <div class="col-sm-4" >
-                            <h4>คำนำหน้า:</h4>
-                            <input type="text" name="Prefix" class="check" id="a1"><br>
-                            <h4>ชื่อจริง:</h4>
-                            <input type="text" name="Fname" class="check" id="a2"><br>
-                            <h4>นามสกุล:</h4>
-                            <input type="text" name="Lname" class="check" id="a3"><br>
-                            <h4>รหัสบัตรประชาชน:</h4>
-                            <input type="text" name="IDCardNumber" class="check" id="a4"><br>
-                            <h4>วันเกิด:</h4>
-                            <input type="date" name="DOB" class="check" id="a5"><br>
-                            <h4>วุฒิการศึกษา:</h4>
-                            <input type="text" name="EducationBackground" class="check" id="a11"><br>
+                    <div id = "ei">
+                        <div class = "row">
+                            <div class = "col-sm-4"><h2>ประวัติส่วนตัว</h2></div>
+                            <div class = "col-sm-5"><h2>ข้อมูลติดต่อ</h2></div>
+                            
                         </div>
-                        <div class="col-sm-4" >
-                            <h4>เพศ:</h4>
-                            <select name="Gender" class="check" id="a6">
+                        <div class = "row">
+                            <div class="col-sm-2" >
+                                <p>คำนำหน้า : <br>
+                                <input type="text" name="Prefix" class="check" id="a1"></p>
+                                <p>ชื่อจริง : <br>
+                                <input type="text" name="Fname" class="check" id="a2"></p>
+                                <p>นามสกุล : <br>
+                                <input type="text" name="Lname" class="check" id="a3"></p>
+                                <p>รหัสบัตรประชาชน : <br>
+                                <input type="text" name="IDCardNumber" class="check" id="a4"></p>
+                                <p>วันเกิด : <br>
+                                <input type="date" name="DOB" class="check" id="a5"></p>
+                                <p>วุฒิการศึกษา : <br>
+                                <input type="text" name="EducationBackground" class="check" id="a11"></p>
+                            </div>
+                            <div class="col-sm-2" >
+                                <p>เพศ : <br>
+                                <select name="Gender" class="check" id="a6">
+                                        <option value="">โปรดเลือก</option>
+                                        <option value="ชาย">ชาย</option>
+                                        <option value="หญิง">หญิง</option>
+                                        <option value="ไม่ระบุ">ไม่ระบุ</option>
+                                </select></p>
+                                <p>หมู่เลือด : <br>
+                                <select name="BloodGroup" class="check" id="a7">
                                     <option value="">โปรดเลือก</option>
-                                    <option value="ชาย">ชาย</option>
-                                    <option value="หญิง">หญิง</option>
-                                    <option value="ไม่ระบุ">ไม่ระบุ</option>
-                            </select><br>
-                            <h4>หมู่เลือด:</h4>
-                            <select name="BloodGroup" class="check" id="a7">
-                                <option value="">โปรดเลือก</option>
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="AB">AB</option>
-                                <option value="O">O</option>
-                            </select><br>
-                            <h4>สัญชาติ:</h4>
-                            <select name="Nationality" class="check" id="a8">
-                                    <option value="">โปรดเลือก</option>
-                                    <option value="ไทย">ไทย</option>
-                                    <option value="จีน">จีน</option>
-                                    <option value="ญี่ปุ่น">ญี่ปุ่น</option>
-                                    <option value="ไม่ระบุ">ไม่ระบุ</option>
-                            </select><br>
-                            <h4>เชื้อชาติ:</h4>
-                            <select name="Race" class="check" id="a9">
-                                    <option value="">โปรดเลือก</option>
-                                    <option value="ไทย">ไทย</option>
-                                    <option value="จีน">จีน</option>
-                                    <option value="ญี่ปุ่น">ญี่ปุ่น</option>
-                                    <option value="ไม่ระบุ">ไม่ระบุ</option>
-                            </select><br>
-                            <h4>ศาสนา:</h4>
-                            <select name="Religion" class="check" id="a10">
-                                    <option value="">โปรดเลือก</option>
-                                    <option value="ไทย">พุทธ</option>
-                                    <option value="คริสต์">คริสต์</option>
-                                    <option value="อิสลาม">อิสลาม</option>
-                                    <option value="ไม่ระบุ">ไม่ระบุ</option>
-                            </select><br>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="AB">AB</option>
+                                    <option value="O">O</option>
+                                </select></p>
+                                <p>สัญชาติ : <br>
+                                <select name="Nationality" class="check" id="a8">
+                                        <option value="">โปรดเลือก</option>
+                                        <option value="ไทย">ไทย</option>
+                                        <option value="จีน">จีน</option>
+                                        <option value="ญี่ปุ่น">ญี่ปุ่น</option>
+                                        <option value="ไม่ระบุ">ไม่ระบุ</option>
+                                </select></p>
+                                <p>เชื้อชาติ : <br>
+                                <select name="Race" class="check" id="a9">
+                                        <option value="">โปรดเลือก</option>
+                                        <option value="ไทย">ไทย</option>
+                                        <option value="จีน">จีน</option>
+                                        <option value="ญี่ปุ่น">ญี่ปุ่น</option>
+                                        <option value="ไม่ระบุ">ไม่ระบุ</option>
+                                </select></p>
+                                <p>ศาสนา : <br>
+                                <select name="Religion" class="check" id="a10">
+                                        <option value="">โปรดเลือก</option>
+                                        <option value="ไทย">พุทธ</option>
+                                        <option value="คริสต์">คริสต์</option>
+                                        <option value="อิสลาม">อิสลาม</option>
+                                        <option value="ไม่ระบุ">ไม่ระบุ</option>
+                                </select></p>
+                            </div>
+                            <div class="col-sm-3" id="e1">
+                                <p>ที่อยู่ : <br>
+                                <textarea style="resize:none" rows='3' cols='30' name="Address" class="check" id="b1"></textarea></p>
+                                <p>จังหวัด:<br>
+                                <input type="text" name="Province" class="check" id="b2"></p>
+                                <p>รหัสไปรษณีย์:<br>
+                                <input type="text" name="PostCode" class="check" id="b3"></p>
+                                <br>
+                                <h2>สาขา</h2>
+                                <p><?php
+                                include "dblink.php";
+                                $result = mysqli_query($conn,"SELECT * FROM departmentinfo");
+                                echo"<select name = 'Department' class='check department' id='d2'>";
+                                echo"<option value = ''>โปรดเลือก</option>";
+                                while($row = mysqli_fetch_array($result)){
+                                    echo "<option value = '".$row['Department']."'>".$row['Faculty'].'  '.$row['Department']."</option>";
+                                }
+                                echo"</select><br>";
+                                ?></p>
+                                <p><input type="submit" value="ยืนยัน" id="submit"></p>
+                                <div id="alert"></div>
+                            </div>
+                            <div class="col-sm-2" id="e2">
+                                <p>เบอร์โทรศัพท์มือถือ : <br>
+                                <input type="text" name="MobileNo" class="check" id="b4"></p>
+                                <p>เบอร์โทรศัพท์บ้าน:<br>
+                                <input type="text" name="TelNo" class="check" id="b5"></p>
+                                <p>E-mail:<br>
+                                <input type="text" name="Email" class="check" id="b6"></p>
+                                
+                            </div>
                         </div>
                     </div>
-                    
-                    
-                    <div id="e1" class = "row">
-                        <h3>ข้อมูลติดต่อ</h3>
-                        <div class="col-sm-4" >
-                            <h4>ที่อยู่:</h4>
-                            <textarea style="resize:none" rows='3' cols='50' name="Address" class="check" id="b1"></textarea><br>
-                            <h4>จังหวัด:</h4>
-                            <input type="text" name="Province" class="check" id="b2"><br>
-                            <h4>รหัสไปรษณีย์:</h4>
-                            <input type="text" name="PostCode" class="check" id="b3"></p></p>
-                            <h4>เบอร์โทรศัพท์มือถือ:</h4>
-                            <input type="text" name="MobileNo" class="check" id="b4"><br>
-                            <h4>เบอร์โทรศัพท์บ้าน:</h4>
-                            <input type="text" name="TelNo" class="check" id="b5"><br>
-                            <h4>E-mail:</h4>
-                            <input type="text" name="Email" class="check" id="b6">
-                        </div>
-                    </div>
-                    <div id="e2" class = "row">
-                        <h3>สาขา</h3>
-                        <div class="col-sm-4" >
-                            <?php
-                            include "dblink.php";
-                            $result = mysqli_query($conn,"SELECT * FROM departmentinfo");
-                            echo"<select name = 'Department' class='check department' id='d2'>";
-                            echo"<option value = ''>โปรดเลือก</option>";
-                            while($row = mysqli_fetch_array($result)){
-                                echo "<option value = '".$row['Department']."'>".$row['Faculty'].'  '.$row['Department']."</option>";
-                            }
-                            echo"</select><br>";
-                            ?>
-                        </div>
-                    </div>
-                    <br>    <input type="submit" value="ยืนยัน" id="submit">
-                    <div id="alert"></div>
                 </form>
             </div>
             <div id="menu3" class="tab-pane fade in active">
@@ -161,7 +168,7 @@
     </div>
         <script type="text/javascript">
 
-        loadreport13():
+        //loadreport13():
         function loadreport13() {
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol + '//' + location.host+ "/Project/staff-admin-report14.php";
@@ -271,7 +278,7 @@
 
 				if(a1==""||a2==""||a3=="" ||a4=="" ||a5=="" ||a6=="" ||a7=="" ||a8=="" ||a9=="" ||a10==""
 				||a11=="" ||b1==""||b2==""||b3==""||b4==""||b5==""||b6==""||d2==""){
-					document.getElementById("alert").innerHTML = 'โปรดกรอกข้อมูลให้ครบ';
+					document.getElementById("alert").innerHTML = '<p>โปรดกรอกข้อมูลให้ครบ</p>';
 					$('input[id="submit"]').prop('disabled', true);
 				}
 				else {
@@ -302,7 +309,7 @@
 
         function displayResponse(response){
             var arr = JSON.parse(response);
-            var out = "<h1>ข้อมูลผู้สอน</h1><table><tr><th>ID</th><th>ชื่อ</th><th>ภาควิชา</th><th>เบอร์</th><th>เพิ่มเติม</th></tr>";
+            var out = "<h2>ข้อมูลผู้สอน</h2><table><tr><td>ID</td><td>ชื่อ</td><td>ภาควิชา</td><td>เบอร์</td><td>เพิ่มเติม</td></tr>";
             for(i=0;i<arr.length;i++){
                 out += "<tr><td>"+ arr[i].StaffID +"</td>"+
                     "<td>"+ arr[i].Prefix + arr[i].FirstName +' '+ arr[i].LastName +"</td>"+
@@ -341,7 +348,7 @@
 
         function ShowData(response){
             var arr = JSON.parse(response);
-            var out = "<h1>ข้อมูลผู้สอน</h1>";
+            var out = "<h2>ข้อมูลผู้สอน</h2>";
             
                 out += "รหัสประจำตัว : "+ arr[0].StaffID +"<br>"+
                     "ชื่อ : "+ arr[0].Prefix + arr[0].FirstName +' '+ arr[0].LastName +"<br>"+

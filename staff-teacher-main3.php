@@ -23,10 +23,19 @@
     <style>
         @import "global1.css";
         @import "temple.css";
-        table, th, td {
+        table, th,td {
             border: 1px solid grey;
             border-collapse: collapse;
-            padding: 5px;
+            padding: 10px;
+            text-align: center;
+        }
+        th{
+            font-size:18px;
+            color:white;
+            background:rgba(0,0,0,0.8);
+        }
+        td{
+            font-size:18px;
         }
         .swal2-popup {
             font-size: 2rem;
@@ -103,15 +112,15 @@
             function display(response){
                 var arr = JSON.parse(response);
                 if(arr[0].nop =="not found" ){
-                    var out1 =  "<br>"+"ไม่พบรายวิชาที่ต้องตัดเกรด" ;
+                    var out1 =  "<h2>"+"ไม่พบรายวิชาที่ต้องตัดเกรด</h2>" ;
                 }
                 else{
-                    var out1 = "<form> เลือกรายวิชาที่ต้องการตัดเกรด: <select id='sub'>";
+                    var out1 = "<form><h2>เลือกรายวิชาที่ต้องการตัดเกรด : </h2><p><select id='sub'>";
                             for(i=0;i<arr.length;i++){
-                                out1+="<option value="+arr[i].SubjectSectionID+">"+arr[i].SubjectID+"&nbsp"+arr[i].SubjectName+"&nbspsec:"+arr[i].SectionNumber+"</option>";
+                                out1+="<option value="+arr[i].SubjectSectionID+">"+arr[i].SubjectID+"&nbsp"+arr[i].SubjectName+"&nbspsec :"+arr[i].SectionNumber+"</option>";
                             }
-                        out1 += "</select><br>"+
-                            "<br><input type='button' value='ยืนยัน' id='edit1' onclick='selectSub()'>"+
+                        out1 += "</select></p>"+
+                            "<p><input type='button' value='ยืนยัน' id='edit1' onclick='selectSub()'></p>"+
                             "</form>";
                 }
                     document.getElementById("menu1").innerHTML = out1;
@@ -132,12 +141,12 @@
 
             function display2(response){
                 var arr = JSON.parse(response);
-                var out2 = "<form> เลือกชั้นปีที่ต้องการดูเกรด: <select id='year'>";
+                var out2 = "<form><h2>เลือกชั้นปีที่ต้องการดูเกรด: </h2><p><select id='year'>";
                         for(i=0;i<arr.length;i++){
                             out2+="<option value="+arr[i].Status+">"+arr[i].Status+"</option>";
                         }
-                    out2 += "</select><br>"+
-                            "<br><input type='button' value='ตรวจสอบ' onclick='selectYear()'>"+
+                    out2 += "</select></p>"+
+                            "<p><input type='button' value='ตรวจสอบ' onclick='selectYear()'></p>"+
                             "</form>";
                     document.getElementById("menu2").innerHTML = out2;
             }
@@ -161,20 +170,20 @@
                 var out2;
                 if(arr[0].nop =="not found" ){
                     out2 =  arr[0].Year+
-                            "<br><br>"+"ไม่พบข้อมูล" ;
+                            "<h2>"+"ไม่พบข้อมูล</h2>" ;
                 }
                 else{
-                    out2=   arr[0].Year+
-                            "<br><br><table>"+
-                            "<tr><td>" +
+                    out2=   "<h2>"+arr[0].Year +"</h2>"+
+                            "<table>"+
+                            "<tr><th>" +
                             "รหัสนักศึกษา"+
-                            "</td><td>" +
-                            "ชื่อจริง"+
-                            "</td><td>" +
+                            "</th><th>" +
+                            "ชื่อ"+
+                            "</th><th>" +
                             "นามสกุล"+
-                            "</td><td>" +
+                            "</th><th>" +
                             "GPA"+
-                            "</td></tr>";
+                            "</th></tr>";
                     for(i=0;i<arr.length;i++){
                         out2+=  "<tr><td>" +
                                 arr[i].StudentID+
@@ -207,19 +216,19 @@
 
             function display3(response){
                 var arr = JSON.parse(response);
-                var out3 = "<form> เลือกรายวิชาที่ต้องการดูเกรด: <select id='sub3'>";
+                var out3 = "<form><h2>เลือกรายวิชาที่ต้องการดูเกรด : </h2><p><select id='sub3'>";
                         for(i=0;i<arr.length;i++){
                             out3+="<option value="+
                                     arr[i].SubjectSectionID+">"+
                                     arr[i].SubjectID+
                                     "&nbsp"+arr[i].SubjectName+
-                                    "&nbspsec:"+arr[i].SectionNumber+
-                                    "&nbspภาคเรียนที่:"+arr[i].Semester+
-                                    "&nbspปีการศึกษา:"+arr[i].AcademicYear+
+                                    "&nbspsec : "+arr[i].SectionNumber+
+                                    "&nbspภาคเรียนที่ : "+arr[i].Semester+
+                                    "&nbspปีการศึกษา : "+arr[i].AcademicYear+
                                     "</option>";
                         }
-                    out3 += "</select><br>"+
-                            "<br><input type='button' value='ตรวจสอบ' onclick='selectSub3()'>"+
+                    out3 += "</select><p>"+
+                            "<p><input type='button' value='ตรวจสอบ' onclick='selectSub3()'><p>"+
                             "</form>";
                     document.getElementById("menu3").innerHTML = out3;
             }
@@ -242,29 +251,29 @@
                 var arr = JSON.parse(response);
                 var out3;
                 if(arr[0].nop =="not found" ){
-                    out3 =  arr[0].SubjectID+
+                    out3 =  "<h2>"+arr[0].SubjectID+
                             "&nbsp"+arr[0].SubjectName+
-                            "&nbspsec:"+arr[0].SectionNumber+
-                            "&nbspภาคเรียนที่:"+arr[0].Semester+
-                            "&nbspปีการศึกษา:"+arr[0].AcademicYear+
-                            "<br><br>"+"ไม่พบข้อมูล" ;
+                            "&nbspsec : "+arr[0].SectionNumber+
+                            "&nbspภาคเรียนที่ : "+arr[0].Semester+
+                            "&nbspปีการศึกษา : "+arr[0].AcademicYear+
+                            "</h2><h2>"+"ไม่พบข้อมูล</h2>" ;
                 }
                 else{
-                        out3= arr[0].SubjectID+
+                        out3= "<h2>"+arr[0].SubjectID+
                             "&nbsp"+arr[0].SubjectName+
-                            "&nbspsec:"+arr[0].SectionNumber+
-                            "&nbspภาคเรียนที่:"+arr[0].Semester+
-                            "&nbspปีการศึกษา:"+arr[0].AcademicYear+
-                            "<br><br><table>"+
-                            "<tr><td>" +
+                            "&nbspsec : "+arr[0].SectionNumber+
+                            "&nbspภาคเรียนที่ : "+arr[0].Semester+
+                            "&nbspปีการศึกษา : "+arr[0].AcademicYear+
+                            "</h2><table>"+
+                            "<tr><th>" +
                             "รหัสนักศึกษา"+
-                            "</td><td>" +
-                            "ชื่อจริง"+
-                            "</td><td>" +
+                            "</th><th>" +
+                            "ชื่อ"+
+                            "</th><th>" +
                             "นามสกุล"+
-                            "</td><td>" +
+                            "</th><th>" +
                             "GPA"+
-                            "</td></tr>";
+                            "</th></tr>";
                     for(i=0;i<arr.length;i++){
                         out3+=  "<tr><td>" +
                                 arr[i].StudentID+
@@ -299,13 +308,13 @@
             function disGrade(response){
                 var arr = JSON.parse(response);
                 if(arr[0].nop=="not found"){
-                    var out1 = "ไม่พบข้อมูลนักศึกษา";
+                    var out1 = "<h2>ไม่พบข้อมูลนักศึกษา</h2>";
                 }
                 else{
-                    var out1 =  arr[0].SubjectID+
+                    var out1 =  "<h2>"+arr[0].SubjectID+
                             "&nbsp"+arr[0].SubjectName+
-                            "&nbspsec:"+arr[0].SectionNumber+
-                            "<br><br>"+
+                            "&nbspsec :"+arr[0].SectionNumber+
+                            "</h2>"+
                             "<table><form>";
                     for(i=0;i<arr.length;i++){
                         out1+=  "<tr><td>" +
@@ -325,10 +334,10 @@
                                 "<option value=1.50>D+</option>"+
                                 "<option value=1.00>D</option>"+
                                 "<option value=0.00>F</option>"+
-                                "</select><br>"+
+                                "</select>"+
                                 "</td></tr>";
                     }
-                    out1+= "</form></table><br><button value='ยืนยัน' onclick='Grade("+JSON.stringify(response)+")'>ยืนยัน</button>"
+                    out1+= "</form></table><br><p><button value='ยืนยัน' onclick='Grade("+JSON.stringify(response)+")'>ยืนยัน</button></p>"
                 }
                 
                     document.getElementById("menu1").innerHTML = out1;
@@ -343,7 +352,7 @@
                 
                 swal({
                     type: 'success',
-                    title: 'ตัดเกรดเรียบร้อยแล้ว'
+                    title: '<h1>ตัดเกรดเรียบร้อยแล้ว</h1>'
                 });
                 load();
                 
