@@ -23,11 +23,14 @@
     <style>
         @import "global1.css";
         @import "temple.css";
-        table, th, td {
+        table, td {
             border: 1px solid grey;
             border-collapse: collapse;
             padding: 5px;
             text-align: center;
+        }
+        td{
+            font-size:18px;
         }
         .swal2-popup {
             font-size: 2rem;
