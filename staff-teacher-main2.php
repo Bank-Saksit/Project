@@ -23,11 +23,16 @@
     <style>
         @import "global1.css";
         @import "temple.css";
-        table, td {
+        table, th,td {
             border: 1px solid grey;
             border-collapse: collapse;
             padding: 5px;
             text-align: center;
+        }
+        th{
+            font-size:18px;
+            color:white;
+            background:rgba(0,0,0,0.8);
         }
         td{
             font-size:18px;
