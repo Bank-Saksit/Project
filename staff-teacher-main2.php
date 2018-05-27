@@ -57,7 +57,7 @@
    <div id="left">
         <ul class="nav nav-pills nav-stacked" id="tab">
             <li class = "active"><a data-toggle="tab" href="#menu1" onclick="load()">ลงทะเบียนสอน</a></li>
-            <li><a data-toggle="tab" href="#menu2">ตารางสอน</a></li>
+            <li><a data-toggle="tab" href="#menu2" onclick="load2()">ตารางสอน</a></li>
         </ul>
      </div>
      <div id="main">

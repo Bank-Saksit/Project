@@ -10,7 +10,8 @@ $year = mysqli_real_escape_string($conn,$_GET['year']);
                             GROUP BY st.StudentID;");
     if($result->num_rows==0){
         $outp = '[';
-                $outp .= '{"nop":"not found"}';
+        $outp .= '{"Year":"'.$year.'",';
+                $outp .= '"nop":"not found"}';
                 $outp .="]";
     }
     else{
