@@ -16,6 +16,7 @@
         @import "global1.css";
         @import "temple.css";
         table, th , td {
+            align : center;
             border: 1px solid grey;
             border-collapse: collapse;
             padding: 5px;
@@ -430,7 +431,7 @@
                 echo"var count=0;";
                 echo"var out = '<table><tr><td align=\'center\'>โครงการ</td><td align=\'center\'>รายละเอียด</td><td align=\'center\'>จำนวนที่รับสมัคร</td><td align=\'center\'>จำนวน(คน)</td></tr>';";
                 while($row = mysqli_fetch_array($result)){
-                    echo "out += '<tr><th >'+'".$row['RecruitPlanName']."'+'</th><th>'+'".$row['Details']."'+'</th><th align=\'center\'>'+'".$row['RecruitAmount']."'+'</th><th align=\'center\'>'+'".$row['sum']."'+'</th></tr>';";  
+                    echo "out += '<tr><th>'+'".$row['RecruitPlanName']."'+'</th><th>'+'".$row['Details']."'+'</th><th align=\'center\'>'+'".$row['RecruitAmount']."'+'</th><th align=\'center\'>'+'".$row['sum']."'+'</th></tr>';";  
                     echo "count += parseInt(".$row['sum'].");";          
                 }
                 
