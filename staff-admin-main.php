@@ -34,7 +34,11 @@
             <a class = "active" href="staff-admin-main.php">นักเรียนสอบเข้าโครงการ</a>
             <a href="staff-admin-main2.php">นักศึกษา</a>
             <a href="staff-admin-main3.php">อาจารย์</a>
+<<<<<<< HEAD
             <a href="staff-admin-main4.php">รายวิชา</a>
+=======
+            <a class = "active"  href="staff-admin-main4.php">รายวิชา</a>
+>>>>>>> 0e8bcf7d1cfd601daddddbf66784db375567ac6d
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
