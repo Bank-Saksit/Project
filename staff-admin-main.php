@@ -45,6 +45,7 @@
         <li class = "active"><a data-toggle="tab" href="#menu1">ข้อมูลผู้สมัคร</a></li>
         <li><a data-toggle="tab" href="#menu2">นักเรียนที่จ่ายค่าแรกเข้าแล้ว</a></li>
         <li><a data-toggle="tab" href="#menu3">ข้อมูลผู้สละสิทธื์</a></li>
+        <li><a data-toggle="tab" href="#menu4">ข้อมูลผู้สมัครเข้าแต่ละคณะ</a></li>
         </ul>
      </div>
      <div id="main">
@@ -58,12 +59,20 @@
             <div id="menu3" class="tab-pane fade">
                 
             </div>
+            <div id="menu4" class="tab-pane fade">
+                
+            </div>
         </div>
     
     <script>
-        load1();
-        load2();
-        load3();
+        loadload();
+
+        function loadload(){
+            load1();
+            load2();
+            load3();
+            load4();
+        }
 
         function myFunction() {
             var x = document.getElementById("top");
@@ -92,7 +101,7 @@
         function filter(){
             var filter = document.getElementById("cut").value;
             if(filter == 'ทั้งหมด'){
-                load1();load2();load3();
+                loadload();
             }
             else{
                 var xmlhttp = new XMLHttpRequest();
@@ -161,7 +170,7 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
-                load1();load2();load3();
+                loadload();
                 }
             }
             xmlhttp.open("GET", url, true);
@@ -176,7 +185,7 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
-                load1();load2();load3();
+                loadload();
                 }
             }
             xmlhttp.open("GET", url, true);
@@ -192,7 +201,7 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
-                load1();load2();load3();
+                loadload();
                 }
             }
             xmlhttp.open("GET", url, true);
@@ -207,7 +216,7 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
-                load1();load2();load3();
+                loadload();
                 }
             }
             xmlhttp.open("GET", url, true);
@@ -258,7 +267,7 @@
                 "<button onclick=\"moveToStudent('"+arr[i].RecruitID+"','"+arr[i].RecruitPlanName+"','"+arr[i].Department+"','"+arr[i].MobileNumber+"','"+arr[i].TelNumber+"','"+
                 arr[i].Email+"','"+arr[i].SchoolID+"','"+arr[i].EducationBackground+"','"+arr[i].Branch+"','"+arr[i].SchoolGPAX+"','"+arr[i].IDCardNumber+"','"+arr[i].Prefix+"','"+
                 arr[i].FirstName+"','"+arr[i].LastName+"','"+arr[i].Gender+"','"+arr[i].DOB+"','"+arr[i].Nationality+"','"+arr[i].Race+"','"+arr[i].Religion+"','"+arr[i].BloodGroup+"','"+
-                arr[i].Address+"','"+arr[i].Province+"','"+arr[i].PostCode+"')\">สร้างรหัสนศ.+ย้ายข้อมูล</button>"+
+                arr[i].Address+"','"+arr[i].Province+"','"+arr[i].PostCode+"')\">สร้างรหัสนักศึกษา</button>"+
                 "</td><td>" +   
                 "<button onclick=\"deleteRecruit('"+arr[i].RecruitID+"')\">ลบข้อมูล</button>"+
                 "</td></tr>";
@@ -278,7 +287,7 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
-                load1();load2();load3();
+                loadload();
                 }
             }
             xmlhttp.open("GET", url, true);
@@ -303,7 +312,7 @@
         function filterUni(){
             var filter = document.getElementById("cutuni").value;
             if(filter == 'ทั้งหมด'){
-                load1();load2();load3();
+                loadload();
             }
             else{
                 var xmlhttp = new XMLHttpRequest();
@@ -353,6 +362,27 @@
             out += "</table>";
             document.getElementById("menu3").innerHTML =but+out;
         }
+
+        //4
+        function load4() {
+            <?php
+                include "dblink.php";
+               
+                $result = mysqli_query($conn,"SELECT DISTINCT d.Faculty,count(n.No) AS sum
+                                                FROM recruitinfo r, schoolinfo s, nodepartment n, departmentinfo d
+                                                WHERE r.SchoolID=s.SchoolID AND r.RecruitID=n.RecruitID AND n.Department=d.Department
+                                                AND n.No='1'
+                                                GROUP BY d.Faculty");
+
+                echo"var out = '<table><tr><td align=\'center\'>คณะ</td><td align=\'center\'>จำนวน(คน)</td></tr>';";
+                while($row = mysqli_fetch_array($result)){
+                    echo "out += '<tr><td>'+'".$row['Faculty']."'+'</td><td>'+'".$row['sum']."'+'</td></tr>';";            
+                }
+                echo"out += '</table>';";
+            ?>
+            document.getElementById("menu4").innerHTML = out;
+        }
+        
 
     
     </script>
