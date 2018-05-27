@@ -45,8 +45,8 @@
             <li class = "active"><a data-toggle="tab" href="#menu1">ข้อมูลนักศึกษา</a></li>
             <li><a data-toggle="tab" href="#menu2">นักศึกษาถอนรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu3">จำนวนนักศึกษาตามภาควิชา</a></li>
-            <!-- <li><a data-toggle="tab" href="#menu4">เพิ่มกลุ่มรายวิชา</a></li>
-            <li><a data-toggle="tab" href="#menu5">ลบกลุ่มรายวิชา</a></li>
+            <li><a data-toggle="tab" href="#menu4">จำนวนนักศึกษาที่ลาออก/ถูกไล่ออกตามคณะ</a></li>
+            <!-- <li><a data-toggle="tab" href="#menu5">ลบกลุ่มรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu6">แก้ไขกลุ่มรายวิชา</a></li> -->
         </ul>
     </div>
@@ -55,8 +55,8 @@
             <div id="menu1" class="tab-pane fade in active"></div>
             <div id="menu2" class="tab-pane fade"></div>
             <div id="menu3" class="tab-pane fade"></div>
-            <!-- <div id="menu4" class="tab-pane fade"></div>
-            <div id="menu5" class="tab-pane fade"></div>
+            <div id="menu4" class="tab-pane fade"></div>
+            <!-- <div id="menu5" class="tab-pane fade"></div>
             <div id="menu6" class="tab-pane fade"></div> -->
         </div>
 
@@ -108,6 +108,20 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     report1 = JSON.parse(xmlhttp.responseText);
+                    load4();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function load4(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol+'//'+location.host+"/Project/staff-admin-main2-link.php?type=22";
+            
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    report2 = JSON.parse(xmlhttp.responseText);
                     display();
                 }
             }
@@ -170,9 +184,9 @@
             out2 += "</table>";
             document.getElementById("menu2").innerHTML = out2;
 
-            var countm = 0, countw = 0;
+            var countm3 = 0, countw3 = 0;
             var out3 = "<table>";
-            out3 += "<tr><td align='center'>ภาควิชา</td><td align='center'>ชาย</td><td align='center'>หญิง</td><td align='center'>รวม</td></tr>";
+            out3 += "<tr><td align='center'>คณะ</td><td align='center'>ชาย</td><td align='center'>หญิง</td><td align='center'>รวม</td></tr>";
             for( var i=0 ; i<report1.length ; i++ ){
                 out3 += "<tr><td>"+report1[i].Department+"</td>";
                 if( i+1<report1.length && report1[i].Department==report1[i+1].Department ){
@@ -190,12 +204,39 @@
                 }
             }
             for( var i=0 ; i<report1.length ; i++ ){
-                if( report1[i].Gender=='ชาย' ) countm+=parseInt(report1[i].Count);
-                else countw+=parseInt(report1[i].Count);
+                if( report1[i].Gender=='ชาย' ) countm3+=parseInt(report1[i].Count);
+                else countw3+=parseInt(report1[i].Count);
             }
-            out3 += "<tr><td align='center'>รวม</td><td align='center'>"+countm+"</td><td align='center'>"+countw+"</td><td align='center'>"+(countm+countw)+"</td></tr>";
+            out3 += "<tr><td align='center'>รวม</td><td align='center'>"+countm3+"</td><td align='center'>"+countw3+"</td><td align='center'>"+(countm3+countw3)+"</td></tr>";
             out3 += "</table>";
             document.getElementById("menu3").innerHTML = out3;
+
+            var c41 = 0, c42 = 0;
+            var out4 = "<table>";
+            out4 += "<tr><td align='center'>ภาควิชา</td><td align='center'>ลาออก</td><td align='center'>ไล่ออก</td><td align='center'>รวม</td><td align='center'>นักศึกษาทั้งหมด</td><td align='center'>อัตราส่วน</td></tr>";
+            for( var i=0 ; i<report2.length ; i++ ){
+                out4 += "<tr><td>"+report2[i].Faculty+"</td>";
+                if( i+1<report2.length && report2[i].Faculty==report2[i+1].Faculty ){
+                    var tmp = parseInt(report2[i].Count)+parseInt(report2[i+1].Count);
+                    out4 += "<td align='center'>"+report2[i].Count+"</td><td align='center'>"+report2[i+1].Count+"</td><td align='center'>"+tmp+"</td><td align='center'>"+arr.length+"</td><td align='center'>"+parseFloat(parseInt(tmp)/arr.length*100).toFixed(2)+"</td></tr>";
+                    i++;
+                }
+                else if ( report2[i].Status=='ลาออก' ){
+                    var tmp = parseInt(report2[i].Count);
+                    out4 += "<td align='center'>"+report2[i].Count+"</td><td align='center'>0</td><td align='center'>"+tmp+"</td><td align='center'>"+arr.length+"</td><td align='center'>"+parseFloat(parseInt(tmp)/arr.length*100).toFixed(2)+"</td></tr>";
+                }
+                else{
+                    var tmp = parseInt(report2[i].Count);
+                    out4 += "<td align='center'>0</td><td align='center'>"+report2[i].Count+"</td><td align='center'>"+tmp+"</td><td align='center'>"+arr.length+"</td><td align='center'>"+parseFloat(parseInt(tmp)/arr.length*100).toFixed(2)+"</td></tr>";
+                }
+            }
+            for( var i=0 ; i<report2.length ; i++ ){
+                if( report2[i].Status=='ลาออก' ) c41+=parseInt(report2[i].Count);
+                else c42+=parseInt(report2[i].Count);
+            }
+            out4 += "<tr><td align='center'>รวม</td><td align='center'>"+c41+"</td><td align='center'>"+c42+"</td><td align='center'>"+(c41+c42)+"</td><td align='center'>"+arr.length+"</td><td align='center'>"+parseFloat(parseInt(c41+c42)/arr.length*100).toFixed(2)+"</td></tr>";
+            out4 += "</table>";
+            document.getElementById("menu4").innerHTML = out4;
         }
 
         function updateStatus( sid, st ) {

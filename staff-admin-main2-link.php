@@ -4,7 +4,7 @@ if( $_GET['type']=='01' ){
     $result = $conn->query("SELECT *
                             FROM studentinfo s, departmentinfo d
                             WHERE s.Department=d.Department
-                            ORDER BY s.StudentID ASC");
+                            ORDER BY s.Department ASC");
 
     $outp = "[";
     while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -117,6 +117,22 @@ elseif( $_GET['type']=='21' ){
         if ($outp != "[") {$outp .= ",";}
         $outp .= '{"Department":"'.$rs["Department"].'",';
         $outp .= '"Gender":"'.$rs["Gender"].'",';
+        $outp .= '"Count":"'.$rs["mycount"].'"}';
+    }
+    $outp .="]";
+    echo($outp);
+}
+elseif( $_GET['type']=='22' ){
+    $result = $conn->query("SELECT d.Faculty, s.Status, COUNT(*) AS mycount
+                            FROM studentinfo s, departmentinfo d
+                            WHERE s.Department=d.Department AND (s.Status='ลาออก' OR s.Status='ไล่ออก')
+                            GROUP BY d.Faculty ASC, s.Status DESC"); 
+
+    $outp = "[";
+    while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+        if ($outp != "[") {$outp .= ",";}
+        $outp .= '{"Faculty":"'.$rs["Faculty"].'",';
+        $outp .= '"Status":"'.$rs["Status"].'",';
         $outp .= '"Count":"'.$rs["mycount"].'"}';
     }
     $outp .="]";

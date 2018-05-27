@@ -190,8 +190,11 @@
             for( var i=0 ; i<vsub.length ; i++ )
                 if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out6+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
             out6 += "</select> กลุ่ม: <select id='inSec6' onchange='change6()'>";
-            for( var i=0 ; i<vsub.length ; i++ )
-                if( vsub[i].SubjectID==document.getElementById('inSub6').value ) out6+="<option value='"+vsub[i].SectionNumber+"'>"+vsub[i].SectionNumber+"</option>";
+            out6 += "<option value=1>1</option>"+
+                        "<option value=2>2</option>"+
+                        "<option value=3>3</option>";
+            // for( var i=0 ; i<vsub.length ; i++ )
+            //     if( vsub[i].SubjectID==document.getElementById('inSub6').value ) out6+="<option value='"+vsub[i].SectionNumber+"'>"+vsub[i].SectionNumber+"</option>";
             out6+="</select><br><br></form><div id='in6'></div></div></div>";
             document.getElementById("menu6").innerHTML = out6;
 
