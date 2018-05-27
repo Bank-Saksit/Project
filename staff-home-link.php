@@ -16,9 +16,10 @@
         $id =(int)$_POST['id'];
         $id2 = mysqli_real_escape_string($conn,$_POST['id']);
         $pswd = mysqli_real_escape_string($conn,$_POST['pswd']);
+        $enpw = md5(md5(md5(base64_encode($pswd))));
         $result = $conn->query("SELECT *
                                 FROM staffinfo
-                                WHERE StaffID = $id AND Password ='$pswd';");
+                                WHERE StaffID = $id AND Password ='$enpw';");
             if($id2==NULL || $pswd==NULL){
                 $conn->close();
                 echo    "<script>
@@ -41,7 +42,7 @@
                 $rs= $result->fetch_array(MYSQLI_ASSOC);
                 $conn->close();
                 $_SESSION['id'] = $id;
-                $_SESSION['pswd'] = $pswd;
+                $_SESSION['pswd'] = $enpw;
                 $_SESSION['role'] = $rs['Role'];
                 if($_SESSION['role']=='Teacher'){
                    header("Location:staff-teacher-main.php");

@@ -40,19 +40,26 @@ $sub=mysqli_real_escape_string($conn,$_GET['sub']);
                                         st.StudentID = ss.StudentID AND
                                         t.StaffID = $id AND 
                                         ss.SubjectSectionID = $sub;");
-        
-            $outp = "[";
-            while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
-                if ($outp != "[") {$outp .= ",";}
-                $outp .= '{"StudentID":"'.$rs["StudentID"].'",';
-                $outp .= '"FirstName":"'.$rs["FirstName"].'",';
-                $outp .= '"LastName":"'.$rs["LastName"].'",';
-                $outp .= '"SubjectID":"'.$rs["SubjectID"].'",';
-                $outp .= '"SectionNumber":"'.$rs["SectionNumber"].'",';
-                $outp .= '"SubjectSectionID":"'.$rs["SubjectSectionID"].'",';
-                $outp .= '"SubjectName":"'.$rs["SubjectName"].'"}';
+            if($result->num_rows==0){
+                $outp = '[';
+                        $outp .= '{"nop":"not found"}';
+                        $outp .="]";
             }
-            $outp .="]";
+            else{
+                $outp = "[";
+                while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+                    if ($outp != "[") {$outp .= ",";}
+                    $outp .= '{"StudentID":"'.$rs["StudentID"].'",';
+                    $outp .= '"FirstName":"'.$rs["FirstName"].'",';
+                    $outp .= '"LastName":"'.$rs["LastName"].'",';
+                    $outp .= '"SubjectID":"'.$rs["SubjectID"].'",';
+                    $outp .= '"SectionNumber":"'.$rs["SectionNumber"].'",';
+                    $outp .= '"SubjectSectionID":"'.$rs["SubjectSectionID"].'",';
+                    $outp .= '"SubjectName":"'.$rs["SubjectName"].'",';
+                    $outp .= '{"nop":"found"}';
+                }
+                $outp .="]";
+            }
             echo($outp);    
     }
     else if( $_GET['type']=='03' ){

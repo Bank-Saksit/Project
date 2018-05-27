@@ -18,25 +18,6 @@
 
     </head>
     <body>
-        <script>           
-            function showpw() {
-                var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol + '//' + location.host+"/Project/student-forgetpassword-link.php?id="+document.getElementById("id").value+"&email="+document.getElementById("email").value;
-                document.getElementById("id").value=""
-                document.getElementById("email").value=""
-                xmlhttp.onreadystatechange=function() {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        displayResponse(xmlhttp.responseText);
-                    }
-                }
-                xmlhttp.open("GET", url, true);
-                xmlhttp.send();
-            }
-            function displayResponse(response){
-                document.getElementById("c-bot").innerHTML = response;
-            }
-            
-        </script>
         <div id="left">
             <a href="student-home.php" class="btn btn-info btn-lg" id = "back">
                 <span class="glyphicon glyphicon-chevron-left"></span> 
@@ -48,14 +29,14 @@
             </div>
             <div id="content">
                 <div id="c-top">
-                    <form method="post" >
-                        <h1>สำหรับนักศึกษาใหม่</h1>
-                        <h4>กรุณากรอกรหัสนักศึกษาและอีเมลเพื่อสร้างรหัสผ่านใหม่</h4>
+                    <form method="post" action="student-forgetpassword-link.php">
+                        <h1>สำหรับนักศึกษา</h1>
+                        <h4>กรุณากรอกรหัสนักศึกษาและรหัสบัตรประจำตัวประชาชนเพื่อสร้างรหัสผ่านใหม่</h4>
                         <div id ="c-in">
                             <input type="text" id="id" name="id" placeholder="รหัสนักศึกษา"><br>
-                            <input type="password" id="email" name="email" placeholder="Email"><br>
+                            <input type="password" id="pswd" name="pswd" placeholder="รหัสบัตรประจำตัวประชาชน"><br>
                             <div id = "sub">
-                                <input type="button" value="ตรวจสอบ" onclick ="showpw()"  >
+                                <input type="submit" value="ยืนยัน">
                             </div>
                         </div>
                     </form>

@@ -18,21 +18,29 @@ session_start();
     <style>
         @import "global1.css";
         @import "temple.css";
-        #h4 {
-            margin-bottom:-20px;
-        }
-        th,td {
-            text-align:center;
-            border:2px solid;
+        table {
+            border-collapse: collapse;
         }
         #t1 {
-            width:1%;
+            text-align:center;
+            font-size:20px;
+            border:1px solid;
+            color:white;
+            background:rgba(0,0,0,0.8);
         }
         #t2 {
-            width:2%;
+            text-align:center;
+            padding:14px 16px;
+            font-size:18px;
+            border:1px solid;
         }
-        #me1 {
-            width:50%;
+        #h4 {
+            margin-top: 10px;
+            font-size:16px;
+        }
+        #t3{
+            margin-top: 2%;
+            margin-left:20%;
         }
     </style>
     
@@ -64,16 +72,22 @@ session_start();
      <div id="main">
         <div class="tab-content" id="tab-content">
             <div id="menu1" class="tab-pane fade in active">
+            <div class = "row">
                 <div id="me1-1"></div>
                 <div id="me1-2"></div>
+                </div>
+                <div id ="h4">
                 <div id="me1-3"></div>
+                </div>
+                <div id ="t3">
                 <div id="me1-4"></div>
+                </div>
             </div>
         </div>
         <script>
         loadYear();
-        document.getElementById("me1-2").innerHTML = "<h4> ภาคเรียนที่ <select name='Semester' onclick=\"check()\">" + 
-                        "<option value = ''>โปรดเลือก</option></select></h4>";
+        document.getElementById("me1-2").innerHTML = " <div class = 'col-sm-3' ><p> ภาคเรียนที่ <select name='Semester' onclick=\"check()\">" + 
+                        "<option value = ''>โปรดเลือก</option></select></p></div>";
         function loadYear(){
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol + '//' + location.host+ "/Project/student-main3-link1.php";
@@ -100,12 +114,12 @@ session_start();
         }
         function showYear(response){
             var arr1 = JSON.parse(response);
-            var out = " <h4 id='h4'> ปีการศึกษา <select name = 'AcademicYear' onclick=\"loadSemester()\">" +
+            var out = "  <div class = 'col-sm-3' ><p> ปีการศึกษา <select name = 'AcademicYear' onclick=\"loadSemester()\">" +
                         "<option value = ''>โปรดเลือก</option>";
                         for(i = 0; i < arr1.length; i++){
                             out += "<option value = '"+ arr1[i].AcademicYear+"' >"+arr1[i].AcademicYear+"</option>";
                         }
-                out +=  "</select></h4><br>";
+                out +=  "</select></p></div>";
                 document.getElementById("me1-1").innerHTML = out ;
                 loadSemester();
         }
@@ -113,12 +127,12 @@ session_start();
             document.getElementById("me1-3").innerHTML = '';
             document.getElementById("me1-4").innerHTML = '';
             var arr2 = JSON.parse(response);
-            var out  = " <h4>ภาคเรียนที่ <select name='Semester' onclick=\"check()\">" + 
+            var out  = "  <div class = 'col-sm-3' ><p>ภาคเรียนที่ <select name='Semester' onclick=\"check()\">" + 
                         "<option value = ''>โปรดเลือก</option>";
                         for(i = 0; i < arr2.length; i++){
                             out += "<option value = '"+ arr2[i].Semester+"'>"+arr2[i].Semester+"</option>";
                         }
-                out +=  "</select></h4>";
+                out +=  "</select></p></div>";
             document.getElementById("me1-2").innerHTML = out ;
             
         }
@@ -137,8 +151,8 @@ session_start();
         }
         function showGPA(response){
             var arr3 = JSON.parse(response);
-            var out = "<table><tr><th>GPAX</th><th>หน่วยกิตรวม</th></tr>"+
-                    "<tr><td>" + arr3[0].GPAX + "</td><td>" + arr3[0].Credit + "</td></tr></table>";
+            var out = "<table><tr><div class ='row'><div class = 'col-sm-2' id ='t1'>GPAX</div><div class = 'col-sm-2' id ='t1'>หน่วยกิตรวม</div></div></tr>"+
+                    "<tr><div class ='row'><div class = 'col-sm-2' id ='t2'>" + arr3[0].GPAX + "</div><div class = 'col-sm-2' id ='t2'>" + arr3[0].Credit + "</div></div></tr></table>";
             document.getElementById("me1-4").innerHTML = out;
         }
 
@@ -168,11 +182,11 @@ session_start();
             var arr = JSON.parse(response);
             
             if(arr[0].GPA != ""){
-            var out ="<table><tr><th id='t1'>รหัสวิชา</th><th  id='t2'>ชื่อวิชา</th><th id='t1'>หน่วยกิต</th><th>เกรด</th></tr>";
+            var out ="<table><tr><div class = 'row'><div class = 'col-sm-2' id ='t1'>รหัสวิชา</div><div class = 'col-sm-3' id ='t1'>ชื่อวิชา</div><div class = 'col-sm-2' id ='t1'>หน่วยกิต</div><div class = 'col-sm-2' id ='t1'>เกรด</div></div></tr>";
                 for(i = 0; i < arr.length; i++){
-                    out += "<tr><td id='t1'>"+ arr[i].SubjectID +"</td>"+
-                            "<td id='t2'>"+ arr[i].SubjectName +"</td>"+
-                            "<td id='t1'>"+ arr[i].Credit +"</td>";
+                    out += "<tr><div class = 'row'><div class = 'col-sm-2' id ='t2'>"+ arr[i].SubjectID +"</div>"+
+                            "<div class = 'col-sm-3' id ='t2'>"+ arr[i].SubjectName +"</div>"+
+                            "<div class = 'col-sm-2' id ='t2'>"+ arr[i].Credit +"</div>";
                             var GPA;
                             if(arr[i].GPA == 4) {
                                 GPA = 'A';
@@ -198,7 +212,7 @@ session_start();
                             else if(arr[i].GPA == 0) {
                                 GPA = 'F';
                             }
-                    out +=  "<td id='t1'>"+ GPA +"</td></tr>";
+                    out +=  "<div class = 'col-sm-2' id ='t2'>"+ GPA +"</div></div></tr>";
                 }
                 out +="</table>";
             }else {
