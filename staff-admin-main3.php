@@ -157,11 +157,24 @@
             <div id="menu3" class="tab-pane fade in active">
                 
             </div>
-            
-                
         </div>
     </div>
         <script type="text/javascript">
+
+        loadreport13():
+        function loadreport13() {
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+ "/Project/staff-admin-report14.php";
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    showreport14(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
         loadreport14();
         function loadreport14(){
             var xmlhttp = new XMLHttpRequest();
@@ -175,20 +188,53 @@
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
         }
+
         function showreport14(response){
-            var arr = JSON.parse(response);
+            var report = JSON.parse(response);
             var out1 = "<h1>จํานวนนักศึกษาใหม่ระดับบปริญญาตรี</h1><table><tr><th rowspan='2'>คณะ</th><th colspan='6'>ประเภทการเข้า</th></tr>"+
                         "<tr><th class='ei'>2B</th><th class='ei'>Active Recruitment</th><th class='ei'>Clearing House</th><th class='ei'>เรียนดี</th><th class='ei'>Admission</th><th class='ei'>รวม</th></tr>";
-            var B2 = 0;
-            var Active = 0;
-            var ch = 0;
-            var good = 0;
-            var adm = 0;
-            var total = 0;
-            for(i=0;i<arr.length;i++){
-                
-            }
-                out1 += "</table>";
+            var prev = report[0].Faculty;
+            var B2 = 0,Active = 0,ch = 0,good = 0,adm = 0,total = 0;
+            var tB2 = 0,tActive = 0,tch = 0,tgood = 0,tadm = 0,ttotal =0;
+            for(i=0;i<report.length;i++){
+                    if(report[i].Faculty.localeCompare(prev)!=0){
+                        out1 += "<tr><td>"+prev+"</td><td>"+B2+"</td><td>"+Active+"</td><td>"+ch+"</td><td>"+good+"</td>"+
+                            "<td>"+adm+"</td><td>"+total+"</td></tr>";
+                        B2 = 0,Active = 0,ch = 0,good = 0,adm = 0,total = 0;
+                        prev = report[i].Faculty;
+                    }
+                    if(report[i].RecruitPlanName.localeCompare("2B")==0){
+                        B2 = report[i].Num;
+                        tB2 = B2 + tB2;
+                    }
+                    else if(report[i].RecruitPlanName.localeCompare("Active Recruitment")==0){
+                        Active = report[i].Num;
+                        tActive = Active = tActive;
+                    }   
+                    else if(report[i].RecruitPlanName.localeCompare("Admission")==0){
+                        adm = report[i].Num;
+                        tadm = adm + tadm;
+                    }   
+                    else if(report[i].RecruitPlanName.localeCompare("Clearing House")==0){
+                        ch = report[i].Num;
+                        tch = ch + tch;
+                    }   
+                    else if(report[i].RecruitPlanName.localeCompare("เรียนดี")==0){
+                        good = report[i].Num;
+                        tgood = good + tgood;
+                    }
+                    if(report[i].RecruitPlanName.localeCompare(prev)==0){
+                        prev = report[i].Faculty;
+                    }
+                    total = B2 + Active + adm + ch + good;
+                    
+                }
+            ttotal = tadm + tB2 + tActive + tch + tgood;
+            out1 += "<tr><td>"+prev+"</td><td>"+B2+"</td><td>"+Active+"</td><td>"+ch+"</td><td>"+good+"</td>"+
+                            "<td>"+adm+"</td><td>"+total+"</td></tr>";
+            out1 += "<tr><td>รวมทั้งหมด</td><td>"+tB2+"</td><td>"+tActive+"</td><td>"+tch+"</td><td>"+tgood+"</td>"+
+                            "<td>"+tadm+"</td><td>"+ttotal+"</td></tr>"
+            out1 += "</table>";
             document.getElementById("menu3").innerHTML = out1;
         }
 
