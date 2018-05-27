@@ -419,14 +419,35 @@
         }
 
          //5 จำนวนผู้สมัครเข้าแต่ละโครงการ
-         function load5(){
+        //  function load5(){
+        //     <?php
+        //         include "dblink.php";
+               
+        //         $result = mysqli_query($conn,"SELECT p.RecruitPlanName,p.Details,p.RecruitAmount,COUNT(r.RecruitID) AS sum
+        //                                         FROM recruitinfo r,recruitplaninfo p 
+        //                                         WHERE r.RecruitPlanName = p.RecruitPlanName AND r.Status != 'รอจ่ายค่าสมัคร'
+        //                                         GROUP BY p.RecruitPlanName");
+        //         echo"var count=0;";
+        //         echo"var out = '<table><tr><td align=\'center\'>โครงการ</td><td align=\'center\'>รายละเอียด</td><td align=\'center\'>จำนวนที่รับสมัคร</td><td align=\'center\'>จำนวน(คน)</td></tr>';";
+        //         while($row = mysqli_fetch_array($result)){
+        //             echo "out += '<tr><th>'+'".$row['RecruitPlanName']."'+'</th><th>'+'".$row['Details']."'+'</th><th align=\'center\'>'+'".$row['RecruitAmount']."'+'</th><th align=\'center\'>'+'".$row['sum']."'+'</th></tr>';";  
+        //             echo "count += parseInt(".$row['sum'].");";          
+        //         }
+                
+        //     ?>
+        //     out += '<tr><th colspan="3" align=\'center\'>รวม</th><th align=\'center\'>'+count+'</th>';
+        //     out += '</table>';
+        //     document.getElementById("menu5").innerHTML = out;
+            
+        // }
+            
+        function load5(){
             <?php
                 include "dblink.php";
                
-                $result = mysqli_query($conn,"SELECT p.RecruitPlanName,p.Details,p.RecruitAmount,COUNT(r.RecruitID) AS sum
-                                                FROM recruitinfo r,recruitplaninfo p 
-                                                WHERE r.RecruitPlanName = p.RecruitPlanName AND r.Status != 'รอจ่ายค่าสมัคร'
-                                                GROUP BY p.RecruitPlanName");
+                $result = mysqli_query($conn,"SELECT Province,COUNT(Province)
+                                                FROM studentinfo
+                                                GROUP BY Province LIMIT 5");
                 echo"var count=0;";
                 echo"var out = '<table><tr><td align=\'center\'>โครงการ</td><td align=\'center\'>รายละเอียด</td><td align=\'center\'>จำนวนที่รับสมัคร</td><td align=\'center\'>จำนวน(คน)</td></tr>';";
                 while($row = mysqli_fetch_array($result)){
@@ -440,6 +461,8 @@
             document.getElementById("menu5").innerHTML = out;
             
         }
+
+        
     
     </script>
     
