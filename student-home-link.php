@@ -15,9 +15,10 @@
         include "dblink.php";
         $id =mysqli_real_escape_string($conn,$_POST['id']);
         $pswd = mysqli_real_escape_string($conn,$_POST['pswd']);
+        $enpw = md5(md5(md5(base64_encode($pswd))));
         $result = $conn->query("SELECT *
                                 FROM studentinfo
-                                WHERE StudentID = '$id' AND Password ='$pswd';");
+                                WHERE StudentID = '$id' AND Password ='$enpw';");
         if($id==NULL || $pswd==NULL){
             $conn->close();
             echo    "<script>
@@ -35,7 +36,7 @@
         else if($result->num_rows == 1){
             $conn->close();
             $_SESSION['id'] = $id;
-            $_SESSION['pswd'] = $pswd;
+            $_SESSION['pswd'] = $enpw;
             $_SESSION['role'] = 'student';
             header("Location:student-main.php");   
         }
