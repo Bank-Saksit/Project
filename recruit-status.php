@@ -191,8 +191,12 @@
                     "</div>";
             out += "</table>";
             document.getElementById("infoRecruit").innerHTML = out;
+<<<<<<< HEAD
+            var list = "<table id='list'><div class = 'row'><tr><td id='t3'><t1>ลำดับ</t1></td><td id='t3'><t1>คณะ</t1></td><td id='t3'><t1>สาขา</t1></td></tr></div>";
+=======
             var list = "<div  class = 'dd'><div class = 'row'><div class='col-sm-4'><t1>คณะที่ได้</t1></div></div></div>";
             list += "<table id='list'><div class = 'row'><tr><td id='t3'><t1>ลำดับ</t1></td><td id='t3'><t1>คณะ</t1></td><td id='t3'><t1>สาขา</t1></td></tr></div>";
+>>>>>>> 3612c0ea2715e2feac4c960417a7753f283c104d
             for( i=0 ; i<arr.length ; i++ ){
                 if(arr[0].NoPass == 0){
                     list += "<div class = 'row'><tr>"+

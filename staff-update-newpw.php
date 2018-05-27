@@ -23,10 +23,10 @@
                             type: 'error',
                             title: 'การตั้งรหัสผ่านล้มเหลว',
                             text: 'กรุณากรอกรหัสผ่านใหม่ให้ครบ2ช่อง',
-                            confirmButtonText: '<a href=\"staff-changepw.php\" style=\"text-decoration: none\"><font color=\"white\">ลองใหม่อีกครั้ง</font></a>',
+                            confirmButtonText: '<a href=\"staff-newpw.php\" style=\"text-decoration: none\"><font color=\"white\">ลองใหม่อีกครั้ง</font></a>',
                         });
                         $(document).on('click',function(){
-                            window.location='staff-changepw.php'; 
+                            window.location='staff-newpw.php'; 
                         })
                     </script>";
             
@@ -62,10 +62,10 @@
                             type: 'error',
                             title: 'การตั้งรหัสผ่านล้มเหลว',
                             text: 'รหัสผ่านไม่ตรงกัน',
-                            confirmButtonText: '<a href=\"staff-changepw.php\" style=\"text-decoration: none\"><font color=\"white\">ลองใหม่อีกครั้ง</font></a>',
+                            confirmButtonText: '<a href=\"staff-newpw.php\" style=\"text-decoration: none\"><font color=\"white\">ลองใหม่อีกครั้ง</font></a>',
                         });
                         $(document).on('click',function(){
-                            window.location='staff-changepw.php'; 
+                            window.location='staff-newpw.php'; 
                         })
                     </script>";
             

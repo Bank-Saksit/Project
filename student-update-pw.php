@@ -35,7 +35,8 @@
                     // </script>';
         }
         else if($pw==$pw2){
-            $result=$conn->query("UPDATE studentinfo  SET Password = '$pw' WHERE StudentID = $id ;");
+            $enpw = md5(md5(md5(base64_encode($pw))));
+            $result=$conn->query("UPDATE studentinfo  SET Password = '$enpw' WHERE StudentID = $id ;");
             $conn->close();
             session_destroy();
             echo    "<script>
