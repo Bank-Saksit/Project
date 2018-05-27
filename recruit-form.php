@@ -7,7 +7,7 @@
 	<link href ="js/sweetalert2.all.js" rel="stylesheet">
 	<script src="js/sweetalert21.js"></script>
 	<style>
-		@import global1.css;
+		@import "global1.css";
 		.swal2-popup {
             font-size: 2rem;
         }
