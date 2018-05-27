@@ -213,27 +213,29 @@
                 if( report1[i].Gender=='ชาย' ) countm3+=parseInt(report1[i].Count);
                 else countw3+=parseInt(report1[i].Count);
             }
-            out3 += "<tr><td align='center'>รวม</td><td align='center'>"+countm3+"</td><td align='center'>"+countw3+"</td><td align='center'>"+(countm3+countw3)+"</td></tr>";
+            out3 += "<tr><td id = 't' align='center'>รวม</td><td id = 't' align='center'>"+countm3+"</td><td id = 't' align='center'>"+countw3+"</td><td id = 't' align='center'>"+(countm3+countw3)+"</td></tr>";
             out3 += "</table>";
             document.getElementById("menu3").innerHTML = out3;
 
             var c41 = 0, c42 = 0;
             var out4 = "<table>";
-            out4 += "<tr><td align='center'>ภาควิชา</td><td align='center'>ลาออก</td><td align='center'>ไล่ออก</td><td align='center'>รวม</td><td align='center'>นักศึกษาทั้งหมด</td><td align='center'>อัตราส่วน</td></tr>";
+            out4 += "<tr><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>ลาออก</td><td id = 't' align='center'>ไล่ออก</td><td id = 't' align='center'>รวม</td><td id = 't' align='center'>นักศึกษาทั้งหมด</td><td id = 't' align='center'>อัตราส่วน</td></tr>";
             for( var i=0 ; i<report2.length ; i++ ){
-                out4 += "<tr><td>"+report2[i].Faculty+"</td>";
+                out4 += "<tr><td id = 't'>"+report2[i].Faculty+"</td>";
+                var scount=0;
+                for( var j=0 ; j<arr.length ; j++ ) if( report2[i].Faculty==arr[j].Faculty ) scount++;
                 if( i+1<report2.length && report2[i].Faculty==report2[i+1].Faculty ){
                     var tmp = parseInt(report2[i].Count)+parseInt(report2[i+1].Count);
-                    out4 += "<td align='center'>"+report2[i].Count+"</td><td align='center'>"+report2[i+1].Count+"</td><td align='center'>"+tmp+"</td><td align='center'>"+arr.length+"</td><td align='center'>"+parseFloat(parseInt(tmp)/arr.length*100).toFixed(2)+"</td></tr>";
+                    out4 += "<td id = 't' align='center'>"+report2[i].Count+"</td><td id = 't' align='center'>"+report2[i+1].Count+"</td><td id = 't' align='center'>"+tmp+"</td><td id = 't' align='center'>"+scount+"</td><td id = 't' align='center'>"+parseFloat(parseInt(tmp)/scount*100).toFixed(2)+"</td></tr>";
                     i++;
                 }
                 else if ( report2[i].Status=='ลาออก' ){
                     var tmp = parseInt(report2[i].Count);
-                    out4 += "<td align='center'>"+report2[i].Count+"</td><td align='center'>0</td><td align='center'>"+tmp+"</td><td align='center'>"+arr.length+"</td><td align='center'>"+parseFloat(parseInt(tmp)/arr.length*100).toFixed(2)+"</td></tr>";
+                    out4 += "<td id = 't' align='center'>"+report2[i].Count+"</td><td id = 't' align='center'>0</td><td id = 't' align='center'>"+tmp+"</td><td id = 't' align='center'>"+scount+"</td><td id = 't' align='center'>"+parseFloat(parseInt(tmp)/scount*100).toFixed(2)+"</td></tr>";
                 }
                 else{
                     var tmp = parseInt(report2[i].Count);
-                    out4 += "<td align='center'>0</td><td align='center'>"+report2[i].Count+"</td><td align='center'>"+tmp+"</td><td align='center'>"+arr.length+"</td><td align='center'>"+parseFloat(parseInt(tmp)/arr.length*100).toFixed(2)+"</td></tr>";
+                    out4 += "<td id = 't' align='center'>0</td><td id = 't' align='center'>"+report2[i].Count+"</td><td id = 't' align='center'>"+tmp+"</td><td id = 't' align='center'>"+scount+"</td><td id = 't' align='center'>"+parseFloat(parseInt(tmp)/scount*100).toFixed(2)+"</td></tr>";
                 }
             }
             for( var i=0 ; i<report2.length ; i++ ){

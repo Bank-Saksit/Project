@@ -30,6 +30,10 @@
         td{
             font-size:18px;
         }
+        th{
+            font-size:18px;
+            font-weight:normal;
+        }
         .ei {
             width:15%;
         }
