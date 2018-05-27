@@ -10,9 +10,10 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     if ($outp != "[") {$outp .= ",";}
     $outp .= '{"Faculty":"'.$rs["Faculty"].'",';
     $outp .= '"RecruitPlanName":"'.$rs["RecruitPlanName"].'",';
-    $outp .= '"Num":"'.$rs["Num"].'"}';
+    $outp .= '"Num":'.$rs["Num"].'}';
 }
 $outp .="]";
+
 echo($outp);     
 
 ?>

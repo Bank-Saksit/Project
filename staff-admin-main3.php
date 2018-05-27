@@ -64,111 +64,112 @@
             </div>
             <div id="menu2" class="tab-pane fade">
                 <form methode="get" action="staff-admin-main3-upteach.php">
-                <div id = "ei">
-                    <div class = "row">
-                        <div class = "col-sm-4"><h2>ประวัติส่วนตัว</h2></div>
-                        <div class = "col-sm-5"><h2>ข้อมูลติดต่อ</h2></div>
-                        
-                    </div>
-                    <div class = "row">
-                        <div class="col-sm-2" >
-                            <p>คำนำหน้า : <br>
-                            <input type="text" name="Prefix" class="check" id="a1"></p>
-                            <p>ชื่อจริง : <br>
-                            <input type="text" name="Fname" class="check" id="a2"></p>
-                            <p>นามสกุล : <br>
-                            <input type="text" name="Lname" class="check" id="a3"></p>
-                            <p>รหัสบัตรประชาชน : <br>
-                            <input type="text" name="IDCardNumber" class="check" id="a4"></p>
-                            <p>วันเกิด : <br>
-                            <input type="date" name="DOB" class="check" id="a5"></p>
-                            <p>วุฒิการศึกษา : <br>
-                            <input type="text" name="EducationBackground" class="check" id="a11"></p>
-                        </div>
-                        <div class="col-sm-2" >
-                            <p>เพศ : <br>
-                            <select name="Gender" class="check" id="a6">
-                                    <option value="">โปรดเลือก</option>
-                                    <option value="ชาย">ชาย</option>
-                                    <option value="หญิง">หญิง</option>
-                                    <option value="ไม่ระบุ">ไม่ระบุ</option>
-                            </select></p>
-                            <p>หมู่เลือด : <br>
-                            <select name="BloodGroup" class="check" id="a7">
-                                <option value="">โปรดเลือก</option>
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="AB">AB</option>
-                                <option value="O">O</option>
-                            </select></p>
-                            <p>สัญชาติ : <br>
-                            <select name="Nationality" class="check" id="a8">
-                                    <option value="">โปรดเลือก</option>
-                                    <option value="ไทย">ไทย</option>
-                                    <option value="จีน">จีน</option>
-                                    <option value="ญี่ปุ่น">ญี่ปุ่น</option>
-                                    <option value="ไม่ระบุ">ไม่ระบุ</option>
-                            </select></p>
-                            <p>เชื้อชาติ : <br>
-                            <select name="Race" class="check" id="a9">
-                                    <option value="">โปรดเลือก</option>
-                                    <option value="ไทย">ไทย</option>
-                                    <option value="จีน">จีน</option>
-                                    <option value="ญี่ปุ่น">ญี่ปุ่น</option>
-                                    <option value="ไม่ระบุ">ไม่ระบุ</option>
-                            </select></p>
-                            <p>ศาสนา : <br>
-                            <select name="Religion" class="check" id="a10">
-                                    <option value="">โปรดเลือก</option>
-                                    <option value="ไทย">พุทธ</option>
-                                    <option value="คริสต์">คริสต์</option>
-                                    <option value="อิสลาม">อิสลาม</option>
-                                    <option value="ไม่ระบุ">ไม่ระบุ</option>
-                            </select></p>
-                        </div>
-                        <div class="col-sm-3" id="e1">
-                            <p>ที่อยู่ : <br>
-                            <textarea style="resize:none" rows='3' cols='30' name="Address" class="check" id="b1"></textarea></p>
-                            <p>จังหวัด:<br>
-                            <input type="text" name="Province" class="check" id="b2"></p>
-                            <p>รหัสไปรษณีย์:<br>
-                            <input type="text" name="PostCode" class="check" id="b3"></p>
-                            <br>
-                            <h2>สาขา</h2>
-                            <p><?php
-                            include "dblink.php";
-                            $result = mysqli_query($conn,"SELECT * FROM departmentinfo");
-                            echo"<select name = 'Department' class='check department' id='d2'>";
-                            echo"<option value = ''>โปรดเลือก</option>";
-                            while($row = mysqli_fetch_array($result)){
-                                echo "<option value = '".$row['Department']."'>".$row['Faculty'].'  '.$row['Department']."</option>";
-                            }
-                            echo"</select><br>";
-                            ?></p>
-                            <p><input type="submit" value="ยืนยัน" id="submit"></p>
-                            <div id="alert"></div>
-                        </div>
-                        <div class="col-sm-2" id="e2">
-                            <p>เบอร์โทรศัพท์มือถือ : <br>
-                            <input type="text" name="MobileNo" class="check" id="b4"></p>
-                            <p>เบอร์โทรศัพท์บ้าน:<br>
-                            <input type="text" name="TelNo" class="check" id="b5"></p>
-                            <p>E-mail:<br>
-                            <input type="text" name="Email" class="check" id="b6"></p>
+                    <div id = "ei">
+                        <div class = "row">
+                            <div class = "col-sm-4"><h2>ประวัติส่วนตัว</h2></div>
+                            <div class = "col-sm-5"><h2>ข้อมูลติดต่อ</h2></div>
                             
                         </div>
-                    </div>
+                        <div class = "row">
+                            <div class="col-sm-2" >
+                                <p>คำนำหน้า : <br>
+                                <input type="text" name="Prefix" class="check" id="a1"></p>
+                                <p>ชื่อจริง : <br>
+                                <input type="text" name="Fname" class="check" id="a2"></p>
+                                <p>นามสกุล : <br>
+                                <input type="text" name="Lname" class="check" id="a3"></p>
+                                <p>รหัสบัตรประชาชน : <br>
+                                <input type="text" name="IDCardNumber" class="check" id="a4"></p>
+                                <p>วันเกิด : <br>
+                                <input type="date" name="DOB" class="check" id="a5"></p>
+                                <p>วุฒิการศึกษา : <br>
+                                <input type="text" name="EducationBackground" class="check" id="a11"></p>
+                            </div>
+                            <div class="col-sm-2" >
+                                <p>สัญชาติ : <br>
+                                <input type="text" name="Nationality" class="check" id="a8"></p>
+                                <p>เชื้อชาติ : <br>
+                                <input type="text" name="Race" class="check" id="a9"></p>
+                                <p>เพศ : <br>
+                                <select name="Gender" class="check" id="a6">
+                                        <option value="">โปรดเลือก</option>
+                                        <option value="ชาย">ชาย</option>
+                                        <option value="หญิง">หญิง</option>
+                                        <option value="ไม่ระบุ">ไม่ระบุ</option>
+                                </select></p>
+                                <p>หมู่เลือด : <br>
+                                <select name="BloodGroup" class="check" id="a7">
+                                    <option value="">โปรดเลือก</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="AB">AB</option>
+                                    <option value="O">O</option>
+                                </select></p>
+                                <p>ศาสนา : <br>
+                                <select name="Religion" class="check" id="a10">
+                                        <option value="">โปรดเลือก</option>
+                                        <option value="ไทย">พุทธ</option>
+                                        <option value="คริสต์">คริสต์</option>
+                                        <option value="อิสลาม">อิสลาม</option>
+                                        <option value="ไม่ระบุ">ไม่ระบุ</option>
+                                </select></p>
+                            </div>
+                            <div class="col-sm-3" id="e1">
+                                <p>ที่อยู่ : <br>
+                                <textarea style="resize:none" rows='4' cols='30' name="Address" class="check" id="b1"></textarea></p>
+                                <p>จังหวัด:<br>
+                                <input type="text" name="Province" class="check" id="b2"></p>
+                                <p>รหัสไปรษณีย์:<br>
+                                <input type="text" name="PostCode" class="check" id="b3"></p>
+                                <br>
+                                <h2>สาขา</h2>
+                                <p><?php
+                                include "dblink.php";
+                                $result = mysqli_query($conn,"SELECT * FROM departmentinfo");
+                                echo"<select name = 'Department' class='check department' id='d2'>";
+                                echo"<option value = ''>โปรดเลือก</option>";
+                                while($row = mysqli_fetch_array($result)){
+                                    echo "<option value = '".$row['Department']."'>".$row['Faculty'].'  '.$row['Department']."</option>";
+                                }
+                                echo"</select><br>";
+                                ?></p>
+                                <p><input type="submit" value="ยืนยัน" id="submit"></p>
+                                <div id="alert"></div>
+                            </div>
+                            <div class="col-sm-2" id="e2">
+                                <p>เบอร์โทรศัพท์มือถือ : <br>
+                                <input type="text" name="MobileNo" class="check" id="b4"></p>
+                                <p>เบอร์โทรศัพท์บ้าน:<br>
+                                <input type="text" name="TelNo" class="check" id="b5"></p>
+                                <p>E-mail:<br>
+                                <input type="text" name="Email" class="check" id="b6"></p>
+                                
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
             <div id="menu3" class="tab-pane fade in active">
                 
             </div>
-            
-                
         </div>
     </div>
         <script type="text/javascript">
+
+        //loadreport13():
+        function loadreport13() {
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+ "/Project/staff-admin-report14.php";
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    showreport14(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
         loadreport14();
         function loadreport14(){
             var xmlhttp = new XMLHttpRequest();
@@ -182,20 +183,53 @@
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
         }
+
         function showreport14(response){
-            var arr = JSON.parse(response);
-            var out1 = "<h2>จํานวนนักศึกษาใหม่ระดับบปริญญาตรี</h2><table><tr><td rowspan='2'>คณะ</td><td colspan='6'>ประเภทการเข้า</td></tr>"+
-                        "<tr><td class='ei'>2B</td><td class='ei'>Active Recruitment</td><td class='ei'>Clearing House</td><td class='ei'>เรียนดี</td><td class='ei'>Admission</td><td class='ei'>รวม</td></tr>";
-            var B2 = 0;
-            var Active = 0;
-            var ch = 0;
-            var good = 0;
-            var adm = 0;
-            var total = 0;
-            for(i=0;i<arr.length;i++){
-                
-            }
-                out1 += "</table>";
+            var report = JSON.parse(response);
+            var out1 = "<h2>จํานวนนักศึกษาใหม่ระดับบปริญญาตรี</h2><table><tr><th rowspan='2'>คณะ</th><th colspan='6'>ประเภทการเข้า</th></tr>"+
+                        "<tr><th class='ei'>2B</th><th class='ei'>Active Recruitment</th><th class='ei'>Clearing House</th><th class='ei'>เรียนดี</th><th class='ei'>Admission</th><th class='ei'>รวม</th></tr>";
+            var prev = report[0].Faculty;
+            var B2 = 0,Active = 0,ch = 0,good = 0,adm = 0,total = 0;
+            var tB2 = 0,tActive = 0,tch = 0,tgood = 0,tadm = 0,ttotal =0;
+            for(i=0;i<report.length;i++){
+                    if(report[i].Faculty.localeCompare(prev)!=0){
+                        out1 += "<tr><td>"+prev+"</td><td>"+B2+"</td><td>"+Active+"</td><td>"+ch+"</td><td>"+good+"</td>"+
+                            "<td>"+adm+"</td><td>"+total+"</td></tr>";
+                        B2 = 0,Active = 0,ch = 0,good = 0,adm = 0,total = 0;
+                        prev = report[i].Faculty;
+                    }
+                    if(report[i].RecruitPlanName.localeCompare("2B")==0){
+                        B2 = report[i].Num;
+                        tB2 = B2 + tB2;
+                    }
+                    else if(report[i].RecruitPlanName.localeCompare("Active Recruitment")==0){
+                        Active = report[i].Num;
+                        tActive = Active = tActive;
+                    }   
+                    else if(report[i].RecruitPlanName.localeCompare("Admission")==0){
+                        adm = report[i].Num;
+                        tadm = adm + tadm;
+                    }   
+                    else if(report[i].RecruitPlanName.localeCompare("Clearing House")==0){
+                        ch = report[i].Num;
+                        tch = ch + tch;
+                    }   
+                    else if(report[i].RecruitPlanName.localeCompare("เรียนดี")==0){
+                        good = report[i].Num;
+                        tgood = good + tgood;
+                    }
+                    if(report[i].RecruitPlanName.localeCompare(prev)==0){
+                        prev = report[i].Faculty;
+                    }
+                    total = B2 + Active + adm + ch + good;
+                    
+                }
+            ttotal = tadm + tB2 + tActive + tch + tgood;
+            out1 += "<tr><td>"+prev+"</td><td>"+B2+"</td><td>"+Active+"</td><td>"+ch+"</td><td>"+good+"</td>"+
+                            "<td>"+adm+"</td><td>"+total+"</td></tr>";
+            out1 += "<tr><td>รวมทั้งหมด</td><td>"+tB2+"</td><td>"+tActive+"</td><td>"+tch+"</td><td>"+tgood+"</td>"+
+                            "<td>"+tadm+"</td><td>"+ttotal+"</td></tr>"
+            out1 += "</table>";
             document.getElementById("menu3").innerHTML = out1;
         }
 

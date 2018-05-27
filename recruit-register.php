@@ -125,21 +125,9 @@
 						<option value="O">O</option>
 					</select></p>
 					<p>สัญชาติ : <br>
-					<select name="Nationality" class="check" id="a8">
-							<option value="">โปรดเลือก</option>
-							<option value="ไทย">ไทย</option>
-							<option value="จีน">จีน</option>
-							<option value="ญี่ปุ่น">ญี่ปุ่น</option>
-							<option value="ไม่ระบุ">ไม่ระบุ</option>
-					</select></p>
+					<input type="text" name="Nationality" class="check" id="a8"></p>
 					<p>เชื้อชาติ : <br>
-					<select name="Race" class="check" id="a9">
-							<option value="">โปรดเลือก</option>
-							<option value="ไทย">ไทย</option>
-							<option value="จีน">จีน</option>
-							<option value="ญี่ปุ่น">ญี่ปุ่น</option>
-							<option value="ไม่ระบุ">ไม่ระบุ</option>
-					</select></p>
+					<input type="text" name="Race" class="check" id="a9"></p>
 					<p>ศาสนา : <br>
 					<select name="Religion" class="check" id="a10">
 							<option value="">โปรดเลือก</option>
