@@ -15,7 +15,7 @@
     <style>
         @import "global1.css";
         @import "temple.css";
-        table, th , td {
+        table, th, td {
             border: 1px solid grey;
             border-collapse: collapse;
             padding: 5px;
@@ -50,26 +50,39 @@
         <ul class="nav nav-pills nav-stacked" id="tab">
         <li class = "active"><a data-toggle="tab" href="#menu1">ข้อมูลผู้สมัคร</a></li>
         <li><a data-toggle="tab" href="#menu2">นักเรียนที่จ่ายค่าแรกเข้าแล้ว</a></li>
-        <li><a data-toggle="tab" href="#menu3">ข้อมูลผู้สละสิทธื์</a></li>
+        <li><a data-toggle="tab" href="#menu4">จำนวนผู้สมัครเข้าแต่ละคณะ</a></li>
+        <li><a data-toggle="tab" href="#menu3p5">จำนวนผู้สละสิทธื์แต่ละคณะ</a></li>
+        <li><a data-toggle="tab" href="#menu3">ข้อมูลผู้สละสิทธื์ที่ย้ายไปมหาวิทยาลัยอื่น</a></li>
+        <li><a data-toggle="tab" href="#menu5">จำนวนผู้สมัครเข้าแต่ละโครงการ</a></li>
         </ul>
      </div>
      <div id="main">
         <div class="tab-content" id="tab-content">
-            <div id="menu1" class="tab-pane fade in active">
-                
-            </div>
-            <div id="menu2" class="tab-pane fade">
+            <div id="menu1" class="tab-pane fade in active"></div>
+            <div id="menu2" class="tab-pane fade"></div>
+            <div id="menu4" class="tab-pane fade"></div>
+            <div id="menu3p5" class="tab-pane fade">
                 
             </div>
             <div id="menu3" class="tab-pane fade">
                 
             </div> 
+            <div id="menu5" class="tab-pane fade">
+                
+            </div> 
         </div>
     
     <script>
-        load1();
-        load2();
-        load3();
+        loadload();
+
+        function loadload(){
+            load1();
+            load2();
+            load3();
+            load4();
+            load3p5();
+            load5();
+        }
 
         function myFunction() {
             var x = document.getElementById("top");
@@ -98,7 +111,7 @@
         function filter(){
             var filter = document.getElementById("cut").value;
             if(filter == 'ทั้งหมด'){
-                load1();load2();load3();
+                loadload();
             }
             else{
                 var xmlhttp = new XMLHttpRequest();
@@ -124,7 +137,7 @@
             
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td align='center'>รหัสผู้สมัคร</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อจริง</td><td align='center'>นามสกุล</td><td align='center'>เบอร์โทรติดต่อ</td><td align='center'>โรงเรียน</td><td align='center'>โครงการ</td><td align='center'>อันดับ</td><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>สถานะ</td><td align='center'>อันดับที่ได้</td><td colspan='4' align='center'>แก้ไข</td></tr>";
+                    out += "<tr><td align='center'>รหัสผู้สมัคร</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อ</td><td align='center'>นามสกุล</td><td align='center'>เบอร์โทรติดต่อ</td><td align='center'>โรงเรียน</td><td align='center'>โครงการ</td><td align='center'>อันดับ</td><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>สถานะ</td><td align='center'>อันดับที่ได้</td><td colspan='4' align='center'>แก้ไข</td></tr>";
                 }
                 if(arr[i].Status == 'จ่ายค่าเทอมแล้ว'){
                     var sta = 'จ่ายค่าแรกเข้าแล้ว';
@@ -139,11 +152,11 @@
                 "</td><td>" + arr[i].MobileNumber+
                 "</td><td>" + arr[i].SchoolName+
                 "</td><td>" + arr[i].RecruitPlanName+
-                "</td><td>" + arr[i].No+
+                "</td><td align=\'center\'>" + arr[i].No+
                 "</td><td>" + arr[i].Faculty+
                 "</td><td>" + arr[i].Department+    
                 "</td><td>" + sta +
-                "</td><td>" + arr[i].NoPass+
+                "</td><td align=\'center\'>" + arr[i].NoPass+
                 // "</td><td>" + arr[i].+
                 "</td><td>" +
                 "<button onclick=\"updateStatus('"+arr[i].RecruitID+"')\">เปลี่ยนสถานะ</button>"+
@@ -167,7 +180,7 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
-                load1();load2();load3();
+                loadload();
                 }
             }
             xmlhttp.open("GET", url, true);
@@ -182,7 +195,7 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
-                load1();load2();load3();
+                loadload();
                 }
             }
             xmlhttp.open("GET", url, true);
@@ -198,7 +211,7 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
-                load1();load2();load3();
+                loadload();
                 }
             }
             xmlhttp.open("GET", url, true);
@@ -213,7 +226,7 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
-                load1();load2();load3();
+                loadload();
                 }
             }
             xmlhttp.open("GET", url, true);
@@ -242,7 +255,7 @@
             
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td id = 't' align='center'>คณะ</td><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>RecruitID</td><td id = 't' align='center'>คำนำหน้า</td><td id = 't' align='center'>ชื่อจริง</td><td id = 't' align='center'>นามสกุล</td><td id = 't' align='center'>รหัสบัตรประชาชน</td><td id = 't' align='center'>เบอร์โทรติดต่อ</td><td id = 't' align='center'>โครงการ</td><td id = 't' align='center'>สถานะ</td><td id = 't' colspan='4' align='center'>แก้ไข</td></tr>";
+                    out += "<tr><td id = 't' align='center'>คณะ</td><td id = 't'align='center'>ภาควิชา</td><td id = 't'align='center'>รหัสผู้สมัคร</td><td id = 't' align='center'>คำนำหน้า</td><td id = 't'align='center'>ชื่อ</td><td id = 't'align='center'>นามสกุล</td><td id = 't'align='center'>รหัสบัตรประชาชน</td><td id = 't'align='center'>เบอร์โทรติดต่อ</td><td id = 't'align='center'>โครงการ</td><td id = 't'align='center'>สถานะ</td><td id = 't'colspan='4' align='center'>แก้ไข</td></tr>";
                 }
                 if(arr[i].Status == 'จ่ายค่าเทอมแล้ว'){
                     var sta = 'จ่ายค่าแรกเข้าแล้ว';
@@ -264,7 +277,7 @@
                 "<button onclick=\"moveToStudent('"+arr[i].RecruitID+"','"+arr[i].RecruitPlanName+"','"+arr[i].Department+"','"+arr[i].MobileNumber+"','"+arr[i].TelNumber+"','"+
                 arr[i].Email+"','"+arr[i].SchoolID+"','"+arr[i].EducationBackground+"','"+arr[i].Branch+"','"+arr[i].SchoolGPAX+"','"+arr[i].IDCardNumber+"','"+arr[i].Prefix+"','"+
                 arr[i].FirstName+"','"+arr[i].LastName+"','"+arr[i].Gender+"','"+arr[i].DOB+"','"+arr[i].Nationality+"','"+arr[i].Race+"','"+arr[i].Religion+"','"+arr[i].BloodGroup+"','"+
-                arr[i].Address+"','"+arr[i].Province+"','"+arr[i].PostCode+"')\">สร้างรหัสนศ.+ย้ายข้อมูล</button>"+
+                arr[i].Address+"','"+arr[i].Province+"','"+arr[i].PostCode+"')\">สร้างรหัสนักศึกษา</button>"+
                 "</td><td id = 't'>" +   
                 "<button onclick=\"deleteRecruit('"+arr[i].RecruitID+"')\">ลบข้อมูล</button>"+
                 "</td></tr>";
@@ -284,7 +297,7 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
-                load1();load2();load3();
+                loadload();
                 }
             }
             xmlhttp.open("GET", url, true);
@@ -309,11 +322,11 @@
         function filterUni(){
             var filter = document.getElementById("cutuni").value;
             if(filter == 'ทั้งหมด'){
-                load1();load2();load3();
+                loadload();
             }
             else{
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol+'//'+location.host+"/Project/staff-admin-recruit-link-filter-uni.php?filter="+document.getElementById("cutuni").value;
+                var url = location.protocol+'//'+location.host+"/Project/staff-admin-recruit-link-filter-uni.php?filter="+filter;
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                         display3(xmlhttp.responseText);
@@ -332,10 +345,9 @@
                                 "</select> <button onclick=\"filterUni()\">ค้นหา</button></p><br>";
             
             var out = "<table>";
-            
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><td id = 't' align='center'>รหัสผู้สมัคร</td><td id = 't' align='center'>คำนำหน้า</td><td id = 't' align='center'>ชื่อจริง</td><td id = 't' align='center'>นามสกุล</td><td id = 't' align='center'>เบอร์โทรติดต่อ</td><td id = 't' align='center'>โรงเรียน</td><td id = 't' align='center'>โครงการ</td><td id = 't' align='center'>คณะ</td><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>สถานะ</td><td id = 't' align='center'>มหาวิทยาลัยที่ย้ายไป</td></tr>";
+                    out += "<tr><td id = 't'align='center'>รหัสผู้สมัคร</th><td id = 't'align='center'>คำนำหน้า</th><td id = 't'align='center'>ชื่อ</th><td id = 't'align='center'>นามสกุล</th><td id = 't'align='center'>เบอร์โทรติดต่อ</th><td id = 't'align='center'>โรงเรียน</th><td id = 't'align='center'>โครงการ</th><td id = 't'align='center'>คณะ</th><td id = 't'align='center'>ภาควิชา</th><td id = 't'align='center'>สถานะ</th><td id = 't'align='center'>มหาวิทยาลัยที่ย้ายไป</th></tr>";
                 }
                 if(arr[i].Status == 'จ่ายค่าเทอมแล้ว'){
                     var sta = 'จ่ายค่าแรกเข้าแล้ว';
@@ -357,9 +369,76 @@
                 "</td></tr>";
             }
             out += "</table>";
-            document.getElementById("menu3").innerHTML =but+out;
+            document.getElementById("menu3").innerHTML =but+out+"<br><p>รวมทั้งหมด "+arr.length+" คน</p>";
         }
 
+        //4 จำนวนผู้สมัครเข้าแต่ละคณะ
+        function load4() {
+            <?php
+                include "dblink.php";
+               
+                $result = mysqli_query($conn,"SELECT DISTINCT d.Faculty,count(n.No) AS sum
+                                                FROM recruitinfo r, schoolinfo s, nodepartment n, departmentinfo d
+                                                WHERE r.SchoolID=s.SchoolID AND r.RecruitID=n.RecruitID AND n.Department=d.Department
+                                                AND n.No='1'
+                                                GROUP BY d.Faculty");
+                echo"var count=0;";
+                echo"var out = '<table><tr><td id = \'t\' align=\'center\'>คณะ</td><td id = \'t\' align=\'center\'>จำนวน(คน)</td></tr>';";
+                while($row = mysqli_fetch_array($result)){
+                    echo "out += '<tr><td id = \'t\'>'+'".$row['Faculty']."'+'</td><td id = \'t\' align=\'center\'>'+'".$row['sum']."'+'</td></tr>';";  
+                    echo "count += parseInt(".$row['sum'].");";          
+                }
+                
+            ?>
+            out += '<tr><td id = \'t\' align=\'center\'>รวม</th><td id = \'t\' align=\'center\'>'+count+'</th>';
+            out += '</table>';
+            document.getElementById("menu4").innerHTML = out;
+        }
+        
+        //3p5 จำนวนผู้สละสิทธื์แต่ละคณะ
+        function load3p5(){
+            <?php
+                include "dblink.php";
+               
+                $result = mysqli_query($conn,"SELECT DISTINCT d.Faculty,d.Department,count(r.recruitID) AS sum
+                                                FROM recruitinfo r, schoolinfo s, nodepartment n, departmentinfo d
+                                                WHERE r.SchoolID=s.SchoolID AND r.RecruitID=n.RecruitID AND n.Department=d.Department AND r.Status = 'สละสิทธิ์' AND n.No=r.NoPass
+                                                GROUP BY d.Department");
+                echo"var count=0;";
+                echo"var out = '<table><tr><td id = \'t\' align=\'center\'>ภาควิชา</td><td id = \'t\' align=\'center\'>จำนวน(คน)</td></tr>';";
+                while($row = mysqli_fetch_array($result)){
+                    echo "out += '<tr><td id = \'t\'>'+'".$row['Department']."'+'</td><td id = \'t\'align=\'center\'>'+'".$row['sum']."'+'</td></tr>';";  
+                    echo "count += parseInt(".$row['sum'].");";          
+                }
+                
+            ?>
+            out += '<tr><td id = \'t\' align=\'center\'>รวม</td><td id = \'t\' align=\'center\'>'+count+'</td></tr>';
+            out += '</table>';
+            document.getElementById("menu3p5").innerHTML = out;
+        }
+
+         //5 จำนวนผู้สมัครเข้าแต่ละโครงการ
+         function load5(){
+            <?php
+                include "dblink.php";
+               
+                $result = mysqli_query($conn,"SELECT p.RecruitPlanName,p.Details,p.RecruitAmount,COUNT(r.RecruitID) AS sum
+                                                FROM recruitinfo r,recruitplaninfo p 
+                                                WHERE r.RecruitPlanName = p.RecruitPlanName AND r.Status != 'รอจ่ายค่าสมัคร'
+                                                GROUP BY p.RecruitPlanName");
+                echo"var count=0;";
+                echo"var out = '<table><tr><td id = \'t\' align=\'center\'>โครงการ</td><td align=\'center\'>รายละเอียด</td><td id = \'t\' align=\'center\'>จำนวนที่รับสมัคร</td><td id = \'t\' align=\'center\'>จำนวน(คน)</td></tr>';";
+                while($row = mysqli_fetch_array($result)){
+                    echo "out += '<tr><td id = \'t\'>'+'".$row['RecruitPlanName']."'+'</td><td>'+'".$row['Details']."'+'</td><td id = \'t\' align=\'center\'>'+'".$row['RecruitAmount']."'+'</td><td id = \'t\' align=\'center\'>'+'".$row['sum']."'+'</td></tr>';";  
+                    echo "count += parseInt(".$row['sum'].");";          
+                }
+                
+            ?>
+            out += '<tr><td id = \'t\'colspan="3" align=\'center\'>รวม</td><td id = \'t\' align=\'center\'>'+count+'</td>';
+            out += '</table>';
+            document.getElementById("menu5").innerHTML = out;
+            
+        }
     
     </script>
     

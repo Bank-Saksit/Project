@@ -18,13 +18,20 @@
         table, th , td {
             border: 1px solid grey;
             border-collapse: collapse;
-            padding: 5px;
+            padding: 10px;
         }
         table tr:nth-child(odd) {
             background-color: #f1f1f1;
         }
         table tr:nth-child(even) {
             background-color: #ffffff;
+        }
+        td{
+            font-size:18px;
+        }
+        th{
+            font-size:18px;
+            font-weight:normal;
         }
     </style>
     
@@ -93,7 +100,7 @@
         }
 
         function display() {
-            var out0 = "<table>";
+            var out0 = "<h2>ข้อมูลรายวิชา</h2><table>";
             for( var i = 0 ; i < vsub.length ; i++ ) {
                 if( i==0 ) out0 += "<tr><td align='center'>รหัสวิชา</td><td align='center'>ชื่อวิชา</td><td align='center'>หน่วยกิต</td><td align='center'>กลุ่ม</td><td align='center'>เทอมการศึกษา</td><td align='center'>ปีการศึกษา</td><td align='center'>จำนวนที่นั่ง</td><td align='center'>วัน</td><td align='center'>เวลาเริ่ม</td><td align='center'>เวลาจบ</td><td align='center'>ห้องเรียน</td></tr>";
                 out0 += "</td><td>" + vsub[i].SubjectID +
@@ -126,76 +133,79 @@
                 "</div>";
             document.getElementById("menu1").innerHTML = out1;
 
-            var out2 = "<h2>ลบรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
+            var out2 = "<h2>ลบรายวิชา</h2><div class = 'row><div class = 'col-sm-8'>"+
                     "<form>"+
-                    "<p>วิชา: <select id='inSub2' onchange='change2()'>";
+                    "<p>วิชา : <select id='inSub2' onchange='change2()'>";
             for( var i=0 ; i<vsub.length ; i++ )
                 if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out2+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
             out2 += "</select><div id='in2'></div><p><br><input type='button' value='ยืนยัน' onclick='update2()'></p></form></div></div>";
             document.getElementById("menu2").innerHTML = out2;
 
-            var out3 = "<h2>แก้ไขรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
-                    "<p>วิชา: <select id='inSub3' onchange='change3()'>";
+            var out3 = "<h2>แก้ไขรายวิชา</h2><div class = 'row><div class = 'col-sm-8'>"+
+                    "<p>วิชา : <select id='inSub3' onchange='change3()'>";
             for( var i=0 ; i<vsub.length ; i++ )
                 if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out3+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
             out3+="</select><br><div id='in3'></div></div></div>";
             document.getElementById("menu3").innerHTML = out3;
 
-            var out4 = "<h2>เพิ่มกลุ่มรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
-                    "<p>วิชา: <select id='inSub4'>";
+            var out4 = "<h2>เพิ่มกลุ่มรายวิชา</h2><div class = 'row><div class = 'col-sm-8'>"+
+                    "<p>วิชา : <select id='inSub4'>";
             for( var i=0 ; i<vsub.length ; i++ )
                 if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out4+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
-            out4+="</select><p>กลุ่ม: <select id='inSec4'>"+
+            out4+="</select><p>กลุ่ม : <select id='inSec4'>"+
                         "<option value=1>1</option>"+
                         "<option value=2>2</option>"+
                         "<option value=3>3</option>"+
                         "</select>"+
-                "<p>เทอมการศึกษา: <select id='inSem4'>"+
+                "<p>เทอมการศึกษา : <select id='inSem4'>"+
                         "<option value=1>1</option>"+
                         "<option value=2>2</option>"+
                         "</select>"+
-                "<p>ปีการศึกษา: <input type='text' id='inY' class='bg'></p>"+
-                "<p>จำนวนที่นั่ง: <input type='text' id='inSA' class='bg'></p>"+
-                "<p>วัน: <input type='text' id='inD' class='bg'></p>"+
-                "<p>เวลา: <input type='text' id='inTS' class='bg'> ถึง <input type='text' id='inTE' class='bg'></p>"+
-                "<p>ห้องเรียน: <input type='text' id='inR' class='bg'></p>"+
+                "<p>ปีการศึกษา : <input type='text' id='inY' class='bg'></p>"+
+                "<p>จำนวนที่นั่ง : <input type='text' id='inSA' class='bg'></p>"+
+                "<p>วัน : <input type='text' id='inD' class='bg'></p>"+
+                "<p>เวลา : <input type='text' id='inTS' class='bg'> ถึง <input type='text' id='inTE' class='bg'></p>"+
+                "<p>ห้องเรียน : <input type='text' id='inR' class='bg'></p>"+
                 "<br><p><input type='button' value='ยืนยัน' onclick='update4()'></p>"+
                 "</div></div>";
             document.getElementById("menu4").innerHTML = out4;
 
-            var out5 = "<h2>ลบกลุ่มรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
+            var out5 = "<h2>ลบกลุ่มรายวิชา</h2><div class = 'row><div class = 'col-sm-8'>"+
                     "<form>"+
-                    "<p>วิชา: <select id='inSub5'>";
+                    "<p>วิชา : <select id='inSub5'>";
             for( var i=0 ; i<vsub.length ; i++ )
                 if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out5+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
             out5 += "</select>";
             document.getElementById("menu5").innerHTML = out5;
-            out5 = "<h2>ลบกลุ่มรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
+            out5 = "<h2>ลบกลุ่มรายวิชา</h2><div class = 'row><div class = 'col-sm-8'>"+
                     "<form>"+
-                    "<p>วิชา: <select id='inSub5' onclick='change5()'>";
+                    "<p>วิชา : <select id='inSub5' onclick='change5()'>";
             for( var i=0 ; i<vsub.length ; i++ )
                 if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out5+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
-            out5 += "</select> กลุ่ม: <select id='inSec5' onclick='change5()'>";
+            out5 += "</select> กลุ่ม : <select id='inSec5' onclick='change5()'>";
             for( var i=0 ; i<vsub.length ; i++ )
                 if( vsub[i].SubjectID==document.getElementById('inSub5').value ) out5+="<option value='"+vsub[i].SectionNumber+"'>"+vsub[i].SectionNumber+"</option>";
             out5+="</select><div id='in5'></div><p><br><input type='button' value='ยืนยัน' onclick='update5()'></p></form></div></div>";
             document.getElementById("menu5").innerHTML = out5;
 
-            var out6 = "<h2>แก้ไขกลุ่มรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
-                    "<p>วิชา: <select id='inSub6' onchange='change6()'>";
+            var out6 = "<h2>แก้ไขกลุ่มรายวิชา</h2><div class = 'row><div class = 'col-sm-8'>"+
+                    "<p>วิชา : <select id='inSub6' onchange='change6()'>";
             for( var i=0 ; i<vsub.length ; i++ )
                 if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out6+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
                 out6 += "</select>";
             document.getElementById("menu6").innerHTML = out6;
-            out6 = "<h2>แก้ไขกลุ่มรายวิชา</h2><br><div class = 'row><div class = 'col-sm-8'>"+
+            out6 = "<h2>แก้ไขกลุ่มรายวิชา</h2><div class = 'row><div class = 'col-sm-8'>"+
                     "<form>"+
-                    "<p>วิชา: <select id='inSub6' onchange='change6()'>";
+                    "<p>วิชา : <select id='inSub6' onchange='change6()'>";
             for( var i=0 ; i<vsub.length ; i++ )
                 if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out6+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
-            out6 += "</select> กลุ่ม: <select id='inSec6' onchange='change6()'>";
-            for( var i=0 ; i<vsub.length ; i++ )
-                if( vsub[i].SubjectID==document.getElementById('inSub6').value ) out6+="<option value='"+vsub[i].SectionNumber+"'>"+vsub[i].SectionNumber+"</option>";
-            out6+="</select><br><br></form><div id='in6'></div></div></div>";
+            out6 += "</select> กลุ่ม : <select id='inSec6' onchange='change6()'>";
+            out6 += "<option value=1>1</option>"+
+                        "<option value=2>2</option>"+
+                        "<option value=3>3</option>";
+            // for( var i=0 ; i<vsub.length ; i++ )
+            //     if( vsub[i].SubjectID==document.getElementById('inSub6').value ) out6+="<option value='"+vsub[i].SectionNumber+"'>"+vsub[i].SectionNumber+"</option>";
+            out6+="</select><br></form><div id='in6'></div></div></div>";
             document.getElementById("menu6").innerHTML = out6;
 
             change2();
@@ -265,7 +275,7 @@
             for( var i=0 ; i<vsub.length ; i++ )
                 if( sub==vsub[i].SubjectID && sec==vsub[i].SectionNumber ){ index=i; break; }
             var out = "<p><div class = 'row'>"+
-                    "<div class= 'col-sm-4' >"+
+                    "<div class= 'col-sm-6' >"+
                     "<form>"+
                     "<p>เทอมการศึกษา: <select id='inSem6'>"+
                             "<option value=1>1</option>"+
@@ -412,19 +422,19 @@
         
         function disstat(response){
             var arr = JSON.parse(response);
-            var out7 = "<form> เลือกรายวิชาที่ต้องการดูเกรด: <select id='sub'>";
+            var out7 = "<form><h2>เลือกรายวิชาที่ต้องการดูเกรด : </h2><p><select id='sub'>";
             for(i=0;i<arr.length;i++){
                 out7+="<option value="+
                         arr[i].SubjectSectionID+">"+
                         arr[i].SubjectID+
                         "&nbsp"+arr[i].SubjectName+
-                        "&nbspsec:"+arr[i].SectionNumber+
-                        "&nbspภาคเรียนที่:"+arr[i].Semester+
-                        "&nbspปีการศึกษา:"+arr[i].AcademicYear+
+                        "&nbspsec : "+arr[i].SectionNumber+
+                        "&nbspภาคเรียนที่ : "+arr[i].Semester+
+                        "&nbspปีการศึกษา : "+arr[i].AcademicYear+
                         "</option>";
             }
-            out7 += "</select><br>"+
-                    "<br><input type='button' value='ตรวจสอบ' onclick='show()'>"+
+            out7 += "</select></p>"+
+                    "<p><input type='button' value='ตรวจสอบ' onclick='show()'></p>"+
                     "</form>";
             document.getElementById("menu7-1").innerHTML = out7;
         }

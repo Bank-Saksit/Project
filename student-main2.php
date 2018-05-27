@@ -14,6 +14,8 @@ session_start();
     <link href ="js/jquery-ui.min.css" rel="stylesheet">
 	<script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <link href ="js/sweetalert2.all.js" rel="stylesheet" >
+    <script src="js/sweetalert21.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         @import "global1.css";
@@ -82,7 +84,17 @@ session_start();
                     <pp><button type="button" id="add" class="check" >+</button></pp>
                     <pp><button type="button" id="remove" class="check" >-</button></pp>
                     <br><br>
-                    <p><input type="button" value="ยืนยัน" onclick="update1()"></p>
+                    <p><input type="button" value="ยืนยัน" id='ed1' onclick="update1()"></p>
+                        <script>
+                            $(function(){
+                                $('#ed1').on('click',function(){
+                                    swal({
+                                        title:'<h1>ลงทะเบียนเรียบร้อย</h1>',
+                                        confirmButtonText:'ตกลง',
+                                    })    
+                                })
+                            })
+                        </script>
                 </form>
                 </div>
                 </div>
@@ -113,7 +125,17 @@ session_start();
                     <pp><button type="button" id="add2" class="check2" >+</button></pp>
                     <pp><button type="button" id="remove2" class="check2" >-</button></pp>
                     <br><br>
-                    <p><input type="button" value="ยืนยัน" onclick="update2()"></p>
+                    <p><input type="button" value="ยืนยัน" id='ed2' onclick="update2()"></p>
+                        <script>
+                            $(function(){
+                                $('#ed2').on('click',function(){
+                                    swal({
+                                        title:'<h1>รายวิชาถูกเพิ่มเรียบร้อย</h1>',
+                                        confirmButtonText:'ตกลง',
+                                    })    
+                                })
+                            })
+                        </script>
                 </form>
                 </div>
                 </div>
@@ -176,9 +198,17 @@ session_start();
                         "<option value=02>2</option>"+
                         "<option value=03>3</option>"+
                         "</select>"+
-                        "<br><br><input type='button' value='ยืนยัน' onclick='update3()'>"+
+                        "<br><br><input type='button' value='ยืนยัน' id='ed3' onclick='update3()'>"+
                         "</form></div></div>";
                 document.getElementById("menu3").innerHTML = out3;
+                $(function(){
+                    $('#ed3').on('click',function(){
+                        swal({
+                            title:'<h1>ย้ายกลุ่มเรียบร้อย</h1>',
+                            confirmButtonText:'ตกลง',
+                        })    
+                    })
+                })
 
                 var out4 = "<h2>ลดรายวิชา</h2><br><div class = 'row'><div class = 'col-sm-8'>"+
                         "<form>"+
@@ -186,10 +216,18 @@ session_start();
                 for( var i=0 ; i<arr.length ; i++ )
                     out4+="<option value='"+arr[i].SubjectID+"'>"+arr[i].SubjectID+"</option>";
                 out4+="</select> <div id='outSec4'></div>"+
-                        "<p><input type='button' value='ยืนยัน' onclick='update4()'>"+
+                        "<p><input type='button' value='ยืนยัน' id='ed4' onclick='update4()'>"+
                         "</form></div></div>";
                 document.getElementById("menu4").innerHTML = out4;
-
+                $(function(){
+                    $('#ed4').on('click',function(){
+                        swal({
+                            title:'<h1>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
+                            confirmButtonText:'ตกลง',
+                        })    
+                    })
+                })
+                
                 var out5 = "<h2>รายละเอียดกลุ่มวิชา</h2><br><div class = 'row'><div class = 'col-sm-8'>"+
                         "<p>วิชา: <select id='inSub5' onchange='change5()'>";
                 <?php

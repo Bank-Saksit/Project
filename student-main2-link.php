@@ -33,49 +33,49 @@ elseif( $_GET['type']=='01' ){
 elseif( $_GET['type']=='11' ){
     if( $_GET['sub0']!='' )
         $conn->query("INSERT INTO student_subject
-                    SELECT SubjectSectionID, ".$_GET['inID'].", 0
+                    SELECT SubjectSectionID, ".$_GET['inID'].", NULL
                     FROM sectioninfo
                     WHERE SubjectID='".$_GET['sub0']."' AND SectionNumber=".$_GET['sec0']);
     if( $_GET['sub1']!='' )
         $conn->query("INSERT INTO student_subject
-                    SELECT SubjectSectionID, ".$_GET['inID'].", 0
+                    SELECT SubjectSectionID, ".$_GET['inID'].", NULL
                     FROM sectioninfo
                     WHERE SubjectID='".$_GET['sub1']."' AND SectionNumber=".$_GET['sec1']);
     if( $_GET['sub2']!='' )
         $conn->query("INSERT INTO student_subject
-                    SELECT SubjectSectionID, ".$_GET['inID'].", 0
+                    SELECT SubjectSectionID, ".$_GET['inID'].", NULL
                     FROM sectioninfo
                     WHERE SubjectID='".$_GET['sub2']."' AND SectionNumber=".$_GET['sec2']);
     if( $_GET['sub3']!='' )
         $conn->query("INSERT INTO student_subject
-                    SELECT SubjectSectionID, ".$_GET['inID'].", 0
+                    SELECT SubjectSectionID, ".$_GET['inID'].", NULL
                     FROM sectioninfo
                     WHERE SubjectID='".$_GET['sub3']."' AND SectionNumber=".$_GET['sec3']);
     if( $_GET['sub4']!='' )
         $conn->query("INSERT INTO student_subject
-                    SELECT SubjectSectionID, ".$_GET['inID'].", 0
+                    SELECT SubjectSectionID, ".$_GET['inID'].", NULL
                     FROM sectioninfo
                     WHERE SubjectID='".$_GET['sub4']."' AND SectionNumber=".$_GET['sec4']);
     if( $_GET['sub5']!='' )
         $conn->query("INSERT INTO student_subject
-                    SELECT SubjectSectionID, ".$_GET['inID'].", 0
+                    SELECT SubjectSectionID, ".$_GET['inID'].", NULL
                     FROM sectioninfo
                     WHERE SubjectID='".$_GET['sub5']."' AND SectionNumber=".$_GET['sec5']);
 }
 elseif( $_GET['type']=='12' ){
     if( $_GET['sub0']!='' )
         $conn->query("INSERT INTO student_subject
-                    SELECT SubjectSectionID, ".$_GET['inID'].", 0
+                    SELECT SubjectSectionID, ".$_GET['inID'].", NULL
                     FROM sectioninfo
                     WHERE SubjectID='".$_GET['sub0']."' AND SectionNumber=".$_GET['sec0']);
     if( $_GET['sub1']!='' )
         $conn->query("INSERT INTO student_subject
-                    SELECT SubjectSectionID, ".$_GET['inID'].", 0
+                    SELECT SubjectSectionID, ".$_GET['inID'].", NULL
                     FROM sectioninfo
                     WHERE SubjectID='".$_GET['sub1']."' AND SectionNumber=".$_GET['sec1']);
     if( $_GET['sub2']!='' )
         $conn->query("INSERT INTO student_subject
-                    SELECT SubjectSectionID, ".$_GET['inID'].", 0
+                    SELECT SubjectSectionID, ".$_GET['inID'].", NULL
                     FROM sectioninfo
                     WHERE SubjectID='".$_GET['sub2']."' AND SectionNumber=".$_GET['sec2']);
 }

@@ -50,12 +50,13 @@ session_start();
 </head>
 <body>
     <?php 
-        if(isset($_SESSION['id']) && isset($_SESSION['pswd'])) {
+        // if(isset($_SESSION['id']) && isset($_SESSION['pswd'])) {
             
-        }
-        else{
-            header("location: student-home.php");
-        }
+        // }
+        // else{
+        //     header("location: student-home.php");
+        // }
+        $_SESSION['id'] = '59070501066';
     ?>
     <div class="top" id="top">
             <a href="student-main.php">ข้อมูลนักศึกษา</a>
@@ -160,10 +161,14 @@ session_start();
         }
 
         function check(){
-            if($('select[name="AcademicYear"]').val() && $('select[name="Semester"]').val()){
+            if($('select[name="AcademicYear"]').val() !='' && $('select[name="Semester"]').val() !=''){
                 document.getElementById("me1-3").innerHTML = '';
                 document.getElementById("me1-4").innerHTML = '';
                 load();
+            }
+            else {
+                document.getElementById("me1-3").innerHTML = '';
+                document.getElementById("me1-4").innerHTML = '';
             }
                 
         }
@@ -212,8 +217,14 @@ session_start();
                             else if(arr[i].GPA == 1) {
                                 GPA = 'D+';
                             }
+                            else if(arr[i].GPA == "") {
+                                GPA = 'ยังไม่ออก';
+                            }
                             else if(arr[i].GPA == 0) {
                                 GPA = 'F';
+                            }
+                            else if(arr[i].GPA == -1){
+                                GPA = 'ถอนรายวิชา';
                             }
                     out +=  "<div class = 'col-sm-2' id ='t2'>"+ GPA +"</div></div></tr>";
                 }
