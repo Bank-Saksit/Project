@@ -6,12 +6,12 @@ include "dblink.php";
     $outp = "[";
     while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
         if ($outp != "[") {$outp .= ",";}
-        $outp .= '{"SubjectID":"'.$rs["SubjectID"].'",';
-        $outp .= '"SectionNumber":"'.$rs["SectionNumber"].'",';
-        $outp .= '"SubjectName":"'.$rs["SubjectName"].'",';
-        $outp .= '"Semester":"'.$rs["Semester"].'",';
-        $outp .= '"AcademicYear":"'.$rs["AcademicYear"].'",';
-        $outp .= '"SubjectSectionID":"'.$rs["SubjectSectionID"].'"}';
+        $outp .= '{"SubjectID" :"'.$rs["SubjectID"].'",';
+        $outp .= '"SectionNumber" :"'.$rs["SectionNumber"].'",';
+        $outp .= '"SubjectName" :"'.$rs["SubjectName"].'",';
+        $outp .= '"Semester" :"'.$rs["Semester"].'",';
+        $outp .= '"AcademicYear" :"'.$rs["AcademicYear"].'",';
+        $outp .= '"SubjectSectionID" :"'.$rs["SubjectSectionID"].'"}';
     }
     $outp .="]";
     echo($outp);
