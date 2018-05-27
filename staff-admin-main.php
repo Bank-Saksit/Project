@@ -431,7 +431,7 @@
                 echo"var count=0;";
                 echo"var out = '<table><tr><th align=\'center\'>ภาควิชา</th><th align=\'center\'>จำนวน(คน)</th></tr>';";
                 while($row = mysqli_fetch_array($result)){
-                    echo "out += '<tr><th>'+'".$row['Department']."'+'</td><td>'+'".$row['sum']."'+'</th></tr>';";  
+                    echo "out += '<tr><th>'+'".$row['Department']."'+'</th><th>'+'".$row['sum']."'+'</th></tr>';";  
                     echo "count += parseInt(".$row['sum'].");";          
                 }
                 
