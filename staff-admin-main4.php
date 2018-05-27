@@ -33,6 +33,9 @@
             font-size:18px;
             font-weight:normal;
         }
+        #top{
+            background-color:#001a33;
+        }
     </style>
     
 </head>
@@ -68,7 +71,7 @@
             <div id="menu4" class="tab-pane fade"></div>
             <div id="menu5" class="tab-pane fade"></div>
             <div id="menu6" class="tab-pane fade"></div>
-            <div id="menu7" class="tab-pane fade"><div id='menu7-1'></div></div>
+            <div id="menu7" class="tab-pane fade"><div id='menu7-1'></div><div id='menu7-2'></div><div id='menu7-3'></div></div>
         </div>
 
         <script>
@@ -84,6 +87,8 @@
 
         loadsubject();
         loadstat();
+        loadeiei();
+        loadeiei2();
         function loadsubject(){
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol+'//'+location.host+"/Project/staff-admin-main4-link.php?type=01";
@@ -452,6 +457,30 @@
             xmlhttp.send();
         }
 
+        function loadeiei(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol+'//'+location.host+"/Project/report7.php";
+            
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("menu7-2").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        function loadeiei2(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol+'//'+location.host+"/Project/report-9.php";
+            
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("menu7-3").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
         </script>
 
     </div>

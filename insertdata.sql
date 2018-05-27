@@ -30,3 +30,28 @@ GROUP BY st.StudentID;
 
 INSERT INTO teachersec (StaffID,SubjectSectionID)
 VALUES ($id,$sub);
+
+
+SELECT  d.Faculty, COUNT(*)
+FROM studentinfo st,departmentinfo d
+WHERE	st.Department=d.Department AND
+        st.StudentID IN(        SELECT st.StudentID
+                                FROM   student_subject ss,studentinfo st,subjectinfo su,sectioninfo sc
+                                WHERE   st.StudentID = ss.StudentID AND
+                                        sc.SubjectSectionID=ss.SubjectSectionID AND
+                                        sc.SubjectID = su.SubjectID AND
+                                        st.Status = 'จบการศึกษา'
+                                GROUP BY st.StudentID
+                                HAVING ROUND(SUM(ss.GPA*su.Credit)/SUM(su.Credit),2) >= 3.6);
+SELECT  d.Faculty, COUNT(*)
+FROM studentinfo st,departmentinfo d
+WHERE	st.Department=d.Department AND
+        st.StudentID IN(SELECT st.StudentID
+                        FROM   student_subject ss,studentinfo st,subjectinfo su,sectioninfo sc
+                        WHERE   st.StudentID = ss.StudentID AND
+                                sc.SubjectSectionID=ss.SubjectSectionID AND
+                                sc.SubjectID = su.SubjectID AND
+                                st.Status = 'จบการศึกษา'
+                        GROUP BY st.StudentID
+                        HAVING ROUND(SUM(ss.GPA*su.Credit)/SUM(su.Credit),2) >=3.2 AND
+                                ROUND(SUM(ss.GPA*su.Credit)/SUM(su.Credit),2) <3.6 );
