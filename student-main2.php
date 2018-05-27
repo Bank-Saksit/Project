@@ -18,6 +18,9 @@ session_start();
     <style>
         @import "global1.css";
         @import "temple.css";
+        .swal2-popup {
+            font-size: 2rem;
+        }
     </style>
     
 </head>

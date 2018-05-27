@@ -28,6 +28,9 @@
             border-collapse: collapse;
             padding: 5px;
         }
+        .swal2-popup {
+            font-size: 2rem;
+        }
     </style>
     
 </head>

@@ -29,6 +29,9 @@
             padding: 5px;
             text-align: center;
         }
+        .swal2-popup {
+            font-size: 2rem;
+        }
     </style>
     
 </head>
