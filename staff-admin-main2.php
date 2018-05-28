@@ -54,9 +54,9 @@
             <li class = "active"><a data-toggle="tab" href="#menu1">ข้อมูลนักศึกษา</a></li>
             <li><a data-toggle="tab" href="#menu2">นักศึกษาถอนรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu3">จำนวนนักศึกษาแต่ละภาควิชา</a></li>
-            <li><a data-toggle="tab" href="#menu4">จำนวนนักศึกษาที่ลาออก/ถูกไล่ออกในแต่ละคณะ</a></li>
-            <li><a data-toggle="tab" href="#menu5">จำนวนนักศึกษาที่จบการศึกษาในแต่ละภาควิชา</a></li>
-            <!-- <li><a data-toggle="tab" href="#menu6">แก้ไขกลุ่มรายวิชา</a></li> -->
+            <li><a data-toggle="tab" href="#menu5">จำนวนผู้จบการศึกษา</a></li>
+            <li><a data-toggle="tab" href="#menu4">จำนวนนักศึกษาที่ลาออก</a></li>
+            <li><a data-toggle="tab" href="#menu6">จำนวนนักศึกษาที่ถูกไล่ออก</a></li>
         </ul>
     </div>
     <div id="main">
@@ -64,9 +64,9 @@
             <div id="menu1" class="tab-pane fade in active"></div>
             <div id="menu2" class="tab-pane fade"></div>
             <div id="menu3" class="tab-pane fade"></div>
-            <div id="menu4" class="tab-pane fade"></div>
             <div id="menu5" class="tab-pane fade"></div>
-            <!-- <div id="menu6" class="tab-pane fade"></div> -->
+            <div id="menu4" class="tab-pane fade"></div>
+            <div id="menu6" class="tab-pane fade"></div>
         </div>
 
         <script>
@@ -209,7 +209,7 @@
 
             var countm3 = 0, countw3 = 0;
             var out3 = "<table>";
-            out3 += "<tr><td id = 't' align='center'>คณะ</td><td id = 't' align='center'>ชาย</td><td id = 't' align='center'>หญิง</td><td id = 't' align='center'>รวม</td></tr>";
+            out3 += "<tr><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>ชาย</td><td id = 't' align='center'>หญิง</td><td id = 't' align='center'>รวม</td></tr>";
             for( var i=0 ; i<report1.length ; i++ ){
                 out3 += "<tr><td id = 't'>"+report1[i].Department+"</td>";
                 if( i+1<report1.length && report1[i].Department==report1[i+1].Department ){
@@ -234,33 +234,22 @@
             out3 += "</table>";
             document.getElementById("menu3").innerHTML = out3;
 
-            var c41 = 0, c42 = 0;
-            
+            var c4 = 0;
             var out4 = "<table>";
-            out4 += "<tr><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>ลาออก</td><td id = 't' align='center'>ไล่ออก</td><td id = 't' align='center'>รวม</td><td id = 't' align='center'>นักศึกษาทั้งหมด</td><td id = 't' align='center'>อัตราส่วน</td></tr>";
+            out4 += "<tr><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>ลาออก</td><td id = 't' align='center'>นักศึกษาทั้งหมด</td><td id = 't' align='center'>อัตราส่วน</td></tr>";
             for( var i=0 ; i<report2.length ; i++ ){
-                out4 += "<tr><td id = 't'>"+report2[i].Faculty+"</td>";
-                var scount=0;
-                for( var j=0 ; j<arr.length ; j++ ) if( report2[i].Faculty==arr[j].Faculty ) scount++;
-                if( i+1<report2.length && report2[i].Faculty==report2[i+1].Faculty ){
-                    var tmp = parseInt(report2[i].Count)+parseInt(report2[i+1].Count);
-                    out4 += "<td id = 't' align='center'>"+report2[i].Count+"</td><td id = 't' align='center'>"+report2[i+1].Count+"</td><td id = 't' align='center'>"+tmp+"</td><td id = 't' align='center'>"+scount+"</td><td id = 't' align='center'>"+parseFloat(parseInt(tmp)/scount*100).toFixed(2)+"</td></tr>";
-                    i++;
-                }
-                else if ( report2[i].Status=='ลาออก' ){
+                if ( report2[i].Status=='ลาออก' ){
+                    out4 += "<tr><td id = 't'>"+report2[i].Faculty+"</td>";
+                    var scount=0;
+                    for( var j=0 ; j<arr.length ; j++ ) if( report2[i].Faculty==arr[j].Faculty ) scount++;
                     var tmp = parseInt(report2[i].Count);
-                    out4 += "<td id = 't' align='center'>"+report2[i].Count+"</td><td id = 't' align='center'>0</td><td id = 't' align='center'>"+tmp+"</td><td id = 't' align='center'>"+scount+"</td><td id = 't' align='center'>"+parseFloat(parseInt(tmp)/scount*100).toFixed(2)+"</td></tr>";
-                }
-                else{
-                    var tmp = parseInt(report2[i].Count);
-                    out4 += "<td id = 't' align='center'>0</td><td id = 't' align='center'>"+report2[i].Count+"</td><td id = 't' align='center'>"+tmp+"</td><td id = 't' align='center'>"+scount+"</td><td id = 't' align='center'>"+parseFloat(parseInt(tmp)/scount*100).toFixed(2)+"</td></tr>";
+                    out4 += "<td id = 't' align='center'>"+tmp+"</td><td id = 't' align='center'>"+scount+"</td><td id = 't' align='center'>"+parseFloat(parseInt(tmp)/scount*100).toFixed(2)+"</td></tr>";
                 }
             }
             for( var i=0 ; i<report2.length ; i++ ){
-                if( report2[i].Status=='ลาออก' ) c41+=parseInt(report2[i].Count);
-                else c42+=parseInt(report2[i].Count);
+                if( report2[i].Status=='ลาออก' ) c4+=parseInt(report2[i].Count);
             }
-            out4 += "<tr><td id = 't' align='center'>รวม</td><td id = 't' align='center'>"+c41+"</td><td id = 't' align='center'>"+c42+"</td><td id = 't' align='center'>"+(c41+c42)+"</td><td id = 't' align='center'>"+arr.length+"</td><td id = 't' align='center'>"+parseFloat(parseInt(c41+c42)/arr.length*100).toFixed(2)+"</td></tr>";
+            out4 += "<tr><td id = 't' align='center'>รวม</td><td id = 't' align='center'>"+c4+"</td><td id = 't' align='center'>"+arr.length+"</td><td id = 't' align='center'>"+parseFloat(parseInt(c4)/arr.length*100).toFixed(2)+"</td></tr>";
             out4 += "</table>";
             document.getElementById("menu4").innerHTML = out4;
 
@@ -281,6 +270,25 @@
             out5 += "<tr><td id = 't' align='center'>รวม</td><td id = 't' align='center'>"+countm5+"</td><td id = 't' align='center'>"+countw5+"</td><td id = 't' align='center'>"+(countm5+countw5)+"</td></tr>";
             out5 += "</table>";
             document.getElementById("menu5").innerHTML = out5;
+
+            var c6 = 0;
+            var out6 = "<table>";
+            out6 += "<tr><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>ไล่ออก</td><td id = 't' align='center'>นักศึกษาทั้งหมด</td><td id = 't' align='center'>อัตราส่วน</td></tr>";
+            for( var i=0 ; i<report2.length ; i++ ){
+                if ( report2[i].Status=='ไล่ออก' ){
+                    out6 += "<tr><td id = 't'>"+report2[i].Faculty+"</td>";
+                    var scount=0;
+                    for( var j=0 ; j<arr.length ; j++ ) if( report2[i].Faculty==arr[j].Faculty ) scount++;
+                    var tmp = parseInt(report2[i].Count);
+                    out6 += "<td id = 't' align='center'>"+tmp+"</td><td id = 't' align='center'>"+scount+"</td><td id = 't' align='center'>"+parseFloat(parseInt(tmp)/scount*100).toFixed(2)+"</td></tr>";
+                }
+            }
+            for( var i=0 ; i<report2.length ; i++ ){
+                if( report2[i].Status=='ไล่ออก' ) c6+=parseInt(report2[i].Count);
+            }
+            out6 += "<tr><td id = 't' align='center'>รวม</td><td id = 't' align='center'>"+c6+"</td><td id = 't' align='center'>"+arr.length+"</td><td id = 't' align='center'>"+parseFloat(parseInt(c6)/arr.length*100).toFixed(2)+"</td></tr>";
+            out6 += "</table>";
+            document.getElementById("menu6").innerHTML = out6;
         }
 
         function updateStatus( sid, st ) {
