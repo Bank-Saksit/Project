@@ -36,8 +36,7 @@
         }
         td{
             font-size:18px;
-            backg
-            round:white;
+            background:white;
         }
         #top{
             background-color:#33b2d6;
