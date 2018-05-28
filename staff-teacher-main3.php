@@ -49,7 +49,7 @@
 </head>
 <body>
         <?php 
-            if(isset($_SESSION['id']) && isset($_SESSION['pswd']) && $_SESSION['role'] == 'Teacher') {
+            if(isset($_SESSION['id4']) && isset($_SESSION['pswd4']) && $_SESSION['role4'] == 'Teacher') {
                 
             }
             else{
@@ -102,7 +102,7 @@
 
             function load(){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-cutgrade-link.php?type=01&inID="+<?php echo $_SESSION['id'];?>+"&sub=0"+"&gpa=''&SID=''"+"&ssID=''";
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-cutgrade-link.php?type=01&inID="+<?php echo $_SESSION['id4'];?>+"&sub=0"+"&gpa=''&SID=''"+"&ssID=''";
                     
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -298,7 +298,7 @@
             function selectSub(){
                 var xmlhttp = new XMLHttpRequest();
                 var sub = document.getElementById('sub').value;
-                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-cutgrade-link.php?type=02&inID="+<?php echo $_SESSION['id'];?>+"&sub="+sub+"&gpa=''&SID=''"+"&ssID=''";
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-cutgrade-link.php?type=02&inID="+<?php echo $_SESSION['id4'];?>+"&sub="+sub+"&gpa=''&SID=''"+"&ssID=''";
                     
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -364,7 +364,7 @@
 
             function sendGrade(gpa,SID,ssID){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-cutgrade-link.php?type=03&inID="+<?php echo $_SESSION['id'];?>+"&sub=0"+"&gpa="+gpa+"&SID="+SID+"&ssID="+ssID;
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-cutgrade-link.php?type=03&inID="+<?php echo $_SESSION['id4'];?>+"&sub=0"+"&gpa="+gpa+"&SID="+SID+"&ssID="+ssID;
                     
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {

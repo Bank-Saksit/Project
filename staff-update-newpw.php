@@ -43,7 +43,9 @@
         else if($pw==$pw2){
             $conn->query("UPDATE staffinfo  SET Password = '$enpw' WHERE StaffID = $id ;");
             $conn->close();
-            session_destroy();
+            unset($_SESSION['id3']);
+            unset($_SESSION['idcard3']);
+            unset($_SESSION['role3']);
             echo    "<script>
                         swal({
                         

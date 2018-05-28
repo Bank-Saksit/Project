@@ -1,5 +1,7 @@
 <?php
 session_start();
-session_destroy();
+unset($_SESSION['id0']);
+unset($_SESSION['idcard0']);
+unset($_SESSION['role0']);
 header("location: student-new-login.php");
 ?>

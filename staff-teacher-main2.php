@@ -49,7 +49,7 @@
 </head>
 <body>
     <?php 
-            if(isset($_SESSION['id']) && isset($_SESSION['pswd']) && $_SESSION['role'] == 'Teacher') {
+            if(isset($_SESSION['id4']) && isset($_SESSION['pswd4']) && $_SESSION['role4'] == 'Teacher') {
                 
             }
             else{
@@ -89,7 +89,7 @@
 
             function load(){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-disSub.php?ID="+<?php echo $_SESSION['id'];?>;
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-disSub.php?ID="+<?php echo $_SESSION['id4'];?>;
                     
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -120,7 +120,7 @@
             function regisSub(){
                 var xmlhttp = new XMLHttpRequest();
                 var sub = document.getElementById('sub').value;
-                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-regisSub-link.php?ID="+<?php echo $_SESSION['id'];?>+"&sub="+sub;
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-regisSub-link.php?ID="+<?php echo $_SESSION['id4'];?>+"&sub="+sub;
                     
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -147,7 +147,7 @@
 
             function load2(){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-timeTable.php?ID="+<?php echo $_SESSION['id'];?>;
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-timeTable.php?ID="+<?php echo $_SESSION['id4'];?>;
                     
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -180,7 +180,7 @@
                 var xmlhttp = new XMLHttpRequest();
                 var sem = document.getElementById('sem').value;
                 var year = document.getElementById('year').value;
-                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-timeTable-link.php?ID="+<?php echo $_SESSION['id'];?>+"&sem="+sem+"&year="+year;
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-timeTable-link.php?ID="+<?php echo $_SESSION['id4'];?>+"&sem="+sem+"&year="+year;
                     
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {

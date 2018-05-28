@@ -25,11 +25,11 @@ session_start();
     </head>
     <body>
         <?php
-            if(isset($_SESSION['id']) && isset($_SESSION['pswd']) && $_SESSION['role'] == 'Teacher') {
+            if(isset($_SESSION['id4']) && isset($_SESSION['pswd4']) && $_SESSION['role4'] == 'Teacher') {
                 header("location: staff-teacher-main.php");
                 exit('</body></html>');
             }
-            else if(isset($_SESSION['id']) && isset($_SESSION['pswd']) && $_SESSION['role'] == 'Admin') {
+            else if(isset($_SESSION['id5']) && isset($_SESSION['pswd5']) && $_SESSION['role5'] == 'Admin') {
                 header("location: staff-admin-main.php");
                 exit('</body></html>');
             }

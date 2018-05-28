@@ -41,13 +41,18 @@
             else if($result->num_rows == 1){
                 $rs= $result->fetch_array(MYSQLI_ASSOC);
                 $conn->close();
-                $_SESSION['id'] = $id;
-                $_SESSION['pswd'] = $enpw;
-                $_SESSION['role'] = $rs['Role'];
-                if($_SESSION['role']=='Teacher'){
+                
+                
+                if($rs['Role']=='Teacher'){
+                    $_SESSION['id4'] = $id;
+                    $_SESSION['pswd4'] = $enpw;
+                    $_SESSION['role4'] = $rs['Role'];
                    header("Location:staff-teacher-main.php");
                 }
-                elseif($_SESSION['role']=='Admin'){
+                elseif($rs['Role']=='Admin'){
+                    $_SESSION['id5'] = $id;
+                    $_SESSION['pswd5'] = $enpw;
+                    $_SESSION['role5'] = $rs['Role'];
                     header("Location:staff-admin-main.php");
                  }
                    

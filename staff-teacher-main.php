@@ -48,7 +48,7 @@
      </div>
      <div id="main">
         <?php 
-            if(isset($_SESSION['id']) && isset($_SESSION['pswd']) && $_SESSION['role'] == 'Teacher') {
+            if(isset($_SESSION['id4']) && isset($_SESSION['pswd4']) && $_SESSION['role4'] == 'Teacher') {
                 
             }
             else{
@@ -81,7 +81,7 @@
         }
         function load(){
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol+'//'+location.host+"/Project/staff-teacher-profile-link.php?type=01&inID="+<?php echo $_SESSION['id'];?>;
+            var url = location.protocol+'//'+location.host+"/Project/staff-teacher-profile-link.php?type=01&inID="+<?php echo $_SESSION['id4'];?>;
                 
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
