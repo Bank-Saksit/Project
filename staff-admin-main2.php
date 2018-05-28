@@ -174,22 +174,22 @@
                                                 GROUP BY Province 
                                                 ORDER BY COUNT(Province) DESC LIMIT 3");
                 echo"var countMing=0;";
-                echo"var outMing = '<table><tr><td align=\'center\'>โครงการ</td><td align=\'center\'>จำนวน(คน)</td><td align=\'center\'>ร้อยละ</td></tr>';";
+                echo"var outMing = '<h2>5 จังหวัดที่มีนักศึกษาอยู่มากที่สุด</h2><table><tr><td id = \'t\' align=\'center\'>โครงการ</td><td id = \'t\' align=\'center\'>จำนวน(คน)</td><td id = \'t\' align=\'center\'>ร้อยละ</td></tr>';";
                 while($row = mysqli_fetch_array($result)){
-                    echo "outMing += '<tr><th>'+'".$row['Province']."'+'</th><th align=\'center\'>'+'".$row['sum']."'+'</th><th align=\'center\'>'+parseFloat(parseInt('".$row['sum']."')/allMing*100).toFixed(2)+'</th></tr>';";  
+                    echo "outMing += '<tr><td id = \'t\'>'+'".$row['Province']."'+'</td><td id = \'t\' align=\'center\'>'+'".$row['sum']."'+'</td><td id = \'t\' align=\'center\'>'+parseFloat(parseInt('".$row['sum']."')/allMing*100).toFixed(2)+'</td></tr>';";  
                     echo "countMing += parseInt(".$row['sum'].");";          
                 } 
             ?> 
             
             var otherMing = parseInt(allMing)-parseInt(countMing);
-            outMing += '<tr><th>อื่นๆ</th><th>'+otherMing+'</th><th>'+parseFloat(parseInt(otherMing)/parseInt(allMing)*100).toFixed(2)+'</th></tr>';
-            outMing += '<tr><th colspan="1" align=\'center\'>รวม</th><th align=\'center\'>'+allMing+'</th><th colspan="1" align=\'center\'>100</th></tr>';
+            outMing += '<tr><td id = \'t\'>อื่นๆ</td><td id = \'t\' align = \'center\'>'+otherMing+'</td><td id = \'t\'>'+parseFloat(parseInt(otherMing)/parseInt(allMing)*100).toFixed(2)+'</td></tr>';
+            outMing += '<tr><td id = \'t\' colspan="1" align=\'center\'>รวม</td><td id = \'t\' align=\'center\'>'+allMing+'</td><td id = \'t\' colspan="1" align=\'center\'>100</td></tr>';
             outMing += '</table>';
             document.getElementById("menu7").innerHTML = outMing;
         }
 
         function display() {
-            var out1 = "<table>";
+            var out1 = "<h2>ข้อมูลนักศึกษา</h2><table>";
             for( var i = 0; i < arr.length; i++) {
                 if(i==0)
                     out1 += "<tr><td align='center'>รหัสนักศึกษา</td><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>ระดับการศึกษา</td><td align='center'>หลักสูตร</td><td align='center'>เบอร์โทรศัพท์</td><td align='center'>เบอร์โทรศัพท์บ้าน</td><td align='center'>Email</td><td align='center'>สถานะ</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อ</td><td align='center'>นามสกุล</td><td colspan='4' align='center'>แก้ไข</td></tr>";
@@ -218,25 +218,25 @@
             out1 += "</table>";
             document.getElementById("menu1").innerHTML = out1;
 
-            var out2 = "<table>";
+            var out2 = "<h2>นักศึกษาถอนรายวิชา</h2><table>";
             for( var i = 0; i < ssub.length; i++) {
                 var secnum;
                 if( ssub[i].GPA=='-1' ) secnum = 'ถอนแล้ว';
                 else secnum = ssub[i].GPA;
-                if(i==0) out2 += "<tr><td align='center'>รหัสนักศึกษา</td><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>ระดับการศึกษา</td><td align='center'>หลักสูตร</td><td align='center'>สถานะ</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อ</td><td align='center'>นามสกุล</td><td align='center'>รหัสวิชา</td><td align='center'>กลุ่ม</td><td align='center'>GPA</td><td align='center'>แก้ไข</td></tr>";
-                out2 += "<tr><td>" + ssub[i].StudentID +
-                "</td><td>" + ssub[i].Faculty+
-                "</td><td>" + ssub[i].Department+
-                "</td><td>" + ssub[i].Degree+
-                "</td><td>" + ssub[i].Course+
-                "</td><td>" + ssub[i].Status+
-                "</td><td>" + ssub[i].Prefix+    
-                "</td><td>" + ssub[i].FirstName+
-                "</td><td>" + ssub[i].LastName+
-                "</td><td>" + ssub[i].SubjectID+
-                "</td><td>" + ssub[i].SectionNumber+
-                "</td><td>" + secnum+
-                "</td><td>" +
+                if(i==0) out2 += "<tr><td id = 't' align='center'>รหัสนักศึกษา</td><td id = 't' align='center'>คณะ</td><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>ระดับการศึกษา</td><td id = 't' align='center'>หลักสูตร</td><td id = 't' align='center'>สถานะ</td><td id = 't' align='center'>คำนำหน้า</td><td id = 't' align='center'>ชื่อ</td><td id = 't' align='center'>นามสกุล</td><td id = 't' align='center'>รหัสวิชา</td><td id = 't' align='center'>กลุ่ม</td><td id = 't' align='center'>GPA</td><td id = 't' align='center'>แก้ไข</td></tr>";
+                out2 += "<tr><td id = 't'>" + ssub[i].StudentID +
+                "</td><td id = 't'>" + ssub[i].Faculty+
+                "</td><td id = 't'>" + ssub[i].Department+
+                "</td><td id = 't'>" + ssub[i].Degree+
+                "</td><td id = 't'>" + ssub[i].Course+
+                "</td><td id = 't'>" + ssub[i].Status+
+                "</td><td id = 't'>" + ssub[i].Prefix+    
+                "</td><td id = 't'>" + ssub[i].FirstName+
+                "</td><td id = 't'>" + ssub[i].LastName+
+                "</td><td id = 't'>" + ssub[i].SubjectID+
+                "</td><td id = 't'>" + ssub[i].SectionNumber+
+                "</td><td id = 't'>" + secnum+
+                "</td><td id = 't'>" +
                 "<button onclick=\"sdrop('"+ssub[i].StudentID+"', '"+ssub[i].SubjectSectionID+"')\">ถอน</button>"+
                 "</td></tr>";
             }
@@ -244,7 +244,7 @@
             document.getElementById("menu2").innerHTML = out2;
 
             var countm3 = 0, countw3 = 0;
-            var out3 = "<table>";
+            var out3 = "<h2>จำนวนนักศึกษาแต่ละนักศึกษา</h2><table>";
             out3 += "<tr><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>ชาย</td><td id = 't' align='center'>หญิง</td><td id = 't' align='center'>รวม</td></tr>";
             for( var i=0 ; i<report1.length ; i++ ){
                 out3 += "<tr><td id = 't'>"+report1[i].Department+"</td>";
@@ -271,7 +271,7 @@
             document.getElementById("menu3").innerHTML = out3;
 
             var c4 = 0;
-            var out4 = "<table>";
+            var out4 = "<h2>จำนวนนักศึกษาที่ลาออก</h2><table>";
             out4 += "<tr><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>ลาออก</td><td id = 't' align='center'>นักศึกษาทั้งหมด</td><td id = 't' align='center'>อัตราส่วน</td></tr>";
             for( var i=0 ; i<report2.length ; i++ ){
                 if ( report2[i].Status=='ลาออก' ){
@@ -290,7 +290,7 @@
             document.getElementById("menu4").innerHTML = out4;
 
             var countm5 = 0, countw5 = 0;
-            var out5 = "<table>";
+            var out5 = "<h2>จำนวนผู้จบการศึกษา</h2><table>";
             out5 += "<tr><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>ชาย</td><td id = 't' align='center'>หญิง</td><td id = 't' align='center'>รวม</td></tr>";
             for( var i=0 ; i<report3.length ; i++ ){
                 out5 += "<tr><td id = 't'>"+report3[i].Department+"</td>";
@@ -308,7 +308,7 @@
             document.getElementById("menu5").innerHTML = out5;
 
             var c6 = 0;
-            var out6 = "<table>";
+            var out6 = "<h2>จำนวนนักศึกษาที่ถูกไล่ออก</h2><table>";
             out6 += "<tr><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>ไล่ออก</td><td id = 't' align='center'>นักศึกษาทั้งหมด</td><td id = 't' align='center'>อัตราส่วน</td></tr>";
             for( var i=0 ; i<report2.length ; i++ ){
                 if ( report2[i].Status=='ไล่ออก' ){

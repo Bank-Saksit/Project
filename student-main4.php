@@ -46,6 +46,9 @@ session_start();
             margin-top: 2%;
             margin-left:20%;
         }
+        #top{
+            background-color:#52128e;
+        }
     </style>
     
 </head>
