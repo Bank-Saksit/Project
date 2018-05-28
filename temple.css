@@ -46,8 +46,9 @@
     float:right;
 }
 .top a:hover {
-    background-color: #ebebeb;
+    background-color: #f7f4f4;
     color: #23527c;
+    border-radius: 5px;
     text-decoration: underline;
     transition: 0.1s;
 }
@@ -93,4 +94,9 @@ pp{
 }
 .swal2-popup {
     font-size: 2rem;
+}
+#top> .active{
+    color:white;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
 }
