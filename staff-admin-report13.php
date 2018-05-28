@@ -14,8 +14,8 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     }
 }
 
-$outp = "<h2>รวมจำนวนผู้สำเร็จการศึกษาและจำนวนผู้กำลังศึกษา</h2><table><tr><td>ประเภท</td><td>จำนวน</td><tr>";
-$outp .= "<tr><td>ผู้สำเร็จการศึกษา</td><td>".$end."</td></tr>";
-$outp .= "<tr><td>ผู้กำลังศึกษา</td><td>".$now."</td></tr><table>";
+$outp = "<h2>จำนวนผู้สำเร็จการศึกษาและจำนวนผู้กำลังศึกษา</h2><table><tr><td id = 't' align = 'center'>ประเภท</td><td id = 't' align = 'center'>จำนวน</td><tr>";
+$outp .= "<tr><td id = 't'>ผู้สำเร็จการศึกษา</td><td id = 't' align = 'center'>".$end."</td></tr>";
+$outp .= "<tr><td id = 't'>ผู้กำลังศึกษา</td><td id = 't' align = 'center'>".$now."</td></tr><table>";
 echo($outp);     
 ?>
