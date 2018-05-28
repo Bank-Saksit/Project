@@ -420,8 +420,8 @@
             document.getElementById("menu3p5").innerHTML = out;
         }
 
-         //5 จำนวนผู้สมัครเข้าแต่ละโครงการ
-         function load5(){
+        //จำนวนผู้สมัครเข้าแต่ละโครงการ
+        function load5(){
             <?php
                 include "dblink.php";
                
@@ -437,11 +437,48 @@
                 }
                 
             ?>
-            out += '<tr><th colspan="3" align=\'center\'>รวม</th><th align=\'center\'>'+count+'</th>';
+            out += '<tr><th colspan="3" align=\'center\'>รวม</th><th align=\'center\'>'+count+'</th></tr>';
             out += '</table>';
             document.getElementById("menu5").innerHTML = out;
             
         }
+
+
+        // //5 จังหวัดที่นักศึกษาอยู่มากสุด 
+        // function load5(){
+        //     <?php
+        //         include "dblink.php";
+                
+        //         //หาจำนวนนศ.ทั้งหมด
+        //         echo"var all=0;";
+        //         $result2 = mysqli_query($conn,"SELECT COUNT(StudentID) AS allN 
+        //                                         FROM studentinfo ");
+        //         while($row = mysqli_fetch_array($result2)){
+        //             echo"all = '".$row['allN']."';";
+        //         }
+               
+        //         //หาจำนวนนศ.5อันดับแรก+สร้างตาราง
+        //         $result = mysqli_query($conn,"SELECT Province,COUNT(Province) AS sum
+        //                                         FROM studentinfo
+        //                                         GROUP BY Province 
+        //                                         ORDER BY COUNT(Province) DESC LIMIT 3");
+        //         echo"var count=0;";
+        //         echo"var out = '<table><tr><td align=\'center\'>โครงการ</td><td align=\'center\'>จำนวน(คน)</td><td align=\'center\'>ร้อยละ</td></tr>';";
+        //         while($row = mysqli_fetch_array($result)){
+        //             echo "out += '<tr><th>'+'".$row['Province']."'+'</th><th align=\'center\'>'+'".$row['sum']."'+'</th><th align=\'center\'>'+parseFloat(parseInt('".$row['sum']."')/all*100).toFixed(2)+'</th></tr>';";  
+        //             echo "count += parseInt(".$row['sum'].");";          
+        //         } 
+        //     ?> 
+            
+        //     var other = parseInt(all)-parseInt(count);
+        //     out += '<tr><th>อื่นๆ</th><th>'+other+'</th><th>'+parseFloat(parseInt(other)/parseInt(all)*100).toFixed(2)+'</th></tr>';
+        //     out += '<tr><th colspan="1" align=\'center\'>รวม</th><th align=\'center\'>'+all+'</th><th colspan="1" align=\'center\'>100</th></tr>';
+        //     out += '</table>';
+        //     document.getElementById("menu5").innerHTML = out;
+            
+        // }
+
+
         
     </script>
     
