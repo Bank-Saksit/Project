@@ -187,8 +187,9 @@
             for( var i=0 ; i<vsub.length ; i++ )
                 if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out5+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
             out5 += "</select> กลุ่ม : <select id='inSec5' onclick='change5()'>";
-            for( var i=0 ; i<vsub.length ; i++ )
-                if( vsub[i].SubjectID==document.getElementById('inSub5').value ) out5+="<option value='"+vsub[i].SectionNumber+"'>"+vsub[i].SectionNumber+"</option>";
+            out5 += "<option value=1>1</option>"+
+                    "<option value=2>2</option>"+
+                    "<option value=3>3</option>";
             out5+="</select><div id='in5'></div><p><br><input type='button' value='ยืนยัน' onclick='update5()'></p></form></div></div>";
             document.getElementById("menu5").innerHTML = out5;
 
@@ -205,10 +206,8 @@
                 if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out6+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
             out6 += "</select> กลุ่ม : <select id='inSec6' onchange='change6()'>";
             out6 += "<option value=1>1</option>"+
-                        "<option value=2>2</option>"+
-                        "<option value=3>3</option>";
-            // for( var i=0 ; i<vsub.length ; i++ )
-            //     if( vsub[i].SubjectID==document.getElementById('inSub6').value ) out6+="<option value='"+vsub[i].SectionNumber+"'>"+vsub[i].SectionNumber+"</option>";
+                    "<option value=2>2</option>"+
+                    "<option value=3>3</option>";
             out6+="</select><br></form><div id='in6'></div></div></div>";
             document.getElementById("menu6").innerHTML = out6;
 
@@ -259,17 +258,20 @@
             var index;
             for( var i=0 ; i<vsub.length ; i++ )
                 if( sub==vsub[i].SubjectID && sec==vsub[i].SectionNumber ){ index=i; break; }
-            var out = "<p><div class = 'row'>"+
-                    "<div class= 'col-sm-4' >"+
-                    "<p>เทอมการศึกษา: "+vsub[index].Semester+"</p>"+
-                    "<p>ปีการศึกษา: "+vsub[index].AcademicYear+"</p>"+
-                    "<p>จำนวนที่นั่ง: "+vsub[index].SeatAmount+"</p>"+
-                    "<p>วัน: "+vsub[index].Day+"</p>"+
-                    "<p>เวลา: "+vsub[index].StartTime+" ถึง "+vsub[index].EndTime+"</p>"+
-                    "<p>ห้องเรียน: "+vsub[index].Room+"</p>"+
-                    "</div>"+
-                    "</div>";
-            document.getElementById("in5").innerHTML = out;
+            if( typeof vsub[index]!='undefined' ){
+                var out = "<p><div class = 'row'>"+
+                        "<div class= 'col-sm-4' >"+
+                        "<p>เทอมการศึกษา: "+vsub[index].Semester+"</p>"+
+                        "<p>ปีการศึกษา: "+vsub[index].AcademicYear+"</p>"+
+                        "<p>จำนวนที่นั่ง: "+vsub[index].SeatAmount+"</p>"+
+                        "<p>วัน: "+vsub[index].Day+"</p>"+
+                        "<p>เวลา: "+vsub[index].StartTime+" ถึง "+vsub[index].EndTime+"</p>"+
+                        "<p>ห้องเรียน: "+vsub[index].Room+"</p>"+
+                        "</div>"+
+                        "</div>";
+                document.getElementById("in5").innerHTML = out;
+            }
+            else document.getElementById("in5").innerHTML = 'ไม่พบข้อมูล';
         }
 
         function change6(){
@@ -278,23 +280,26 @@
             var index;
             for( var i=0 ; i<vsub.length ; i++ )
                 if( sub==vsub[i].SubjectID && sec==vsub[i].SectionNumber ){ index=i; break; }
-            var out = "<p><div class = 'row'>"+
-                    "<div class= 'col-sm-6' >"+
-                    "<form>"+
-                    "<p>เทอมการศึกษา: <select id='inSem6'>"+
-                            "<option value=1>1</option>"+
-                            "<option value=2>2</option>"+
-                            "</select>"+
-                    "<p>ปีการศึกษา: <input type='text' id='inY6' class='bg' value='"+vsub[index].AcademicYear+"'></p>"+
-                    "<p>จำนวนที่นั่ง: <input type='text' id='inSA6' class='bg' value='"+vsub[index].SeatAmount+"'></p>"+
-                    "<p>วัน: <input type='text' id='inD6' class='bg' value='"+vsub[index].Day+"'></p>"+
-                    "<p>เวลา: <input type='text' id='inTS6' class='bg' value='"+vsub[index].StartTime+"'> ถึง <input type='text' id='inTE6' class='bg' value='"+vsub[index].EndTime+"'></p>"+
-                    "<p>ห้องเรียน: <input type='text' id='inR6' class='bg' value='"+vsub[index].Room+"'></p>"+
-                    "<br><p><input type='button' value='ยืนยัน' onclick='update6()'></p>"+
-                    "</form>"+
-                    "</div>"+
-                    "</div>";
-            document.getElementById("in6").innerHTML = out;
+            if( typeof vsub[index]!='undefined' ){
+                var out = "<p><div class = 'row'>"+
+                        "<div class= 'col-sm-6' >"+
+                        "<form>"+
+                        "<p>เทอมการศึกษา: <select id='inSem6'>"+
+                                "<option value=1>1</option>"+
+                                "<option value=2>2</option>"+
+                                "</select>"+
+                        "<p>ปีการศึกษา: <input type='text' id='inY6' class='bg' value='"+vsub[index].AcademicYear+"'></p>"+
+                        "<p>จำนวนที่นั่ง: <input type='text' id='inSA6' class='bg' value='"+vsub[index].SeatAmount+"'></p>"+
+                        "<p>วัน: <input type='text' id='inD6' class='bg' value='"+vsub[index].Day+"'></p>"+
+                        "<p>เวลา: <input type='text' id='inTS6' class='bg' value='"+vsub[index].StartTime+"'> ถึง <input type='text' id='inTE6' class='bg' value='"+vsub[index].EndTime+"'></p>"+
+                        "<p>ห้องเรียน: <input type='text' id='inR6' class='bg' value='"+vsub[index].Room+"'></p>"+
+                        "<br><p><input type='button' value='ยืนยัน' onclick='update6()'></p>"+
+                        "</form>"+
+                        "</div>"+
+                        "</div>";
+                document.getElementById("in6").innerHTML = out;
+            }
+            else document.getElementById("in6").innerHTML = 'ไม่พบข้อมูล';
         }
 
         function update1(){
