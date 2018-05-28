@@ -186,7 +186,7 @@
                             "</th><th>" +
                             "นามสกุล"+
                             "</th><th>" +
-                            "GPA"+
+                            "GPAX"+
                             "</th></tr>";
                     for(i=0;i<arr.length;i++){
                         out2+=  "<tr><td>" +

@@ -35,6 +35,8 @@ include "dblink.php";
                             WHERE   sc.SubjectID = su.SubjectID AND
                                     sc.Semester = '1' AND
                                     sc.AcademicYear = '2018' AND
+                                    sc.StartTime IN ('08:00:00','09:00:00','10:00:00','11:00:00','12:00:00','13:00:00','14:00:00','15:00:00','16:00:00') AND
+                                    sc.EndTime IN ('09:00:00','10:00:00','11:00:00','12:00:00','13:00:00','14:00:00','15:00:00','16:00:00','17:00:00') AND
                                     sc.SubjectSectionID NOT IN (SELECT SubjectSectionID
                                                                 FROM teachersec 
                                                                 WHERE StaffID=$id);");
