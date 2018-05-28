@@ -149,7 +149,7 @@
             <div id="content">
                 <div id="left" class="card" onclick="window.location.href='recruit-login.php'">
                     <img data-u="image" src="img/gallery/980x380/056.jpg" />
-                    <h1 class = "s1">นักเรียน</h1>
+                    <h1 class = "s1">ผู้สนใจเข้าศึกษาต่อ</h1>
                 </div>
                 <div id="center" class="card" onclick="window.location.href='student-home.php'">
                     <img data-u="image" src="img/gallery/980x380/057.jpg" />
