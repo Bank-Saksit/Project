@@ -181,8 +181,16 @@
                         "</select>"+
                 "<p>ปีการศึกษา : <input type='text' id='inY' class='bg'></p>"+
                 "<p>จำนวนที่นั่ง : <input type='text' id='inSA' class='bg'></p>"+
-                "<p>วัน : <input type='text' id='inD' class='bg'></p>"+
-                "<p>เวลา : <input type='text' id='inTS' class='bg'> ถึง <input type='text' id='inTE' class='bg'></p>"+
+                "<p>วัน : <select id='inD' class='bg'>"+
+                    "<option value='จันทร์'>จันทร์</option>"+
+                    "<option value='อังคาร'>อังคาร</option>"+
+                    "<option value='พุธ'>พุธ</option>"+
+                    "<option value='พฤหัสบดี'>พฤหัสบดี</option>"+
+                    "<option value='ศุกร์'>ศุกร์</option>"+
+                    "<option value='เสาร์'>เสาร์</option>"+
+                    "<option value='อาทิตย์'>อาทิตย์</option>"+
+                "</select>"+
+                "<p>เวลา : <input type='text' id='inTS' class='bg'> ถึง <input type='text' id='inTE' class='bg'> (ตัวอย่าง: 10:00:00 ถึง 12:00:00)</p>"+
                 "<p>ห้องเรียน : <input type='text' id='inR' class='bg'></p>"+
                 "<br><p><input type='button' value='ยืนยัน' onclick='update4()'></p>"+
                 "</div></div>";
@@ -304,14 +312,33 @@
                                 "</select>"+
                         "<p>ปีการศึกษา: <input type='text' id='inY6' class='bg' value='"+vsub[index].AcademicYear+"'></p>"+
                         "<p>จำนวนที่นั่ง: <input type='text' id='inSA6' class='bg' value='"+vsub[index].SeatAmount+"'></p>"+
-                        "<p>วัน: <input type='text' id='inD6' class='bg' value='"+vsub[index].Day+"'></p>"+
-                        "<p>เวลา: <input type='text' id='inTS6' class='bg' value='"+vsub[index].StartTime+"'> ถึง <input type='text' id='inTE6' class='bg' value='"+vsub[index].EndTime+"'></p>"+
+                        "<p><p>วัน : <select id='inD6' class='bg'>"+
+                            "<option value='จันทร์'>จันทร์</option>"+
+                            "<option value='อังคาร'>อังคาร</option>"+
+                            "<option value='พุธ'>พุธ</option>"+
+                            "<option value='พฤหัสบดี'>พฤหัสบดี</option>"+
+                            "<option value='ศุกร์'>ศุกร์</option>"+
+                            "<option value='เสาร์'>เสาร์</option>"+
+                            "<option value='อาทิตย์'>อาทิตย์</option>"+
+                        "</select></p>"+
+                        "<p>เวลา: <input type='text' id='inTS6' class='bg' value='"+vsub[index].StartTime+"'> ถึง <input type='text' id='inTE6' class='bg' value='"+vsub[index].EndTime+"'> (ตัวอย่าง: 10:00:00 ถึง 12:00:00)</p>"+
                         "<p>ห้องเรียน: <input type='text' id='inR6' class='bg' value='"+vsub[index].Room+"'></p>"+
                         "<br><p><input type='button' value='ยืนยัน' onclick='update6()'></p>"+
                         "</form>"+
                         "</div>"+
                         "</div>";
                 document.getElementById("in6").innerHTML = out;
+                for( var i=0 ; i<vsub.length ; i++ )
+                    if( sub==vsub[i].SubjectID && sec==vsub[i].SectionNumber ){
+                        if( vsub[i].Day=='จันทร์' ) document.getElementById('inD6').selectedIndex = 0;
+                        else if( vsub[i].Day=='อังคาร' ) document.getElementById('inD6').selectedIndex = 1;
+                        else if( vsub[i].Day=='พุธ' ) document.getElementById('inD6').selectedIndex = 2;
+                        else if( vsub[i].Day=='พฤหัสบดี' ) document.getElementById('inD6').selectedIndex = 3;
+                        else if( vsub[i].Day=='ศุกร์' ) document.getElementById('inD6').selectedIndex = 4;
+                        else if( vsub[i].Day=='เสาร์' ) document.getElementById('inD6').selectedIndex = 5;
+                        else if( vsub[i].Day=='อาทิตย์' ) document.getElementById('inD6').selectedIndex = 6;
+                        break;
+                    }
             }
             else document.getElementById("in6").innerHTML = 'ไม่พบข้อมูล';
         }
