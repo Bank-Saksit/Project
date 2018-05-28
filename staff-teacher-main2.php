@@ -40,7 +40,7 @@
             round:white;
         }
         #top{
-            background-color:#1c94a5;
+            background-color:#33b2d6;
         }
         .swal2-popup {
             font-size: 2rem;
