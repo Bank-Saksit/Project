@@ -58,6 +58,9 @@
             <li><a data-toggle="tab" href="#menu4">จำนวนนักศึกษาที่ลาออก</a></li>
             <li><a data-toggle="tab" href="#menu6">จำนวนนักศึกษาที่ถูกไล่ออก</a></li>
             <li><a data-toggle="tab" href="#menu7">5 จังหวัดที่นักศึกษาอยู่มากสุด</a></li>
+            <li><a data-toggle="tab" href="#menu8">จำนวนผู้สำเร็จการศึกษาและจำนวนผู้กำลังศึกษา</a></li>
+            <li><a data-toggle="tab" href="#menu9">จํานวนนักศึกษาใหม่ระดับบปริญญาตรี</a></li>
+            <li><a data-toggle="tab" href="#menu10">จํานวนนักศึกษาต่างชาติ</a></li>
         </ul>
     </div>
     <div id="main">
@@ -69,6 +72,9 @@
             <div id="menu4" class="tab-pane fade"></div>
             <div id="menu6" class="tab-pane fade"></div>
             <div id="menu7" class="tab-pane fade"></div>
+            <div id="menu8" class="tab-pane fade"></div>
+            <div id="menu9" class="tab-pane fade"></div>
+            <div id="menu10" class="tab-pane fade"></div>
         </div>
 
         <script>
@@ -326,6 +332,133 @@
             out6 += "</table>";
             document.getElementById("menu6").innerHTML = out6;
         }
+        
+        loadreport13();
+        function loadreport13() {
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+ "/Project/staff-admin-report13.php";
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("menu8").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        loadreport14();
+        function loadreport14(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+ "/Project/staff-admin-report14.php";
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    showreport14(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        
+        function showreport14(response){
+            var report = JSON.parse(response);
+            var out1 = "<h2>จํานวนนักศึกษาใหม่ระดับบปริญญาตรี</h2><table><tr><th rowspan='2'>คณะ</th><th colspan='6'>ประเภทการเข้า</th></tr>"+
+                        "<tr><th class='ei'>2B</th><th class='ei'>Active Recruitment</th><th class='ei'>Clearing House</th><th class='ei'>เรียนดี</th><th class='ei'>Admission</th><th class='ei'>รวม</th></tr>";
+            var prev = report[0].Faculty;
+            var B2 = 0,Active = 0,ch = 0,good = 0,adm = 0,total = 0;
+            var tB2 = 0,tActive = 0,tch = 0,tgood = 0,tadm = 0,ttotal =0;
+            for(i=0;i<report.length;i++){
+                    if(report[i].Faculty.localeCompare(prev)!=0){
+                        out1 += "<tr><td>"+prev+"</td><td>"+B2+"</td><td>"+Active+"</td><td>"+ch+"</td><td>"+good+"</td>"+
+                            "<td>"+adm+"</td><td>"+total+"</td></tr>";
+                        B2 = 0,Active = 0,ch = 0,good = 0,adm = 0,total = 0;
+                        prev = report[i].Faculty;
+                    }
+                    if(report[i].RecruitPlanName.localeCompare("2B")==0){
+                        B2 = report[i].Num;
+                        tB2 = B2 + tB2;
+                    }
+                    else if(report[i].RecruitPlanName.localeCompare("Active Recruitment")==0){
+                        Active = report[i].Num;
+                        tActive = Active + tActive;
+                    }   
+                    else if(report[i].RecruitPlanName.localeCompare("Admission")==0){
+                        adm = report[i].Num;
+                        tadm = adm + tadm;
+                    }   
+                    else if(report[i].RecruitPlanName.localeCompare("Clearing House")==0){
+                        ch = report[i].Num;
+                        tch = ch + tch;
+                    }   
+                    else if(report[i].RecruitPlanName.localeCompare("เรียนดี")==0){
+                        good = report[i].Num;
+                        tgood = good + tgood;
+                    }
+                    if(report[i].RecruitPlanName.localeCompare(prev)==0){
+                        prev = report[i].Faculty;
+                    }
+                    total = B2 + Active + adm + ch + good;
+                    
+                }
+            ttotal = tadm + tB2 + tActive + tch + tgood;
+            out1 += "<tr><td>"+prev+"</td><td>"+B2+"</td><td>"+Active+"</td><td>"+ch+"</td><td>"+good+"</td>"+
+                            "<td>"+adm+"</td><td>"+total+"</td></tr>";
+            out1 += "<tr><td>รวมทั้งหมด</td><td>"+tB2+"</td><td>"+tActive+"</td><td>"+tch+"</td><td>"+tgood+"</td>"+
+                            "<td>"+tadm+"</td><td>"+ttotal+"</td></tr>"
+            out1 += "</table>";
+            document.getElementById("menu9").innerHTML = out1;
+        }
+
+        loadreport12();
+        function loadreport12() {
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+ "/Project/staff-admin-report12.php";
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    showreport12(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        function showreport12(response){
+            var report1 = JSON.parse(response);
+            var out2 = "<h2>จํานวนนักศึกษาต่างชาติ</h2><table><tr><th>ชื่อสัญชาติ/th><th>ปริญญาตรี</th>"+
+                        "<th>ปริญญาโท</th><th>ปริญญาเอก</th><th>รวม</th></tr>";
+            var prev = report1[0].Nationality;
+            var tee = 0,to = 0,ek = 0,total = 0;
+            var ttee = 0,tto = 0,tek = 0,ttotal = 0;
+            for(i=0;i<report1.length;i++){
+                    if(report1[i].Nationality.localeCompare(prev)!=0){
+                        out2 += "<tr><td>"+prev+"</td><td>"+tee+"</td><td>"+to+"</td><td>"+ek+"</td><td>"+total+"</td></tr>";
+                        tee = 0,to = 0,ek = 0,total = 0;
+                        prev = report1[i].Nationality;
+                    }
+                    if(report1[i].Degree.localeCompare("ปริญญาตรี")==0){
+                        tee = report1[i].Num;
+                        ttee = tee + ttee;
+                        
+                    }
+                    else if(report1[i].Degree.localeCompare("ปริญญาโท")==0){
+                        to = report1[i].Num;
+                        tto = to + tto;
+                    }   
+                    else if(report1[i].Degree.localeCompare("ปริญญาเอก")==0){
+                        ek = report1[i].Num;
+                        tek = ek + tek;
+                    }   
+                    if(report1[i].Degree.localeCompare(prev)==0){
+                        prev = report1[i].Faculty;
+                    }
+                    total = tee + to + ek;
+                }
+            ttotal = ttee + tto + tek;
+            out2 += "<tr><td>"+prev+"</td><td>"+tee+"</td><td>"+to+"</td><td>"+ek+"</td><td>"+total+"</td></tr>";
+            out2 += "<tr><td>รวมทั้งหมด</td><td>"+ttee+"</td><td>"+tto+"</td><td>"+tek+"</td><td>"+ttotal+"</td></tr>";
+            out2 += "</table>";
+            document.getElementById("menu10").innerHTML = out2;
+        }
+
 
         function updateStatus( sid, st ) {
             var xmlhttp = new XMLHttpRequest();
