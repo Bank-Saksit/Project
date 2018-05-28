@@ -67,17 +67,17 @@
                 float: left;
                 margin-left: 40px;
                 animation-name: fading;
-                animation-duration: 4.5s;
+                animation-duration: 3.5s;
             }
             #right {
                 float: right;
                 animation-name: fading;
-                animation-duration: 5s;
+                animation-duration: 4s;
             }
             #left {
                 float: left;
                 animation-name: fading;
-                animation-duration: 4s;
+                animation-duration: 3s;
             }
             img {
                 width: 340px;
@@ -131,7 +131,7 @@
                 bottom: -60px;
                 border-top: 2px solid;
                 animation-name: fading;
-                animation-duration: 3s;
+                animation-duration: 2s;
             }
             footer>a{   
                 padding: 15px 10px;
