@@ -23,6 +23,9 @@ session_start();
         .swal2-popup {
             font-size: 2rem;
         }
+        #top{
+            background-color:#52128e;
+        }
     </style>
     
 </head>
@@ -66,7 +69,7 @@ session_start();
                     <p><span>วิชาที่ 1 </span>
                     <?php
                         include "dblink.php";
-                        $result = mysqli_query($conn,"SELECT * FROM subjectinfo");
+                        $result = mysqli_query($conn,"SELECT DISTINCT SubjectID FROM sectioninfo");
                         echo"<select name = 'Subject1[]' class='subject1'>";
                         echo"<option value = ''>โปรดเลือก</option>";
                         while($row = mysqli_fetch_array($result)){
@@ -108,7 +111,7 @@ session_start();
                     <p><span>วิชาที่ 1 </span>
                     <?php
                         include "dblink.php";
-                        $result = mysqli_query($conn,"SELECT * FROM subjectinfo");
+                        $result = mysqli_query($conn,"SELECT DISTINCT SubjectID FROM sectioninfo");
                         echo"<select name = 'Subject2[]' class='subject2'>";
                         echo"<option value = ''>โปรดเลือก</option>";
                         while($row = mysqli_fetch_array($result)){
@@ -369,28 +372,6 @@ session_start();
                 xmlhttp.send();
             }
 
-            // function detail( part, line ){
-            //     alert(part+''+line);
-            //     // var sub = document.getElementsByClassName('subject'+part);
-            //     // var sec = document.getElementsByClassName('section'+part);
-            //     ssub = sub[line].value;
-            //     ssec = sec[line].value
-                
-            //     var xmlhttp = new XMLHttpRequest();
-            //     var url = location.protocol + '//' + location.host+"/Project/student-main2-link.php?type=21&inID="+sname[0].StudentID;
-            //         url+="&inSub="+ssub+"&inSec="+ssec;
-
-            //     xmlhttp.onreadystatechange=function() {
-            //         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            //             var tmp = JSON.parse(xmlhttp.responseText);
-            //             alert("วิชา "+ssub+" กลุ่ม "+ssec+"\nจำนวนที่นั่ง "+tmp[0].SeatAmount+"\nวัน "+tmp[0].Day+"\nเวลา "+tmp[0].StartTime+" ถึง "+tmp[0].EndTime+"\nห้อง "+tmp[0].Room);
-            //         }
-            //     }
-                
-            //     xmlhttp.open("GET", url, true);
-            //     xmlhttp.send();
-            // }
-
             $(function(){
                 var n = 2;
                 if(n==2){	$('button[id="remove"]').prop('disabled', true);	}
@@ -399,7 +380,7 @@ session_start();
                 else{	$('button[id="add"]').prop('disabled', false);	}
                 
                 <?php
-                    $result = mysqli_query($conn,"SELECT * FROM subjectinfo");
+                    $result = mysqli_query($conn,"SELECT DISTINCT SubjectID FROM sectioninfo");
 
                     echo"var input = '<select name = \"Subject1[]\" class=\"subject1\">'+";
                     echo"'<option value = \"\">โปรดเลือก</option>'+";
@@ -443,7 +424,7 @@ session_start();
                 else{	$('button[id="add2"]').prop('disabled', false);	}
                 
                 <?php
-                    $result = mysqli_query($conn,"SELECT * FROM subjectinfo");
+                    $result = mysqli_query($conn,"SELECT DISTINCT SubjectID FROM sectioninfo");
 
                     echo"var input = '<select name = \"Subject2[]\" class=\"subject2\">'+";
                     echo"'<option value = \"\">โปรดเลือก</option>'+";

@@ -41,6 +41,9 @@ session_start();
             margin-top: 10px;
             font-size:16px;
         }
+        #top{
+            background-color:#52128e;
+        }
     </style>
     
 </head>

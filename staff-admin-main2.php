@@ -33,7 +33,7 @@
             font-size:18px;
         }
         #top{
-            background-color:#001a33;
+            background-color:#2c437c;
         }
     </style>
     
@@ -57,6 +57,7 @@
             <li><a data-toggle="tab" href="#menu5">จำนวนผู้จบการศึกษา</a></li>
             <li><a data-toggle="tab" href="#menu4">จำนวนนักศึกษาที่ลาออก</a></li>
             <li><a data-toggle="tab" href="#menu6">จำนวนนักศึกษาที่ถูกไล่ออก</a></li>
+            <li><a data-toggle="tab" href="#menu7">5 จังหวัดที่นักศึกษาอยู่มากสุด</a></li>
         </ul>
     </div>
     <div id="main">
@@ -67,6 +68,7 @@
             <div id="menu5" class="tab-pane fade"></div>
             <div id="menu4" class="tab-pane fade"></div>
             <div id="menu6" class="tab-pane fade"></div>
+            <div id="menu7" class="tab-pane fade"></div>
         </div>
 
         <script>
@@ -145,11 +147,45 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     report3 = JSON.parse(xmlhttp.responseText);
-                    display();
+                    load6();
+                    display();  
                 }
             }
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
+        }
+
+        //6 จังหวัดที่นักศึกษาอยู่มากสุด 
+        function load6(){
+            <?php
+                include "dblink.php";
+                
+                //หาจำนวนนศ.ทั้งหมด
+                echo"var allMing=0;";
+                $result2 = mysqli_query($conn,"SELECT COUNT(StudentID) AS allN 
+                                                FROM studentinfo ");
+                while($row = mysqli_fetch_array($result2)){
+                    echo"allMing = '".$row['allN']."';";
+                }
+               
+                //หาจำนวนนศ.5อันดับแรก+สร้างตาราง
+                $result = mysqli_query($conn,"SELECT Province,COUNT(Province) AS sum
+                                                FROM studentinfo
+                                                GROUP BY Province 
+                                                ORDER BY COUNT(Province) DESC LIMIT 3");
+                echo"var countMing=0;";
+                echo"var outMing = '<table><tr><td align=\'center\'>โครงการ</td><td align=\'center\'>จำนวน(คน)</td><td align=\'center\'>ร้อยละ</td></tr>';";
+                while($row = mysqli_fetch_array($result)){
+                    echo "outMing += '<tr><th>'+'".$row['Province']."'+'</th><th align=\'center\'>'+'".$row['sum']."'+'</th><th align=\'center\'>'+parseFloat(parseInt('".$row['sum']."')/allMing*100).toFixed(2)+'</th></tr>';";  
+                    echo "countMing += parseInt(".$row['sum'].");";          
+                } 
+            ?> 
+            
+            var otherMing = parseInt(allMing)-parseInt(countMing);
+            outMing += '<tr><th>อื่นๆ</th><th>'+otherMing+'</th><th>'+parseFloat(parseInt(otherMing)/parseInt(allMing)*100).toFixed(2)+'</th></tr>';
+            outMing += '<tr><th colspan="1" align=\'center\'>รวม</th><th align=\'center\'>'+allMing+'</th><th colspan="1" align=\'center\'>100</th></tr>';
+            outMing += '</table>';
+            document.getElementById("menu7").innerHTML = outMing;
         }
 
         function display() {

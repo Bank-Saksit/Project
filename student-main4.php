@@ -28,13 +28,14 @@ session_start();
             text-align:center;
             font-size:20px;
             border:1px solid;
-            color:white;
-            background:rgba(0,0,0,0.8);
+            font-weight:normal;
+            background: #f1f1f1;
         }
         #t2 {
             text-align:center;
             padding:14px 16px;
             font-size:18px;
+            background:white;
             border:1px solid;
         }
         #h4 {
@@ -44,6 +45,9 @@ session_start();
         #t3{
             margin-top: 2%;
             margin-left:20%;
+        }
+        #top{
+            background-color:#52128e;
         }
     </style>
     

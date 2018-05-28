@@ -25,6 +25,22 @@ if( $_GET['type']=='01' ){
     $outp .="]";
     echo($outp);
 }
+elseif( $_GET['type']=='02' ){
+    $result = $conn->query("SELECT *
+                            FROM subjectinfo
+                            ORDER BY SubjectID ASC");
+
+    $outp = "[";
+    while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+        if ($outp != "[") {$outp .= ",";}
+        $outp .= '{"SubjectID":"'.$rs["SubjectID"].'",';
+        $outp .= '"SubjectName":"'.$rs["SubjectName"].'",';
+        $outp .= '"Description":"'.$rs["Description"].'",';
+        $outp .= '"Credit":"'.$rs["Credit"].'"}';
+    }
+    $outp .="]";
+    echo($outp);
+}
 elseif( $_GET['type']=='11' ){
     $conn->query("INSERT INTO subjectinfo
                 VALUES( '".$_GET['inSID']."', '".$_GET['inSN']."', '".$_GET['inDes']."', ".$_GET['inCre']." )");
