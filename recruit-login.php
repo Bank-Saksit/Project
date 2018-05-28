@@ -48,7 +48,7 @@ ob_start();
             float: left;
             background: gray;
             position: relative;
-            cursor: pointer;
+            /* cursor: pointer; */
         }
         #c-right {
             width: 40%;
@@ -182,19 +182,19 @@ ob_start();
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img src="img\gallery\980x380\059.jpg"  id="pop1" onclick="plan1()" style="width:100%;">
+                            <img src="img\gallery\980x380\059.jpg" style="width:100%;">
                         </div>
 
                         <div class="item">
-                            <img src="img\gallery\980x380\060.jpg" id="pop2" onclick="plan1()" style="width:100%;">
+                            <img src="img\gallery\980x380\060.jpg" style="width:100%;">
                         </div>
                         
                         <div class="item">
-                            <img src="img\gallery\980x380\061.jpg" id="pop3" onclick="plan1()" style="width:100%;">
+                            <img src="img\gallery\980x380\061.jpg" style="width:100%;">
                         </div>
 
                         <div class="item">
-                            <img src="img\gallery\980x380\062.jpg" id="pop4" onclick="plan1()" style="width:100%;">
+                            <img src="img\gallery\980x380\062.jpg" style="width:100%;">
                         </div>
                     </div>
 
@@ -230,7 +230,7 @@ ob_start();
         <?php include "recruit-footer.php"; ?>
     </div>
 
-    <script>
+    <!-- <script>
         function plan1(){
             $('#pop1').on('click',function(){
                 swal({
@@ -260,7 +260,7 @@ ob_start();
                 })    
             })
         }
-    </script>
+    </script> -->
     
 </body>
 </html>
