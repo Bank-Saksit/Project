@@ -109,13 +109,13 @@
             window.arr = JSON.parse(response);
             
             var out = "<div class = 'row'><div class = 'col-sm-4' ><p>รหัสประจำตัวผู้สมัคร : "+ arr[0].RecruitID +"</p>"+
-                    "<p>ชื่อ : "+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"</p></div>"+
-                    "<div class = 'col-sm-4' ><p>ชื่อโครงการ : "+ arr[0].RecruitPlanName +"</p>"+
-                    "<p>คณะ : "+ arr[0].Faculty +"</p></div><div class = 'col-sm-4' >"+
-                    "<p>ภาควิชา : "+ arr[0].Department +"</p></div></div>"+
-                    "<br><div class = 'row'><div class = 'col-sm-4' ><p>เลขที่ใบเสร็จ : "+ arr[0].BillRecruitID +"</p>"+
-                    "<p>วันออกใบเสร็จ : "+ arr[0].DateRegister +"</p></div>"+
-                    "<div class = 'col-sm-4' ><p>ปีการศึกษา : 1/"+ arr[0].AcademicYear +"</p>"+
+                    "<p>ชื่อ : "+ arr[0].Prefix + arr[0].FirstName +" "+ arr[0].LastName +"</p>"+
+                    "<p>ชื่อโครงการ : "+ arr[0].RecruitPlanName +"</p>"+
+                    "<p>คณะ : "+ arr[0].Faculty +"</p>"+
+                    "<p>ภาควิชา : "+ arr[0].Department +"</p></div>"+
+                    "<div class = 'col-sm-4' ><p>เลขที่ใบเสร็จ : "+ arr[0].BillRecruitID +"</p>"+
+                    "<p>วันออกใบเสร็จ : "+ arr[0].DateRegister +"</p>"+
+                    "<p>ปีการศึกษา : 1/"+ arr[0].AcademicYear +"</p>"+
                     "<p>จำนวนเงินที่ต้องจ่าย : 20,000 บาท</p></div></div>";
 
             document.getElementById("detail").innerHTML = out;
