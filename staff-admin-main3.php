@@ -157,20 +157,70 @@
                 </form>
             </div>
             <div id="menu3" class="tab-pane fade in active">
-                
+                <div id="menu3-1"></div>
+                <div id="menu3-2"></div>
+                <div id="menu3-3"></div>
             </div>
         </div>
     </div>
         <script type="text/javascript">
-
-        //loadreport13():
-        function loadreport13() {
+        loadreport12();
+        function loadreport12() {
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol + '//' + location.host+ "/Project/staff-admin-report14.php";
-
+            var url = location.protocol + '//' + location.host+ "/Project/staff-admin-report12.php";
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    showreport14(xmlhttp.responseText);
+                    showreport12(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        function showreport12(response){
+            var report1 = JSON.parse(response);
+            var out2 = "<h2>จํานวนนักศึกษาต่างชาติ</h2><table><tr><th>ชื่อสัญชาติ/th><th>ปริญญาตรี</th>"+
+                        "<th>ปริญญาโท</th><th>ปริญญาเอก</th><th>รวม</th></tr>";
+            var prev = report1[0].Nationality;
+            var tee = 0,to = 0,ek = 0,total = 0;
+            var ttee = 0,tto = 0,tek = 0,ttotal = 0;
+            for(i=0;i<report1.length;i++){
+                    if(report1[i].Nationality.localeCompare(prev)!=0){
+                        out2 += "<tr><td>"+prev+"</td><td>"+tee+"</td><td>"+to+"</td><td>"+ek+"</td><td>"+total+"</td></tr>";
+                        tee = 0,to = 0,ek = 0,total = 0;
+                        prev = report1[i].Nationality;
+                    }
+                    if(report1[i].Degree.localeCompare("ปริญญาตรี")==0){
+                        tee = report1[i].Num;
+                        ttee = tee + ttee;
+                        
+                    }
+                    else if(report1[i].Degree.localeCompare("ปริญญาโท")==0){
+                        to = report1[i].Num;
+                        tto = to + tto;
+                    }   
+                    else if(report1[i].Degree.localeCompare("ปริญญาเอก")==0){
+                        ek = report1[i].Num;
+                        tek = ek + tek;
+                    }   
+                    if(report1[i].Degree.localeCompare(prev)==0){
+                        prev = report1[i].Faculty;
+                    }
+                    total = tee + to + ek;
+                }
+            ttotal = ttee + tto + tek;
+            out2 += "<tr><td>"+prev+"</td><td>"+tee+"</td><td>"+to+"</td><td>"+ek+"</td><td>"+total+"</td></tr>";
+            out2 += "<tr><td>รวมทั้งหมด</td><td>"+ttee+"</td><td>"+tto+"</td><td>"+tek+"</td><td>"+ttotal+"</td></tr>";
+            out2 += "</table>";
+            document.getElementById("menu3-3").innerHTML = out2;
+        }
+
+        loadreport13();
+        function loadreport13() {
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+ "/Project/staff-admin-report13.php";
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("menu3-2").innerHTML = xmlhttp.responseText;
                 }
             }
             xmlhttp.open("GET", url, true);
@@ -211,7 +261,7 @@
                     }
                     else if(report[i].RecruitPlanName.localeCompare("Active Recruitment")==0){
                         Active = report[i].Num;
-                        tActive = Active = tActive;
+                        tActive = Active + tActive;
                     }   
                     else if(report[i].RecruitPlanName.localeCompare("Admission")==0){
                         adm = report[i].Num;
@@ -237,7 +287,7 @@
             out1 += "<tr><td>รวมทั้งหมด</td><td>"+tB2+"</td><td>"+tActive+"</td><td>"+tch+"</td><td>"+tgood+"</td>"+
                             "<td>"+tadm+"</td><td>"+ttotal+"</td></tr>"
             out1 += "</table>";
-            document.getElementById("menu3").innerHTML = out1;
+            document.getElementById("menu3-1").innerHTML = out1;
         }
 
         function myFunction() {

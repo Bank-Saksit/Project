@@ -13,7 +13,8 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     }
 }
 
-
-echo($end.' '.$now);     
-
+$outp = "<h2>รวมจำนวนผู้สำเร็จการศึกษาและจำนวนผู้กำลังศึกษา</h2><table><tr><td>ประเภท</td><td>จำนวน</td><tr>";
+$outp .= "<tr><td>ผู้สำเร็จการศึกษา</td><td>".$end."</td></tr>";
+$outp .= "<tr><td>ผู้กำลังศึกษา</td><td>".$now."</td></tr><table>";
+echo($outp);     
 ?>

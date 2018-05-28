@@ -31,11 +31,12 @@
         }
         th{
             font-size:18px;
-            color:white;
-            background:rgba(0,0,0,0.8);
+            font-weight:normal;
+            background:#f1f1f1;
         }
         td{
             font-size:18px;
+            background:white;
         }
         .swal2-popup {
             font-size: 2rem;
@@ -169,8 +170,8 @@
                 var arr = JSON.parse(response);
                 var out2;
                 if(arr[0].nop =="not found" ){
-                    out2 =  arr[0].Year+
-                            "<h2>"+"ไม่พบข้อมูล</h2>" ;
+                    out2 =  "<h2>"+arr[0].Year+
+                            "&nbsp"+"ไม่พบข้อมูล</h2>" ;
                 }
                 else{
                     out2=   "<h2>"+arr[0].Year +"</h2>"+
