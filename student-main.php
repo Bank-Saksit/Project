@@ -189,7 +189,6 @@
                         "<p>ที่อยู่ : <textarea style='resize: none' rows=3 cols=40 id='inAdd'>"+arr[0].Address+"</textarea></p>"+
                         "<p>จังหวัด : <input type='text' id='inPr' class='bg' value='"+arr[0].Province+"'></p>"+
                         "<p>รหัสไปรษณีย์ : <input type='text' id='inPo' class='bg' value='"+arr[0].Postcode+"'></p>"+
-                        "</div>"+"<div class= 'col-sm-4' >"+
                         "<p>เบอร์โทรศัพท์มือถือ : <input type='text' id='inMN' class='bg' value='"+arr[0].MobileNumber+"'></p>"+
                         "<p>เบอร์โทรศัพท์บ้าน : <input type='text' id='inTN' class='bg' value='"+arr[0].TelNumber+"'></p>"+
                         "<br><p><input type='button' value='แก้ไข' id='edit2' onclick='update2()'></p>"+
