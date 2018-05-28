@@ -47,7 +47,8 @@
                 margin-top: 2%;
                 position: relative;
                 width:100%;
-                display: inline-block;  
+                display: inline-block; 
+                
             }
             #left,#right,#center{
                 margin-top: 10px;
@@ -65,12 +66,18 @@
             #center {
                 float: left;
                 margin-left: 40px;
+                animation-name: fading;
+                animation-duration: 4.5s;
             }
             #right {
                 float: right;
+                animation-name: fading;
+                animation-duration: 5s;
             }
             #left {
                 float: left;
+                animation-name: fading;
+                animation-duration: 4s;
             }
             img {
                 width: 340px;
@@ -123,7 +130,8 @@
                 width: 100%;
                 bottom: -60px;
                 border-top: 2px solid;
-                
+                animation-name: fading;
+                animation-duration: 3s;
             }
             footer>a{   
                 padding: 15px 10px;
@@ -138,6 +146,10 @@
                 text-decoration: none;
                 margin: 5px;
                 color: #444444;
+            }
+            @keyframes fading{
+                from {opacity:0;}
+                to {opacity: 1;}
             }
         </style>
     </head>

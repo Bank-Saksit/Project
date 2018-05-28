@@ -28,14 +28,16 @@ session_start();
             text-align:center;
             font-size:20px;
             border:1px solid;
-            color:white;
-            background:rgba(0,0,0,0.8);
+            font-size:18px;
+            font-weight:normal;
+            background:#f1f1f1;
         }
         #t2 {
             text-align:center;
             height: 100px;
             font-size:18px;
             border:1px solid;
+            background:white;
         }
         #h4 {
             margin-top: 10px;
@@ -43,6 +45,23 @@ session_start();
         }
         #top{
             background-color:#52128e;
+        }
+        th{
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+            text-align: center;
+            font-size:18px;
+            font-weight:normal;
+            background:#f1f1f1;
+        }
+        td{
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+            text-align: center;
+            font-size:18px;
+            background:white;
         }
     </style>
     
