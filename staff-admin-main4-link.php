@@ -34,7 +34,9 @@ elseif( $_GET['type']=='02' ){
     while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
         if ($outp != "[") {$outp .= ",";}
         $outp .= '{"SubjectID":"'.$rs["SubjectID"].'",';
-        $outp .= '"SubjectName":"'.$rs["SubjectName"].'"}';
+        $outp .= '"SubjectName":"'.$rs["SubjectName"].'",';
+        $outp .= '"Description":"'.$rs["Description"].'",';
+        $outp .= '"Credit":"'.$rs["Credit"].'"}';
     }
     $outp .="]";
     echo($outp);

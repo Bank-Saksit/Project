@@ -154,15 +154,15 @@
             var out2 = "<h2>ลบรายวิชา</h2><div class = 'row><div class = 'col-sm-8'>"+
                     "<form>"+
                     "<p>วิชา : <select id='inSub2' onchange='change2()'>";
-            for( var i=0 ; i<vsub.length ; i++ )
-                if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out2+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
+            for( var i=0 ; i<allsub.length ; i++ )
+                out2+="<option value='"+allsub[i].SubjectID+"'>"+allsub[i].SubjectID+"</option>";
             out2 += "</select><div id='in2'></div><p><br><input type='button' value='ยืนยัน' onclick='update2()'></p></form></div></div>";
             document.getElementById("menu2").innerHTML = out2;
 
             var out3 = "<h2>แก้ไขรายวิชา</h2><div class = 'row><div class = 'col-sm-8'>"+
                     "<p>วิชา : <select id='inSub3' onchange='change3()'>";
-            for( var i=0 ; i<vsub.length ; i++ )
-                if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out3+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
+            for( var i=0 ; i<allsub.length ; i++ )
+                out3+="<option value='"+allsub[i].SubjectID+"'>"+allsub[i].SubjectID+"</option>";
             out3+="</select><br><div id='in3'></div></div></div>";
             document.getElementById("menu3").innerHTML = out3;
 
@@ -234,14 +234,14 @@
         function change2(){
             var sub = document.getElementById('inSub2').value;
             var index;
-            for( var i=0 ; i<vsub.length ; i++ )
-                if( sub==vsub[i].SubjectID ){ index=i; break; }
+            for( var i=0 ; i<allsub.length ; i++ )
+                if( sub==allsub[i].SubjectID ){ index=i; break; }
             var out = "<p><div class = 'row'>"+
                     "<div class= 'col-sm-4' >"+
-                    "<p>รหัสวิชา : "+vsub[index].SubjectID+"</p>"+
-                    "<p>ชื่อวิชา : "+vsub[index].SubjectName+"</p>"+
-                    "<p>รายละเอียด : "+vsub[index].Description+"</p>"+
-                    "<p>หน่วยกิต : "+vsub[index].Credit+"</p>"+
+                    "<p>รหัสวิชา : "+allsub[index].SubjectID+"</p>"+
+                    "<p>ชื่อวิชา : "+allsub[index].SubjectName+"</p>"+
+                    "<p>รายละเอียด : "+allsub[index].Description+"</p>"+
+                    "<p>หน่วยกิต : "+allsub[index].Credit+"</p>"+
                     "</div>"+
                     "</div>";
             document.getElementById("in2").innerHTML = out;
@@ -250,15 +250,15 @@
         function change3(){
             var sub = document.getElementById('inSub3').value;
             var index;
-            for( var i=0 ; i<vsub.length ; i++ )
-                if( sub==vsub[i].SubjectID ){ index=i; break; }
+            for( var i=0 ; i<allsub.length ; i++ )
+                if( sub==allsub[i].SubjectID ){ index=i; break; }
             var out = "<p><div class = 'row'>"+
                     "<div class= 'col-sm-4' >"+
                     "<form>"+
-                    "<p>รหัสวิชา : <input type='text' id='cSID' class='bg' value='"+vsub[index].SubjectID+"'></p>"+
-                    "<p>ชื่อวิชา : <input type='text' id='cSN' class='bg' value='"+vsub[index].SubjectName+"'></p>"+
-                    "<p>รายละเอียด : <textarea style='resize: none' rows=3 cols=40 id='cDes' class='bg'>"+vsub[index].Description+"</textarea></p>"+
-                    "<p>หน่วยกิต : <input type='text' id='cCre' class='bg' value='"+vsub[index].Credit+"'></p>"+
+                    "<p>รหัสวิชา : <input type='text' id='cSID' class='bg' value='"+allsub[index].SubjectID+"'></p>"+
+                    "<p>ชื่อวิชา : <input type='text' id='cSN' class='bg' value='"+allsub[index].SubjectName+"'></p>"+
+                    "<p>รายละเอียด : <textarea style='resize: none' rows=3 cols=40 id='cDes' class='bg'>"+allsub[index].Description+"</textarea></p>"+
+                    "<p>หน่วยกิต : <input type='text' id='cCre' class='bg' value='"+allsub[index].Credit+"'></p>"+
                     "<br><p><input type='button' value='ยืนยัน' onclick='update3()'></p>"+
                     "</form>"+
                     "</div>"+
