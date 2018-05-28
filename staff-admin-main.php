@@ -268,11 +268,11 @@
                 }
                 out += "<tr><td id = 't'>" + arr[i].Faculty +
                 "</td><td id = 't'>" + arr[i].Department+
-                "</td><td id = 't'>" + arr[i].RecruitID +
+                "</td><td id = 't' align = 'center'>" + arr[i].RecruitID +
                 "</td><td id = 't'>" + arr[i].Prefix +
                 "</td><td id = 't'>" + arr[i].FirstName +
                 "</td><td id = 't'>" + arr[i].LastName +
-                "</td><td id = 't'>" + arr[i].IDCardNumber +
+                "</td><td id = 't' align ='center'>" + arr[i].IDCardNumber +
                 "</td><td id = 't'>" + arr[i].MobileNumber +
                 "</td><td id = 't'>" + arr[i].RecruitPlanName +
                 "</td><td id = 't'>" + sta +
