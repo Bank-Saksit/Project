@@ -31,11 +31,12 @@
         }
         th{
             font-size:18px;
-            color:white;
-            background:rgba(0,0,0,0.8);
+            font-weight:normal;
+            background:#f1f1f1;
         }
         td{
             font-size:18px;
+            background:white;
         }
         .swal2-popup {
             font-size: 2rem;
