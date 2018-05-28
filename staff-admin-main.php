@@ -296,7 +296,6 @@
                         "&MobileNumber="+MobileNumber+"&TelNumber="+TelNumber+"&Email="+Email+"&SchoolID="+SchoolID+"&EducationBackground="+EducationBackground+"&Branch="+Branch+
                         "&SchoolGPAX="+SchoolGPAX+"&IDCardNumber="+IDCardNumber+"&Prefix="+Prefix+"&FirstName="+FirstName+"&LastName="+LastName+"&Gender="+Gender+"&DOB="+DOB+
                         "&Nationality="+Nationality+"&Race="+Race+"&Religion="+Religion+"&BloodGroup="+BloodGroup+"&Address="+Address+"&Province="+Province+"&PostCode="+PostCode;
-            alert (url);
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //displayResponse(xmlhttp.responseText);
