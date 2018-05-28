@@ -143,7 +143,7 @@
                 <img data-u="image" src="img/gallery/980x380/059.jpg" />
             </div>
             <div>
-                <img data-u="image" src="img/gallery/980x380/060.jpg" onclick="alert(555)"/>
+                <img data-u="image" src="img/gallery/980x380/060.jpg" onclick="alert('555')"/>
             </div>
             <div>
                 <img data-u="image" src="img/gallery/980x380/061.jpg" />
