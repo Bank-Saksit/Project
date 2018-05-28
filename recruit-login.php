@@ -11,6 +11,11 @@ ob_start();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href ="js/jquery-ui.min.css" rel="stylesheet">
+	<script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+	<link href ="js/sweetalert2.all.js" rel="stylesheet">
+	<script src="js/sweetalert21.js"></script>
     <title>สำหรับนักเรียนที่ต้องการเข้าศึกษา</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"   
         integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
@@ -43,6 +48,7 @@ ob_start();
             float: left;
             background: gray;
             position: relative;
+            cursor: pointer;
         }
         #c-right {
             width: 40%;
@@ -176,19 +182,19 @@ ob_start();
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img src="img\gallery\980x380\059.jpg" style="width:100%;">
+                            <img src="img\gallery\980x380\059.jpg"  id="pop1" onclick="plan1()" style="width:100%;">
                         </div>
 
                         <div class="item">
-                            <img src="img\gallery\980x380\060.jpg" style="width:100%;">
+                            <img src="img\gallery\980x380\060.jpg" id="pop2" onclick="plan1()" style="width:100%;">
                         </div>
                         
                         <div class="item">
-                            <img src="img\gallery\980x380\061.jpg" style="width:100%;">
+                            <img src="img\gallery\980x380\061.jpg" id="pop3" onclick="plan1()" style="width:100%;">
                         </div>
 
                         <div class="item">
-                            <img src="img\gallery\980x380\062.jpg" style="width:100%;">
+                            <img src="img\gallery\980x380\062.jpg" id="pop4" onclick="plan1()" style="width:100%;">
                         </div>
                     </div>
 
@@ -223,6 +229,38 @@ ob_start();
         </div>
         <?php include "recruit-footer.php"; ?>
     </div>
+
+    <script>
+        function plan1(){
+            $('#pop1').on('click',function(){
+                swal({
+                    title:'<h1>ข้อมูลถูกแก้ไขเรียบร้อย</h1>',
+                    confirmButtonText:'ปิด',
+                })    
+            })
+
+            $('#pop2').on('click',function(){
+                swal({
+                    title:'<h1>ข้อมูลถูกแก้ไขเรียบร้อย5555</h1>',
+                    confirmButtonText:'ปิด',
+                })    
+            })
+
+            $('#pop3').on('click',function(){
+                swal({
+                    title:'<h1>ข้อมูลถูกแก้ไขเรียบร้อย66666</h1>',
+                    confirmButtonText:'ปิด',
+                })    
+            })
+
+            $('#pop4').on('click',function(){
+                swal({
+                    title:'<h1>ข้อมูลถูกแก้ไขเรียบร้อย7777</h1>',
+                    confirmButtonText:'ปิด',
+                })    
+            })
+        }
+    </script>
     
 </body>
 </html>
