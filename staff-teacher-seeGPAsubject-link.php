@@ -6,6 +6,7 @@ $result = $conn->query("SELECT ss.StudentID,st.FirstName,st.LastName,ss.GPA,sc.S
                         WHERE   st.StudentID = ss.StudentID AND
                                 sc.SubjectID = su.SubjectID AND
                                 ss.SubjectSectionID = sc.SubjectSectionID AND
+                                ss.GPA >-1 AND
                                 ss.SubjectSectionID = $sub;");
     if($result->num_rows==0){
         $result2 = $conn->query("SELECT sc.SubjectID, sc.SectionNumber,su.SubjectName,sc.Semester,sc.AcademicYear,sc.SubjectSectionID
