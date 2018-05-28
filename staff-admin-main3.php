@@ -41,7 +41,7 @@
             margin-left:10px;
         }
         #top{
-            background-color:#001a33;
+            background-color:#2c437c;
         }
     </style>
     
@@ -49,9 +49,9 @@
 <body>
     <div class="top" id="top">
             <a href="staff-admin-main.php">นักเรียนสอบเข้าโครงการ</a>
-            <a class = "active" href="staff-admin-main2.php">นักศึกษา</a>
-            <a href="staff-admin-main3.php">อาจารย์</a>
-            <a class = "active"  href="staff-admin-main4.php">รายวิชา</a>
+            <a href="staff-admin-main2.php">นักศึกษา</a>
+            <a class = "active" href="staff-admin-main3.php">อาจารย์</a>
+            <a href="staff-admin-main4.php">รายวิชา</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
