@@ -387,8 +387,8 @@ session_start();
             var tB2 = 0,tActive = 0,tch = 0,tgood = 0,tadm = 0,ttotal =0;
             for(i=0;i<report.length;i++){
                     if(report[i].Faculty.localeCompare(prev)!=0){
-                        out1 += "<tr><td id = 't'>"+prev+"</td><td id = 't'>"+B2+"</td><td id = 't'>"+Active+"</td><td id = 't'>"+ch+"</td><td id = 't'>"+good+"</td>"+
-                            "<td id = 't'>"+adm+"</td><td id = 't'>"+total+"</td></tr>";
+                        out1 += "<tr><td id = 't' align = 'center'>"+prev+"</td><td id = 't' align = 'center'>"+B2+"</td><td id = 't' align = 'center'>"+Active+"</td><td id = 't' align = 'center'>"+ch+"</td><td id = 't' align = 'center'>"+good+"</td>"+
+                            "<td id = 't' align = 'center'>"+adm+"</td><td id = 't' align = 'center'>"+total+"</td></tr>";
                         B2 = 0,Active = 0,ch = 0,good = 0,adm = 0,total = 0;
                         prev = report[i].Faculty;
                     }
