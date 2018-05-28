@@ -24,7 +24,7 @@ session_start();
 
     </head>
     <body>
-        <?php
+        <!-- <?php
             if(isset($_SESSION['id4']) && isset($_SESSION['pswd4']) && $_SESSION['role4'] == 'Teacher') {
                 header("location: staff-teacher-main.php");
                 exit('</body></html>');
@@ -33,7 +33,7 @@ session_start();
                 header("location: staff-admin-main.php");
                 exit('</body></html>');
             }
-        ?> 
+        ?>  -->
         <div id="left">
             <a href="home.php" class="btn btn-info btn-lg" id = "back">
                 <span class="glyphicon glyphicon-chevron-left"></span> 
