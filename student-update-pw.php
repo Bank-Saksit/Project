@@ -22,7 +22,7 @@
     include "dblink.php";
     $pw=mysqli_real_escape_string($conn,$_POST['pw']);
     $pw2=mysqli_real_escape_string($conn,$_POST['pw2']);
-    $id=$_SESSION['id'];
+    $id=$_SESSION['id0'];
         if($pw==NULL || $pw2 ==NULL){
             echo    "<script>
                         swal({

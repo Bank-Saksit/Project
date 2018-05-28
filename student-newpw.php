@@ -24,7 +24,7 @@ session_start();
 </head>
 <body>
     <?php
-        if(!isset($_SESSION['id'])||!isset($_SESSION['idcard'])||$_SESSION['role']!='staff'){
+        if(!isset($_SESSION['id1'])||!isset($_SESSION['idcard1'])||$_SESSION['role1']!='student'){
             header("location:student-forgetpassword.php");
         }
     ?>

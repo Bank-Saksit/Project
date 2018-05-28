@@ -41,9 +41,9 @@
             $rs = $result->fetch_array(MYSQLI_ASSOC);
             if($rs['Password']!=NULL){
                 $conn->close();
-                $_SESSION['id'] = $id;
-                $_SESSION['idcard'] = $pswd;
-                $_SESSION['role'] = 'staff';
+                $_SESSION['id1'] = $id;
+                $_SESSION['idcard1'] = $pswd;
+                $_SESSION['role1'] = 'student';
                 header("Location:student-newpw.php");
             }
             else{

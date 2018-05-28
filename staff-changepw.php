@@ -24,7 +24,7 @@ session_start();
 </head>
 <body>
     <?php
-        if(!isset($_SESSION['id'])||!isset($_SESSION['idcard'])||$_SESSION['role']!='staff'){
+        if(!isset($_SESSION['id2'])||!isset($_SESSION['idcard2'])||$_SESSION['role2']!='staff'){
             header("location:staff-new-login.php");
         }
     ?>

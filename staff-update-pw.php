@@ -22,7 +22,7 @@
     $pw=mysqli_real_escape_string($conn,$_POST['pw']);
     $pw2=mysqli_real_escape_string($conn,$_POST['pw2']);
     $enpw = md5(md5(md5(base64_encode($pw))));
-    $id=$_SESSION['id'];
+    $id=$_SESSION['id2'];
         if($pw==NULL || $pw2 ==NULL){
             echo    "<script>
                         swal({

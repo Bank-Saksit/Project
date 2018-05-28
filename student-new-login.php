@@ -25,7 +25,7 @@ session_start();
     </head>
     <body>
         <?php
-        if(isset($_SESSION['id']) && isset($_SESSION['idcard'])&&$_SESSION['role']=='student') {
+        if(isset($_SESSION['id0']) && isset($_SESSION['idcard0'])&&$_SESSION['role0']=='student') {
             header("location: student-changepw.php");
             exit('</body></html>');
         }

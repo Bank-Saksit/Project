@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,6 +24,12 @@
 
     </head>
     <body>
+    <?php
+        if(isset($_SESSION['id1']) && isset($_SESSION['idcard1'])&&$_SESSION['role1']=='student') {
+            header("location: student-changepw.php");
+            exit('</body></html>');
+        }
+        ?> 
         <div id="left">
             <a href="student-home.php" class="btn btn-info btn-lg" id = "back">
                 <span class="glyphicon glyphicon-chevron-left"></span> 

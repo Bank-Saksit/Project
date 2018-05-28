@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,6 +24,12 @@
 
     </head>
     <body>
+        <?php
+        if(isset($_SESSION['id3']) && isset($_SESSION['idcard3']) &&  $_SESSION['role3'] == 'staff') {
+            header("location: staff-newpw.php");
+            exit('</body></html>');
+        }
+        ?> 
         <div id="left">
             <a href="staff-home.php" id="back" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-chevron-left"></span>

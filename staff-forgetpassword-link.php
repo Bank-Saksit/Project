@@ -42,9 +42,9 @@
             $rs = $result->fetch_array(MYSQLI_ASSOC);
             if($rs['Password']!=NULL){
                 $conn->close();
-                $_SESSION['id'] = $id;
-                $_SESSION['idcard'] = $pswd;
-                $_SESSION['role'] = 'staff';
+                $_SESSION['id3'] = $id;
+                $_SESSION['idcard3'] = $pswd;
+                $_SESSION['role3'] = 'staff';
                 header("Location:staff-newpw.php");
             }
             else{
