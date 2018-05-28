@@ -61,6 +61,9 @@
             <li><a data-toggle="tab" href="#menu8">จำนวนผู้สำเร็จการศึกษาและจำนวนผู้กำลังศึกษา</a></li>
             <li><a data-toggle="tab" href="#menu9">จํานวนนักศึกษาใหม่ระดับบปริญญาตรี</a></li>
             <li><a data-toggle="tab" href="#menu10">จํานวนนักศึกษาต่างชาติ</a></li>
+            <li><a data-toggle="tab" href="#menu11" onclick = "load7()">จำนวนจำนวนผู้สำเร็จการศึกษาระดับปริญญาตรีปีการศึกษาที่ได้รับเกียรตินิยม จำแนกตามอันดับเกียรตินิยม</a></li>
+            <li><a data-toggle="tab" href="#menu12" onclick = "load8()">จํานวนนักศึกษาที่ได้เกรดต่างๆในรายวิชา</a></li>
+            <li><a data-toggle="tab" href="#menu13" onclick = "load9()">รายวิชาที่มีคนดรอปสูงสุด5อันดับแรก</a></li>
         </ul>
     </div>
     <div id="main">
@@ -75,6 +78,9 @@
             <div id="menu8" class="tab-pane fade"></div>
             <div id="menu9" class="tab-pane fade"></div>
             <div id="menu10" class="tab-pane fade"></div>
+            <div id="menu11" class="tab-pane fade"></div>
+            <div id="menu12" class="tab-pane fade"></div>
+            <div id="menu13" class="tab-pane fade"></div>
         </div>
 
         <script>
@@ -510,6 +516,78 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     load();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        load8();
+        function load8(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol+'//'+location.host+"/Project/report-8.php";
+                
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    dis8(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        
+        function dis8(response){
+            var arr = JSON.parse(response);
+            var out7 = "<form><h2>เลือกรายวิชาที่ต้องการดูเกรด : </h2><p><select id='sub'>";
+            for(i=0;i<arr.length;i++){
+                out7+="<option value="+
+                        arr[i].SubjectSectionID+">"+
+                        arr[i].SubjectID+
+                        "&nbsp"+arr[i].SubjectName+
+                        "&nbspsec : "+arr[i].SectionNumber+
+                        "&nbspภาคเรียนที่ : "+arr[i].Semester+
+                        "&nbspปีการศึกษา : "+arr[i].AcademicYear+
+                        "</option>";
+            }
+            out7 += "</select></p>"+
+                    "<p><input type='button' value='ตรวจสอบ' onclick='show8()'></p>"+
+                    "</form>";
+            document.getElementById("menu12").innerHTML = out7;
+        }
+
+        function show8(){
+            var xmlhttp = new XMLHttpRequest();
+            var sub = document.getElementById('sub').value;
+            var url = location.protocol+'//'+location.host+"/Project/report-8-link.php?sub="+sub;
+                
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("menu12").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        load7();
+        function load7(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol+'//'+location.host+"/Project/report7.php";
+            
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("menu11").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        load9();
+        function load9(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol+'//'+location.host+"/Project/report-9.php";
+            
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("menu13").innerHTML = xmlhttp.responseText;
                 }
             }
             xmlhttp.open("GET", url, true);

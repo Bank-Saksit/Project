@@ -59,7 +59,6 @@
             <li><a data-toggle="tab" href="#menu4">เพิ่มกลุ่มรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu5">ลบกลุ่มรายวิชา</a></li>
             <li><a data-toggle="tab" href="#menu6">แก้ไขกลุ่มรายวิชา</a></li>
-            <li><a data-toggle="tab" href="#menu7" onclick="loadstat()">สถิติ</a></li>
         </ul>
     </div>
     <div id="main">
@@ -71,7 +70,6 @@
             <div id="menu4" class="tab-pane fade"></div>
             <div id="menu5" class="tab-pane fade"></div>
             <div id="menu6" class="tab-pane fade"></div>
-            <div id="menu7" class="tab-pane fade"><div id='menu7-1'></div><div id='menu7-2'></div><div id='menu7-3'></div></div>
         </div>
 
         <script>
@@ -86,9 +84,7 @@
             }
 
         loadsubject();
-        loadstat();
-        loadeiei();
-        loadeiei2();
+        
         function loadsubject(){
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol+'//'+location.host+"/Project/staff-admin-main4-link.php?type=01";
@@ -430,76 +426,7 @@
             xmlhttp.send();
         }
 
-        function loadstat(){
-            var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol+'//'+location.host+"/Project/report-8.php";
-                
-            xmlhttp.onreadystatechange=function() {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    disstat(xmlhttp.responseText);
-                }
-            }
-            xmlhttp.open("GET", url, true);
-            xmlhttp.send();
-        }
         
-        function disstat(response){
-            var arr = JSON.parse(response);
-            var out7 = "<form><h2>เลือกรายวิชาที่ต้องการดูเกรด : </h2><p><select id='sub'>";
-            for(i=0;i<arr.length;i++){
-                out7+="<option value="+
-                        arr[i].SubjectSectionID+">"+
-                        arr[i].SubjectID+
-                        "&nbsp"+arr[i].SubjectName+
-                        "&nbspsec : "+arr[i].SectionNumber+
-                        "&nbspภาคเรียนที่ : "+arr[i].Semester+
-                        "&nbspปีการศึกษา : "+arr[i].AcademicYear+
-                        "</option>";
-            }
-            out7 += "</select></p>"+
-                    "<p><input type='button' value='ตรวจสอบ' onclick='show()'></p>"+
-                    "</form>";
-            document.getElementById("menu7-1").innerHTML = out7;
-        }
-
-        function show(){
-            var xmlhttp = new XMLHttpRequest();
-            var sub = document.getElementById('sub').value;
-            var url = location.protocol+'//'+location.host+"/Project/report-8-link.php?sub="+sub;
-                
-            xmlhttp.onreadystatechange=function() {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById("menu7-1").innerHTML = xmlhttp.responseText;
-                }
-            }
-            xmlhttp.open("GET", url, true);
-            xmlhttp.send();
-        }
-
-        function loadeiei(){
-            var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol+'//'+location.host+"/Project/report7.php";
-            
-            xmlhttp.onreadystatechange=function() {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById("menu7-2").innerHTML = xmlhttp.responseText;
-                }
-            }
-            xmlhttp.open("GET", url, true);
-            xmlhttp.send();
-        }
-        function loadeiei2(){
-            var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol+'//'+location.host+"/Project/report-9.php";
-            
-            xmlhttp.onreadystatechange=function() {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById("menu7-3").innerHTML = xmlhttp.responseText;
-                }
-            }
-            xmlhttp.open("GET", url, true);
-            xmlhttp.send();
-        }
         </script>
 
     </div>
