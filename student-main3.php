@@ -74,21 +74,30 @@ session_start();
         <div class="tab-content" id="tab-content">
             <div id="menu1" class="tab-pane fade in active">
                 <div class = "row">
-                <div id="me1-1"></div>
-                <div id="me1-2"></div>
+                    <div id="me1-1"></div>
+                    <div id="me1-2"></div>
                 </div>
                 <div id ="h4">
-                <div id="me1-3"></div>
+                    <div id="me1-3"></div>
                 </div>
             </div>
             <div id="menu2" class="tab-pane fade">
-                
+                <div class = "row">
+                    <div id="me2-1"></div>
+                    <div id="me2-2"></div>
+                </div>
+                <div id ="h4">
+                    <div id="me2-3"></div>
+                </div>
             </div>
         </div>
         <script>
         loadYear();
+        loadYear1();
         document.getElementById("me1-2").innerHTML = "<div class = 'col-sm-3' ><p> ภาคเรียนที่ : <select name='Semester' onclick=\"check()\">" + 
                         "<option value = ''>โปรดเลือก</option></select></p></div>";
+        document.getElementById("me2-2").innerHTML = "<div class = 'col-sm-3' ><p> ภาคเรียนที่ : <select name='Semester1' onclick=\"check1()\">" + 
+                        "<option value = ''>โปรดเลือก</option></select></p></div>";                
         function loadYear(){
             var xmlhttp = new XMLHttpRequest();
             var url = location.protocol + '//' + location.host+ "/Project/student-main3-link1.php";
@@ -114,7 +123,7 @@ session_start();
             xmlhttp.send();
         }
         function showYear(response){
-            window.arr1 = JSON.parse(response);
+            var arr1 = JSON.parse(response);
             var out = " <div class = 'col-sm-3' ><p> ปีการศึกษา : <select name = 'AcademicYear' onclick=\"loadSemester()\">" +
                         "<option value = ''>โปรดเลือก</option>";
                         for(i = 0; i < arr1.length; i++){
@@ -126,20 +135,75 @@ session_start();
         }
         function showSemester(response){
             document.getElementById("me1-3").innerHTML = '';
-            window.arr2 = JSON.parse(response);
+            var arr2 = JSON.parse(response);
             var out  = " <div class = 'col-sm-3' ><p>ภาคเรียนที่ : <select name='Semester' onclick=\"check()\">" + 
                         "<option value = ''>โปรดเลือก</option>";
                         for(i = 0; i < arr2.length; i++){
                             out += "<option value = '"+ arr2[i].Semester+"'>"+arr2[i].Semester+"</option>";
                         }
                 out +=  "</select></p></div>";
-            document.getElementById("me1-2").innerHTML = out ;
-            
+            document.getElementById("me1-2").innerHTML = out ; 
         }
         function check(){
             if($('select[name="AcademicYear"]').val() && $('select[name="Semester"]').val()){
                 document.getElementById("me1-3").innerHTML = '';
                 load();
+            }
+                
+        }
+
+
+        function loadYear1(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+ "/Project/student-main3-link1.php";
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    showYear1(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        function loadSemester1(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol + '//' + location.host+ "/Project/student-main3-link2.php?Year="+ 
+            $('select[name="AcademicYear1"]').val();
+
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    showSemester1(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        function showYear1(response){
+            var arr4 = JSON.parse(response);
+            
+            var out4 = " <div class = 'col-sm-3' ><p> ปีการศึกษา : <select name = 'AcademicYear1' onclick=\"loadSemester1()\">" +
+                        "<option value = ''>โปรดเลือก</option>";
+                        for(i = 0; i < arr4.length; i++){
+                            out4 += "<option value = '"+ arr4[i].AcademicYear+"' >"+arr4[i].AcademicYear+"</option>";
+                        }
+                out4 +=  "</select></p></div>";
+                document.getElementById("me2-1").innerHTML = out4 ;
+                loadSemester1();
+        }
+        function showSemester1(response){
+            document.getElementById("me2-3").innerHTML = '';
+            var arr3 = JSON.parse(response);
+            var out5  = " <div class = 'col-sm-3' ><p>ภาคเรียนที่ : <select name='Semester1' onclick=\"check1()\">" + 
+                        "<option value = ''>โปรดเลือก</option>";
+                        for(i = 0; i < arr3.length; i++){
+                            out5 += "<option value = '"+ arr3[i].Semester+"'>"+arr3[i].Semester+"</option>";
+                        }
+                out5 +=  "</select></p></div>";
+            document.getElementById("me2-2").innerHTML = out5 ; 
+        }
+        function check1(){
+            if($('select[name="AcademicYear1"]').val() && $('select[name="Semester1"]').val()){
+                document.getElementById("me2-3").innerHTML = '';
+                timeTable();
             }
                 
         }
@@ -177,6 +241,21 @@ session_start();
 
             document.getElementById("me1-3").innerHTML = out;
         }
+
+        function timeTable(){
+            var xmlhttp = new XMLHttpRequest();
+            var sem = $('select[name="Semester1"]').val()
+            var year = $('select[name="AcademicYear1"]').val();
+            var url = location.protocol+'//'+location.host+"/Project/student-timeTable-link.php?sem="+sem+"&year="+year;
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("me2-3").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
         </script>
      </div>
 </body>
