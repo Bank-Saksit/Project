@@ -350,7 +350,7 @@
             var out = "<table>";
             for(i = 0; i < arr.length; i++) {
                 if(i==0){
-                    out += "<tr><th align='center'>รหัสผู้สมัคร</th><th align='center'>คำนำหน้า</th><th align='center'>ชื่อ</th><th align='center'>นามสกุล</th><th align='center'>เบอร์โทรติดต่อ</th><th align='center'>โรงเรียน</th><th align='center'>โครงการ</th><th align='center'>คณะ</th><th align='center'>ภาควิชา</th><th align='center'>สถานะ</th><th align='center'>มหาวิทยาลัยที่ย้ายไป</th></tr>";
+                    out += "<tr><td id = 't' align='center'>รหัสผู้สมัคร</td><td id = 't' align='center'>คำนำหน้า</td><td id = 't' align='center'>ชื่อ</td><td id = 't' align='center'>นามสกุล</td><td id = 't' align='center'>เบอร์โทรติดต่อ</td><td id = 't' align='center'>โรงเรียน</td><td id = 't' align='center'>โครงการ</td><td id = 't' align='center'>คณะ</td><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>สถานะ</td><td id = 't' align='center'>มหาวิทยาลัยที่ย้ายไป</td></tr>";
                 }
                 if(arr[i].Status == 'จ่ายค่าเทอมแล้ว'){
                     var sta = 'จ่ายค่าแรกเข้าแล้ว';
@@ -358,18 +358,18 @@
                 else{
                     var sta = arr[i].Status;
                 }
-                out += "<tr><th>" + arr[i].RecruitID +
-                "</th><th>" + arr[i].Prefix +
-                "</th><th>" + arr[i].FirstName+
-                "</th><th>" + arr[i].LastName+
-                "</th><th>" + arr[i].MobileNumber+
-                "</th><th>" + arr[i].SchoolName+
-                "</th><th>" + arr[i].RecruitPlanName+
-                "</th><th>" + arr[i].Faculty+
-                "</th><th>" + arr[i].Department+    
-                "</th><th>" + arr[i].Status+
-                "</th><th>" + arr[i].MovedUniversityName+
-                "</th></tr>";
+                out += "<tr><td id = 't' align = 'center'>" + arr[i].RecruitID +
+                "</td><td id = 't'>" + arr[i].Prefix +
+                "</td><td id = 't'>" + arr[i].FirstName+
+                "</td><td id = 't'>" + arr[i].LastName+
+                "</td><td id = 't'>" + arr[i].MobileNumber+
+                "</td><td id = 't'>" + arr[i].SchoolName+
+                "</td><td id = 't'>" + arr[i].RecruitPlanName+
+                "</td><td id = 't'>" + arr[i].Faculty+
+                "</td><td id = 't'>" + arr[i].Department+    
+                "</td><td id = 't'>" + arr[i].Status+
+                "</td><td id = 't'>" + arr[i].MovedUniversityName+
+                "</td></tr>";
             }
             out += "</table>";
             document.getElementById("menu3").innerHTML =but+out+"<br><p>รวมทั้งหมด "+arr.length+" คน</p>";
@@ -386,14 +386,14 @@
                                                 AND n.No='1'
                                                 GROUP BY d.Faculty");
                 echo"var count=0;";
-                echo"var out = '<h2>จำนวนผู้สมัครเข้าแต่ละคณะ</h2><table><tr><th align=\'center\'>คณะ</th><th align=\'center\'>จำนวน(คน)</th></tr>';";
+                echo"var out = '<h2>จำนวนผู้สมัครเข้าแต่ละคณะ</h2><table><tr><td id = \'t\' align=\'center\'>คณะ</tc><td id = \'t\' align=\'center\'>จำนวน(คน)</td></tr>';";
                 while($row = mysqli_fetch_array($result)){
-                    echo "out += '<tr><th>'+'".$row['Faculty']."'+'</th><th align=\'center\'>'+'".$row['sum']."'+'</th></tr>';";  
+                    echo "out += '<tr><td id = \'t\'>'+'".$row['Faculty']."'+'</td><td id = \'t\' align=\'center\'>'+'".$row['sum']."'+'</td></tr>';";  
                     echo "count += parseInt(".$row['sum'].");";          
                 }
                 
             ?>
-            out += '<tr><th align=\'center\'>รวม</th><th align=\'center\'>'+count+'</th>';
+            out += '<tr><td id = \'t\' align=\'center\'>รวม</td><td id = \'t\' align=\'center\'>'+count+'</td>';
             out += '</table>';
             document.getElementById("menu4").innerHTML = out;
         }
@@ -408,14 +408,14 @@
                                                 WHERE r.SchoolID=s.SchoolID AND r.RecruitID=n.RecruitID AND n.Department=d.Department AND r.Status = 'สละสิทธิ์' AND n.No=r.NoPass
                                                 GROUP BY d.Department");
                 echo"var count=0;";
-                echo"var out = '<h2>จำนวนผู้สละสิทธื์แต่ละคณะ</h2><table><tr><th align=\'center\'>ภาควิชา</th><th align=\'center\'>จำนวน(คน)</th></tr>';";
+                echo"var out = '<h2>จำนวนผู้สละสิทธื์แต่ละคณะ</h2><table><tr><td id = \'t\' align=\'center\'>ภาควิชา</td><td id = \'t\' align=\'center\'>จำนวน(คน)</td></tr>';";
                 while($row = mysqli_fetch_array($result)){
-                    echo "out += '<tr><th>'+'".$row['Department']."'+'</th><th align=\'center\'>'+'".$row['sum']."'+'</th></tr>';";  
+                    echo "out += '<tr><td id = \'t\'>'+'".$row['Department']."'+'</td><td id = \'t\' align=\'center\'>'+'".$row['sum']."'+'</td></tr>';";  
                     echo "count += parseInt(".$row['sum'].");";          
                 }
                 
             ?>
-            out += '<tr><th align=\'center\'>รวม</th><th align=\'center\'>'+count+'</th></tr>';
+            out += '<tr><td id = \'t\' align=\'center\'>รวม</td><td id = \'t\' align=\'center\'>'+count+'</td></tr>';
             out += '</table>';
             document.getElementById("menu3p5").innerHTML = out;
         }
@@ -430,14 +430,14 @@
                                                 WHERE r.RecruitPlanName = p.RecruitPlanName AND r.Status != 'รอจ่ายค่าสมัคร'
                                                 GROUP BY p.RecruitPlanName");
                 echo"var count=0;";
-                echo"var out = '<h2>จำนวนผู้สมัครเข้าแต่ละโครงการ</h2><table><tr><td align=\'center\'>โครงการ</td><td align=\'center\'>รายละเอียด</td><td align=\'center\'>จำนวนที่รับสมัคร</td><td align=\'center\'>จำนวน(คน)</td></tr>';";
+                echo"var out = '<h2>จำนวนผู้สมัครเข้าแต่ละโครงการ</h2><table><tr><td id = \'t\' align=\'center\'>โครงการ</td><td id = \'t\' align=\'center\'>รายละเอียด</td><td id = \'t\' align=\'center\'>จำนวนที่รับสมัคร</td><td id = \'t\' align=\'center\'>จำนวน(คน)</td></tr>';";
                 while($row = mysqli_fetch_array($result)){
-                    echo "out += '<tr><td>'+'".$row['RecruitPlanName']."'+'</td><th>'+'".$row['Details']."'+'</th><th align=\'center\'>'+'".$row['RecruitAmount']."'+'</th><th align=\'center\'>'+'".$row['sum']."'+'</th></tr>';";  
+                    echo "out += '<tr><td id = \'t\'>'+'".$row['RecruitPlanName']."'+'</td><td id = \'t\'>'+'".$row['Details']."'+'</td><td id = \'t\' align=\'center\'>'+'".$row['RecruitAmount']."'+'</td><td id = \'t\' align=\'center\'>'+'".$row['sum']."'+'</td></tr>';";  
                     echo "count += parseInt(".$row['sum'].");";          
                 }
                 
             ?>
-            out += '<tr><th colspan="3" align=\'center\'>รวม</th><th align=\'center\'>'+count+'</th></tr>';
+            out += '<tr><td id = \'t\' colspan="3" align=\'center\'>รวม</td><td id = \'t\' align=\'center\'>'+count+'</td></tr>';
             out += '</table>';
             document.getElementById("menu5").innerHTML = out;
             
