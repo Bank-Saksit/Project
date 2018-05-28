@@ -223,20 +223,20 @@
                 var secnum;
                 if( ssub[i].GPA=='-1' ) secnum = 'ถอนแล้ว';
                 else secnum = ssub[i].GPA;
-                if(i==0) out2 += "<tr><td align='center'>รหัสนักศึกษา</td><td align='center'>คณะ</td><td align='center'>ภาควิชา</td><td align='center'>ระดับการศึกษา</td><td align='center'>หลักสูตร</td><td align='center'>สถานะ</td><td align='center'>คำนำหน้า</td><td align='center'>ชื่อ</td><td align='center'>นามสกุล</td><td align='center'>รหัสวิชา</td><td align='center'>กลุ่ม</td><td align='center'>GPA</td><td align='center'>แก้ไข</td></tr>";
-                out2 += "<tr><td>" + ssub[i].StudentID +
-                "</td><td>" + ssub[i].Faculty+
-                "</td><td>" + ssub[i].Department+
-                "</td><td>" + ssub[i].Degree+
-                "</td><td>" + ssub[i].Course+
-                "</td><td>" + ssub[i].Status+
-                "</td><td>" + ssub[i].Prefix+    
-                "</td><td>" + ssub[i].FirstName+
-                "</td><td>" + ssub[i].LastName+
-                "</td><td>" + ssub[i].SubjectID+
-                "</td><td>" + ssub[i].SectionNumber+
-                "</td><td>" + secnum+
-                "</td><td>" +
+                if(i==0) out2 += "<tr><td id = 't' align='center'>รหัสนักศึกษา</td><td id = 't' align='center'>คณะ</td><td id = 't' align='center'>ภาควิชา</td><td id = 't' align='center'>ระดับการศึกษา</td><td id = 't' align='center'>หลักสูตร</td><td id = 't' align='center'>สถานะ</td><td id = 't' align='center'>คำนำหน้า</td><td id = 't' align='center'>ชื่อ</td><td id = 't' align='center'>นามสกุล</td><td id = 't' align='center'>รหัสวิชา</td><td id = 't' align='center'>กลุ่ม</td><td id = 't' align='center'>GPA</td><td id = 't' align='center'>แก้ไข</td></tr>";
+                out2 += "<tr><td id = 't'>" + ssub[i].StudentID +
+                "</td><td id = 't'>" + ssub[i].Faculty+
+                "</td><td id = 't'>" + ssub[i].Department+
+                "</td><td id = 't'>" + ssub[i].Degree+
+                "</td><td id = 't'>" + ssub[i].Course+
+                "</td><td id = 't'>" + ssub[i].Status+
+                "</td><td id = 't'>" + ssub[i].Prefix+    
+                "</td><td id = 't'>" + ssub[i].FirstName+
+                "</td><td id = 't'>" + ssub[i].LastName+
+                "</td><td id = 't'>" + ssub[i].SubjectID+
+                "</td><td id = 't'>" + ssub[i].SectionNumber+
+                "</td><td id = 't'>" + secnum+
+                "</td><td id = 't'>" +
                 "<button onclick=\"sdrop('"+ssub[i].StudentID+"', '"+ssub[i].SubjectSectionID+"')\">ถอน</button>"+
                 "</td></tr>";
             }
