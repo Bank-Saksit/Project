@@ -191,7 +191,13 @@
                     "</div>";
             out += "</table>";
             document.getElementById("infoRecruit").innerHTML = out;
-            var list = "<div  class = 'dd'><div class = 'row'><div class='col-sm-4'><t1>คณะที่ได้</t1></div></div></div>";
+            if(arr[0].Status == 'รอยืนยันสิทธิ์' ||arr[0].Status == 'รอจ่ายค่าเทอม' ||arr[0].Status == 'จ่ายค่าเทอมแล้ว' ||arr[0].Status == 'สละสิทธิ์'){
+                var list = "<div  class = 'dd'><div class = 'row'><div class='col-sm-4'><t1>คณะที่ได้</t1></div></div></div>";
+            }
+            else{
+                var list = "<div  class = 'dd'><div class = 'row'><div class='col-sm-4'><t1>ลำดับที่เลือก</t1></div></div></div>";
+            }
+                
             list += "<table id='list'><div class = 'row'><tr><td id='t3'><t1>ลำดับ</t1></td><td id='t3'><t1>คณะ</t1></td><td id='t3'><t1>สาขา</t1></td></tr></div>";
             for( i=0 ; i<arr.length ; i++ ){
                 if(arr[0].NoPass == 0){
