@@ -96,6 +96,20 @@
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     vsub = JSON.parse(xmlhttp.responseText);
+                    load2();
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function load2(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = location.protocol+'//'+location.host+"/Project/staff-admin-main4-link.php?type=02";
+            
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    allsub = JSON.parse(xmlhttp.responseText);
                     display();
                 }
             }
@@ -154,8 +168,8 @@
 
             var out4 = "<h2>เพิ่มกลุ่มรายวิชา</h2><div class = 'row><div class = 'col-sm-8'>"+
                     "<p>วิชา : <select id='inSub4'>";
-            for( var i=0 ; i<vsub.length ; i++ )
-                if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out4+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
+            for( var i=0 ; i<allsub.length ; i++ )
+                out4+="<option value='"+allsub[i].SubjectID+"'>"+allsub[i].SubjectID+"</option>";
             out4+="</select><p>กลุ่ม : <select id='inSec4'>"+
                         "<option value=1>1</option>"+
                         "<option value=2>2</option>"+
@@ -177,15 +191,15 @@
             var out5 = "<h2>ลบกลุ่มรายวิชา</h2><div class = 'row><div class = 'col-sm-8'>"+
                     "<form>"+
                     "<p>วิชา : <select id='inSub5'>";
-            for( var i=0 ; i<vsub.length ; i++ )
-                if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out5+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
+            for( var i=0 ; i<allsub.length ; i++ )
+                out5+="<option value='"+allsub[i].SubjectID+"'>"+allsub[i].SubjectID+"</option>";
             out5 += "</select>";
             document.getElementById("menu5").innerHTML = out5;
             out5 = "<h2>ลบกลุ่มรายวิชา</h2><div class = 'row><div class = 'col-sm-8'>"+
                     "<form>"+
                     "<p>วิชา : <select id='inSub5' onclick='change5()'>";
-            for( var i=0 ; i<vsub.length ; i++ )
-                if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out5+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
+            for( var i=0 ; i<allsub.length ; i++ )
+                out5+="<option value='"+allsub[i].SubjectID+"'>"+allsub[i].SubjectID+"</option>";
             out5 += "</select> กลุ่ม : <select id='inSec5' onclick='change5()'>";
             out5 += "<option value=1>1</option>"+
                     "<option value=2>2</option>"+
@@ -195,15 +209,15 @@
 
             var out6 = "<h2>แก้ไขกลุ่มรายวิชา</h2><div class = 'row><div class = 'col-sm-8'>"+
                     "<p>วิชา : <select id='inSub6' onchange='change6()'>";
-            for( var i=0 ; i<vsub.length ; i++ )
-                if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out6+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
+            for( var i=0 ; i<allsub.length ; i++ )
+                out6+="<option value='"+allsub[i].SubjectID+"'>"+allsub[i].SubjectID+"</option>";
                 out6 += "</select>";
             document.getElementById("menu6").innerHTML = out6;
             out6 = "<h2>แก้ไขกลุ่มรายวิชา</h2><div class = 'row><div class = 'col-sm-8'>"+
                     "<form>"+
                     "<p>วิชา : <select id='inSub6' onchange='change6()'>";
-            for( var i=0 ; i<vsub.length ; i++ )
-                if( i==0 || vsub[i].SubjectID!=vsub[i-1].SubjectID ) out6+="<option value='"+vsub[i].SubjectID+"'>"+vsub[i].SubjectID+"</option>";
+            for( var i=0 ; i<allsub.length ; i++ )
+                out6+="<option value='"+allsub[i].SubjectID+"'>"+allsub[i].SubjectID+"</option>";
             out6 += "</select> กลุ่ม : <select id='inSec6' onchange='change6()'>";
             out6 += "<option value=1>1</option>"+
                     "<option value=2>2</option>"+
