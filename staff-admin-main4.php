@@ -304,7 +304,7 @@
                 if( sub==vsub[i].SubjectID && sec==vsub[i].SectionNumber ){ index=i; break; }
             if( typeof vsub[index]!='undefined' ){
                 var out = "<p><div class = 'row'>"+
-                        "<div class= 'col-sm-6' >"+
+                        "<div class= 'col-sm-8' >"+
                         "<form>"+
                         "<p>เทอมการศึกษา: <select id='inSem6'>"+
                                 "<option value=1>1</option>"+
