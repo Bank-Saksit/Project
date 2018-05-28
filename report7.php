@@ -33,8 +33,8 @@
         
     // }
     // else{
-        $out = "จำนวนจำนวนผู้สำเร็จการศึกษาระดับปริญญาตรีปีการศึกษาที่ได้รับเกียรตินิยม จำแนกตามอันดับเกียรตินิยม<br>";
-        $out .= "<table><tr><th>คณะ</th><th>จำนวนผู้ได้เกียรตินิยมอันดับ1</th><th>จำนวนผู้ได้เกียรตินิยมอันดับ2</th></tr>";
+        $out = "<h2>จำนวนผู้สำเร็จการศึกษาระดับปริญญาตรีที่ได้รับเกียรตินิยม</h2>";
+        $out .= "<table><tr><td id = 't' align = 'center'>คณะ</td><td id = 't'>จำนวนผู้ได้เกียรตินิยมอันดับ1</td><td id = 't'>จำนวนผู้ได้เกียรตินิยมอันดับ2</td></tr>";
         $result2 = $conn->query("   SELECT DISTINCT Faculty
                                     FROM departmentinfo
                                     ORDER BY Faculty;");
@@ -50,10 +50,10 @@
                 }
             }
             if($found==1){
-                $out .="<tr><td>".$rs3[$i]['Faculty']."</td><td>".$rs1[$mem]['NUM']."</td>";
+                $out .="<tr><td id = 't'>".$rs3[$i]['Faculty']."</td><td id = 't' align = 'center'>".$rs1[$mem]['NUM']."</td>";
             }
             else{
-                $out .="<tr><td>".$rs3[$i]['Faculty']."</td><td>0</td>";
+                $out .="<tr><td id = 't'>".$rs3[$i]['Faculty']."</td><td id = 't' align = 'center'>0</td>";
             }
             $found=0;
             for($k=0;$k<$result1->num_rows;$k++){
@@ -63,10 +63,10 @@
                 }
             }
             if($found==1){
-                $out .="<td>".$rs2[$mem]['NUM']."</td></tr>";
+                $out .="<td id = 't' align = 'center'>".$rs2[$mem]['NUM']."</td></tr>";
             }
             else{
-                $out .="<td>0</td></tr>";
+                $out .="<td id = 't' align = 'center'>0</td></tr>";
             }
         }
         $out .="</table>";

@@ -65,17 +65,17 @@ session_start();
         <ul class="nav nav-pills nav-stacked" id="tab">
             <li class = "active"><a data-toggle="tab" href="#menu1">ข้อมูลนักศึกษา</a></li>
             <li><a data-toggle="tab" href="#menu2">นักศึกษาถอนรายวิชา</a></li>
-            <li><a data-toggle="tab" href="#menu3">จำนวนนักศึกษาแต่ละภาควิชา</a></li>
+            <li><a data-toggle="tab" href="#menu3">จำนวนนักศึกษาแต่ละสาขา</a></li>
             <li><a data-toggle="tab" href="#menu5">จำนวนผู้จบการศึกษา</a></li>
             <li><a data-toggle="tab" href="#menu4">จำนวนนักศึกษาที่ลาออก</a></li>
             <li><a data-toggle="tab" href="#menu6">จำนวนนักศึกษาที่ถูกไล่ออก</a></li>
-            <li><a data-toggle="tab" href="#menu7">5 จังหวัดที่นักศึกษาอยู่มากสุด</a></li>
-            <li><a data-toggle="tab" href="#menu8">จำนวนผู้สำเร็จการศึกษาและจำนวนผู้กำลังศึกษา</a></li>
-            <li><a data-toggle="tab" href="#menu9">จํานวนนักศึกษาใหม่ระดับบปริญญาตรี</a></li>
+            <li><a data-toggle="tab" href="#menu7">จังหวัดที่มีนักศึกษาเข้าศึกษาต่อสูงสุด 5 อันดับแรก</a></li>
+            <li><a data-toggle="tab" href="#menu8">จำนวนผู้สำเร็จการศึกษาและผู้กำลังศึกษา</a></li>
+            <li><a data-toggle="tab" href="#menu9">จํานวนนักศึกษาใหม่ระดับปริญญาตรี</a></li>
             <li><a data-toggle="tab" href="#menu10">จํานวนนักศึกษาต่างชาติ</a></li>
-            <li><a data-toggle="tab" href="#menu11" onclick = "load7()">จำนวนจำนวนผู้สำเร็จการศึกษาระดับปริญญาตรีปีการศึกษาที่ได้รับเกียรตินิยม จำแนกตามอันดับเกียรตินิยม</a></li>
+            <li><a data-toggle="tab" href="#menu11" onclick = "load7()">จำนวนผู้สำเร็จการศึกษาระดับปริญญาตรีที่ได้รับเกียรตินิยม</a></li>
             <li><a data-toggle="tab" href="#menu12" onclick = "load8()">จํานวนนักศึกษาที่ได้เกรดต่างๆในรายวิชา</a></li>
-            <li><a data-toggle="tab" href="#menu13" onclick = "load9()">รายวิชาที่มีคนดรอปสูงสุด5อันดับแรก</a></li>
+            <li><a data-toggle="tab" href="#menu13" onclick = "load9()">รายวิชาที่มีการถอนสูงสุด5อันดับแรก</a></li>
         </ul>
     </div>
     <div id="main">
@@ -198,7 +198,7 @@ session_start();
                                                 GROUP BY Province 
                                                 ORDER BY COUNT(Province) DESC LIMIT 3");
                 echo"var countMing=0;";
-                echo"var outMing = '<h2>5 จังหวัดที่มีนักศึกษาอยู่มากที่สุด</h2><table><tr><td id = \'t\' align=\'center\'>โครงการ</td><td id = \'t\' align=\'center\'>จำนวน(คน)</td><td id = \'t\' align=\'center\'>ร้อยละ</td></tr>';";
+                echo"var outMing = '<h2>จังหวัดที่มีนักศึกษาเข้าศึกษาต่อสูงสุด 5 อันดับแรก</h2><table><tr><td id = \'t\' align=\'center\'>โครงการ</td><td id = \'t\' align=\'center\'>จำนวน(คน)</td><td id = \'t\' align=\'center\'>ร้อยละ</td></tr>';";
                 while($row = mysqli_fetch_array($result)){
                     echo "outMing += '<tr><td id = \'t\'>'+'".$row['Province']."'+'</td><td id = \'t\' align=\'center\'>'+'".$row['sum']."'+'</td><td id = \'t\' align=\'center\'>'+parseFloat(parseInt('".$row['sum']."')/allMing*100).toFixed(2)+'</td></tr>';";  
                     echo "countMing += parseInt(".$row['sum'].");";          
@@ -380,15 +380,15 @@ session_start();
         
         function showreport14(response){
             var report = JSON.parse(response);
-            var out1 = "<h2>จํานวนนักศึกษาใหม่ระดับบปริญญาตรี</h2><table><tr><th rowspan='2'>คณะ</th><th colspan='6'>ประเภทการเข้า</th></tr>"+
-                        "<tr><th class='ei'>2B</th><th class='ei'>Active Recruitment</th><th class='ei'>Clearing House</th><th class='ei'>เรียนดี</th><th class='ei'>Admission</th><th class='ei'>รวม</th></tr>";
+            var out1 = "<h2>จํานวนนักศึกษาใหม่ระดับปริญญาตรี</h2><table><tr><td id = 't' rowspan='2' align = 'center'>คณะ</td><td id = 't' colspan='6' align = 'center'>ประเภทการเข้า</td></tr>"+
+                        "<tr><td id = 't' class='ei'>2B</td><td id = 't' class='ei'>Active Recruitment</td><td id = 't' class='ei'>Clearing House</td><td id = 't' class='ei'>เรียนดี</td><td id = 't' class='ei'>Admission</td><td id = 't' class='ei'>รวม</td></tr>";
             var prev = report[0].Faculty;
             var B2 = 0,Active = 0,ch = 0,good = 0,adm = 0,total = 0;
             var tB2 = 0,tActive = 0,tch = 0,tgood = 0,tadm = 0,ttotal =0;
             for(i=0;i<report.length;i++){
                     if(report[i].Faculty.localeCompare(prev)!=0){
-                        out1 += "<tr><td>"+prev+"</td><td>"+B2+"</td><td>"+Active+"</td><td>"+ch+"</td><td>"+good+"</td>"+
-                            "<td>"+adm+"</td><td>"+total+"</td></tr>";
+                        out1 += "<tr><td id = 't' align = 'center'>"+prev+"</td><td id = 't' align = 'center'>"+B2+"</td><td id = 't' align = 'center'>"+Active+"</td><td id = 't' align = 'center'>"+ch+"</td><td id = 't' align = 'center'>"+good+"</td>"+
+                            "<td id = 't' align = 'center'>"+adm+"</td><td id = 't' align = 'center'>"+total+"</td></tr>";
                         B2 = 0,Active = 0,ch = 0,good = 0,adm = 0,total = 0;
                         prev = report[i].Faculty;
                     }
@@ -419,10 +419,10 @@ session_start();
                     
                 }
             ttotal = tadm + tB2 + tActive + tch + tgood;
-            out1 += "<tr><td>"+prev+"</td><td>"+B2+"</td><td>"+Active+"</td><td>"+ch+"</td><td>"+good+"</td>"+
-                            "<td>"+adm+"</td><td>"+total+"</td></tr>";
-            out1 += "<tr><td>รวมทั้งหมด</td><td>"+tB2+"</td><td>"+tActive+"</td><td>"+tch+"</td><td>"+tgood+"</td>"+
-                            "<td>"+tadm+"</td><td>"+ttotal+"</td></tr>"
+            out1 += "<tr><td id = 't' align = 'center'>"+prev+"</td><td id = 't' align = 'center'>"+B2+"</td><td id = 't' align = 'center'>"+Active+"</td><td id = 't' align = 'center'>"+ch+"</td><td id = 't' align = 'center'>"+good+"</td>"+
+                            "<td id = 't' align = 'center'>"+adm+"</td><td id = 't' align = 'center'>"+total+"</td></tr>";
+            out1 += "<tr><td id = 't' align = 'center'>รวมทั้งหมด</td><td id = 't' align = 'center'>"+tB2+"</td><td id = 't' align = 'center'>"+tActive+"</td><td id = 't' align = 'center'>"+tch+"</td><td id = 't' align = 'center'>"+tgood+"</td>"+
+                            "<td align = 'center' id = 't'>"+tadm+"</td><td align = 'center' id = 't'>"+ttotal+"</td></tr>"
             out1 += "</table>";
             document.getElementById("menu9").innerHTML = out1;
         }
@@ -441,14 +441,14 @@ session_start();
         }
         function showreport12(response){
             var report1 = JSON.parse(response);
-            var out2 = "<h2>จํานวนนักศึกษาต่างชาติ</h2><table><tr><th>ชื่อสัญชาติ/th><th>ปริญญาตรี</th>"+
-                        "<th>ปริญญาโท</th><th>ปริญญาเอก</th><th>รวม</th></tr>";
+            var out2 = "<h2>จํานวนนักศึกษาต่างชาติ</h2><table><tr><td id = 't' align = 'center'>สัญชาติ</td><td id = 't'>ปริญญาตรี</td>"+
+                        "<td id = 't'>ปริญญาโท</td><td id = 't'>ปริญญาเอก</td><td id = 't' align = 'center'>รวม</td></tr>";
             var prev = report1[0].Nationality;
             var tee = 0,to = 0,ek = 0,total = 0;
             var ttee = 0,tto = 0,tek = 0,ttotal = 0;
             for(i=0;i<report1.length;i++){
                     if(report1[i].Nationality.localeCompare(prev)!=0){
-                        out2 += "<tr><td>"+prev+"</td><td>"+tee+"</td><td>"+to+"</td><td>"+ek+"</td><td>"+total+"</td></tr>";
+                        out2 += "<tr><td id = 't' align = 'center'>"+prev+"</td><td id = 't' align = 'center'>"+tee+"</td><td id = 't' align = 'center'>"+to+"</td><td id = 't' align = 'center'>"+ek+"</td><td id = 't' align = 'center'>"+total+"</td></tr>";
                         tee = 0,to = 0,ek = 0,total = 0;
                         prev = report1[i].Nationality;
                     }
@@ -471,8 +471,8 @@ session_start();
                     total = tee + to + ek;
                 }
             ttotal = ttee + tto + tek;
-            out2 += "<tr><td>"+prev+"</td><td>"+tee+"</td><td>"+to+"</td><td>"+ek+"</td><td>"+total+"</td></tr>";
-            out2 += "<tr><td>รวมทั้งหมด</td><td>"+ttee+"</td><td>"+tto+"</td><td>"+tek+"</td><td>"+ttotal+"</td></tr>";
+            out2 += "<tr><td id = 't' align = 'center'>"+prev+"</td><td id = 't' align = 'center'>"+tee+"</td><td id = 't' align = 'center'>"+to+"</td><td id = 't' align = 'center'>"+ek+"</td><td id = 't' align = 'center'>"+total+"</td></tr>";
+            out2 += "<tr><td id = 't' align = 'center'>รวมทั้งหมด</td><td id = 't' align = 'center'>"+ttee+"</td><td id = 't' align = 'center'>"+tto+"</td><td id = 't' align = 'center'>"+tek+"</td><td>"+ttotal+"</td></tr>";
             out2 += "</table>";
             document.getElementById("menu10").innerHTML = out2;
         }
