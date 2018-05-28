@@ -23,6 +23,9 @@
         .swal2-popup {
             font-size: 2rem;
         }
+        #top{
+            background-color:#1c94a5;
+        }
     </style>
     
 </head>

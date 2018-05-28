@@ -36,7 +36,11 @@
         }
         td{
             font-size:18px;
-            background:white;
+            backg
+            round:white;
+        }
+        #top{
+            background-color:#1c94a5;
         }
         .swal2-popup {
             font-size: 2rem;
