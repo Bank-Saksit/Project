@@ -159,7 +159,7 @@ ob_start();
     </div>
     <div id="main">
         <div id="header">
-            <h1>สำหรับนักเรียนที่ต้องการเข้าศึกษา   </h1>
+            <h1>สำหรับนผู้สนใจที่ต้องการเข้าศึกษาต่อ   </h1>
         </div>
         <div id="content">
             <div id="c-left">
