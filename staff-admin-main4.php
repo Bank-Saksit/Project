@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,6 +43,15 @@
     
 </head>
 <body>
+        <?php 
+            if(isset($_SESSION['id5']) && isset($_SESSION['pswd5']) && $_SESSION['role5'] == 'Admin') {
+                
+            }
+            else{
+                header("location: staff-home.php");
+                exit('</body></html>');
+            }
+        ?>
     <div class="top" id="top">
             <a href="staff-admin-main.php">นักเรียนสอบเข้าโครงการ</a>
             <a href="staff-admin-main2.php">นักศึกษา</a>
