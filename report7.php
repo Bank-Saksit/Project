@@ -25,7 +25,7 @@
                                                                 st.Status = 'จบการศึกษา' AND
                                                                 ss.GPA >-1
                                                         GROUP BY st.StudentID
-                                                        HAVING ROUND(SUM(ss.GPA*su.Credit)/SUM(su.Credit),2) >=3.2 AND
+                                                        HAVING ROUND(SUM(ss.GPA*su.Credit)/SUM(su.Credit),2) >=3.25 AND
                                                                 ROUND(SUM(ss.GPA*su.Credit)/SUM(su.Credit),2) <3.6 )
                             GROUP BY d.Faculty;");
     

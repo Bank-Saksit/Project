@@ -77,7 +77,7 @@ session_start();
                     
             function load(){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol + '//' + location.host+"/Project/student-changepw-link.php?inID="+<?php echo $_SESSION['id'];?>;
+                var url = location.protocol + '//' + location.host+"/Project/student-changepw-link.php?inID="+<?php echo $_SESSION['id0'];?>;
                         
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {

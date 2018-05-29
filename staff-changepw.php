@@ -55,7 +55,7 @@ session_start();
                         <input type="password" name="pw2" placeholder="ยืนยันรหัสผ่านใหม่"><br>
                         <div id = "sub">
                             <input type="submit" value="ยืนยัน">
-                            <input type="button" id="cancle" onclick ="window.location.href='student-new-logout.php'" value = "ยกเลิก">
+                            <input type="button" id="cancle" onclick ="window.location.href='staff-new-logout.php'" value = "ยกเลิก">
                         </div>
                     </div>
                 </form>
@@ -68,7 +68,7 @@ session_start();
                     
             function load(){
                 var xmlhttp = new XMLHttpRequest();
-                var url = location.protocol + '//' + location.host+"/Project/staff-changepw-link.php?inID="+<?php echo $_SESSION['id'];?>;
+                var url = location.protocol + '//' + location.host+"/Project/staff-changepw-link.php?inID="+<?php echo $_SESSION['id2'];?>;
                         
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
