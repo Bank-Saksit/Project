@@ -45,7 +45,7 @@ else if($num_rows == 1) {
     $expire = time() + 15 * 60;
     setcookie('id',$id,$expire);
     setcookie('pswd',$pswd,$expire);
-    $_SESSION['id'] = $id;
+    $_SESSION['id7'] = $id;
     header("location: recruit-status.php");
 }
 else {

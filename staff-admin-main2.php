@@ -196,7 +196,7 @@ session_start();
                 $result = mysqli_query($conn,"SELECT Province,COUNT(Province) AS sum
                                                 FROM studentinfo
                                                 GROUP BY Province 
-                                                ORDER BY COUNT(Province) DESC LIMIT 3");
+                                                ORDER BY COUNT(Province) DESC LIMIT 5");
                 echo"var countMing=0;";
                 echo"var outMing = '<h2>จังหวัดที่มีนักศึกษาเข้าศึกษาต่อสูงสุด 5 อันดับแรก</h2><table><tr><td id = \'t\' align=\'center\'>โครงการ</td><td id = \'t\' align=\'center\'>จำนวน(คน)</td><td id = \'t\' align=\'center\'>ร้อยละ</td></tr>';";
                 while($row = mysqli_fetch_array($result)){

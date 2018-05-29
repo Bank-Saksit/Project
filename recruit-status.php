@@ -148,7 +148,7 @@
         loadRecruit();
         function updateRecruit(){
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol + '//' + location.host+"/Project/recruit-status-conUp.php?inID="+ <?php echo $_SESSION['id']; ?> 
+            var url = location.protocol + '//' + location.host+"/Project/recruit-status-conUp.php?inID="+ <?php echo $_SESSION['id7']; ?> 
             console.log(url)
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -161,7 +161,7 @@
 
         function loadRecruit(){
             var xmlhttp = new XMLHttpRequest();
-            var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID="+ <?php echo $_SESSION['id']; ?> 
+            var url = location.protocol + '//' + location.host+"/Project/recruit-status-link.php?inID="+ <?php echo $_SESSION['id7']; ?> 
  
             xmlhttp.onreadystatechange=function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
