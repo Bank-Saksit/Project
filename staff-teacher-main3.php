@@ -341,24 +341,35 @@
                                 "</select>"+
                                 "</td></tr>";
                     }
-                    out1+= "</form></table><br><p><button value='ยืนยัน' onclick='Grade("+JSON.stringify(response)+")'>ยืนยัน</button></p>"
+                    sub = arr[0].SubjectSectionID;
+                    out1+= "</form></table><br><p><button value='ยืนยัน' onclick='Grade("+sub+")'>ยืนยัน</button></p>"
                 }
                 
                     document.getElementById("menu1").innerHTML = out1;
             }
 
-            function Grade(response){
-                var arr = JSON.parse(response);
-                var x = document.getElementsByClassName("GPA");
-                for(i=0;i<x.length;i++){
-                    sendGrade(x[i].value,arr[i].StudentID,arr[i].SubjectSectionID);
+            function Grade(sub){
+                var xmlhttp = new XMLHttpRequest();
+                var url = location.protocol+'//'+location.host+"/Project/staff-teacher-cutgrade-link.php?type=02&inID="+<?php echo $_SESSION['id4'];?>+"&sub="+sub+"&gpa=''&SID=''"+"&ssID=''";
+                    
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        var arr = JSON.parse(xmlhttp.responseText);
+                        var x = document.getElementsByClassName("GPA");
+                        for(i=0;i<x.length;i++){
+                            sendGrade(x[i].value,arr[i].StudentID,arr[i].SubjectSectionID);
+                        }
+                        
+                        swal({
+                            type: 'success',
+                            title: '<h1>ตัดเกรดเรียบร้อยแล้ว</h1>'
+                        });
+                        load();
+                            }
                 }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
                 
-                swal({
-                    type: 'success',
-                    title: '<h1>ตัดเกรดเรียบร้อยแล้ว</h1>'
-                });
-                load();
                 
             }
 
