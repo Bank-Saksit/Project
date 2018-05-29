@@ -1,3 +1,27 @@
+recruit 
+id 10508
+pass 1111111111111
+
+student
+id 59070501066
+pass 123
+IDCardNumber 1111111111111
+
+teacher
+id 10000
+pass 123
+IDCardNumber 1234567890123
+
+teacher
+id 10502
+pass 123
+IDCardNumber 0000000000000
+
+admin 
+id 10001
+pass 123
+IDCardNumber 555
+
 //insert to database
 INSERT INTO subjectinfo VALUES ('GEN101','Physical Education','ก่อนที่จะมีการประกาศอย่างเป็นทางการเกี่ยวกับการจัดตั้งวงบีเอ็นเคโฟร์ตีเอตในประเทศไทย เมื่อปี พ.ศ. 2554','3');
 INSERT INTO subjectinfo VALUES ('GEN111','Man and Ethics of Living',' ยะซุชิ อะกิโมะโตะ ผู้ก่อตั้งแฟรนไชส์เอเคบีโฟร์ตีเอต ได้ให้สัมภาษณ์กับนิตยสารจีคิว (GQ)','3');
@@ -50,30 +74,3 @@ INSERT INTO sectioninfo VALUES ('','GEN501','3','1','2018','45','พฤหัส
 INSERT INTO sectioninfo VALUES ('','GEN541','1','1','2018','45','ศุกร์','08:00:00','12:00:00','ห้องเรียนรวม');
 INSERT INTO sectioninfo VALUES ('','GEN541','2','1','2018','45','พฤหัสบดี','12:00:00','15:00:00','ห้องเรียนรวม');
 INSERT INTO sectioninfo VALUES ('','GEN541','3','1','2018','45','พฤหัสบดี','09:00:00','11:00:00','ห้องเรียนรวม');
-
-recruit 
-id 10508
-pass 1111111111111
-
-student
-id 59070501066
-pass 123
-IDCardNumber 1111111111111
-
-teacher
-id 10000
-pass 123
-IDCardNumber 1234567890123
-
-teacher
-id 10502
-pass 123
-IDCardNumber 0000000000000
-
-admin 
-id 10001
-pass 123
-IDCardNumber 555
-
-
-
